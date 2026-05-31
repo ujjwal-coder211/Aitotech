@@ -11,9 +11,6 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href);
-
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -21,6 +18,13 @@ export default function Header() {
       document.body.style.overflow = '';
     };
   }, [open]);
+
+  // Hide the public header inside the admin area (admin has its own chrome).
+  // Placed after all hooks to respect the Rules of Hooks.
+  if (pathname.startsWith('/admin')) return null;
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-cyan-500/10">

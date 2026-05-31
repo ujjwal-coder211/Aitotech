@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import FooterGate from '@/components/FooterGate';
 import AmbientBackground from '@/components/AmbientBackground';
 import { site } from '@/data/siteContent';
 import './globals.css';
@@ -38,7 +38,7 @@ export default function RootLayout({
         <AmbientBackground />
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
-        <Footer />
+        <FooterGate />
       </body>
     </html>
   );

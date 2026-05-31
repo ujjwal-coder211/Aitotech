@@ -1,14 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { home, services, cta } from '@/data/siteContent';
+import { home } from '@/data/siteContent';
+import type { ServiceRecord } from '@/lib/services';
 import SectionHeading from './SectionHeading';
 import ServiceCard from './ServiceCard';
 
 /**
  * Bento grid — 1 col mobile, 2 cols tablet, 4 cols desktop with asymmetric spans.
+ * Services are passed in from the server (DB-backed with static fallback).
  */
-export default function BentoServices() {
+export default function BentoServices({ services }: { services: ServiceRecord[] }) {
   const { bento } = home;
 
   return (

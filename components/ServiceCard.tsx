@@ -2,14 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { services } from '@/data/siteContent';
+import type { ServiceRecord } from '@/lib/services';
 import { cn } from '@/lib/utils';
 import ServiceIcon from './ServiceIcon';
 
-type Service = (typeof services)[number];
-
 interface ServiceCardProps {
-  service: Service;
+  service: ServiceRecord;
   index?: number;
   variant?: 'bento' | 'list';
 }
@@ -19,7 +17,7 @@ interface ServiceCardProps {
  */
 export default function ServiceCard({ service, index = 0, variant = 'bento' }: ServiceCardProps) {
   const showDescription =
-    variant === 'list' || (variant === 'bento' && service.bentoLg.includes('row-span-2'));
+    variant === 'list' || (variant === 'bento' && Boolean(service.bentoLg?.includes('row-span-2')));
 
   return (
     <motion.article

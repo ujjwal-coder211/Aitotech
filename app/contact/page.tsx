@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { contactPage } from '@/data/siteContent';
+import { contactPage, site } from '@/data/siteContent';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
 
@@ -54,16 +54,32 @@ export default function ContactPage() {
               </div>
             ))}
 
-            {/* Map / office placeholder */}
-            <div className="glass rounded-2xl border border-dashed border-slate-600/50 p-6 sm:p-8">
-              <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
-                {mapPlaceholder.comingSoon}
-              </span>
-              <h3 className="mt-2 font-display text-lg font-semibold text-white">{mapPlaceholder.title}</h3>
-              <p className="mt-2 text-sm text-slate-500">{mapPlaceholder.body}</p>
-              <div className="mt-4 flex h-32 items-center justify-center rounded-xl bg-abyss-100/80 text-sm text-slate-600 sm:h-40">
-                Map embed placeholder
+            {/* Google Map — Delhi office */}
+            <div className="glass overflow-hidden rounded-2xl">
+              <div className="flex items-center justify-between gap-3 p-4 sm:p-5">
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-white">{mapPlaceholder.title}</h3>
+                  <p className="mt-1 text-sm text-slate-500">{mapPlaceholder.body}</p>
+                </div>
+                <a
+                  href={site.map.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 rounded-lg bg-cyan-500/15 px-3 py-1.5 text-xs font-medium text-cyan-300 transition-colors hover:bg-cyan-500/25"
+                >
+                  {mapPlaceholder.directions} ↗
+                </a>
               </div>
+              <iframe
+                src={site.map.embedUrl}
+                title="AitoTech office location — Delhi, India"
+                width="100%"
+                height="240"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block w-full border-0 grayscale-[20%]"
+                allowFullScreen
+              />
             </div>
           </div>
 

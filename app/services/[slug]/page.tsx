@@ -1,28 +1,27 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { services, getServiceBySlug, serviceDetail } from '@/data/siteContent';
+import { serviceDetail } from '@/data/siteContent';
+import { getService } from '@/lib/services';
 import ServiceDetailHero from '@/components/ServiceDetailHero';
 import { ComingSoonBlock } from '@/components/PageHero';
+
+export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getService(slug);
   if (!service) return { title: 'Service Not Found' };
   return { title: service.title, description: service.description };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getService(slug);
   if (!service) notFound();
 
   const { comingSoon, ctaTitle, ctaBody, ctaButton } = serviceDetail;

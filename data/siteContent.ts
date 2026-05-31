@@ -10,10 +10,19 @@ export const site = {
   name: 'AitoTech',
   tagline: 'AI Automation Agency',
   email: 'info@aitotech.in',
-  phone: '+91 98765 43210',
-  address: 'Bangalore, India',
+  phone: '+91 93544 59046',
+  address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
+  /** Office location — used for the Google Map embed on the Contact page */
+  map: {
+    lat: 28.7041,
+    lng: 77.1025,
+    /** Keyless Google Maps embed (no API key required) */
+    embedUrl: 'https://maps.google.com/maps?q=28.7041,77.1025&z=12&output=embed',
+    /** Opens full Google Maps in a new tab */
+    directionsUrl: 'https://www.google.com/maps?q=28.7041,77.1025',
+  },
 } as const;
 
 /** Image placeholders — replace paths when you add real assets to /public/images */
@@ -266,8 +275,8 @@ export const contactPage = {
   },
   mapPlaceholder: {
     title: 'Visit Us',
-    body: 'Map & office photos — add your Google Maps embed or image here soon.',
-    comingSoon: 'Location details coming soon',
+    body: 'Delhi, India · 28.7041° N, 77.1025° E',
+    directions: 'Get directions',
   },
 } as const;
 

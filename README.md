@@ -7,63 +7,89 @@ Professional Next.js website with glassmorphism UI, Framer Motion animations, Be
 - **Next.js 15** (App Router, React 19)
 - **Tailwind CSS** — dark theme, glass utilities
 - **Framer Motion** — scroll & entrance animations
-- **API Route** — `/api/contact` → Formspree or EmailJS (no dedicated server)
+- **Supabase** — Postgres database, Auth, admin panel & CMS
+- **API Route** — `/api/contact` → stores leads in Supabase (+ optional email)
 
 ## Pages
 
 | Route | Description |
 |-------|-------------|
 | `/` | Home — hero, animated stats, Bento services, why choose us |
-| `/services` | Services overview (Bento grid) |
-| `/services/[slug]` | Data Automation, Workflow, Invoice, Custom AI |
+| `/services` | Services overview (Bento grid, DB-backed) |
+| `/services/[slug]` | Individual service detail (DB-backed) |
 | `/about` | Founder vision & company values |
-| `/contact` | Contact form |
+| `/contact` | Contact form (saves to database) |
+| `/admin` | **Protected** dashboard — view & manage leads |
+| `/admin/services` | **Protected** CMS — create / edit / delete services |
+| `/admin/login` | Admin login (Supabase Auth) |
 
 ## Getting Started
 
 ```bash
 npm install
 cp .env.example .env.local
-# Add FORMSPREE_ENDPOINT from https://formspree.io
+# Fill in your Supabase keys (see Supabase setup below)
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### Contact form setup (Formspree — recommended)
+> The site works **without** Supabase too — services fall back to `data/siteContent.ts`
+> and the admin panel shows a setup notice. Add Supabase to unlock the database, leads,
+> login, and CMS.
 
-1. Create a form at [formspree.io](https://formspree.io)
-2. Copy the endpoint URL (e.g. `https://formspree.io/f/xxxxxxx`)
-3. Add to `.env.local`:
+## Supabase setup (database + admin + CMS)
+
+1. **Create a project** at [supabase.com](https://supabase.com) (free tier).
+2. **Run the schema:** Dashboard → **SQL Editor** → New query → paste the contents of
+   [`supabase/schema.sql`](supabase/schema.sql) → **Run**. This creates the `leads` and
+   `services` tables (with row-level security) and seeds the initial services.
+3. **Copy your keys:** Dashboard → **Project Settings → API**. Add them to `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_public_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+4. **Create the admin user:** Dashboard → **Authentication → Users → Add user**
+   (enter your email + password, tick *Auto Confirm*). Log in at `/admin/login`.
+
+### Contact form email alerts (optional)
+
+Leads are always saved to Supabase. To *also* get an email on each submission, add a
+Formspree endpoint (or EmailJS vars) to `.env.local`:
 
 ```env
 FORMSPREE_ENDPOINT=https://formspree.io/f/your_form_id
 ```
 
-In **development**, submissions log to the console if no env var is set.
+In **development**, submissions log to the console if nothing is configured.
 
 ## Project Structure
 
 ```
 ├── app/
-│   ├── layout.tsx          # Root layout, fonts, Header/Footer
-│   ├── page.tsx            # Home
+│   ├── layout.tsx              # Root layout, fonts, Header/Footer
+│   ├── page.tsx                # Home (fetches services from DB)
 │   ├── globals.css
 │   ├── about/page.tsx
 │   ├── contact/page.tsx
 │   ├── services/page.tsx
 │   ├── services/[slug]/page.tsx
-│   └── api/contact/route.ts  # Serverless form handler
-├── components/
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   ├── ServiceCard.tsx
-│   ├── Hero.tsx
-│   ├── AnimatedStats.tsx
-│   ├── ContactForm.tsx
-│   └── ...
-└── lib/
-    └── constants.ts        # Nav, services, copy — edit here
+│   ├── api/contact/route.ts    # Saves lead to Supabase (+ optional email)
+│   └── admin/                  # Protected admin area
+│       ├── login/page.tsx      # Supabase Auth login
+│       ├── page.tsx            # Leads dashboard
+│       ├── actions.ts          # Server actions (CRUD)
+│       └── services/           # Services CMS (new / edit / list)
+├── components/ ...
+├── lib/
+│   ├── services.ts             # Service data layer (DB + static fallback)
+│   └── supabase/               # Browser, server & middleware clients
+├── middleware.ts               # Auth session refresh + /admin guard
+├── supabase/schema.sql         # Database schema — run this in Supabase
+└── data/siteContent.ts         # Static copy & fallback content
 ```
 
 ## Deploy
@@ -72,8 +98,12 @@ In **development**, submissions log to the console if no env var is set.
 
 1. Push to GitHub
 2. Import repo at [vercel.com](https://vercel.com)
-3. Add `FORMSPREE_ENDPOINT` in **Environment Variables**
-4. Deploy
+3. Add **Environment Variables** (Settings → Environment Variables):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `FORMSPREE_ENDPOINT` *(optional)*
+4. Deploy. Re-deploy after adding/changing env vars.
 
 ### AWS Amplify
 
@@ -81,7 +111,7 @@ In **development**, submissions log to the console if no env var is set.
 2. Build settings:
    - **Build command:** `npm run build`
    - **Output directory:** `.next` (Amplify auto-detects Next.js SSR)
-3. Add environment variables (`FORMSPREE_ENDPOINT`, etc.)
+3. Add the same environment variables as above
 4. Deploy
 
 Amplify supports Next.js SSR/API routes out of the box.

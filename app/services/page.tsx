@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { services, servicesPage, site } from '@/data/siteContent';
+import { servicesPage, site } from '@/data/siteContent';
+import { getServices } from '@/lib/services';
 import PageHero, { ComingSoonBlock } from '@/components/PageHero';
 import ServiceCard from '@/components/ServiceCard';
 
@@ -9,8 +10,9 @@ export const metadata: Metadata = {
   description: 'AitoTech AI automation services — data, workflows, invoices, and custom AI.',
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
   const { hero, placeholder, processSteps } = servicesPage;
+  const services = await getServices();
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">

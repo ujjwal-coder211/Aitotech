@@ -1,14 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { services } from '@/data/siteContent';
+import type { ServiceRecord } from '@/lib/services';
 import ServiceIcon from './ServiceIcon';
 import { cn } from '@/lib/utils';
 
-type Service = (typeof services)[number];
-
 interface ServiceDetailHeroProps {
-  service: Service;
+  service: ServiceRecord;
 }
 
 export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {

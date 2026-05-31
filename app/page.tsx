@@ -5,9 +5,11 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import AnimatedStats from '@/components/AnimatedStats';
 import SectionHeading from '@/components/SectionHeading';
 import { home } from '@/data/siteContent';
+import { getServices } from '@/lib/services';
 
-export default function HomePage() {
+export default async function HomePage() {
   const { cta: ctaSection } = home;
+  const services = await getServices();
 
   return (
     <>
@@ -19,7 +21,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <BentoServices />
+      <BentoServices services={services} />
       <WhyChooseUs />
 
       <section className="section-pad">
