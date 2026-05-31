@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(15, 23, 42, 0.55);
+  --glass-border: rgba(34, 211, 238, 0.15);
+  --neon-cyan: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-abyss text-slate-200 antialiased;
+  background-image: radial-gradient(ellipse 100% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent);
+}
+
+/* ─── Glassmorphism utility classes ─── */
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-strong {
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-electric-cyan via-electric-blue to-electric-violet bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-8 py-3.5 font-semibold text-slate-950 transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-neon;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full glass px-8 py-3.5 font-medium text-slate-200 transition-all duration-300 hover:border-cyan-400/40;
+  }
+
+  .section-pad {
+    @apply px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8 lg:py-28;
+  }
+
+  .grid-bg {
+    @apply bg-grid-pattern bg-[length:56px_56px];
+  }
+}
+
+/* Custom range slider for ROI if needed */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22d3ee, #38bdf8);
+  border: 3px solid #030712;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+  cursor: grab;
+}
