@@ -49,9 +49,6 @@ export default function Footer() {
             <a href={`mailto:${site.email}`} className="block text-sm text-slate-500 transition-colors hover:text-cyan-400">
               {site.email}
             </a>
-            <a href={`tel:${site.phone.replace(/\s/g, '')}`} className="mt-1 block text-sm text-slate-500 transition-colors hover:text-cyan-400">
-              {site.phone}
-            </a>
             <p className="mt-1 text-sm text-slate-500">{site.address}</p>
           </div>
         </div>

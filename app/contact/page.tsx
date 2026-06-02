@@ -42,10 +42,6 @@ export default function ContactPage() {
                       <a href={`mailto:${item.value}`} className="hover:text-cyan-400">
                         {item.value}
                       </a>
-                    ) : item.label === 'Phone' ? (
-                      <a href={`tel:${item.value.replace(/\s/g, '')}`} className="hover:text-cyan-400">
-                        {item.value}
-                      </a>
                     ) : (
                       item.value
                     )}

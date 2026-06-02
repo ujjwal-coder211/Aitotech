@@ -10,7 +10,10 @@ export const site = {
   name: 'AitoTech',
   tagline: 'AI Automation Agency',
   email: 'info@aitotech.in',
-  phone: '+91 93544 59046',
+  // Personal mobile number website se hata diya gaya (privacy/spam se bachne ke liye).
+  // Public site pe phone dikhana ho to ek business/virtual number (Google Voice,
+  // WhatsApp Business) yahan daalo aur Footer + contact infoCards me wapas add karo.
+  // phone: '+91 XXXXX XXXXX',
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
@@ -254,7 +257,6 @@ export const contactPage = {
   },
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
-    { label: 'Phone', value: site.phone, icon: 'phone' },
     { label: 'Office', value: site.address, icon: 'location' },
     { label: 'Response', value: site.responseTime, icon: 'clock' },
   ],
