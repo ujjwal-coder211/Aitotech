@@ -85,6 +85,44 @@ async function sendEmailNotification(payload: {
   }
 }
 
+/**
+ * Best-effort: Aitotech-agents backend ko ek "sales" task bhejo taaki sales
+ * agent follow-up draft/send kar sake (n8n ke through). Lead ki copy website ke
+ * apne Supabase me already save hoti hai — ye sirf agents ko kaam deta hai, isliye
+ * /tasks use karte hain (duplicate lead se bachne ke liye). Fail ho to ignore.
+ */
+async function notifyAgents(payload: {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}): Promise<void> {
+  const base = process.env.AGENTS_API_URL?.replace(/\/$/, '');
+  if (!base) return;
+  try {
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (process.env.AGENTS_API_KEY) headers['x-api-key'] = process.env.AGENTS_API_KEY;
+    await fetch(`${base}/tasks`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        title: `Website lead: ${payload.name}`,
+        agent_type: 'sales',
+        priority: 6,
+        payload: {
+          name: payload.name,
+          email: payload.email,
+          company: payload.company || null,
+          message: payload.message,
+          source: 'aitotech-website',
+        },
+      }),
+    });
+  } catch (e) {
+    console.error('Agents notify failed:', e);
+  }
+}
+
 /** POST /api/contact */
 export async function POST(request: NextRequest) {
   let body: ContactBody;
@@ -132,6 +170,9 @@ export async function POST(request: NextRequest) {
 
   // ─── Secondary: email notification (best-effort) ───
   await sendEmailNotification(payload);
+
+  // ─── Tertiary: hand the lead to the AI agents (best-effort) ───
+  await notifyAgents(payload);
 
   if (storedInDb) {
     return NextResponse.json({

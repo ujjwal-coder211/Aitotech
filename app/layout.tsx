@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
 import AmbientBackground from '@/components/AmbientBackground';
+import AgentChat from '@/components/AgentChat';
 import { site } from '@/data/siteContent';
 import './globals.css';
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
         <FooterGate />
+        {process.env.AGENTS_API_URL ? <AgentChat /> : null}
       </body>
     </html>
   );
