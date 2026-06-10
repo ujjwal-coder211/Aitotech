@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
 import AmbientBackground from '@/components/AmbientBackground';
@@ -13,19 +13,20 @@ const inter = Inter({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-space',
+  variable: '--font-display',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | ${site.tagline}`,
+    default: `${site.name} — Enterprise AI Automation`,
     template: `%s | ${site.name}`,
   },
-  description: `${site.name} — Premium AI automation for data pipelines, workflows, invoices, and custom intelligent systems.`,
-  keywords: ['AI automation', site.name, 'workflow', 'data automation'],
+  description:
+    'AitoTech delivers enterprise-grade AI automation — data pipelines, workflow orchestration, invoice intelligence, and custom intelligent systems with measurable ROI.',
+  keywords: ['enterprise automation', 'AI automation', site.name, 'workflow', 'B2B software'],
 };
 
 export default function RootLayout({
@@ -34,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <AmbientBackground />
         <Header />

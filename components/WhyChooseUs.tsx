@@ -8,8 +8,8 @@ export default function WhyChooseUs() {
   const { whyChooseUs } = home;
 
   return (
-    <section className="section-pad bg-abyss-50/40">
-      <div className="mx-auto max-w-7xl">
+    <section className="section-pad border-t border-line bg-surface-raised/30">
+      <div className="container-page">
         <SectionHeading
           eyebrow={whyChooseUs.eyebrow}
           title={whyChooseUs.title}
@@ -21,17 +21,17 @@ export default function WhyChooseUs() {
           {whyChooseUs.items.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="glass group rounded-2xl p-5 transition-colors hover:border-cyan-400/30 sm:p-6 lg:p-8"
+              transition={{ delay: i * 0.07, duration: 0.45 }}
+              className="card-hover p-6 lg:p-7"
             >
-              <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-500/10 font-display text-xs font-bold text-cyan-400 sm:mb-4 sm:h-10 sm:w-10 sm:text-sm">
+              <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-md bg-brand-soft font-display text-xs font-bold text-brand-light">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="font-display text-base font-semibold text-white sm:text-lg">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">{item.body}</p>
             </motion.div>
           ))}
         </div>

@@ -10,9 +10,6 @@ interface SectionHeadingProps {
   align?: 'left' | 'center';
 }
 
-/**
- * Reusable section title with staggered fade-in.
- */
 export default function SectionHeading({
   eyebrow,
   title,
@@ -24,25 +21,23 @@ export default function SectionHeading({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6 }}
-      className={`mb-14 max-w-3xl ${alignClass}`}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5 }}
+      className={`mb-12 max-w-3xl sm:mb-14 ${alignClass}`}
     >
-      {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-cyan-400">{eyebrow}</p>
-      )}
-      <h2 className="font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+      <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
         {title}
         {highlight && (
           <>
             {' '}
-            <span className="text-gradient">{highlight}</span>
+            <span className="text-zinc-500">{highlight}</span>
           </>
         )}
       </h2>
-      {description && <p className="mt-4 text-lg text-slate-400">{description}</p>}
+      {description && <p className="mt-4 text-base leading-relaxed text-zinc-500 sm:text-lg">{description}</p>}
     </motion.div>
   );
 }

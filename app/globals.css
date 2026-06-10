@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --glass-bg: rgba(15, 23, 42, 0.55);
-  --glass-border: rgba(34, 211, 238, 0.15);
-  --neon-cyan: #22d3ee;
+  --surface: #09090b;
+  --surface-raised: #111113;
+  --surface-card: #18181b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --brand: #2563eb;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
 }
 
 html {
@@ -13,61 +19,77 @@ html {
 }
 
 body {
-  @apply bg-abyss text-slate-200 antialiased;
-  background-image: radial-gradient(ellipse 100% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent);
+  @apply bg-surface text-zinc-100 antialiased;
 }
 
-/* ─── Glassmorphism utility classes ─── */
+::selection {
+  background: rgba(37, 99, 235, 0.35);
+  color: #fff;
+}
+
 @layer components {
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  }
-
-  .glass-strong {
-    background: rgba(15, 23, 42, 0.78);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(34, 211, 238, 0.22);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-electric-cyan via-electric-blue to-electric-violet bg-clip-text text-transparent;
-  }
-
-  .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-8 py-3.5 font-semibold text-slate-950 transition-all duration-300;
-  }
-
-  .btn-primary:hover {
-    @apply -translate-y-0.5 shadow-neon;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full glass px-8 py-3.5 font-medium text-slate-200 transition-all duration-300 hover:border-cyan-400/40;
+  .container-page {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .section-pad {
-    @apply px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8 lg:py-28;
+    @apply px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28;
   }
 
-  .grid-bg {
-    @apply bg-grid-pattern bg-[length:56px_56px];
+  .card {
+    @apply rounded-2xl border border-line bg-surface-card shadow-card;
   }
-}
 
-/* Custom range slider for ROI if needed */
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #22d3ee, #38bdf8);
-  border: 3px solid #030712;
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
-  cursor: grab;
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-line-strong hover:bg-surface-hover;
+  }
+
+  /* legacy glass — mapped to enterprise card */
+  .glass {
+    @apply card;
+  }
+
+  .glass-strong {
+    @apply rounded-2xl border border-line-strong bg-surface-raised shadow-elevated;
+  }
+
+  .text-gradient {
+    @apply text-brand-light;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand-light;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply bg-brand-dark -translate-y-px shadow-glow;
+  }
+
+  .btn-primary:active {
+    @apply translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong bg-transparent px-6 py-3 text-sm font-semibold text-zinc-200 transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply border-zinc-500 bg-surface-hover text-white;
+  }
+
+  .btn-ghost {
+    @apply btn-secondary;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-line bg-surface-raised px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+  }
+
+  .divider-fade {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line-strong to-transparent;
+  }
 }

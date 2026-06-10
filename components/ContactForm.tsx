@@ -79,24 +79,23 @@ export default function ContactForm() {
   };
 
   const inputClass = (field: keyof FieldErrors) => {
-    const base =
-      'w-full rounded-xl border bg-abyss/80 px-4 py-3 text-white placeholder-slate-600 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500/20';
-    if (fieldStatus[field] === 'invalid') return `${base} border-red-400/60`;
+    const base = 'input-field';
+    if (fieldStatus[field] === 'invalid') return `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/20`;
     if (fieldStatus[field] === 'valid') return `${base} border-emerald-500/40`;
-    return `${base} border-slate-600/50 focus:border-cyan-500/50`;
+    return base;
   };
 
   return (
     <motion.form
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.45 }}
       onSubmit={handleSubmit}
-      className="glass-strong space-y-4 rounded-2xl border border-cyan-500/20 p-5 sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8"
+      className="card space-y-4 p-5 sm:space-y-5 sm:p-6 md:p-8"
       noValidate
     >
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-300">
+        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-zinc-300">
           {form.nameLabel} <span className="text-red-400">*</span>
         </label>
         <input id="name" name="name" required className={inputClass('name')} placeholder={form.placeholders.name} />
@@ -104,7 +103,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-300">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-zinc-300">
           {form.emailLabel} <span className="text-red-400">*</span>
         </label>
         <input id="email" name="email" type="email" required className={inputClass('email')} placeholder={form.placeholders.email} />
@@ -112,7 +111,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-slate-300">
+        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-zinc-300">
           {form.companyLabel}
         </label>
         <input id="company" name="company" className={inputClass('company')} placeholder={form.placeholders.company} />
@@ -120,7 +119,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-300">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-zinc-300">
           {form.messageLabel} <span className="text-red-400">*</span>
         </label>
         <textarea
@@ -135,12 +134,12 @@ export default function ContactForm() {
       </div>
 
       {status === 'success' && (
-        <p className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-sm text-emerald-300" role="status">
+        <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 text-sm text-emerald-300" role="status">
           {message}
         </p>
       )}
       {status === 'error' && (
-        <p className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300" role="alert">
+        <p className="rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300" role="alert">
           {message}
         </p>
       )}

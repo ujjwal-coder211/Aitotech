@@ -8,7 +8,7 @@
 /** Brand & contact — update email, phone, socials here */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI Automation Agency',
+  tagline: 'Enterprise AI Automation',
   email: 'info@aitotech.in',
   // Personal mobile number website se hata diya gaya (privacy/spam se bachne ke liye).
   // Public site pe phone dikhana ho to ek business/virtual number (Google Voice,
@@ -52,23 +52,27 @@ export const navLinks = [
 ] as const;
 
 export const cta = {
-  primary: 'Book a Call',
+  primary: 'Schedule a Call',
   secondary: 'View Services',
-  contact: 'Get in Touch',
+  contact: 'Contact Sales',
 } as const;
 
 /** ─── HOME PAGE ─── */
 export const home = {
   hero: {
-    badge: 'AI Automation Agency',
-    title: 'Automate the Work.',
-    titleHighlight: 'Amplify the Impact.',
+    badge: 'Enterprise AI Automation',
+    title: 'Operational excellence,',
+    titleHighlight: 'engineered at scale.',
     description:
-      'AitoTech designs intelligent systems that eliminate manual bottlenecks — from data pipelines to finance ops — so your team focuses on strategy, not spreadsheets.',
-    ctaPrimary: 'Start Your Transformation',
-    ctaSecondary: 'View Services',
-    dashboardLabel: 'Automation Command Center',
-    liveBadge: '12 workflows running',
+      'AitoTech partners with finance, logistics, and operations teams to design automation systems that reduce manual work, improve accuracy, and deliver measurable ROI — with enterprise security and SLAs.',
+    ctaPrimary: 'Schedule a Strategy Call',
+    ctaSecondary: 'Explore Services',
+    dashboardLabel: 'Operations Command Center',
+    liveBadge: '12 workflows active',
+  },
+  logoCloud: {
+    title: 'Built for teams that cannot afford downtime',
+    logos: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
   },
   stats: [
     { id: 'hours', label: 'Hours Saved', suffix: '+', value: 12000, decimals: 0 },
@@ -109,10 +113,16 @@ export const home = {
     ],
   },
   cta: {
-    title: 'Ready to',
-    highlight: 'Automate?',
-    description: 'Book a free strategy call with our solutions team.',
-    button: 'Get in Touch',
+    title: 'Ready to modernize',
+    highlight: 'your operations?',
+    description: 'Speak with our solutions team — we will map your workflows and define clear KPIs before a single line of code is written.',
+    button: 'Book a Discovery Call',
+  },
+  process: {
+    eyebrow: 'How we deliver',
+    title: 'A proven path from',
+    highlight: 'discovery to ROI',
+    description: 'Structured engagements with dedicated architects, clear milestones, and outcomes you can measure.',
   },
 } as const;
 

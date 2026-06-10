@@ -28,17 +28,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <nav className="mb-6 text-sm text-slate-500 sm:mb-8">
-          <Link href="/" className="hover:text-cyan-400">
+      <div className="container-page">
+        <nav className="mb-6 text-sm text-zinc-600 sm:mb-8">
+          <Link href="/" className="hover:text-white">
             Home
           </Link>
           <span className="mx-2">/</span>
-          <Link href="/services" className="hover:text-cyan-400">
+          <Link href="/services" className="hover:text-white">
             Services
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-cyan-400">{service.title}</span>
+          <span className="text-zinc-400">{service.title}</span>
         </nav>
 
         <ServiceDetailHero service={service} />
@@ -49,18 +49,18 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {service.features.map((feature, i) => (
-            <div key={feature} className="glass rounded-2xl p-5 transition-colors hover:border-cyan-400/30 sm:p-6">
-              <span className="font-display text-sm font-bold text-cyan-400">{String(i + 1).padStart(2, '0')}</span>
+            <div key={feature} className="card-hover p-5 sm:p-6">
+              <span className="font-display text-sm font-bold text-brand-light/70">{String(i + 1).padStart(2, '0')}</span>
               <p className="mt-2 font-medium text-white">{feature}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 glass-strong rounded-2xl border border-cyan-500/20 p-8 text-center sm:mt-16 sm:rounded-3xl sm:p-10 md:p-14">
+        <div className="card mt-12 p-8 text-center sm:mt-16 sm:p-10 md:p-14">
           <h2 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
             {ctaTitle(service.title)}
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-slate-400 sm:text-base">{ctaBody}</p>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-zinc-500 sm:text-base">{ctaBody}</p>
           <Link href="/contact" className="btn-primary mt-6 inline-flex sm:mt-8">
             {ctaButton}
           </Link>

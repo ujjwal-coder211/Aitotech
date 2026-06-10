@@ -7,100 +7,137 @@ import AnimatedStats from './AnimatedStats';
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
+
+function ProductPreview() {
+  const { hero } = home;
+  const rows = [
+    { name: 'Invoice pipeline', status: 'Healthy', load: '94%' },
+    { name: 'CRM sync', status: 'Healthy', load: '88%' },
+    { name: 'Approval workflow', status: 'Review', load: '72%' },
+  ];
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden rounded-2xl border border-line-strong bg-surface-raised shadow-elevated">
+        {/* Window chrome */}
+        <div className="flex items-center justify-between border-b border-line px-4 py-3">
+          <div className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+          </div>
+          <span className="text-xs text-zinc-500">{hero.dashboardLabel}</span>
+          <span className="flex items-center gap-1.5 text-xs text-emerald-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            Live
+          </span>
+        </div>
+
+        <div className="grid grid-cols-[140px_1fr] min-h-[340px]">
+          {/* Sidebar */}
+          <div className="border-r border-line bg-surface p-3">
+            <p className="mb-3 px-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Modules</p>
+            {['Overview', 'Workflows', 'Integrations', 'Reports'].map((m, i) => (
+              <div
+                key={m}
+                className={`mb-1 rounded-md px-2 py-1.5 text-xs ${i === 0 ? 'bg-brand-soft text-brand-light font-medium' : 'text-zinc-500'}`}
+              >
+                {m}
+              </div>
+            ))}
+          </div>
+
+          {/* Main */}
+          <div className="p-4 sm:p-5">
+            <div className="mb-4 grid grid-cols-3 gap-3">
+              {[
+                { label: 'Tasks automated', value: '12.4K' },
+                { label: 'Error rate', value: '0.3%' },
+                { label: 'Hours saved', value: '840/mo' },
+              ].map((kpi) => (
+                <div key={kpi.label} className="rounded-lg border border-line bg-surface-card px-3 py-2.5">
+                  <p className="text-[10px] text-zinc-500">{kpi.label}</p>
+                  <p className="mt-0.5 font-display text-lg font-semibold text-white">{kpi.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-lg border border-line overflow-hidden">
+              <div className="grid grid-cols-3 border-b border-line bg-surface-card px-3 py-2 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+                <span>Workflow</span>
+                <span>Status</span>
+                <span className="text-right">Health</span>
+              </div>
+              {rows.map((r) => (
+                <div key={r.name} className="grid grid-cols-3 border-b border-line px-3 py-2.5 text-xs last:border-0">
+                  <span className="text-zinc-300">{r.name}</span>
+                  <span className={r.status === 'Healthy' ? 'text-emerald-400' : 'text-amber-400'}>{r.status}</span>
+                  <span className="text-right text-zinc-400">{r.load}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute -bottom-3 left-6 hidden rounded-lg border border-line-strong bg-surface-raised px-3 py-2 text-xs text-zinc-400 shadow-card sm:block">
+        <span className="text-emerald-400">●</span> {hero.liveBadge}
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const { hero } = home;
 
   return (
-    <section className="section-pad relative flex min-h-[85vh] items-center pt-20 sm:min-h-[90vh] sm:pt-24 lg:pt-28">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+    <section className="section-pad relative pt-28 sm:pt-32 lg:pt-36">
+      <div className="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div variants={item} className="mb-4 inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-medium text-cyan-400 sm:mb-6 sm:px-4">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
+          <motion.p variants={item} className="eyebrow mb-5">
             {hero.badge}
-          </motion.div>
+          </motion.p>
 
-          <motion.h1 variants={item} className="font-display text-3xl font-bold leading-[1.1] text-white sm:text-4xl md:text-5xl xl:text-6xl">
+          <motion.h1
+            variants={item}
+            className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-[3.25rem]"
+          >
             {hero.title}
-            <span className="mt-1 block text-gradient sm:mt-2">{hero.titleHighlight}</span>
+            <span className="mt-1 block text-zinc-400">{hero.titleHighlight}</span>
           </motion.h1>
 
-          <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-slate-400 sm:mt-6 sm:text-lg">
+          <motion.p variants={item} className="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
             {hero.description}
           </motion.p>
 
-          <motion.div variants={item} className="mt-8 flex flex-col gap-3 xs:flex-row xs:flex-wrap sm:mt-10 sm:flex-row sm:gap-4">
-            <Link href="/contact" className="btn-primary w-full justify-center sm:w-auto">
+          <motion.div variants={item} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href="/contact" className="btn-primary justify-center">
               {hero.ctaPrimary}
             </Link>
-            <Link href="/services" className="btn-ghost w-full justify-center sm:w-auto">
+            <Link href="/services" className="btn-secondary justify-center">
               {hero.ctaSecondary}
             </Link>
           </motion.div>
 
-          <motion.div variants={item} className="mt-10 lg:hidden">
+          <motion.div variants={item} className="mt-12 border-t border-line pt-8 lg:hidden">
             <AnimatedStats compact />
           </motion.div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.3 }}
-          className="relative mx-auto w-full max-w-lg lg:max-w-none"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="w-full"
         >
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-            className="glass-strong relative rounded-2xl border border-cyan-500/25 p-6 shadow-neon sm:rounded-3xl sm:p-8"
-          >
-            <div className="mb-4 flex items-center justify-between sm:mb-6">
-              <span className="text-xs text-slate-500 sm:text-sm">{hero.dashboardLabel}</span>
-              <span className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400/70 sm:h-3 sm:w-3" />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70 sm:h-3 sm:w-3" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70 sm:h-3 sm:w-3" />
-              </span>
-            </div>
-
-            <div className="mb-4 flex h-28 items-end gap-1.5 sm:mb-6 sm:h-36 sm:gap-2">
-              {[45, 72, 58, 90, 65, 78].map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${h}%` }}
-                  transition={{ delay: 0.5 + i * 0.08, duration: 0.6 }}
-                  className="flex-1 rounded-t-md bg-gradient-to-t from-cyan-500/90 to-cyan-500/20 sm:rounded-t-lg"
-                />
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="glass rounded-lg p-3 sm:rounded-xl sm:p-4">
-                <p className="text-xl font-bold text-cyan-400 sm:text-2xl">98.7%</p>
-                <p className="text-[10px] text-slate-500 sm:text-xs">Pipeline uptime</p>
-              </div>
-              <div className="glass rounded-lg p-3 sm:rounded-xl sm:p-4">
-                <p className="text-xl font-bold text-sky-400 sm:text-2xl">4.2s</p>
-                <p className="text-[10px] text-slate-500 sm:text-xs">Avg. task time</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-            className="absolute -bottom-4 left-2 glass rounded-xl border border-cyan-500/30 px-3 py-2 text-xs text-cyan-400 sm:-bottom-6 sm:left-0 sm:rounded-2xl sm:px-4 sm:py-3 sm:text-sm"
-          >
-            <span className="text-emerald-400">●</span> {hero.liveBadge}
-          </motion.div>
+          <ProductPreview />
         </motion.div>
       </div>
     </section>

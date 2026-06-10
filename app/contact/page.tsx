@@ -5,7 +5,7 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with AitoTech for AI automation consulting and demos.',
+  description: 'Contact AitoTech for enterprise automation consulting and discovery sessions.',
 };
 
 const iconMap: Record<string, string> = {
@@ -20,7 +20,7 @@ export default function ContactPage() {
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="container-page max-w-6xl">
         <PageHero
           eyebrow={hero.eyebrow}
           title={hero.title}
@@ -31,15 +31,15 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div className="space-y-4 sm:space-y-5">
             {infoCards.map((item) => (
-              <div key={item.label} className="glass flex gap-4 rounded-2xl p-4 sm:p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-500/15 text-lg text-cyan-400">
+              <div key={item.label} className="card flex gap-4 p-4 sm:p-5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-soft text-base text-brand-light">
                   {iconMap[item.icon] ?? '•'}
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-medium text-white">{item.label}</p>
-                  <p className="break-words text-sm text-slate-500">
+                  <p className="break-words text-sm text-zinc-500">
                     {item.label === 'Email' ? (
-                      <a href={`mailto:${item.value}`} className="hover:text-cyan-400">
+                      <a href={`mailto:${item.value}`} className="hover:text-brand-light">
                         {item.value}
                       </a>
                     ) : (
@@ -50,18 +50,17 @@ export default function ContactPage() {
               </div>
             ))}
 
-            {/* Google Map — Delhi office */}
-            <div className="glass overflow-hidden rounded-2xl">
+            <div className="card overflow-hidden">
               <div className="flex items-center justify-between gap-3 p-4 sm:p-5">
                 <div>
                   <h3 className="font-display text-lg font-semibold text-white">{mapPlaceholder.title}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{mapPlaceholder.body}</p>
+                  <p className="mt-1 text-sm text-zinc-500">{mapPlaceholder.body}</p>
                 </div>
                 <a
                   href={site.map.directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 rounded-lg bg-cyan-500/15 px-3 py-1.5 text-xs font-medium text-cyan-300 transition-colors hover:bg-cyan-500/25"
+                  className="shrink-0 rounded-md bg-brand-soft px-3 py-1.5 text-xs font-medium text-brand-light transition-colors hover:bg-brand/20"
                 >
                   {mapPlaceholder.directions} ↗
                 </a>
@@ -73,7 +72,7 @@ export default function ContactPage() {
                 height="240"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="block w-full border-0 grayscale-[20%]"
+                className="block w-full border-0 opacity-90"
                 allowFullScreen
               />
             </div>

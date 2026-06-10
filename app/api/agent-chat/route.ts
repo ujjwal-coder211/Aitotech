@@ -6,6 +6,9 @@ import { NextRequest, NextResponse } from 'next/server';
  * Keeps AGENTS_API_URL server-side and avoids CORS in the browser.
  */
 
+/** Groq can take 20–30s; allow enough time on Vercel (Pro: up to 60s). */
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   const base = process.env.AGENTS_API_URL?.replace(/\/$/, '');
   if (!base) {
@@ -35,8 +38,7 @@ export async function POST(request: NextRequest) {
         message,
         agent_type: body.agent_type || 'sales',
       }),
-      // Don't let a slow agent hang the edge function forever.
-      signal: AbortSignal.timeout(25_000),
+      signal: AbortSignal.timeout(55_000),
     });
 
     if (!res.ok) {

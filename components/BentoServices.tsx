@@ -15,7 +15,7 @@ export default function BentoServices({ services }: { services: ServiceRecord[] 
 
   return (
     <section className="section-pad">
-      <div className="mx-auto max-w-7xl px-0 sm:px-0">
+      <div className="container-page">
         <SectionHeading
           eyebrow={bento.eyebrow}
           title={bento.title}

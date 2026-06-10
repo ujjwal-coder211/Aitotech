@@ -5,25 +5,25 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-slate-800/80">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+    <footer className="relative z-10 border-t border-line bg-surface-raised/40">
+      <div className="container-page py-12 sm:py-14">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="font-display text-lg font-bold text-white">
+            <Link href="/" className="inline-flex items-center gap-2 font-display text-lg font-bold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-brand text-xs font-bold">AT</span>
               {site.name}
-              <span className="text-cyan-400">.</span>
             </Link>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
               {site.tagline} — {footer.blurb}
             </p>
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">{footer.navigateTitle}</h4>
-            <ul className="space-y-2.5 text-sm text-slate-500">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.navigateTitle}</h4>
+            <ul className="space-y-2.5 text-sm text-zinc-500">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="transition-colors hover:text-cyan-400">
+                  <Link href={href} className="transition-colors hover:text-white">
                     {label}
                   </Link>
                 </li>
@@ -32,11 +32,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">{footer.servicesTitle}</h4>
-            <ul className="space-y-2.5 text-sm text-slate-500">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.servicesTitle}</h4>
+            <ul className="space-y-2.5 text-sm text-zinc-500">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="transition-colors hover:text-cyan-400">
+                  <Link href={`/services/${s.slug}`} className="transition-colors hover:text-white">
                     {s.title}
                   </Link>
                 </li>
@@ -45,21 +45,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">{footer.contactTitle}</h4>
-            <a href={`mailto:${site.email}`} className="block text-sm text-slate-500 transition-colors hover:text-cyan-400">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.contactTitle}</h4>
+            <a href={`mailto:${site.email}`} className="block text-sm text-zinc-500 transition-colors hover:text-white">
               {site.email}
             </a>
-            <p className="mt-1 text-sm text-slate-500">{site.address}</p>
+            <p className="mt-2 text-sm text-zinc-500">{site.address}</p>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800/60 pt-8 text-center text-sm text-slate-600 sm:mt-12 sm:flex-row sm:text-left">
+        <div className="divider-fade mt-10 sm:mt-12" />
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-center text-sm text-zinc-600 sm:flex-row sm:text-left">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {footer.legal.map((item) => (
-              <span key={item} className="cursor-default transition-colors hover:text-cyan-400">
+              <span key={item} className="cursor-default transition-colors hover:text-zinc-400">
                 {item}
               </span>
             ))}
