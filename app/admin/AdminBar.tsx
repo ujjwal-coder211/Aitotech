@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { signOut } from './actions';
 
 /** Shared admin top bar with nav + logout. */
-export default function AdminBar({ active }: { active: 'leads' | 'services' }) {
+export default function AdminBar({ active }: { active: 'leads' | 'services' | 'waitlist' }) {
   return (
     <div className="mb-8 flex flex-col gap-4 border-b border-slate-800/70 pb-5 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex flex-wrap items-center gap-4">
@@ -26,6 +26,14 @@ export default function AdminBar({ active }: { active: 'leads' | 'services' }) {
             }`}
           >
             Services
+          </Link>
+          <Link
+            href="/admin/waitlist"
+            className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+              active === 'waitlist' ? 'bg-cyan-500/10 text-cyan-400' : 'text-slate-400 hover:text-cyan-400'
+            }`}
+          >
+            Aksh Waitlist
           </Link>
         </nav>
       </div>

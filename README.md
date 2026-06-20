@@ -19,6 +19,7 @@ Professional Next.js website with glassmorphism UI, Framer Motion animations, Be
 | `/services/[slug]` | Individual service detail (DB-backed) |
 | `/about` | Founder vision & company values |
 | `/contact` | Contact form (saves to database) |
+| `/aksh` | **Aksh launch page** — waitlist for Aksh Studio / Coder (pre-launch) |
 | `/admin` | **Protected** dashboard — view & manage leads |
 | `/admin/services` | **Protected** CMS — create / edit / delete services |
 | `/admin/login` | Admin login (Supabase Auth) |

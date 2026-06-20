@@ -120,3 +120,35 @@ values
     'ai', 'text-emerald-400', 'from-emerald-500/15 via-cyan-500/10 to-transparent', 4, true
   )
 on conflict (slug) do nothing;
+
+
+-- ─── 4. AKSH WAITLIST (launch page signups) ───
+create table if not exists public.aksh_waitlist (
+  id          uuid primary key default gen_random_uuid(),
+  name        text not null,
+  email       text not null unique,
+  role        text not null default 'developer',
+  interest    text not null default 'both',
+  status      text not null default 'new',
+  created_at  timestamptz not null default now()
+);
+
+alter table public.aksh_waitlist enable row level security;
+
+drop policy if exists "anyone can insert aksh waitlist" on public.aksh_waitlist;
+create policy "anyone can insert aksh waitlist"
+  on public.aksh_waitlist for insert
+  to anon, authenticated
+  with check (true);
+
+drop policy if exists "authenticated can read aksh waitlist" on public.aksh_waitlist;
+create policy "authenticated can read aksh waitlist"
+  on public.aksh_waitlist for select
+  to authenticated
+  using (true);
+
+drop policy if exists "authenticated can update aksh waitlist" on public.aksh_waitlist;
+create policy "authenticated can update aksh waitlist"
+  on public.aksh_waitlist for update
+  to authenticated
+  using (true);

@@ -46,6 +46,7 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/aksh', label: 'Aksh' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -311,5 +312,61 @@ export const serviceDetail = {
     badge: 'Coming Soon',
     body: 'Full case studies, pricing, and live demos for this service are on the way. Contact us for early access and pilot programs.',
     cta: 'Join Waitlist',
+  },
+} as const;
+
+/** ─── AKSH LAUNCH PAGE (pre-launch / waitlist) ─── */
+export const aksh = {
+  badge: 'Launching Soon · Made in India',
+  title: 'Aksh',
+  subtitle: 'India\'s AI Coding Platform',
+  tagline: 'Aksh Studio + Aksh Coder — powered by Omni',
+  description:
+    'Browser mein code likho, AI se baat karo, projects cloud par save ho. Download ki zaroorat nahi — jaldi launch ho raha hai E2E Networks India par.',
+  cta: 'Join the Waitlist',
+  ctaHint: 'Early access · launch updates · no spam',
+  status: 'Pre-launch — product deploy hone ke baad Studio live hoga',
+  features: [
+    {
+      title: 'Aksh Studio',
+      body: 'Browser IDE — Monaco editor, cloud projects, preview. 4GB RAM laptop par bhi chalega.',
+    },
+    {
+      title: 'Omni',
+      body: 'Ek hi AI brain — coding, Hinglish, app build. Experts andar chalte hain, user ko sirf Omni dikhe.',
+    },
+    {
+      title: 'Omni Memory',
+      body: 'Har user, har chat alag yaad rakhta hai — poori coding context ke saath.',
+    },
+    {
+      title: 'India Cloud',
+      body: 'Production E2E Networks par — data India mein, sovereign stack.',
+    },
+  ],
+  roadmap: [
+    { phase: 'Now', label: 'Waitlist open', done: true },
+    { phase: 'Next', label: 'Aksh Studio beta (E2E)', done: false },
+    { phase: 'Later', label: 'Download & Cursor connect', done: false },
+  ],
+  form: {
+    namePlaceholder: 'Your name',
+    emailPlaceholder: 'you@company.com',
+    roleLabel: 'I am a…',
+    roles: [
+      { value: 'developer', label: 'Developer' },
+      { value: 'student', label: 'Student' },
+      { value: 'founder', label: 'Founder / Startup' },
+      { value: 'enterprise', label: 'Enterprise team' },
+      { value: 'other', label: 'Other' },
+    ],
+    interestLabel: 'Interested in',
+    interests: [
+      { value: 'studio', label: 'Aksh Studio (IDE)' },
+      { value: 'coder', label: 'Aksh Coder (AI coding)' },
+      { value: 'both', label: 'Both' },
+    ],
+    success: 'You\'re on the list! Launch par pehle access milega.',
+    error: 'Something went wrong. Try again or email info@aitotech.in',
   },
 } as const;
