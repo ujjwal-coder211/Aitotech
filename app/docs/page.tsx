@@ -5,13 +5,12 @@ import { aksh } from '@/data/siteContent';
 export default function DocsHubPage() {
   return (
     <div className="space-y-12">
-      {/* Overview — visible description (not grey small text) */}
       <div className="rounded-2xl border border-brand/25 bg-brand-soft/40 p-6 sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-light">Overview</p>
         <p className="mt-3 text-base font-medium leading-relaxed text-zinc-200 sm:text-lg">{docsHub.headline}</p>
         <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">{docsHub.intro}</p>
         <p className="mt-4 rounded-lg border border-line bg-surface/80 px-4 py-3 text-sm text-zinc-300">
-          {docsHub.compareNote}
+          {docsHub.strengthsNote}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           {docsHub.links.map((l) => (
@@ -30,7 +29,6 @@ export default function DocsHubPage() {
         </div>
       </div>
 
-      {/* All guides — 6 cards, rich descriptions */}
       <div>
         <h2 className="font-display text-xl font-bold text-white sm:text-2xl">Guides</h2>
         <p className="mt-2 text-sm text-zinc-500">One page per topic. Full details inside.</p>
@@ -51,41 +49,22 @@ export default function DocsHubPage() {
         </div>
       </div>
 
-      {/* Cursor vs Aksh — docs context */}
       <div>
-        <h2 className="font-display text-xl font-bold text-white sm:text-2xl">{aksh.comparison.title}</h2>
-        <p className="mt-2 text-sm text-zinc-500">{aksh.comparison.subtitle}</p>
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-line">
-          <table className="w-full min-w-[480px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-line bg-surface-card">
-                {aksh.comparison.columns.map((col, i) => (
-                  <th
-                    key={col}
-                    className={`px-4 py-3 font-semibold ${i === 2 ? 'text-brand-light' : 'text-zinc-400'}`}
-                  >
-                    {col}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {aksh.comparison.rows.slice(0, 5).map((row) => (
-                <tr key={row.feature} className="border-b border-line/80 last:border-0">
-                  <td className="px-4 py-3 text-zinc-300">{row.feature}</td>
-                  <td className="px-4 py-3 text-zinc-500">{row.cursor}</td>
-                  <td className="px-4 py-3 text-brand-light/90">{row.aksh}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <Link href="/aksh" className="mt-4 inline-block text-sm text-brand-light hover:underline">
-          See full comparison on the launch page →
+        <h2 className="font-display text-xl font-bold text-white sm:text-2xl">{aksh.differentiators.title}</h2>
+        <p className="mt-2 text-sm text-zinc-500">{aksh.differentiators.subtitle}</p>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          {aksh.differentiators.items.map((item) => (
+            <li key={item.title} className="rounded-xl border border-line bg-surface-card p-5">
+              <h3 className="font-semibold text-white">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.body}</p>
+            </li>
+          ))}
+        </ul>
+        <Link href="/aksh" className="mt-6 inline-block text-sm text-brand-light hover:underline">
+          See Aksh launch page →
         </Link>
       </div>
 
-      {/* Product repo */}
       <div className="rounded-2xl border border-line bg-surface-card p-6 sm:p-8">
         <h2 className="font-display text-lg font-semibold text-white">Product source code</h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">

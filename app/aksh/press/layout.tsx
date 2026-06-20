@@ -3,7 +3,7 @@ import { aksh } from '@/data/siteContent';
 import { siteUrl } from '@/lib/seo/siteUrl';
 
 export const metadata: Metadata = {
-  title: 'Press Kit — Aksh | India Cursor Alternative',
+  title: 'Press kit — Aksh | AitoTech',
   description: aksh.press.pageDescription,
   alternates: { canonical: `${siteUrl}/aksh/press` },
   openGraph: {

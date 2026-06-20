@@ -14,7 +14,7 @@ function StudioMockup() {
           <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
           <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
         </div>
-        <span className="text-xs text-zinc-500">Aksh Studio · India&apos;s Cursor alternative</span>
+        <span className="text-xs text-zinc-500">Aksh Studio · Powered by Omni</span>
         <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">Beta soon</span>
       </div>
       <div className="grid min-h-[300px] grid-cols-[120px_1fr_140px] text-xs">
@@ -47,7 +47,6 @@ export default function AkshLaunchPage() {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
       name: 'Aksh',
-      alternateName: "India's Cursor Alternative",
       applicationCategory: 'DeveloperApplication',
       operatingSystem: 'Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR', availability: 'https://schema.org/PreOrder' },
@@ -121,35 +120,18 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
-        {/* Cursor vs Aksh */}
+        {/* What makes Aksh different */}
         <section className="section-pad">
           <div className="container-page">
-            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.comparison.title}</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-center text-base text-zinc-400">{aksh.comparison.subtitle}</p>
-            <div className="mt-10 overflow-x-auto rounded-2xl border border-zinc-800">
-              <table className="w-full min-w-[520px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-zinc-800 bg-[#0a0a0f]">
-                    {aksh.comparison.columns.map((col, i) => (
-                      <th
-                        key={col}
-                        className={`px-5 py-4 font-semibold ${i === 2 ? 'text-violet-300' : 'text-zinc-400'}`}
-                      >
-                        {col}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {aksh.comparison.rows.map((row) => (
-                    <tr key={row.feature} className="border-b border-zinc-800/80 last:border-0">
-                      <td className="px-5 py-4 font-medium text-zinc-200">{row.feature}</td>
-                      <td className="px-5 py-4 text-zinc-500">{row.cursor}</td>
-                      <td className="px-5 py-4 text-violet-200">{row.aksh}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.differentiators.title}</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-center text-base text-zinc-400">{aksh.differentiators.subtitle}</p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {aksh.differentiators.items.map((item) => (
+                <article key={item.title} className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-6">
+                  <h3 className="font-display text-lg font-semibold text-violet-300">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base">{item.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

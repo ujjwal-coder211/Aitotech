@@ -1,4 +1,4 @@
-/** Aksh docs — simple English, synced with /aksh launch page */
+/** Aksh docs — simple English, product-first (no competitor marketing) */
 
 export type DocSection = {
   id: string;
@@ -22,16 +22,16 @@ export type DocPage = {
 export const docsHub = {
   eyebrow: 'Documentation',
   title: 'Aksh docs',
-  headline: 'India\'s Cursor alternative — full guide',
+  headline: 'Learn Aksh — step by step',
   description:
-    'Aksh does the same job as Cursor: AI helps you write code, fix bugs, and build apps. The difference: Aksh Studio runs in your browser, projects save in the cloud, and data can stay in India. Pick a guide below.',
+    'Aksh is an AI coding platform: browser IDE (Aksh Studio), one AI (Omni), cloud projects, and thread memory. Pick a guide below.',
   intro:
-    'Start with Getting Started if you are new. Read Installation if you want to run Aksh on your own server. Read Cursor Connect if you use the Cursor desktop app. Every page has clear steps.',
+    'New users: start with Getting Started. Want your own server: read Installation. Need a desktop editor with Omni: read Connect a desktop editor. Every page uses clear steps.',
   quickLinks: [
     {
       slug: 'getting-started',
       title: 'Getting Started',
-      desc: 'Join waitlist, open Aksh Studio, talk to Omni. No big download.',
+      desc: 'Join the waitlist, open Aksh Studio, talk to Omni. No big download.',
     },
     {
       slug: 'installation',
@@ -40,8 +40,8 @@ export const docsHub = {
     },
     {
       slug: 'cursor-connect',
-      title: 'Cursor connect',
-      desc: 'Keep Cursor on your PC. Use Omni from Aksh as the AI brain. Model name: omni.',
+      title: 'Connect a desktop editor',
+      desc: 'Use Omni from a desktop coding tool via the OpenAI-compatible API. Model: omni.',
     },
     {
       slug: 'omni-memory',
@@ -59,8 +59,8 @@ export const docsHub = {
       desc: 'Connect your own app to Omni chat, threads, and projects.',
     },
   ],
-  compareNote:
-    'Cursor = desktop app + AI (mostly US servers). Aksh = browser IDE + Omni + India cloud. You can use both: Cursor UI + Omni API.',
+  strengthsNote:
+    'Aksh bundles a browser IDE, one AI (Omni), cloud projects, thread memory, and India hosting — as one platform. You open a tab and start building.',
   links: [
     { href: '/aksh', label: 'Launch page and waitlist' },
     { href: '/aksh/press', label: 'Press kit' },
@@ -80,11 +80,12 @@ export const akshDocPages: DocPage[] = [
         id: 'what',
         title: 'What is Aksh?',
         body:
-          'Aksh is an AI coding platform from AitoTech. It is built as an alternative to Cursor for India. You get AI chat, code generation, file edits, and app builds. Cursor is a desktop app. Aksh Studio runs in Chrome or Edge. Omni is the one AI you talk to. Projects save in the cloud.',
+          'Aksh is an AI coding platform from AitoTech. You get AI chat, code generation, file edits, and app builds. Aksh Studio runs in Chrome or Edge. Omni is the one AI you talk to. Projects save in the cloud.',
         items: [
-          'Same idea as Cursor: write code with AI help',
-          'Different: browser IDE, cloud save, one AI (Omni), data plan for India',
-          'Optional: use Cursor desktop with Omni API',
+          'Browser IDE — no heavy desktop install',
+          'One AI: Omni — no model list to manage',
+          'Cloud projects and thread memory built in',
+          'Optional: connect a desktop editor through the API (see docs)',
         ],
       },
       {
@@ -94,7 +95,7 @@ export const akshDocPages: DocPage[] = [
           'A modern browser: Chrome, Edge, or Firefox',
           'Internet connection',
           'A waitlist spot (aitotech.in/aksh#waitlist) until public launch',
-          'Optional: Cursor desktop if you prefer that UI',
+          'Optional: a desktop editor that supports OpenAI-compatible APIs',
         ],
       },
       {
@@ -110,7 +111,7 @@ export const akshDocPages: DocPage[] = [
       {
         id: 'step2',
         title: 'Step 2 — Open Aksh Studio',
-        body: 'Aksh Studio is the browser IDE. This is where you code like Cursor.',
+        body: 'Aksh Studio is the browser IDE — editor, files, preview, and Omni in one place.',
         items: [
           'Open /web/studio/ (local test: http://127.0.0.1:8000/web/studio/)',
           'Paste your API key in Settings and save',
@@ -129,9 +130,9 @@ export const akshDocPages: DocPage[] = [
         note: 'Omni saves files and remembers the thread. Next guide: Omni Memory.',
       },
       {
-        id: 'cursor-path',
-        title: 'Other option — Cursor desktop',
-        body: 'If you like the Cursor app, connect it to Omni. Always use model name: omni.',
+        id: 'desktop-path',
+        title: 'Optional — desktop editor',
+        body: 'If you already use a desktop AI coding tool, you can point it to the Omni API. Model name must be omni.',
         note: 'Full steps: /docs/cursor-connect',
       },
       {
@@ -139,7 +140,7 @@ export const akshDocPages: DocPage[] = [
         title: 'Read next',
         items: [
           'Run your own server: /docs/installation',
-          'Cursor + Omni: /docs/cursor-connect',
+          'Desktop editor + Omni: /docs/cursor-connect',
           'Build an integration: /docs/api',
           'Press text: /aksh/press',
         ],
@@ -234,44 +235,45 @@ python scripts/verify_setup.py`,
       },
     ],
     prev: { slug: 'getting-started', title: 'Getting started' },
-    next: { slug: 'cursor-connect', title: 'Cursor connect' },
+    next: { slug: 'cursor-connect', title: 'Connect a desktop editor' },
   },
   {
     slug: 'cursor-connect',
-    title: 'Connect Cursor to Omni',
+    title: 'Connect a desktop editor',
     description:
-      'Use the Cursor desktop app with Aksh\'s Omni AI. Same brain as Aksh Studio. Model name must be omni.',
-    badge: 'Cursor users',
+      'Use Omni from a desktop coding tool that supports OpenAI-compatible APIs. Same AI as Aksh Studio. Model name must be omni.',
+    badge: 'Optional',
     sections: [
       {
         id: 'why',
-        title: 'Why connect Cursor?',
+        title: 'When to use this',
         body:
-          'Some people like the Cursor app UI. Omni gives you the same AI power as Aksh Studio. Point Cursor to the Aksh API instead of default US services.',
+          'Most people use Aksh Studio in the browser. This guide is for developers who prefer a desktop editor and want Omni as the AI backend through our API.',
       },
       {
         id: 'steps',
         title: 'Setup steps',
         items: [
           '1. Get your API key from /web/dashboard/',
-          '2. In Cursor: Settings → Models → Add OpenAI-compatible provider',
+          '2. In your editor: Settings → Models → Add OpenAI-compatible provider',
           '3. Base URL (live): https://api.aksh.aitotech.in/v1',
           '4. Base URL (local): http://127.0.0.1:8000/v1',
           '5. Paste your API key',
           '6. Model name: omni (required)',
-          '7. Select omni in Cursor chat',
+          '7. Select omni in the editor chat',
         ],
+        note: 'Some desktop AI code editors (including Cursor) support this API format. Steps may vary slightly by tool.',
       },
       {
         id: 'vs-studio',
-        title: 'Cursor vs Aksh Studio',
+        title: 'Desktop editor vs Aksh Studio',
         body:
-          'Cursor Connect = Cursor app + Omni AI. Aksh Studio = full IDE in the browser + Omni. Both use Omni but threads are separate for now.',
+          'Aksh Studio is the full IDE in your browser with Omni and cloud projects. A desktop editor plus Omni API uses the same AI but keeps files local to that tool. Thread memory works best in Aksh Studio or direct API calls.',
       },
       {
         id: 'single-face',
-        title: 'You only see Omni',
-        body: 'Do not pick other model names. The public API uses omni. Smart models run behind Omni automatically.',
+        title: 'You only use Omni',
+        body: 'Do not pick other model names. The public API uses omni. Smart engines run behind Omni automatically.',
       },
       {
         id: 'test',
@@ -332,12 +334,12 @@ POST /v1/chat
 {"message": "Add dark mode", "thread_id": "your-uuid", "model": "omni"}`,
       },
       {
-        id: 'cursor',
-        title: 'Cursor and memory',
-        body: 'Cursor manages its own chat today. Best memory experience is in Aksh Studio or direct API calls.',
+        id: 'desktop',
+        title: 'Desktop editors and memory',
+        body: 'Third-party desktop tools manage their own chat history. For full Omni Memory, use Aksh Studio or the API directly.',
       },
     ],
-    prev: { slug: 'cursor-connect', title: 'Cursor connect' },
+    prev: { slug: 'cursor-connect', title: 'Connect a desktop editor' },
     next: { slug: 'cloud-projects', title: 'Cloud projects' },
   },
   {
@@ -351,7 +353,7 @@ POST /v1/chat
         id: 'why',
         title: 'Why cloud projects?',
         body:
-          'Cursor keeps big folders on your disk. Aksh keeps files online. Open a browser and start — even on a 4GB RAM laptop.',
+          'Desktop tools usually keep code on your disk. Aksh keeps files online. Open a browser and start — even on a 4 GB RAM laptop.',
       },
       {
         id: 'create',
@@ -427,7 +429,7 @@ POST /api/projects/{id}/upload  (zip file)`,
       {
         id: 'openai',
         title: 'POST /v1/chat/completions',
-        body: 'For Cursor and other OpenAI-compatible tools:',
+        body: 'For OpenAI-compatible tools and custom integrations:',
         code: `{
   "model": "omni",
   "messages": [{"role": "user", "content": "Hello"}]
