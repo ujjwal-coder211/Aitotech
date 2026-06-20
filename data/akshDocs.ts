@@ -24,9 +24,9 @@ export const docsHub = {
   title: 'Aksh docs',
   headline: 'Learn Aksh — step by step',
   description:
-    'Aksh is an AI coding tool: browser editor (Aksh Studio), one AI (Omni), cloud projects, and chat memory. Pick a guide below.',
+    'How to use Aksh. All text is in simple English. Choose a guide below.',
   intro:
-    'New here? Start with Getting Started. Want your own server? Read Installation. Use a desktop editor? Read Connect a desktop editor. Every page has clear steps.',
+    'New here? Open Getting Started first. Need your own server? Open Installation.',
   quickLinks: [
     {
       slug: 'getting-started',
@@ -73,50 +73,48 @@ export const akshDocPages: DocPage[] = [
     slug: 'getting-started',
     title: 'Getting started with Aksh',
     description:
-      'Use Aksh in your browser in 3 steps: join the waitlist, open Aksh Studio, ask Omni to write code. No large install needed.',
+      'Start Aksh in 3 steps: join the waitlist, open Aksh Studio, ask Omni to write code. No big download.',
     badge: 'Start here',
     sections: [
       {
         id: 'what',
         title: 'What is Aksh?',
         body:
-          'Aksh is an AI coding tool from AitoTech. You get AI chat, code writing, file edits, and app builds. Aksh Studio runs in Chrome or Edge. Omni is the one AI you talk to. Projects save in the cloud.',
+          'Aksh helps you write code with AI. AitoTech made it. You use Aksh Studio in Chrome or Edge. You talk to Omni — one AI only. Your files save online.',
         items: [
-          'Browser editor — no heavy desktop install',
-          'One AI: Omni — no model list to manage',
-          'Cloud projects and chat memory built in',
-          'You can choose: connect a desktop editor through the API (see docs)',
+          'Works in the browser — no big install',
+          'One AI name: Omni',
+          'Files save in the cloud',
+          'You can connect other coding apps through our API (see docs)',
         ],
       },
       {
         id: 'need',
         title: 'What you need',
         items: [
-          'A modern browser: Chrome, Edge, or Firefox',
-          'Internet connection',
-          'A waitlist spot (aitotech.in/aksh#waitlist) until public launch',
-          'Not needed for most users: a desktop editor that supports OpenAI-style APIs',
+          'Chrome, Edge, or Firefox browser',
+          'Internet',
+          'Join the waitlist at aitotech.in/aksh#waitlist',
         ],
       },
       {
         id: 'step1',
         title: 'Step 1 — Join the waitlist',
-        body: 'Aksh is coming soon. Join the waitlist to get early access.',
+        body: 'Aksh is coming soon. Join the waitlist now.',
         items: [
-          'Go to https://aitotech.in/aksh#waitlist',
-          'Enter your name, email, and role',
-          'After launch: sign up at /web/dashboard/ and copy your API key (save it — we show it once)',
+          'Go to aitotech.in/aksh#waitlist',
+          'Enter your name and email',
+          'After launch: sign up and copy your API key (save it — we show it once)',
         ],
       },
       {
         id: 'step2',
         title: 'Step 2 — Open Aksh Studio',
-        body: 'Aksh Studio is the browser editor — files, preview, and Omni in one place.',
+        body: 'Aksh Studio is where you write code in the browser.',
         items: [
-          'Open /web/studio/ (local test: http://127.0.0.1:8000/web/studio/)',
+          'Open the Studio page from your Aksh account',
           'Paste your API key in Settings and save',
           'Click New Project or Upload zip',
-          'Left: files and chats · Center: editor · Right: Omni chat',
         ],
       },
       {

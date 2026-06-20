@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { servicesPage, site } from '@/data/siteContent';
+import { cta, servicesPage, site } from '@/data/siteContent';
 import { getServices } from '@/lib/services';
 import PageHero, { ComingSoonBlock } from '@/components/PageHero';
 import ServiceCard from '@/components/ServiceCard';
@@ -65,7 +65,7 @@ export default async function ServicesPage() {
             {site.email}
           </a>
           <Link href="/contact" className="btn-primary mt-6 inline-flex text-sm">
-            Schedule a Call
+            {cta.primary}
           </Link>
         </div>
       </div>
