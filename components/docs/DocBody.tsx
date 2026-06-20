@@ -6,9 +6,9 @@ export default function DocBody({ doc }: { doc: DocPage }) {
       {doc.sections.map((section) => (
         <section key={section.id} id={section.id} className="mb-10 scroll-mt-24">
           <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">{section.title}</h2>
-          {section.body && <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">{section.body}</p>}
+          {section.body && <p className="mt-3 text-base leading-relaxed text-zinc-300">{section.body}</p>}
           {section.items && (
-            <ul className="mt-4 space-y-2 text-sm text-zinc-400">
+            <ul className="mt-4 space-y-3 text-sm text-zinc-400 sm:text-base">
               {section.items.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
