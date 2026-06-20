@@ -26,7 +26,7 @@ export const docsHub = {
   description:
     'Aksh is an AI coding tool: browser editor (Aksh Studio), one AI (Omni), cloud projects, and chat memory. Pick a guide below.',
   intro:
-    'New users: start with Getting Started. Want your own server: read Installation. Need a desktop editor with Omni: read Connect a desktop editor. Every page uses clear steps.',
+    'New here? Start with Getting Started. Want your own server? Read Installation. Use a desktop editor? Read Connect a desktop editor. Every page has clear steps.',
   quickLinks: [
     {
       slug: 'getting-started',
@@ -41,7 +41,7 @@ export const docsHub = {
     {
       slug: 'cursor-connect',
       title: 'Connect a desktop editor',
-      desc: 'Use Omni from a desktop coding tool via the OpenAI-style API. Model: omni.',
+      desc: 'Use Omni from a desktop coding tool. Model name: omni.',
     },
     {
       slug: 'omni-memory',
@@ -188,8 +188,8 @@ pip install -r requirements.txt`,
       },
       {
         id: 'env',
-        title: 'Step 2 — Set environment variables',
-        body: 'Copy .env.example to .env. Fill in at least these values:',
+        title: 'Step 2 — Settings file (.env)',
+        body: 'Copy .env.example to .env. Add at least these lines:',
         code: `DATABASE_URL=postgresql://postgres:postgres@localhost:5432/aksh
 SAAS_ALLOW_PUBLIC_SIGNUP=true
 JWT_SECRET=use-a-long-random-string-here
@@ -241,7 +241,7 @@ python scripts/verify_setup.py`,
     slug: 'cursor-connect',
     title: 'Connect a desktop editor',
     description:
-      'Use Omni from a desktop coding tool that supports OpenAI-style APIs. Same AI as Aksh Studio. Model name must be omni.',
+      'Use Omni from a desktop coding tool that uses the same API format as OpenAI. Same AI as Aksh Studio. Model name must be omni.',
     badge: 'Optional',
     sections: [
       {
@@ -255,7 +255,7 @@ python scripts/verify_setup.py`,
         title: 'Setup steps',
         items: [
           '1. Get your API key from /web/dashboard/',
-          '2. In your editor: Settings → Models → Add OpenAI-style provider',
+          '2. In your editor: Settings → Models → Add OpenAI API provider',
           '3. Base URL (live): https://api.aksh.aitotech.in/v1',
           '4. Base URL (local): http://127.0.0.1:8000/v1',
           '5. Paste your API key',
@@ -312,7 +312,7 @@ python scripts/verify_setup.py`,
       {
         id: 'what',
         title: 'How it works',
-        body: 'Chats save in a Postgres database. Each user only sees their own chats.',
+        body: 'Chats save in the database. Each user only sees their own chats.',
       },
       {
         id: 'studio',
@@ -429,7 +429,7 @@ POST /api/projects/{id}/upload  (zip file)`,
       {
         id: 'openai',
         title: 'POST /v1/chat/completions',
-        body: 'For OpenAI-style tools and custom connections:',
+        body: 'For tools that use the OpenAI API format:',
         code: `{
   "model": "omni",
   "messages": [{"role": "user", "content": "Hello"}]
