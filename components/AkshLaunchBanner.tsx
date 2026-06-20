@@ -4,12 +4,12 @@ import { aksh } from '@/data/siteContent';
 /** Home page promo strip → Aksh launch / waitlist */
 export default function AkshLaunchBanner() {
   return (
-    <div className="border-b border-violet-500/20 bg-gradient-to-r from-violet-950/80 via-surface-raised to-surface">
-      <div className="container-page flex flex-col items-center justify-between gap-3 py-3 sm:flex-row sm:py-3.5">
-        <p className="text-center text-sm text-zinc-300 sm:text-left">
+    <div className="border-b border-violet-950/50 bg-[#030712]">
+      <div className="container-page flex flex-col items-center justify-between gap-3 py-3 sm:flex-row">
+        <p className="text-center text-sm text-zinc-400 sm:text-left">
           <span className="font-semibold text-white">{aksh.title}</span>
-          <span className="text-zinc-500"> — </span>
-          {aksh.subtitle}. Launching soon on E2E Networks.
+          <span className="text-zinc-600"> — </span>
+          {aksh.subtitle}. Launching on E2E Networks.
         </p>
         <Link
           href="/aksh#waitlist"

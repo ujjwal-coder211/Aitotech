@@ -1,0 +1,33 @@
+# Aitotech — llms.txt
+# Answer-engine / AI crawler context (AEO). See https://llmstxt.org/
+
+> AitoTech is an enterprise AI automation company based in Delhi, India.
+> Aksh is AitoTech's AI coding platform (Aksh Studio + Aksh Coder), powered by Omni.
+
+## Company
+- Name: AitoTech
+- Website: https://aitotech.in
+- Email: info@aitotech.in
+- Focus: Enterprise AI automation, workflow orchestration, custom AI systems
+
+## Product: Aksh (launching soon)
+- URL: https://aitotech.in/aksh
+- What: India's AI coding platform — browser IDE (Aksh Studio), AI assistant (Omni), cloud projects
+- Waitlist: https://aitotech.in/aksh#waitlist
+- No download required at launch — browser-first, thin client
+- Hosting: E2E Networks India (production target)
+- Model: Omni (single user-facing AI brain)
+
+## Key pages
+- Home: https://aitotech.in/
+- Aksh launch: https://aitotech.in/aksh
+- Services: https://aitotech.in/services
+- Contact: https://aitotech.in/contact
+
+## FAQ (Aksh)
+- Q: What is Aksh?
+  A: Aksh is an AI coding platform by AitoTech with Aksh Studio (browser IDE) and Omni AI for coding in English and Hinglish.
+- Q: Do I need to download Aksh?
+  A: No. Aksh runs in the browser. Optional Cursor integration uses the Omni API.
+- Q: How do I get early access?
+  A: Join the waitlist at https://aitotech.in/aksh#waitlist

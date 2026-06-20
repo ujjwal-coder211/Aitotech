@@ -35,6 +35,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+**Aksh launch setup (SEO, waitlist, domain):** see [docs/LAUNCH_SETUP.md](docs/LAUNCH_SETUP.md)
+
 > The site works **without** Supabase too — services fall back to `data/siteContent.ts`
 > and the admin panel shows a setup notice. Add Supabase to unlock the database, leads,
 > login, and CMS.

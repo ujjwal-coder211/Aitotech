@@ -369,4 +369,26 @@ export const aksh = {
     success: 'You\'re on the list! Launch par pehle access milega.',
     error: 'Something went wrong. Try again or email info@aitotech.in',
   },
+  faqs: [
+    {
+      q: 'What is Aksh?',
+      a: 'Aksh is AitoTech\'s AI coding platform with Aksh Studio (browser IDE), Aksh Coder, and Omni — one AI brain for coding, apps, and Hinglish chat. It runs in the browser; no heavy download required.',
+    },
+    {
+      q: 'Do I need to download Aksh?',
+      a: 'No. Aksh is browser-first. Open Aksh Studio from the web. Optional: connect Cursor IDE to the Omni API with model name "omni".',
+    },
+    {
+      q: 'When will Aksh launch?',
+      a: 'Aksh is in pre-launch. Join the waitlist at aitotech.in/aksh for early access. Production will run on E2E Networks India.',
+    },
+    {
+      q: 'What is Omni?',
+      a: 'Omni is the single AI brain behind Aksh. Users see only Omni; expert models run internally for accurate code and app builds.',
+    },
+    {
+      q: 'Will Aksh work on a low-end laptop?',
+      a: 'Yes. Aksh uses a thin-client design — your browser handles the UI; compute and AI run in the cloud.',
+    },
+  ],
 } as const;
