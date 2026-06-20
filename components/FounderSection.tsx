@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { aboutPage, images } from '@/data/siteContent';
+import FounderAvatar from '@/components/FounderAvatar';
+import { aboutPage, site } from '@/data/siteContent';
 
 export default function FounderSection() {
   const { founder } = aboutPage;
@@ -15,22 +16,12 @@ export default function FounderSection() {
         transition={{ duration: 0.5 }}
         className="relative mx-auto w-full max-w-sm lg:col-span-2 lg:max-w-none"
       >
-        <div className="card overflow-hidden">
-          <div
-            className="flex aspect-[4/5] flex-col items-center justify-end bg-surface-hover p-8"
-            style={{
-              backgroundImage: `url(${images.founder})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="w-full rounded-lg border border-line bg-surface-raised/95 p-4 backdrop-blur-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand font-display text-sm font-bold text-white">
-                {founder.initials}
-              </div>
-              <p className="mt-3 font-display text-base font-semibold text-white">{founder.role}</p>
-              <p className="text-sm text-zinc-500">{founder.company}</p>
-            </div>
+        <div className="card overflow-hidden p-8">
+          <div className="flex flex-col items-center text-center">
+            <FounderAvatar size="lg" linked={false} />
+            <p className="mt-4 font-display text-lg font-semibold text-white">{site.founder.name}</p>
+            <p className="text-sm text-brand-light">{founder.role}</p>
+            <p className="text-sm text-zinc-500">{founder.company}</p>
           </div>
         </div>
         <div className="absolute -bottom-3 right-4 rounded-lg border border-line bg-surface-raised px-3 py-2 text-xs text-zinc-400 shadow-card sm:-bottom-4 sm:right-0 sm:px-4 sm:py-2.5 sm:text-sm">

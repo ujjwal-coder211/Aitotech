@@ -21,6 +21,11 @@
 ## Key pages
 - Home: https://aitotech.in/
 - Aksh launch: https://aitotech.in/aksh
+- Documentation: https://aitotech.in/docs
+- Getting started: https://aitotech.in/docs/getting-started
+- Installation: https://aitotech.in/docs/installation
+- Cursor connect: https://aitotech.in/docs/cursor-connect
+- API reference: https://aitotech.in/docs/api
 - Services: https://aitotech.in/services
 - Contact: https://aitotech.in/contact
 

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AkshWaitlistForm from '@/components/AkshWaitlistForm';
+import SocialLinks from '@/components/SocialLinks';
 import JsonLdScript from '@/components/seo/JsonLdScript';
 import { aksh, site } from '@/data/siteContent';
 import { siteUrl } from '@/lib/seo/siteUrl';
@@ -111,6 +112,29 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
+        <section className="section-pad border-t border-zinc-800/80">
+          <div className="container-page">
+            <h2 className="font-display text-center text-2xl font-bold text-white">3 steps — shuru karo</h2>
+            <div className="mt-10 grid gap-6 sm:grid-cols-3">
+              {aksh.quickStart.map((step) => (
+                <div key={step.step} className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-6 text-center">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-violet-500/20 font-display text-sm font-bold text-violet-300">
+                    {step.step}
+                  </span>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-white">{step.title}</h3>
+                  <p className="mt-2 text-sm text-zinc-400">{step.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <Link href={aksh.docsCta.href} className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500">
+                {aksh.docsCta.button}
+              </Link>
+              <p className="mt-3 text-xs text-zinc-500">{aksh.docsCta.description}</p>
+            </div>
+          </div>
+        </section>
+
         <section className="section-pad">
           <div className="container-page">
             <h2 className="font-display text-center text-2xl font-bold text-white">Kya milega Aksh mein</h2>
@@ -166,7 +190,9 @@ export default function AkshLaunchPage() {
 
         <section className="section-pad border-t border-zinc-800/80 pb-24">
           <div className="container-page text-center">
-            <p className="text-sm text-zinc-500">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Follow AitoTech</p>
+            <SocialLinks className="mt-4 justify-center" size="md" />
+            <p className="mt-10 text-sm text-zinc-500">
               {aksh.title} by{' '}
               <Link href="/" className="text-zinc-300 hover:text-white">
                 {site.name}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SocialLinks from '@/components/SocialLinks';
 import { site, navLinks, services, footer } from '@/data/siteContent';
 
 export default function Footer() {
@@ -7,8 +8,8 @@ export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-line bg-surface-raised/40">
       <div className="container-page py-12 sm:py-14">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+          <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 font-display text-lg font-bold text-white">
               <span className="flex h-8 w-8 items-center justify-center rounded-md bg-brand text-xs font-bold">AT</span>
               {site.name}
@@ -16,12 +17,34 @@ export default function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
               {site.tagline} — {footer.blurb}
             </p>
+            <div className="mt-6">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">{footer.socialTitle}</p>
+              <SocialLinks size="sm" />
+            </div>
           </div>
 
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.navigateTitle}</h4>
             <ul className="space-y-2.5 text-sm text-zinc-500">
               {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="transition-colors hover:text-white">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.docsTitle}</h4>
+            <ul className="space-y-2.5 text-sm text-zinc-500">
+              <li>
+                <Link href="/docs" className="transition-colors hover:text-white">
+                  Docs home
+                </Link>
+              </li>
+              {footer.docLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="transition-colors hover:text-white">
                     {label}
@@ -42,10 +65,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.contactTitle}</h4>
+            <h4 className="mb-3 mt-8 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.contactTitle}</h4>
             <a href={`mailto:${site.email}`} className="block text-sm text-zinc-500 transition-colors hover:text-white">
               {site.email}
             </a>

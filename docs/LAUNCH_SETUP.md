@@ -128,6 +128,41 @@ Product repo: **https://github.com/ujjwal-coder211/Saas**
 
 ---
 
+## PART D — Apna photo + social links
+
+### Founder photo (header + About page)
+
+1. Apni photo ko **`public/images/founder.jpg`** naam se save karo (square photo best — 400×400 ya 800×800)
+2. **`data/siteContent.ts`** mein update karo:
+   ```ts
+   founder: { photo: '/images/founder.jpg', ... }
+   images: { founder: '/images/founder.jpg', ... }
+   ```
+3. `git add public/images/founder.jpg` → commit → push → Vercel auto-deploy
+
+Abhi placeholder SVG hai — jab tak photo nahi, initials dikhenge.
+
+### Social links (Instagram, Facebook, X, LinkedIn, Discord, YouTube, GitHub)
+
+1. File kholo: **`data/siteContent.ts`** → `site.social`
+2. Har platform ki **poori URL** paste karo (khali chhodo = icon grey, not clickable):
+
+```ts
+social: {
+  instagram: 'https://instagram.com/YOUR_HANDLE',
+  facebook: 'https://facebook.com/YOUR_PAGE',
+  x: 'https://x.com/YOUR_HANDLE',
+  linkedin: 'https://linkedin.com/in/YOUR_PROFILE',
+  discord: 'https://discord.gg/YOUR_INVITE',
+  youtube: 'https://youtube.com/@YOUR_CHANNEL',
+  github: 'https://github.com/ujjwal-coder211',
+},
+```
+
+3. Save → commit → push. Footer aur site par sab clickable ho jayega.
+
+---
+
 ## PART C — Quick checklist
 
 - [ ] `git pull` on Aitotech-website
@@ -138,6 +173,8 @@ Product repo: **https://github.com/ujjwal-coder211/Saas**
 - [ ] Domain DNS → aitotech.in
 - [ ] Google Search Console + sitemap
 - [ ] Waitlist entries `/admin/waitlist` monitor
+- [ ] Founder photo `public/images/founder.jpg`
+- [ ] Social URLs in `siteContent.ts`
 
 ---
 

@@ -17,6 +17,28 @@ export const site = {
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
+  /** Founder — header & about page. Apna photo: public/images/founder.jpg (same name se replace karo) */
+  founder: {
+    name: 'Ujjwal',
+    role: 'Founder & CEO',
+    photo: '/images/founder.svg',
+    /** Jab photo nahi ho tab initials dikhenge */
+    initials: 'UC',
+  },
+  /**
+   * Social links — apni IDs / URLs yahan daalo, clickable ho jayenge.
+   * Khali chhodo = icon dikhega par "coming soon" (link disabled).
+   * Example: instagram: 'https://instagram.com/yourhandle'
+   */
+  social: {
+    instagram: '',
+    facebook: '',
+    x: '', // Twitter / X
+    linkedin: '',
+    discord: '',
+    youtube: '',
+    github: 'https://github.com/ujjwal-coder211',
+  },
   /** Office location — used for the Google Map embed on the Contact page */
   map: {
     lat: 28.7041,
@@ -31,7 +53,7 @@ export const site = {
 /** Image placeholders — replace paths when you add real assets to /public/images */
 export const images = {
   logo: '/images/logo-placeholder.svg',
-  founder: '/images/founder-placeholder.jpg',
+  founder: '/images/founder.svg',
   heroDashboard: '/images/hero-dashboard-placeholder.jpg',
   office: '/images/office-placeholder.jpg',
   ogImage: '/images/og-placeholder.jpg',
@@ -47,6 +69,7 @@ export const images = {
 export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/aksh', label: 'Aksh' },
+  { href: '/docs', label: 'Docs' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -297,9 +320,17 @@ export const contactPage = {
 export const footer = {
   blurb: 'engineering intelligent automation for forward-thinking enterprises.',
   navigateTitle: 'Navigate',
+  docsTitle: 'Aksh Docs',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
+  socialTitle: 'Follow us',
   legal: ['Privacy', 'Terms'],
+  docLinks: [
+    { href: '/docs/getting-started', label: 'Getting Started' },
+    { href: '/docs/installation', label: 'Installation' },
+    { href: '/docs/cursor-connect', label: 'Cursor Connect' },
+    { href: '/docs/api', label: 'API Reference' },
+  ],
 } as const;
 
 /** Service detail page shared copy */
@@ -369,6 +400,17 @@ export const aksh = {
     success: 'You\'re on the list! Launch par pehle access milega.',
     error: 'Something went wrong. Try again or email info@aitotech.in',
   },
+  docsCta: {
+    title: 'Documentation',
+    description: 'Install, Cursor connect, API — poori guides jaise enterprise software launch par hoti hain.',
+    button: 'Read the Docs',
+    href: '/docs',
+  },
+  quickStart: [
+    { step: '01', title: 'Account', body: 'Waitlist / signup → API key copy karo' },
+    { step: '02', title: 'Aksh Studio', body: 'Browser IDE kholo — cloud projects' },
+    { step: '03', title: 'Omni', body: 'Hinglish mein bolo — code ban jayega' },
+  ],
   faqs: [
     {
       q: 'What is Aksh?',

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import FounderAvatar from '@/components/FounderAvatar';
 import { navLinks, site, cta } from '@/data/siteContent';
 import { cn } from '@/lib/utils';
 
@@ -68,9 +69,12 @@ export default function Header() {
           ))}
         </ul>
 
-        <Link href="/contact" className="btn-primary hidden shrink-0 text-sm lg:inline-flex">
-          {cta.primary}
-        </Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <FounderAvatar size="sm" linked />
+          <Link href="/contact" className="btn-primary shrink-0 text-sm">
+            {cta.primary}
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -115,6 +119,9 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-3 flex items-center gap-3">
+                <FounderAvatar size="md" linked showName />
+              </li>
               <li className="pt-3">
                 <Link href="/contact" onClick={() => setOpen(false)} className="btn-primary flex w-full justify-center text-sm">
                   {cta.primary}
