@@ -33,7 +33,7 @@ function StudioMockup() {
         <div className="bg-[#050508] p-3">
           <p className="mb-2 text-[10px] font-semibold text-zinc-600">OMNI</p>
           <div className="rounded-lg border border-zinc-800 bg-[#0a0a0f] p-2 text-[11px] text-zinc-400">
-            Hinglish: React todo bana diya ✓
+            {aksh.mockupOmniReply}
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function AkshLaunchPage() {
         {/* Elevator pitch box */}
         <section className="border-y border-zinc-800/80 bg-[#050508]/90 py-10">
           <div className="container-page max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Ek line mein</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">{aksh.elevatorLabel}</p>
             <p className="mt-3 font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
               {aksh.elevatorPitch}
             </p>
@@ -172,9 +172,9 @@ export default function AkshLaunchPage() {
         {/* Product features — long descriptions */}
         <section className="section-pad">
           <div className="container-page">
-            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">Platform kya hai</h2>
+            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.platformTitle}</h2>
             <p className="mx-auto mt-3 max-w-2xl text-center text-base text-zinc-400">
-              Cursor alternative matlab sirf chat nahi — poora product: IDE, AI, memory, cloud.
+              {aksh.platformSubtitle}
             </p>
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {aksh.features.map((f) => (
@@ -207,7 +207,7 @@ export default function AkshLaunchPage() {
           <div className="container-page max-w-xl">
             <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.cta}</h2>
             <p className="mx-auto mt-4 max-w-md text-center text-base text-zinc-300">
-              India ka Cursor alternative — pehle access waitlist par. Launch updates, Studio beta, media ko bhi yahi se milega.
+              {aksh.waitlistSubtitle}
             </p>
             <div className="mt-8">
               <AkshWaitlistForm />
@@ -218,7 +218,7 @@ export default function AkshLaunchPage() {
         {/* Quick start + docs */}
         <section className="section-pad border-t border-zinc-800/80">
           <div className="container-page">
-            <h2 className="font-display text-center text-2xl font-bold text-white">Launch ke baad — 3 steps</h2>
+            <h2 className="font-display text-center text-2xl font-bold text-white">{aksh.quickStartTitle}</h2>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {aksh.quickStart.map((step) => (
                 <div key={step.step} className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-6">
@@ -243,7 +243,7 @@ export default function AkshLaunchPage() {
         <section className="section-pad border-t border-zinc-800/80" aria-labelledby="aksh-faq">
           <div className="container-page max-w-3xl">
             <h2 id="aksh-faq" className="font-display text-center text-2xl font-bold text-white">
-              FAQ — developers & media
+              {aksh.faqTitle}
             </h2>
             <dl className="mt-10 space-y-5">
               {aksh.faqs.map((f) => (
@@ -259,10 +259,10 @@ export default function AkshLaunchPage() {
         {/* Press teaser */}
         <section className="section-pad border-t border-zinc-800/80 bg-[#050508]/80">
           <div className="container-page max-w-3xl text-center">
-            <h2 className="font-display text-2xl font-bold text-white">Indian media & press</h2>
+            <h2 className="font-display text-2xl font-bold text-white">{aksh.pressSectionTitle}</h2>
             <p className="mt-4 text-base leading-relaxed text-zinc-400">{aksh.press.medium}</p>
             <Link href="/aksh/press" className="btn-secondary mt-8 inline-flex border-zinc-700">
-              Full press kit →
+              {aksh.pressSectionCta} →
             </Link>
           </div>
         </section>

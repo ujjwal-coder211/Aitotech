@@ -114,7 +114,7 @@ export default function SocialLinks({ size = 'md', className, showLabels = false
               btnSize,
               'inline-flex cursor-not-allowed items-center justify-center rounded-lg border border-line/60 bg-surface/50 text-zinc-600 opacity-50'
             )}
-            title={`${label} — link jald add hoga`}
+            title={`${label} — link coming soon`}
             aria-label={`${label} coming soon`}
           >
             {iconEl}
@@ -123,7 +123,7 @@ export default function SocialLinks({ size = 'md', className, showLabels = false
       })}
       {showLabels && (
         <p className="mt-2 w-full text-xs text-zinc-600">
-          Social links: <code className="text-zinc-500">data/siteContent.ts → site.social</code> mein URLs daalo.
+          Add URLs in <code className="text-zinc-500">data/siteContent.ts → site.social</code>.
         </p>
       )}
     </div>

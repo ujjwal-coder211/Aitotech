@@ -33,7 +33,7 @@ export default function DocsHubPage() {
       {/* All guides — 6 cards, rich descriptions */}
       <div>
         <h2 className="font-display text-xl font-bold text-white sm:text-2xl">Guides</h2>
-        <p className="mt-2 text-sm text-zinc-500">Har topic alag page — poori detail ke saath.</p>
+        <p className="mt-2 text-sm text-zinc-500">One page per topic. Full details inside.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {docsHub.quickLinks.map((link) => (
             <Link
@@ -81,7 +81,7 @@ export default function DocsHubPage() {
           </table>
         </div>
         <Link href="/aksh" className="mt-4 inline-block text-sm text-brand-light hover:underline">
-          Poori comparison launch page par →
+          See full comparison on the launch page →
         </Link>
       </div>
 
@@ -89,7 +89,7 @@ export default function DocsHubPage() {
       <div className="rounded-2xl border border-line bg-surface-card p-6 sm:p-8">
         <h2 className="font-display text-lg font-semibold text-white">Product source code</h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-          Self-host aur India production deploy ke liye open repo. Operators:{' '}
+          Self-host and deploy from GitHub. Ops guide:{' '}
           <code className="rounded bg-surface-hover px-1.5 py-0.5 text-zinc-300">docs/E2E_DEPLOY.md</code>{' '}
           (E2E Networks — Delhi, Chennai GPU).
         </p>
