@@ -2,37 +2,37 @@
 # Answer-engine / AI crawler context (AEO). See https://llmstxt.org/
 
 > AitoTech is an enterprise AI automation company based in Delhi, India.
-> Aksh is AitoTech's AI coding platform (Aksh Studio + Aksh Coder), powered by Omni.
+> Aksh is India's Cursor alternative — AI coding platform (Aksh Studio + Omni), browser-first, Hinglish, India cloud.
 
 ## Company
 - Name: AitoTech
 - Website: https://aitotech.in
 - Email: info@aitotech.in
-- Focus: Enterprise AI automation, workflow orchestration, custom AI systems
+- Focus: Enterprise AI automation + Aksh AI coding platform for India
 
-## Product: Aksh (launching soon)
+## Product: Aksh (public pre-launch)
 - URL: https://aitotech.in/aksh
-- What: India's AI coding platform — browser IDE (Aksh Studio), AI assistant (Omni), cloud projects
+- Positioning: **India's Cursor alternative** — AI-native coding IDE in the browser
+- What: Aksh Studio (browser IDE), Aksh Coder, Omni (single AI brain), cloud projects, Omni Memory
 - Waitlist: https://aitotech.in/aksh#waitlist
-- No download required at launch — browser-first, thin client
-- Hosting: E2E Networks India (production target)
-- Model: Omni (single user-facing AI brain)
+- Press kit: https://aitotech.in/aksh/press
+- vs Cursor: browser-first, Hinglish native, India data residency (E2E Networks), thin client for low-RAM laptops
+- Model: Omni only (user-facing); expert models internal
+- Hosting target: E2E Networks India
 
 ## Key pages
 - Home: https://aitotech.in/
 - Aksh launch: https://aitotech.in/aksh
+- Press / media: https://aitotech.in/aksh/press
 - Documentation: https://aitotech.in/docs
 - Getting started: https://aitotech.in/docs/getting-started
-- Installation: https://aitotech.in/docs/installation
-- Cursor connect: https://aitotech.in/docs/cursor-connect
-- API reference: https://aitotech.in/docs/api
 - Services: https://aitotech.in/services
 - Contact: https://aitotech.in/contact
 
 ## FAQ (Aksh)
+- Q: Is Aksh like Cursor?
+  A: Yes — same core job (AI-assisted coding). Aksh is built for India: browser IDE, Hinglish, cloud projects, data on E2E Networks. Cursor is desktop US SaaS.
 - Q: What is Aksh?
-  A: Aksh is an AI coding platform by AitoTech with Aksh Studio (browser IDE) and Omni AI for coding in English and Hinglish.
-- Q: Do I need to download Aksh?
-  A: No. Aksh runs in the browser. Optional Cursor integration uses the Omni API.
-- Q: How do I get early access?
-  A: Join the waitlist at https://aitotech.in/aksh#waitlist
+  A: AitoTech's AI coding platform — India's Cursor alternative with Aksh Studio and Omni.
+- Q: Press contact?
+  A: info@aitotech.in — press kit at aitotech.in/aksh/press

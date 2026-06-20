@@ -346,40 +346,128 @@ export const serviceDetail = {
   },
 } as const;
 
-/** ─── AKSH LAUNCH PAGE (pre-launch / waitlist) ─── */
+/** ─── AKSH LAUNCH PAGE (pre-launch / waitlist / India media) ─── */
 export const aksh = {
-  badge: 'Launching Soon · Made in India',
+  badge: 'Public Launch · Made in India',
   title: 'Aksh',
-  subtitle: 'India\'s AI Coding Platform',
-  tagline: 'Aksh Studio + Aksh Coder — powered by Omni',
+  /** Main headline — media & SEO */
+  headline: 'India ka Cursor alternative.',
+  subtitle: 'AI coding platform — browser IDE, Hinglish, data India mein',
+  tagline: 'Aksh Studio + Omni — likho, bolo, build karo. Download optional.',
+  /** Hero par badi, clear description — ye media copy bhi hai */
+  heroLead:
+    'Aksh ek AI-powered coding platform hai jo Cursor jaisa kaam karta hai — par India ke developers ke liye bana hai: browser mein full IDE, Hinglish mein instructions, cloud par projects, aur production data E2E Networks India par. Cursor foreign SaaS hai; Aksh sovereign, thin-client, aur Omni ek hi AI brain.',
   description:
-    'Browser mein code likho, AI se baat karo, projects cloud par save ho. Download ki zaroorat nahi — jaldi launch ho raha hai E2E Networks India par.',
+    'AitoTech ka Aksh — India\'s AI coding platform. Cursor alternative: Aksh Studio (browser IDE), Omni AI, cloud projects, thread memory. Pre-launch waitlist open; E2E Networks par deploy hone wala hai.',
+  elevatorPitch:
+    'Aksh Cursor ki tarah code likhwata, debug karta, aur apps banata hai — lekin browser se, Hinglish se, aur India cloud par. Students, startups, aur enterprises ke liye — bina heavy laptop ke.',
   cta: 'Join the Waitlist',
-  ctaHint: 'Early access · launch updates · no spam',
-  status: 'Pre-launch — product deploy hone ke baad Studio live hoga',
+  ctaSecondary: 'Media & Press Kit',
+  ctaHint: 'Early access · launch updates · India developers first',
+  status: 'Pre-launch — Studio beta jald · waitlist ab khuli hai',
+
+  /** Journalists / Indian media — copy-paste blocks */
+  press: {
+    pageTitle: 'Press & Media Kit',
+    pageDescription: 'Aksh launch ke liye official description, facts, aur contact — Indian media & tech press.',
+    contactEmail: site.email,
+    contactLabel: 'Press inquiries',
+    short:
+      'Aksh is AitoTech\'s AI coding platform — positioned as India\'s Cursor alternative with browser IDE (Aksh Studio), Omni AI, Hinglish support, and India-hosted cloud on E2E Networks.',
+    medium:
+      'Delhi-based AitoTech is launching Aksh, an AI-native coding platform built for Indian developers as an alternative to Cursor. Aksh Studio runs in the browser with Monaco editor, cloud project storage, and persistent chat memory via Omni — a single user-facing AI brain. Users can code in English or Hinglish; compute runs in the cloud so low-RAM laptops work fine. Production targets E2E Networks for data residency in India. Public waitlist is open at aitotech.in/aksh.',
+    long:
+      'AitoTech (aitotech.in), an enterprise AI automation company based in Delhi, India, announces Aksh — a full-stack AI coding platform designed as India\'s answer to Cursor and other Western AI IDEs. Aksh combines Aksh Studio (browser-based IDE with Monaco editor, file tree, and preview), Aksh Coder (AI-assisted development), and Omni (one unified AI brain — no model picker for users). Unlike desktop-heavy tools, Aksh uses a thin-client architecture: the browser is the IDE; AI inference and project storage run on cloud infrastructure, with production deployment on E2E Networks for sovereign, in-country data handling. Developers can describe apps in Hinglish or English; Omni generates and edits code across threads with persistent memory. Optional Cursor IDE integration uses the same Omni API (model: omni). Target users include students, indie developers, startups, and enterprise teams seeking an India-first AI coding stack. Waitlist: aitotech.in/aksh. Press: info@aitotech.in.',
+    facts: [
+      { label: 'Product', value: 'Aksh — AI coding platform (Studio + Coder + Omni)' },
+      { label: 'Positioning', value: 'India\'s Cursor alternative — browser-first, India cloud' },
+      { label: 'Company', value: 'AitoTech, Delhi, India' },
+      { label: 'Launch status', value: 'Pre-launch; public waitlist open' },
+      { label: 'Infrastructure', value: 'E2E Networks India (production target)' },
+      { label: 'Languages', value: 'English + Hinglish natural language coding' },
+      { label: 'Website', value: 'https://aitotech.in/aksh' },
+      { label: 'Press contact', value: 'info@aitotech.in' },
+    ],
+    quote:
+      'Indian developers deserve a Cursor-class AI IDE that runs in the browser, understands Hinglish, and keeps data in India. That is Aksh — powered by Omni.',
+    quoteAttribution: 'AitoTech Founding Team',
+  },
+
+  /** Cursor vs Aksh — clear comparison for users & press */
+  comparison: {
+    title: 'Cursor vs Aksh',
+    subtitle: 'Dono AI coding tools hain — farq India ke liye design mein hai',
+    columns: ['Feature', 'Cursor', 'Aksh'],
+    rows: [
+      { feature: 'AI code assistant & chat', cursor: 'Yes', aksh: 'Yes — Omni' },
+      { feature: 'Full IDE experience', cursor: 'Desktop app (VS Code fork)', aksh: 'Aksh Studio — browser IDE' },
+      { feature: 'Works on 4GB RAM laptop', cursor: 'Heavy local install', aksh: 'Yes — thin client, cloud compute' },
+      { feature: 'Hinglish instructions', cursor: 'Limited', aksh: 'Native — "React app banao"' },
+      { feature: 'Data hosted in India', cursor: 'US / global SaaS', aksh: 'E2E Networks (production)' },
+      { feature: 'Single AI face (no model chaos)', cursor: 'Multiple models', aksh: 'Omni only — experts hidden' },
+      { feature: 'Cloud project save & sync', cursor: 'Mostly local', aksh: 'Built-in cloud projects' },
+      { feature: 'Persistent thread memory', cursor: 'Session-based', aksh: 'Omni Memory per thread' },
+      { feature: 'Optional Cursor connect', cursor: '—', aksh: 'Omni API — model: omni' },
+    ],
+  },
+
+  whyIndia: {
+    title: 'Kyoon India ke liye alag?',
+    items: [
+      {
+        title: 'Data India mein',
+        body: 'Production stack E2E Networks par — API, DB, storage sovereign India target. Enterprise aur startups ko foreign-only SaaS ki dependency kam.',
+      },
+      {
+        title: 'Hinglish se code',
+        body: '"Mujhe login page banao", "bug fix karo" — Omni samajhta hai. Angrezi force nahi; Indian developers ki natural language.',
+      },
+      {
+        title: 'Browser = poora IDE',
+        body: 'Cursor jaisa feel, par download optional. Cyber café, college lab, purana laptop — Chrome kholo, Studio chalu.',
+      },
+      {
+        title: 'Made by AitoTech',
+        body: 'Delhi se — enterprise automation background ke saath. Aksh sirf chatbot nahi; production-grade platform roadmap.',
+      },
+    ],
+  },
+
+  audiences: {
+    title: 'Kiske liye hai Aksh?',
+    items: [
+      { title: 'Developers', body: 'Cursor use karte ho par India cloud / Hinglish chahiye — Aksh Studio + Omni.' },
+      { title: 'Students', body: 'Free-tier roadmap; browser IDE — hostel laptop par bhi project banao.' },
+      { title: 'Startups', body: 'Fast MVP — Omni se app generate, cloud par save, team threads.' },
+      { title: 'Enterprise', body: 'Data residency, private deploy, E2E VPC — automation partner AitoTech.' },
+    ],
+  },
+
   features: [
     {
       title: 'Aksh Studio',
-      body: 'Browser IDE — Monaco editor, cloud projects, preview. 4GB RAM laptop par bhi chalega.',
+      body: 'Cursor jaisa IDE — par browser mein. Monaco editor, file tree, multi-tab, cloud projects, zip upload. Preview tab se app dekho. 4GB RAM par smooth — processing cloud par.',
     },
     {
       title: 'Omni',
-      body: 'Ek hi AI brain — coding, Hinglish, app build. Experts andar chalte hain, user ko sirf Omni dikhe.',
+      body: 'Ek hi AI jo user ko dikhe — coding, debugging, full app build, Hinglish chat. Andar expert models chalte hain; bahar sirf "Omni". Cursor ke model dropdown ka confusion nahi.',
     },
     {
       title: 'Omni Memory',
-      body: 'Har user, har chat alag yaad rakhta hai — poori coding context ke saath.',
+      body: 'Har thread alag conversation yaad rakhta hai — jaise Cursor chat history, par project-linked. Naya thread = fresh context; purana wapas = poori coding history.',
     },
     {
       title: 'India Cloud',
-      body: 'Production E2E Networks par — data India mein, sovereign stack.',
+      body: 'Projects aur SaaS data E2E Networks India par deploy hone ka plan — Delhi NCR API/DB, sovereign stack. Foreign IDE par data export ki tension kam.',
     },
   ],
+
   roadmap: [
-    { phase: 'Now', label: 'Waitlist open', done: true },
-    { phase: 'Next', label: 'Aksh Studio beta (E2E)', done: false },
-    { phase: 'Later', label: 'Download & Cursor connect', done: false },
+    { phase: 'Now', label: 'Public waitlist + docs live', done: true },
+    { phase: 'Next', label: 'Aksh Studio beta on E2E Networks', done: false },
+    { phase: 'Later', label: 'INR plans · desktop bundle · enterprise VPC', done: false },
   ],
+
   form: {
     namePlaceholder: 'Your name',
     emailPlaceholder: 'you@company.com',
@@ -402,35 +490,43 @@ export const aksh = {
   },
   docsCta: {
     title: 'Documentation',
-    description: 'Install, Cursor connect, API — poori guides jaise enterprise software launch par hoti hain.',
+    description: 'Install, self-host, Cursor connect, API — har step likha hai jaise Python ya kisi bade software launch par hota hai.',
     button: 'Read the Docs',
     href: '/docs',
   },
   quickStart: [
-    { step: '01', title: 'Account', body: 'Waitlist / signup → API key copy karo' },
-    { step: '02', title: 'Aksh Studio', body: 'Browser IDE kholo — cloud projects' },
-    { step: '03', title: 'Omni', body: 'Hinglish mein bolo — code ban jayega' },
+    { step: '01', title: 'Waitlist / Account', body: 'aitotech.in/aksh par join karo → launch par API key milegi' },
+    { step: '02', title: 'Aksh Studio', body: 'Browser IDE kholo — Cursor jaisa, download optional' },
+    { step: '03', title: 'Omni se build', body: 'Hinglish mein bolo — code, files, memory auto-save' },
   ],
   faqs: [
     {
+      q: 'Kya Aksh Cursor jaisa hai?',
+      a: 'Haan — core use case same hai: AI se code likhwana, edit karna, debug karna, apps banana. Farq ye hai: Aksh browser-first hai, Hinglish native hai, cloud projects built-in hain, aur production India (E2E Networks) par target hai. Cursor desktop-heavy US SaaS hai; Aksh India ke developers ke liye alternative.',
+    },
+    {
       q: 'What is Aksh?',
-      a: 'Aksh is AitoTech\'s AI coding platform with Aksh Studio (browser IDE), Aksh Coder, and Omni — one AI brain for coding, apps, and Hinglish chat. It runs in the browser; no heavy download required.',
+      a: 'Aksh is AitoTech\'s AI coding platform — India\'s Cursor alternative. It includes Aksh Studio (browser IDE), Aksh Coder, and Omni (single AI brain). Code in English or Hinglish; no heavy download required.',
     },
     {
       q: 'Do I need to download Aksh?',
-      a: 'No. Aksh is browser-first. Open Aksh Studio from the web. Optional: connect Cursor IDE to the Omni API with model name "omni".',
+      a: 'No for most users — Aksh Studio runs in the browser like a full IDE. Optional: keep using Cursor desktop but point it to Omni API (model: omni) for the same AI brain.',
     },
     {
       q: 'When will Aksh launch?',
-      a: 'Aksh is in pre-launch. Join the waitlist at aitotech.in/aksh for early access. Production will run on E2E Networks India.',
+      a: 'Public pre-launch is live now. Join the waitlist at aitotech.in/aksh for early Studio beta on E2E Networks India.',
     },
     {
       q: 'What is Omni?',
-      a: 'Omni is the single AI brain behind Aksh. Users see only Omni; expert models run internally for accurate code and app builds.',
+      a: 'Omni is the only AI name users see — one brain for coding, apps, and Hinglish. Expert models run internally; no model picker like Cursor.',
     },
     {
       q: 'Will Aksh work on a low-end laptop?',
-      a: 'Yes. Aksh uses a thin-client design — your browser handles the UI; compute and AI run in the cloud.',
+      a: 'Yes. Thin-client design — browser UI only; AI and storage run in cloud. Ideal for students and tier-2/3 India where hardware is limited.',
+    },
+    {
+      q: 'Indian media / press contact?',
+      a: 'Press kit: aitotech.in/aksh/press. Email info@aitotech.in for interviews, demos, and launch coverage.',
     },
   ],
 } as const;

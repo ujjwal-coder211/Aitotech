@@ -24,7 +24,7 @@ export const docsHub = {
   eyebrow: 'Documentation',
   title: 'Aksh Docs',
   description:
-    'Install, configure, and build with Aksh — browser IDE, Omni AI, cloud projects, and Cursor connect. Jaise kisi bade software launch par hota hai: step-by-step guides.',
+    'Aksh — India ka Cursor alternative. Install guide, getting started, Cursor + Omni connect, API reference. Har page par step-by-step detail jaise public software launch par hoti hai.',
   quickLinks: [
     { slug: 'getting-started', title: 'Getting Started', desc: '3 steps — account, Studio, Omni' },
     { slug: 'installation', title: 'Installation', desc: 'Self-host / local dev with Docker' },
@@ -42,11 +42,12 @@ export const akshDocPages: DocPage[] = [
     sections: [
       {
         id: 'overview',
-        title: 'Kya chahiye',
-        body: 'Modern browser (Chrome, Edge, Firefox). 4GB RAM laptop par bhi chalega — compute cloud par hota hai.',
+        title: 'Aksh kya hai',
+        body: 'Aksh AitoTech ka AI coding platform hai — India ke liye Cursor alternative. Browser mein Aksh Studio (full IDE), Omni AI (ek brain), cloud projects, thread memory. Download optional; Cursor desktop bhi Omni API se connect ho sakta hai.',
         items: [
-          'Free Aksh account + API key',
-          'Optional: Cursor IDE for desktop coding with Omni backend',
+          'Modern browser — Chrome, Edge, Firefox',
+          '4GB RAM laptop OK — thin client, cloud compute',
+          'Hinglish ya English — dono se code',
         ],
       },
       {

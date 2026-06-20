@@ -2,24 +2,25 @@ import type { Metadata } from 'next';
 import { aksh, site } from '@/data/siteContent';
 import { defaultOgImage, siteUrl } from '@/lib/seo/siteUrl';
 
-const title = 'Aksh — India AI Coding Platform | Aksh Studio & Omni';
-const description =
-  'Aksh by AitoTech: browser IDE (Aksh Studio), AI coder powered by Omni, cloud projects, Hinglish support. Join waitlist — launching on E2E Networks India. No download needed.';
+const title = 'Aksh — India ka Cursor Alternative | AI Coding Platform';
+const description = aksh.heroLead;
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
     'Aksh',
+    'Cursor alternative India',
+    'Cursor alternative',
+    'India AI IDE',
     'Aksh Studio',
-    'Aksh Coder',
     'AI coding India',
     'Omni AI',
     'AitoTech',
-    'browser IDE',
-    'AI code assistant',
+    'browser IDE India',
     'Hinglish coding',
-    'India AI platform',
+    'E2E Networks',
+    'Indian developers AI',
     'waitlist',
   ],
   alternates: { canonical: `${siteUrl}/aksh` },
@@ -28,14 +29,14 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: `${siteUrl}/aksh`,
     siteName: site.name,
-    title: 'Aksh — Launching Soon | AitoTech',
-    description: aksh.description,
+    title: 'Aksh — India ka Cursor Alternative | AitoTech',
+    description: aksh.heroLead,
     images: [{ url: defaultOgImage, width: 1200, height: 630, alt: 'Aksh by AitoTech' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aksh — India AI Coding Platform',
-    description: aksh.description,
+    title: 'Aksh — India ka Cursor Alternative',
+    description: aksh.heroLead,
     images: [defaultOgImage],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
