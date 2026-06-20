@@ -180,8 +180,8 @@ export const services = [
     title: 'Data Automation',
     short: 'Connect your data. Stop copy-paste.',
     description:
-      'AI helps move data between systems in real time. Schemas map automatically. When a source changes, the pipeline fixes itself — so your team trusts every report.',
-    features: ['Real-time sync', 'Smart schema mapping', 'Data quality checks', 'Track where data came from'],
+      'AI moves data between your tools in real time. It maps fields for you. When something changes, the pipeline fixes itself — so your team trusts every report.',
+    features: ['Live sync', 'Smart field mapping', 'Data quality checks', 'See where data came from'],
     gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
     accent: 'text-cyan-400',
     bentoLg: 'lg:col-span-2 lg:row-span-2',
@@ -195,7 +195,7 @@ export const services = [
     short: 'Connect tools. Remove bottlenecks.',
     description:
       'We connect your apps, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
-    features: ['Multi-app connections', 'Smart routing', 'Full audit trail', 'Deadline tracking'],
+    features: ['Connect many apps', 'Smart routing', 'Full change history', 'Deadline alerts'],
     gradient: 'from-violet-500/20 via-indigo-500/10 to-transparent',
     accent: 'text-violet-400',
     bentoLg: 'lg:col-span-1 lg:row-span-1',
@@ -208,8 +208,8 @@ export const services = [
     title: 'Invoice Intelligence',
     short: 'From inbox to ERP in seconds.',
     description:
-      'Scan and read invoices with AI. Match to purchase orders. Catch errors. Process thousands of invoices with high accuracy and connect to your ERP.',
-    features: ['High read accuracy', '3-way matching', 'ERP connections', 'Spend reports'],
+      'Scan and read invoices with AI. Match to orders. Catch errors. Process many invoices with high accuracy and send to your business system.',
+    features: ['High read accuracy', 'Match orders to invoices', 'Business system links', 'Spend reports'],
     gradient: 'from-sky-500/20 via-cyan-500/10 to-transparent',
     accent: 'text-sky-400',
     bentoLg: 'lg:col-span-1 lg:row-span-2',
@@ -266,13 +266,13 @@ export const aboutPage = {
   },
   pillars: [
     { title: 'Mission', body: 'Make automation easy to use, easy to measure, and good for people.' },
-    { title: 'Vision', body: 'A world where every team works at the speed of insight — not manual labor.' },
+    { title: 'Vision', body: 'Every team works fast with AI — not hours of copy-paste.' },
     { title: 'Values', body: 'Honesty, security, and real results over vanity numbers.' },
   ],
   teamPlaceholder: {
     title: 'Meet the team',
     comingSoon: 'Coming soon',
-    body: 'We are preparing team profiles, leader bios, and office photos. Meanwhile, contact us — we would love to hear about your automation goals.',
+    body: 'We are preparing team profiles, leader bios, and office photos. Contact us — tell us what you want to build.',
     cta: 'Contact us',
   },
   ctaButton: 'Work with us',
@@ -285,7 +285,7 @@ export const contactPage = {
     title: "Let's",
     highlight: 'build together',
     description:
-      'Tell us about your automation goals. We reply within one business day.',
+      'Tell us what you want to build or fix. We reply within one business day.',
   },
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
@@ -316,7 +316,7 @@ export const contactPage = {
 
 /** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'building smart automation for forward-thinking companies.',
+  blurb: 'building smart AI tools for growing companies.',
   navigateTitle: 'Navigate',
   docsTitle: 'Aksh docs',
   servicesTitle: 'Services',
@@ -352,7 +352,7 @@ export const aksh = {
   subtitle: 'Aksh — AI coding tool built in India',
   tagline: 'Aksh Studio + Omni. Write code. Build apps. No big download.',
   heroLead:
-    'Aksh is an AI coding tool from AitoTech. Open a full code editor in your browser. Save projects in the cloud. Talk to one AI called Omni — no long model list. Your data can stay in India on E2E Networks. Works on a normal laptop because the heavy work runs online.',
+    'Aksh helps you write code with AI. Open a full editor in your browser. Save projects online. Talk to one AI named Omni — no long model list. Data can stay in India on E2E Networks. Works on a normal laptop because hard work runs on our servers.',
   description:
     'Aksh by AitoTech — browser editor (Aksh Studio), Omni AI, cloud projects, and chat memory. Join the waitlist before public launch.',
   elevatorPitch:
@@ -494,7 +494,7 @@ export const aksh = {
       { value: 'developer', label: 'Developer' },
       { value: 'student', label: 'Student' },
       { value: 'founder', label: 'Founder / startup' },
-      { value: 'enterprise', label: 'Company team' },
+      { value: 'enterprise', label: 'Company' },
       { value: 'other', label: 'Other' },
     ],
     interestLabel: 'I want',
@@ -508,7 +508,7 @@ export const aksh = {
   },
   docsCta: {
     title: 'Documentation',
-    description: 'Step-by-step guides: install, desktop editor API, and REST API.',
+    description: 'Step-by-step guides: install, desktop editor API, and web API.',
     button: 'Read the docs',
     href: '/docs',
   },
