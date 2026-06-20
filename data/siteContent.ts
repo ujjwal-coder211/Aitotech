@@ -8,7 +8,7 @@
 /** Brand & contact — update email, phone, socials here */
 export const site = {
   name: 'AitoTech',
-  tagline: 'Enterprise AI Automation',
+  tagline: 'AI tools for business',
   email: 'info@aitotech.in',
   // Personal mobile number website se hata diya gaya (privacy/spam se bachne ke liye).
   // Public site pe phone dikhana ho to ek business/virtual number (Google Voice,
@@ -76,101 +76,100 @@ export const navLinks = [
 ] as const;
 
 export const cta = {
-  primary: 'Schedule a Call',
-  secondary: 'View Services',
-  contact: 'Contact Sales',
+  primary: 'Book a call',
+  secondary: 'See services',
+  contact: 'Contact us',
 } as const;
 
 /** ─── HOME PAGE ─── */
 export const home = {
   hero: {
-    badge: 'Enterprise AI Automation',
-    title: 'Operational excellence,',
-    titleHighlight: 'engineered at scale.',
+    badge: 'AI for business',
+    title: 'Work smarter,',
+    titleHighlight: 'not harder.',
     description:
-      'AitoTech partners with finance, logistics, and operations teams to design automation systems that reduce manual work, improve accuracy, and deliver measurable ROI — with enterprise security and SLAs.',
-    ctaPrimary: 'Schedule a Strategy Call',
-    ctaSecondary: 'Explore Services',
-    dashboardLabel: 'Operations Command Center',
-    liveBadge: '12 workflows active',
+      'AitoTech helps teams stop doing the same manual work again and again. We use AI to save time, cut mistakes, and get clear results.',
+    ctaPrimary: 'Book a call',
+    ctaSecondary: 'See our services',
+    dashboardLabel: 'Your work dashboard',
+    liveBadge: '12 jobs running',
   },
   logoCloud: {
-    title: 'Built for teams that cannot afford downtime',
+    title: 'Built for teams that need things to stay online',
     logos: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
   },
   stats: [
-    { id: 'hours', label: 'Hours Saved', suffix: '+', value: 12000, decimals: 0 },
-    { id: 'processes', label: 'Processes Automated', suffix: '+', value: 340, decimals: 0 },
-    { id: 'clients', label: 'Enterprise Clients', suffix: '+', value: 85, decimals: 0 },
-    { id: 'roi', label: 'Avg. ROI Delivered', suffix: '×', value: 3.2, decimals: 1 },
+    { id: 'hours', label: 'Hours saved', suffix: '+', value: 12000, decimals: 0 },
+    { id: 'processes', label: 'Jobs automated', suffix: '+', value: 340, decimals: 0 },
+    { id: 'clients', label: 'Company clients', suffix: '+', value: 85, decimals: 0 },
+    { id: 'roi', label: 'Average return', suffix: '×', value: 3.2, decimals: 1 },
   ],
   bento: {
-    eyebrow: 'Capabilities',
+    eyebrow: 'What we do',
     title: 'Automation',
-    highlight: 'Architected for Scale',
-    description:
-      'Four pillars of intelligent operations — each with dedicated expertise and SLAs.',
-    viewAll: 'View all services →',
+    highlight: 'that grows with you',
+    description: 'Four main ways we help — each with a clear plan and support.',
+    viewAll: 'See all services →',
   },
   whyChooseUs: {
     eyebrow: 'Why AitoTech',
-    title: 'Built for',
-    highlight: 'Outcomes, Not Hype',
-    description: "We're an automation partner — not a vendor shipping shelfware.",
+    title: 'We focus on',
+    highlight: 'real results',
+    description: 'We are a partner who stays with you — not a company that sells and leaves.',
     items: [
       {
-        title: 'Outcome-First Delivery',
-        body: 'Every engagement starts with measurable KPIs — hours saved, error rates, cost per transaction — not slide decks.',
+        title: 'Results first',
+        body: 'We start with clear goals: hours saved, fewer errors, lower cost — not long slide decks.',
       },
       {
-        title: 'Security by Design',
-        body: 'SOC 2-aligned architecture, VPC deployments, and strict data boundaries for regulated industries.',
+        title: 'Safe by design',
+        body: 'We build with strong security and clear rules for who can see your data.',
       },
       {
-        title: 'Embedded Partnership',
-        body: 'Dedicated solution architects work alongside your team from discovery through scale — not handoff-and-vanish.',
+        title: 'We work with you',
+        body: 'Our team works side by side with yours from day one through growth.',
       },
       {
-        title: 'Adaptive Intelligence',
-        body: 'Systems that learn from your workflows and improve accuracy over time without constant re-engineering.',
+        title: 'Gets better over time',
+        body: 'Our systems learn from your work and get more accurate without rebuilding everything.',
       },
     ],
   },
   cta: {
-    title: 'Ready to modernize',
-    highlight: 'your operations?',
-    description: 'Speak with our solutions team — we will map your workflows and define clear KPIs before a single line of code is written.',
-    button: 'Book a Discovery Call',
+    title: 'Ready to improve',
+    highlight: 'how you work?',
+    description: 'Talk to our team. We will map your work and set clear goals before we write any code.',
+    button: 'Book a call',
   },
   process: {
-    eyebrow: 'How we deliver',
-    title: 'A proven path from',
-    highlight: 'discovery to ROI',
-    description: 'Structured engagements with dedicated architects, clear milestones, and outcomes you can measure.',
+    eyebrow: 'How we work',
+    title: 'A clear path from',
+    highlight: 'start to results',
+    description: 'Fixed steps, clear dates, and results you can measure.',
   },
 } as const;
 
 /** ─── SERVICES PAGE ─── */
 export const servicesPage = {
   hero: {
-    badge: 'What We Do',
-    title: 'Intelligent',
-    highlight: 'Automation Services',
+    badge: 'What we do',
+    title: 'Smart',
+    highlight: 'automation services',
     description:
-      'Each service is delivered by a dedicated pod — architects, ML engineers, and success managers aligned to your outcomes.',
+      'Each service comes with a dedicated team — engineers and support staff focused on your goals.',
     comingSoonNote:
-      'Some service pages are being expanded with case studies and demos — explore the previews below or contact us for early access.',
+      'Some service pages will get case studies and demos soon. See the previews below or contact us for early access.',
   },
   placeholder: {
-    title: 'More Content Coming Soon',
-    body: 'We are adding detailed case studies, pricing guides, and interactive demos for each service line. Check back shortly or reach out for a personalized walkthrough.',
-    cta: 'Request Early Access',
+    title: 'More content coming soon',
+    body: 'We are adding case studies, pricing guides, and demos for each service. Check back soon or contact us for a walkthrough.',
+    cta: 'Ask for early access',
   },
   processSteps: [
-    { step: '01', title: 'Discover', body: 'Map workflows and define automation KPIs with your stakeholders.' },
-    { step: '02', title: 'Design', body: 'Architect secure pipelines, integrations, and AI models for your stack.' },
-    { step: '03', title: 'Deploy', body: 'Ship to production with monitoring, SLAs, and team training.' },
-    { step: '04', title: 'Scale', body: 'Optimize continuously as volume and use cases grow.' },
+    { step: '01', title: 'Discover', body: 'We learn how you work today and set clear goals with your team.' },
+    { step: '02', title: 'Design', body: 'We plan safe systems, connections to your tools, and AI where it helps.' },
+    { step: '03', title: 'Launch', body: 'We go live with monitoring, support, and training for your team.' },
+    { step: '04', title: 'Grow', body: 'We keep improving as your volume and needs grow.' },
   ],
 } as const;
 
@@ -179,13 +178,12 @@ export const services = [
   {
     slug: 'data-automation',
     title: 'Data Automation',
-    short: 'Unify pipelines. Eliminate manual ETL.',
+    short: 'Connect your data. Stop copy-paste.',
     description:
-      'AI-driven data pipelines that sync warehouses in real time, auto-map schemas, and self-heal when sources change — so your team trusts every dashboard.',
-    features: ['Real-time CDC sync', 'Schema intelligence', 'Quality scoring', 'Lineage & compliance'],
+      'AI helps move data between systems in real time. Schemas map automatically. When a source changes, the pipeline fixes itself — so your team trusts every report.',
+    features: ['Real-time sync', 'Smart schema mapping', 'Data quality checks', 'Track where data came from'],
     gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
     accent: 'text-cyan-400',
-    /** Bento span — mobile is always 1×1; lg applies asymmetric layout */
     bentoLg: 'lg:col-span-2 lg:row-span-2',
     icon: 'database',
     comingSoon: false,
@@ -194,10 +192,10 @@ export const services = [
   {
     slug: 'workflow-automation',
     title: 'Workflow Automation',
-    short: 'Orchestrate ops without bottlenecks.',
+    short: 'Connect tools. Remove bottlenecks.',
     description:
-      'End-to-end workflow engines that connect your tools, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
-    features: ['Multi-app orchestration', 'Smart routing', 'Audit trails', 'SLA monitoring'],
+      'We connect your apps, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
+    features: ['Multi-app connections', 'Smart routing', 'Full audit trail', 'Deadline tracking'],
     gradient: 'from-violet-500/20 via-indigo-500/10 to-transparent',
     accent: 'text-violet-400',
     bentoLg: 'lg:col-span-1 lg:row-span-1',
@@ -210,8 +208,8 @@ export const services = [
     title: 'Invoice Intelligence',
     short: 'From inbox to ERP in seconds.',
     description:
-      'OCR + NLP extraction with PO matching and anomaly detection. Process thousands of invoices with 99% accuracy and full ERP integration.',
-    features: ['99% extraction accuracy', '3-way matching', 'ERP connectors', 'Spend analytics'],
+      'Scan and read invoices with AI. Match to purchase orders. Catch errors. Process thousands of invoices with high accuracy and connect to your ERP.',
+    features: ['High read accuracy', '3-way matching', 'ERP connections', 'Spend reports'],
     gradient: 'from-sky-500/20 via-cyan-500/10 to-transparent',
     accent: 'text-sky-400',
     bentoLg: 'lg:col-span-1 lg:row-span-2',
@@ -222,10 +220,10 @@ export const services = [
   {
     slug: 'custom-ai',
     title: 'Custom AI Systems',
-    short: 'Models built for your domain.',
+    short: 'AI built for your business.',
     description:
-      'Fine-tuned LLMs, RAG knowledge bases, and autonomous agents deployed in your VPC — not generic chatbots stapled onto your stack.',
-    features: ['Domain fine-tuning', 'Private RAG', 'Agent workflows', 'Human-in-the-loop'],
+      'Custom AI models, knowledge bases, and agents that run on your servers — not generic chatbots pasted onto your tools.',
+    features: ['Custom training', 'Private knowledge base', 'Agent workflows', 'Human review when needed'],
     gradient: 'from-emerald-500/15 via-cyan-500/10 to-transparent',
     accent: 'text-emerald-400',
     bentoLg: 'lg:col-span-2 lg:row-span-1',
@@ -244,11 +242,11 @@ export function getServiceBySlug(slug: string) {
 /** ─── ABOUT PAGE ─── */
 export const aboutPage = {
   hero: {
-    eyebrow: 'Our Story',
-    title: 'Engineering the',
-    highlight: 'Future of Work',
+    eyebrow: 'Our story',
+    title: 'Building the',
+    highlight: 'future of work',
     description:
-      'AitoTech was founded on a simple belief: AI should remove friction, not add complexity.',
+      'AitoTech started with one idea: AI should make work easier, not harder.',
     comingSoonBadge: 'Team profiles coming soon',
   },
   founder: {
@@ -257,27 +255,27 @@ export const aboutPage = {
     company: 'AitoTech',
     established: 'Est. 2022',
     letterTitle: 'A letter from our',
-    letterHighlight: 'Founder',
+    letterHighlight: 'founder',
     paragraphs: [
-      'I started AitoTech after a decade watching brilliant teams drown in repetitive work — copying data between systems, chasing invoice approvals, answering the same support tickets. The technology to fix this existed; the delivery model did not.',
-      'We built AitoTech to be the partner I wished I had: engineers who speak business, who measure success in hours returned to your people, and who treat security as non-negotiable. Every engagement ships with clear KPIs and a path to scale.',
-      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that\'s how we\'ve always done it." If that sounds like you — let\'s build something remarkable together.',
+      'I started AitoTech after watching smart teams waste hours on repeat work — copying data between systems, chasing invoice approvals, answering the same support tickets. The tech to fix this existed. The right partner did not.',
+      'We built AitoTech to be the partner I wished I had: engineers who understand business, who measure success in hours returned to your people, and who treat security as a must. Every project has clear goals and a path to grow.',
+      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that is how we have always done it." If that sounds like you — let us build something great together.',
     ],
-    signature: '— The AitoTech Founding Team',
-    imageAlt: 'AitoTech Founder — replace with your photo in siteContent.images.founder',
+    signature: '— The AitoTech team',
+    imageAlt: 'AitoTech founder — replace with your photo in siteContent.images.founder',
   },
   pillars: [
-    { title: 'Mission', body: 'Make enterprise automation accessible, measurable, and human-centered.' },
-    { title: 'Vision', body: 'A world where every team operates at the speed of insight — not manual labor.' },
-    { title: 'Values', body: 'Transparency, security, and outcomes over vanity metrics.' },
+    { title: 'Mission', body: 'Make automation easy to use, easy to measure, and good for people.' },
+    { title: 'Vision', body: 'A world where every team works at the speed of insight — not manual labor.' },
+    { title: 'Values', body: 'Honesty, security, and real results over vanity numbers.' },
   ],
   teamPlaceholder: {
-    title: 'Meet the Team',
-    comingSoon: 'Coming Soon',
-    body: 'We are preparing full team profiles, leadership bios, and office gallery. Meanwhile, connect with us directly — we would love to hear about your automation goals.',
-    cta: 'Contact Us',
+    title: 'Meet the team',
+    comingSoon: 'Coming soon',
+    body: 'We are preparing team profiles, leader bios, and office photos. Meanwhile, contact us — we would love to hear about your automation goals.',
+    cta: 'Contact us',
   },
-  ctaButton: 'Work With Us',
+  ctaButton: 'Work with us',
 } as const;
 
 /** ─── CONTACT PAGE ─── */
@@ -285,9 +283,9 @@ export const contactPage = {
   hero: {
     eyebrow: 'Contact',
     title: "Let's",
-    highlight: 'Build Together',
+    highlight: 'build together',
     description:
-      'Tell us about your automation goals. We respond within one business day.',
+      'Tell us about your automation goals. We reply within one business day.',
   },
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
@@ -306,7 +304,7 @@ export const contactPage = {
       name: 'Jane Smith',
       email: 'jane@company.com',
       company: 'Acme Inc.',
-      message: 'Tell us about your automation goals, team size, and timeline...',
+      message: 'Tell us about your goals, team size, and timeline...',
     },
   },
   mapPlaceholder: {
@@ -318,56 +316,56 @@ export const contactPage = {
 
 /** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'engineering intelligent automation for forward-thinking enterprises.',
+  blurb: 'building smart automation for forward-thinking companies.',
   navigateTitle: 'Navigate',
-  docsTitle: 'Aksh Docs',
+  docsTitle: 'Aksh docs',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
   socialTitle: 'Follow us',
   legal: ['Privacy', 'Terms'],
   docLinks: [
-    { href: '/docs/getting-started', label: 'Getting Started' },
+    { href: '/docs/getting-started', label: 'Getting started' },
     { href: '/docs/installation', label: 'Installation' },
-    { href: '/docs/cursor-connect', label: 'Desktop IDE API' },
-    { href: '/docs/api', label: 'API Reference' },
+    { href: '/docs/cursor-connect', label: 'Desktop editor API' },
+    { href: '/docs/api', label: 'API reference' },
   ],
 } as const;
 
 /** Service detail page shared copy */
 export const serviceDetail = {
-  ctaTitle: (name: string) => `Ready to deploy ${name}?`,
+  ctaTitle: (name: string) => `Ready to start with ${name}?`,
   ctaBody:
-    'Schedule a discovery session — we will map your workflows and define measurable outcomes.',
-  ctaButton: 'Talk to Our Team',
+    'Book a call — we will map your work and set clear goals.',
+  ctaButton: 'Talk to our team',
   comingSoon: {
-    badge: 'Coming Soon',
-    body: 'Full case studies, pricing, and live demos for this service are on the way. Contact us for early access and pilot programs.',
-    cta: 'Join Waitlist',
+    badge: 'Coming soon',
+    body: 'Full case studies, pricing, and demos for this service are on the way. Contact us for early access.',
+    cta: 'Join waitlist',
   },
 } as const;
 
-/** ─── AKSH LAUNCH PAGE (pre-launch / waitlist / press) ─── */
+/** ─── AKSH LAUNCH PAGE (coming soon / waitlist / press) ─── */
 export const aksh = {
   badge: 'Public launch · Made in India',
   title: 'Aksh',
   headline: 'Code with AI in your browser.',
-  subtitle: 'Aksh — AI coding platform built in India',
+  subtitle: 'Aksh — AI coding tool built in India',
   tagline: 'Aksh Studio + Omni. Write code. Build apps. No big download.',
   heroLead:
-    'Aksh is an AI coding platform from AitoTech. Open a full IDE in your browser. Save projects in the cloud. Talk to one AI called Omni — no confusing model list. Your data can stay in India on E2E Networks. Works on a normal laptop because the heavy work runs online.',
+    'Aksh is an AI coding tool from AitoTech. Open a full code editor in your browser. Save projects in the cloud. Talk to one AI called Omni — no long model list. Your data can stay in India on E2E Networks. Works on a normal laptop because the heavy work runs online.',
   description:
-    'Aksh by AitoTech — browser IDE (Aksh Studio), Omni AI, cloud projects, and thread memory. Join the waitlist before public launch.',
+    'Aksh by AitoTech — browser editor (Aksh Studio), Omni AI, cloud projects, and chat memory. Join the waitlist before public launch.',
   elevatorPitch:
-    'Write code, fix bugs, and ship apps with Omni — in your browser, on cloud projects, with memory that remembers your work.',
+    'Write code, fix bugs, and build apps with Omni — in your browser, on cloud projects, with memory that remembers your work.',
   elevatorLabel: 'In one line',
-  cta: 'Join the Waitlist',
+  cta: 'Join the waitlist',
   ctaSecondary: 'Press kit',
   ctaHint: 'Early access · launch news · no spam',
-  status: 'Pre-launch — waitlist is open · Studio beta coming soon',
+  status: 'Coming soon — waitlist is open · Studio beta next',
   waitlistSubtitle:
     'Join the waitlist for early access. We will email you when Aksh Studio opens.',
   platformTitle: 'What you get',
-  platformSubtitle: 'Not just chat — a full product: IDE, AI, memory, and cloud storage.',
+  platformSubtitle: 'Not just chat — a full product: editor, AI, memory, and cloud storage.',
   quickStartTitle: 'After launch — 3 steps',
   faqTitle: 'Questions and answers',
   pressSectionTitle: 'Press and media',
@@ -380,45 +378,45 @@ export const aksh = {
     contactEmail: site.email,
     contactLabel: 'Press contact',
     short:
-      'Aksh is AitoTech\'s AI coding platform for India — browser IDE (Aksh Studio), one AI named Omni, cloud projects, and hosting on E2E Networks.',
+      'Aksh is AitoTech\'s AI coding tool for India — browser editor (Aksh Studio), one AI named Omni, cloud projects, and hosting on E2E Networks.',
     medium:
-      'AitoTech, based in Delhi, India, is launching Aksh — an AI coding platform for developers. Aksh Studio is a full IDE in the browser. Omni handles all coding help in one place. Projects save in the cloud. It runs on low-RAM laptops because AI work happens online. Production will use E2E Networks in India. Waitlist: aitotech.in/aksh.',
+      'AitoTech, based in Delhi, India, is launching Aksh — an AI coding tool for developers. Aksh Studio is a full editor in the browser. Omni handles all coding help in one place. Projects save in the cloud. It runs on low-RAM laptops because AI work happens online. Live servers will use E2E Networks in India. Waitlist: aitotech.in/aksh.',
     long:
-      'AitoTech (aitotech.in) builds AI tools for businesses in Delhi, India. The company is launching Aksh — a coding platform with Aksh Studio (browser IDE with editor, files, and preview), Aksh Coder, and Omni (one AI for the user — no model picker). Projects live in the cloud. The browser is the app; servers do the heavy work. Production will run on E2E Networks so data can stay in India. Developers use plain English with Omni. Optional API connects desktop coding tools. Waitlist: aitotech.in/aksh. Press: info@aitotech.in.',
+      'AitoTech (aitotech.in) builds AI tools for businesses in Delhi, India. The company is launching Aksh — a coding tool with Aksh Studio (browser editor with files and preview), Aksh Coder, and Omni (one AI for the user — no model picker). Projects live in the cloud. The browser is the app; servers do the heavy work. Live servers will run on E2E Networks so data can stay in India. Developers use plain English with Omni. You can connect a desktop coding tool through the API. Waitlist: aitotech.in/aksh. Press: info@aitotech.in.',
     facts: [
       { label: 'Product', value: 'Aksh — AI coding (Studio + Coder + Omni)' },
-      { label: 'What it is', value: 'Browser-first AI coding platform for India' },
+      { label: 'What it is', value: 'Browser-first AI coding tool for India' },
       { label: 'Company', value: 'AitoTech, Delhi, India' },
-      { label: 'Status', value: 'Pre-launch; waitlist open' },
-      { label: 'Hosting', value: 'E2E Networks India (production plan)' },
+      { label: 'Status', value: 'Coming soon; waitlist open' },
+      { label: 'Hosting', value: 'E2E Networks India (live plan)' },
       { label: 'Language', value: 'Plain English commands to Omni' },
       { label: 'Website', value: 'https://aitotech.in/aksh' },
       { label: 'Press email', value: 'info@aitotech.in' },
     ],
     quote:
-      'Developers in India deserve a serious AI coding platform — browser IDE, one clear AI, data at home. That is Aksh, powered by Omni.',
+      'Developers in India deserve a serious AI coding tool — browser editor, one clear AI, data at home. That is Aksh, powered by Omni.',
     quoteAttribution: 'AitoTech team',
   },
 
   differentiators: {
     title: 'What makes Aksh different',
-    subtitle: 'Our own product. Features you will not get bundled the same way anywhere else.',
+    subtitle: 'Our own product. Features you get together in one place.',
     items: [
       {
-        title: 'Browser-first IDE',
-        body: 'Aksh Studio is a full IDE in Chrome or Edge — editor, files, preview, and AI in one tab. No 2 GB installer.',
+        title: 'Works in your browser',
+        body: 'Aksh Studio is a full editor in Chrome or Edge — files, preview, and AI in one tab. No 2 GB download.',
       },
       {
         title: 'One AI: Omni',
-        body: 'You talk to Omni only. No GPT vs Claude vs ten other models. Omni picks the best engine behind the scenes.',
+        body: 'You talk to Omni only. No long list of models. Omni picks the best engine behind the scenes.',
       },
       {
         title: 'Omni Memory',
-        body: 'Each thread keeps your project context. Come back tomorrow — Omni still knows your codebase.',
+        body: 'Each chat saves your project story. Come back tomorrow — Omni still knows your code.',
       },
       {
         title: 'Cloud projects',
-        body: 'Code lives on the server. Upload a zip, edit online, sync from anywhere. Built in, not an add-on.',
+        body: 'Code lives on the server. Upload a zip, edit online, open from anywhere. Built in, not an add-on.',
       },
       {
         title: 'Light on your laptop',
@@ -426,7 +424,7 @@ export const aksh = {
       },
       {
         title: 'India hosting plan',
-        body: 'Production targets E2E Networks — API, database, and storage in India for teams that care where code runs.',
+        body: 'Live servers will use E2E Networks — API, database, and storage in India for teams that care where code runs.',
       },
     ],
   },
@@ -436,14 +434,14 @@ export const aksh = {
     items: [
       {
         title: 'Data stays in India',
-        body: 'We plan to run production on E2E Networks — API, database, and storage in India. Good for companies that care where data lives.',
+        body: 'We plan to run live servers on E2E Networks — API, database, and storage in India. Good for companies that care where data lives.',
       },
       {
         title: 'Simple English works',
         body: 'Tell Omni what you want in plain English. Example: "Build a login page" or "Fix this bug." No need for perfect technical words.',
       },
       {
-        title: 'Browser is the IDE',
+        title: 'Browser is the editor',
         body: 'Open Chrome and start coding. No large download. Works on old laptops, college labs, and slow internet better than a heavy desktop app.',
       },
       {
@@ -456,17 +454,17 @@ export const aksh = {
   audiences: {
     title: 'Who is Aksh for?',
     items: [
-      { title: 'Developers', body: 'Ship faster with Omni, cloud projects, and a browser IDE you can open anywhere.' },
+      { title: 'Developers', body: 'Ship faster with Omni, cloud projects, and a browser editor you can open anywhere.' },
       { title: 'Students', body: 'Code in the browser on any laptop. Free tier planned.' },
-      { title: 'Startups', body: 'Build an MVP fast with Omni. Save projects in the cloud.' },
-      { title: 'Companies', body: 'Data in India, private deploy options, E2E hosting.' },
+      { title: 'Startups', body: 'Build your first app fast with Omni. Save projects in the cloud.' },
+      { title: 'Companies', body: 'Data in India, private server options, E2E hosting.' },
     ],
   },
 
   features: [
     {
       title: 'Aksh Studio',
-      body: 'A full IDE in your browser. Editor, file tree, tabs, cloud projects, zip upload, and preview. Smooth on 4 GB RAM because AI runs in the cloud.',
+      body: 'A full editor in your browser. Files, tabs, cloud projects, zip upload, and preview. Smooth on 4 GB RAM because AI runs in the cloud.',
     },
     {
       title: 'Omni',
@@ -474,7 +472,7 @@ export const aksh = {
     },
     {
       title: 'Omni Memory',
-      body: 'Each chat thread remembers your project. Open an old thread and Omni still knows what you built. New thread = fresh start.',
+      body: 'Each chat remembers your project. Open an old chat and Omni still knows what you built. New chat = fresh start.',
     },
     {
       title: 'India cloud',
@@ -485,7 +483,7 @@ export const aksh = {
   roadmap: [
     { phase: 'Now', label: 'Waitlist and docs are live', done: true },
     { phase: 'Next', label: 'Aksh Studio beta on E2E Networks', done: false },
-    { phase: 'Later', label: 'India pricing · desktop option · company VPC', done: false },
+    { phase: 'Later', label: 'India pricing · desktop option · company servers', done: false },
   ],
 
   form: {
@@ -501,7 +499,7 @@ export const aksh = {
     ],
     interestLabel: 'I want',
     interests: [
-      { value: 'studio', label: 'Aksh Studio (IDE)' },
+      { value: 'studio', label: 'Aksh Studio (editor)' },
       { value: 'coder', label: 'Aksh Coder (AI coding)' },
       { value: 'both', label: 'Both' },
     ],
@@ -510,23 +508,23 @@ export const aksh = {
   },
   docsCta: {
     title: 'Documentation',
-    description: 'Step-by-step guides: install, desktop IDE API, and REST API.',
+    description: 'Step-by-step guides: install, desktop editor API, and REST API.',
     button: 'Read the docs',
     href: '/docs',
   },
   quickStart: [
     { step: '01', title: 'Join waitlist', body: 'Sign up at aitotech.in/aksh. Get your API key when we launch.' },
-    { step: '02', title: 'Open Aksh Studio', body: 'Use the IDE in your browser. No big install needed.' },
+    { step: '02', title: 'Open Aksh Studio', body: 'Use the editor in your browser. No big install needed.' },
     { step: '03', title: 'Ask Omni', body: 'Type what you want in simple English. Omni writes the code.' },
   ],
   faqs: [
     {
       q: 'What makes Aksh different?',
-      a: 'Browser IDE, one AI (Omni), cloud projects, thread memory, and India hosting — built together as one platform. You do not install a heavy desktop app or pick from many AI models.',
+      a: 'Browser editor, one AI (Omni), cloud projects, chat memory, and India hosting — built together as one tool. You do not install a heavy desktop app or pick from many AI models.',
     },
     {
       q: 'What is Aksh?',
-      a: 'Aksh is AitoTech\'s AI coding platform. It includes Aksh Studio (browser IDE), Aksh Coder, and Omni. Write code in plain English and save work in the cloud.',
+      a: 'Aksh is AitoTech\'s AI coding tool. It includes Aksh Studio (browser editor), Aksh Coder, and Omni. Write code in plain English and save work in the cloud.',
     },
     {
       q: 'Do I need to download anything?',
@@ -534,7 +532,7 @@ export const aksh = {
     },
     {
       q: 'When does Aksh launch?',
-      a: 'We are in pre-launch now. Join the waitlist at aitotech.in/aksh for early access to Aksh Studio.',
+      a: 'We are coming soon. Join the waitlist at aitotech.in/aksh for early access to Aksh Studio.',
     },
     {
       q: 'What is Omni?',

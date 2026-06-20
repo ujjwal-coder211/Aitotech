@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { aksh, site } from '@/data/siteContent';
 import { defaultOgImage, siteUrl } from '@/lib/seo/siteUrl';
 
-const title = 'Aksh — AI Coding Platform | AitoTech';
+const title = 'Aksh — AI coding tool | AitoTech';
 const description = aksh.heroLead;
 
 export const metadata: Metadata = {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description,
   keywords: [
     'Aksh',
-    'AI coding platform',
-    'India AI IDE',
+    'AI coding tool',
+    'India AI editor',
     'Aksh Studio',
     'Omni AI',
     'AitoTech',
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: `${siteUrl}/aksh`,
     siteName: site.name,
-    title: 'Aksh — AI Coding Platform | AitoTech',
+    title: 'Aksh — AI coding tool | AitoTech',
     description: aksh.heroLead,
     images: [{ url: defaultOgImage, width: 1200, height: 630, alt: 'Aksh by AitoTech' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aksh — AI Coding Platform',
+    title: 'Aksh — AI coding tool',
     description: aksh.heroLead,
     images: [defaultOgImage],
   },

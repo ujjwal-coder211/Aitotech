@@ -6,7 +6,7 @@ import FounderSection from '@/components/FounderSection';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: "Learn about AitoTech's mission and approach to enterprise automation.",
+  description: "Learn about AitoTech's mission and how we help teams with AI automation.",
 };
 
 export default function AboutPage() {

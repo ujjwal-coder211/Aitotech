@@ -19,7 +19,7 @@ function StudioMockup() {
       </div>
       <div className="grid min-h-[300px] grid-cols-[120px_1fr_140px] text-xs">
         <div className="border-r border-zinc-800 bg-[#050508] p-3 text-zinc-500">
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Threads</p>
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Chats</p>
           <div className="mb-1 rounded bg-violet-500/15 px-2 py-1 text-violet-300">Todo app</div>
           <div className="px-2 py-1">Bug fix</div>
         </div>
@@ -252,7 +252,7 @@ export default function AkshLaunchPage() {
         {/* Roadmap */}
         <section className="section-pad border-t border-zinc-800/80">
           <div className="container-page max-w-2xl">
-            <h2 className="font-display text-center text-2xl font-bold text-white">Launch roadmap</h2>
+            <h2 className="font-display text-center text-2xl font-bold text-white">Launch plan</h2>
             <ul className="mt-10 space-y-4">
               {aksh.roadmap.map((step) => (
                 <li key={step.label} className="flex items-center gap-4 rounded-xl border border-zinc-800 bg-[#0a0a0f] px-5 py-4">

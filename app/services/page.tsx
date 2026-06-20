@@ -8,7 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Enterprise AI automation services — data, workflows, invoices, and custom intelligent systems.',
+  description: 'AI automation services — data, workflows, invoices, and custom AI systems.',
 };
 
 export default async function ServicesPage() {

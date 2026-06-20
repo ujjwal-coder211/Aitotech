@@ -1,4 +1,4 @@
-/** Aksh docs — simple English, product-first (no competitor marketing) */
+/** Aksh docs — very simple English, product-first (no competitor marketing) */
 
 export type DocSection = {
   id: string;
@@ -24,13 +24,13 @@ export const docsHub = {
   title: 'Aksh docs',
   headline: 'Learn Aksh — step by step',
   description:
-    'Aksh is an AI coding platform: browser IDE (Aksh Studio), one AI (Omni), cloud projects, and thread memory. Pick a guide below.',
+    'Aksh is an AI coding tool: browser editor (Aksh Studio), one AI (Omni), cloud projects, and chat memory. Pick a guide below.',
   intro:
     'New users: start with Getting Started. Want your own server: read Installation. Need a desktop editor with Omni: read Connect a desktop editor. Every page uses clear steps.',
   quickLinks: [
     {
       slug: 'getting-started',
-      title: 'Getting Started',
+      title: 'Getting started',
       desc: 'Join the waitlist, open Aksh Studio, talk to Omni. No big download.',
     },
     {
@@ -41,12 +41,12 @@ export const docsHub = {
     {
       slug: 'cursor-connect',
       title: 'Connect a desktop editor',
-      desc: 'Use Omni from a desktop coding tool via the OpenAI-compatible API. Model: omni.',
+      desc: 'Use Omni from a desktop coding tool via the OpenAI-style API. Model: omni.',
     },
     {
       slug: 'omni-memory',
       title: 'Omni memory',
-      desc: 'Each chat thread remembers your project. Open an old thread and Omni still knows the context.',
+      desc: 'Each chat remembers your project. Open an old chat and Omni still knows your work.',
     },
     {
       slug: 'cloud-projects',
@@ -56,11 +56,11 @@ export const docsHub = {
     {
       slug: 'api',
       title: 'API reference',
-      desc: 'Connect your own app to Omni chat, threads, and projects.',
+      desc: 'Connect your own app to Omni chat, chats, and projects.',
     },
   ],
   strengthsNote:
-    'Aksh bundles a browser IDE, one AI (Omni), cloud projects, thread memory, and India hosting — as one platform. You open a tab and start building.',
+    'Aksh gives you a browser editor, one AI (Omni), cloud projects, chat memory, and India hosting — in one tool. Open a tab and start building.',
   links: [
     { href: '/aksh', label: 'Launch page and waitlist' },
     { href: '/aksh/press', label: 'Press kit' },
@@ -80,12 +80,12 @@ export const akshDocPages: DocPage[] = [
         id: 'what',
         title: 'What is Aksh?',
         body:
-          'Aksh is an AI coding platform from AitoTech. You get AI chat, code generation, file edits, and app builds. Aksh Studio runs in Chrome or Edge. Omni is the one AI you talk to. Projects save in the cloud.',
+          'Aksh is an AI coding tool from AitoTech. You get AI chat, code writing, file edits, and app builds. Aksh Studio runs in Chrome or Edge. Omni is the one AI you talk to. Projects save in the cloud.',
         items: [
-          'Browser IDE — no heavy desktop install',
+          'Browser editor — no heavy desktop install',
           'One AI: Omni — no model list to manage',
-          'Cloud projects and thread memory built in',
-          'Optional: connect a desktop editor through the API (see docs)',
+          'Cloud projects and chat memory built in',
+          'You can choose: connect a desktop editor through the API (see docs)',
         ],
       },
       {
@@ -95,13 +95,13 @@ export const akshDocPages: DocPage[] = [
           'A modern browser: Chrome, Edge, or Firefox',
           'Internet connection',
           'A waitlist spot (aitotech.in/aksh#waitlist) until public launch',
-          'Optional: a desktop editor that supports OpenAI-compatible APIs',
+          'Not needed for most users: a desktop editor that supports OpenAI-style APIs',
         ],
       },
       {
         id: 'step1',
         title: 'Step 1 — Join the waitlist',
-        body: 'Aksh is in pre-launch. Join the waitlist to get early access.',
+        body: 'Aksh is coming soon. Join the waitlist to get early access.',
         items: [
           'Go to https://aitotech.in/aksh#waitlist',
           'Enter your name, email, and role',
@@ -111,12 +111,12 @@ export const akshDocPages: DocPage[] = [
       {
         id: 'step2',
         title: 'Step 2 — Open Aksh Studio',
-        body: 'Aksh Studio is the browser IDE — editor, files, preview, and Omni in one place.',
+        body: 'Aksh Studio is the browser editor — files, preview, and Omni in one place.',
         items: [
           'Open /web/studio/ (local test: http://127.0.0.1:8000/web/studio/)',
           'Paste your API key in Settings and save',
           'Click New Project or Upload zip',
-          'Left: files and threads · Center: editor · Right: Omni chat',
+          'Left: files and chats · Center: editor · Right: Omni chat',
         ],
       },
       {
@@ -127,7 +127,7 @@ export const akshDocPages: DocPage[] = [
 "Build a todo app in React"
 "Add a login page"
 "Fix the bug in App.js"`,
-        note: 'Omni saves files and remembers the thread. Next guide: Omni Memory.',
+        note: 'Omni saves files and remembers the chat. Next guide: Omni Memory.',
       },
       {
         id: 'desktop-path',
@@ -141,7 +141,7 @@ export const akshDocPages: DocPage[] = [
         items: [
           'Run your own server: /docs/installation',
           'Desktop editor + Omni: /docs/cursor-connect',
-          'Build an integration: /docs/api',
+          'Build a connection: /docs/api',
           'Press text: /aksh/press',
         ],
       },
@@ -169,7 +169,7 @@ export const akshDocPages: DocPage[] = [
           'Python 3.11 or newer',
           'Docker Desktop (recommended)',
           'PostgreSQL 15+ (Docker can start it for you)',
-          'Redis optional',
+          'Redis not required',
           'Git',
           'OpenRouter API key (powers Omni)',
         ],
@@ -216,7 +216,7 @@ python scripts/verify_setup.py`,
       },
       {
         id: 'prod',
-        title: 'Step 5 — Production in India',
+        title: 'Step 5 — Go live in India',
         body:
           'Public Aksh will run on E2E Networks: API and database in Delhi, GPU in Chennai. Full steps are in the Saas repo file docs/E2E_DEPLOY.md.',
         items: [
@@ -241,7 +241,7 @@ python scripts/verify_setup.py`,
     slug: 'cursor-connect',
     title: 'Connect a desktop editor',
     description:
-      'Use Omni from a desktop coding tool that supports OpenAI-compatible APIs. Same AI as Aksh Studio. Model name must be omni.',
+      'Use Omni from a desktop coding tool that supports OpenAI-style APIs. Same AI as Aksh Studio. Model name must be omni.',
     badge: 'Optional',
     sections: [
       {
@@ -255,20 +255,20 @@ python scripts/verify_setup.py`,
         title: 'Setup steps',
         items: [
           '1. Get your API key from /web/dashboard/',
-          '2. In your editor: Settings → Models → Add OpenAI-compatible provider',
+          '2. In your editor: Settings → Models → Add OpenAI-style provider',
           '3. Base URL (live): https://api.aksh.aitotech.in/v1',
           '4. Base URL (local): http://127.0.0.1:8000/v1',
           '5. Paste your API key',
           '6. Model name: omni (required)',
           '7. Select omni in the editor chat',
         ],
-        note: 'Some desktop AI code editors (including Cursor) support this API format. Steps may vary slightly by tool.',
+        note: 'Some desktop AI code editors support this API format. Steps may vary slightly by tool.',
       },
       {
         id: 'vs-studio',
         title: 'Desktop editor vs Aksh Studio',
         body:
-          'Aksh Studio is the full IDE in your browser with Omni and cloud projects. A desktop editor plus Omni API uses the same AI but keeps files local to that tool. Thread memory works best in Aksh Studio or direct API calls.',
+          'Aksh Studio is the full editor in your browser with Omni and cloud projects. A desktop editor plus Omni API uses the same AI but keeps files local to that tool. Chat memory works best in Aksh Studio or direct API calls.',
       },
       {
         id: 'single-face',
@@ -300,28 +300,28 @@ python scripts/verify_setup.py`,
     slug: 'omni-memory',
     title: 'Omni memory',
     description:
-      'Each chat thread saves your history. Omni remembers what you built. New thread = fresh start.',
+      'Each chat saves your history. Omni remembers what you built. New chat = fresh start.',
     badge: 'Core feature',
     sections: [
       {
         id: 'problem',
         title: 'What problem does it solve?',
         body:
-          'Without memory, the AI forgets your project every time. Omni Memory stores each thread so you can say "fix the login page" and Omni still knows your files.',
+          'Without memory, the AI forgets your project every time. Omni Memory stores each chat so you can say "fix the login page" and Omni still knows your files.',
       },
       {
         id: 'what',
         title: 'How it works',
-        body: 'Chats save in a Postgres database. Each user only sees their own threads.',
+        body: 'Chats save in a Postgres database. Each user only sees their own chats.',
       },
       {
         id: 'studio',
         title: 'In Aksh Studio',
         items: [
-          'Left panel shows your threads',
-          'New Thread — start fresh',
-          'Click an old thread — Omni gets full history',
-          'Name threads by feature or bug',
+          'Left panel shows your chats',
+          'New Chat — start fresh',
+          'Click an old chat — Omni gets full history',
+          'Name chats by feature or bug',
         ],
       },
       {
@@ -347,7 +347,7 @@ POST /v1/chat
     title: 'Cloud projects',
     description:
       'Your code lives on the server. Edit in the browser. Upload a zip. Omni can change files. Good for weak laptops.',
-    badge: 'Thin client',
+    badge: 'Light laptop',
     sections: [
       {
         id: 'why',
@@ -397,14 +397,14 @@ POST /api/projects/{id}/upload  (zip file)`,
     slug: 'api',
     title: 'API reference',
     description:
-      'HTTP API for Omni chat, threads, and projects. Use a Bearer token from your dashboard.',
+      'HTTP API for Omni chat, chats, and projects. Use a Bearer token from your dashboard.',
     badge: 'Developers',
     sections: [
       {
         id: 'base',
         title: 'Base URLs',
         items: [
-          'Production (plan): https://api.aksh.aitotech.in',
+          'Live (plan): https://api.aksh.aitotech.in',
           'Local: http://127.0.0.1:8000',
           'OpenAI style: /v1/chat/completions',
           'Native chat: /v1/chat',
@@ -429,7 +429,7 @@ POST /api/projects/{id}/upload  (zip file)`,
       {
         id: 'openai',
         title: 'POST /v1/chat/completions',
-        body: 'For OpenAI-compatible tools and custom integrations:',
+        body: 'For OpenAI-style tools and custom connections:',
         code: `{
   "model": "omni",
   "messages": [{"role": "user", "content": "Hello"}]
@@ -437,7 +437,7 @@ POST /api/projects/{id}/upload  (zip file)`,
       },
       {
         id: 'threads',
-        title: 'Threads',
+        title: 'Chats (threads)',
         items: [
           'GET /api/threads — list',
           'POST /api/threads — create',

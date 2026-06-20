@@ -5,7 +5,7 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact AitoTech for enterprise automation consulting and discovery sessions.',
+  description: 'Contact AitoTech for AI automation help and to book a call.',
 };
 
 const iconMap: Record<string, string> = {

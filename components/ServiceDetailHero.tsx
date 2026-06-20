@@ -41,7 +41,7 @@ export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
           <ServiceIcon name={service.icon} className="h-8 w-8 sm:h-10 sm:w-10" />
         </div>
         <p className="max-w-xs text-center text-sm text-zinc-500">
-          Enterprise-grade delivery · Dedicated pod · SLA-backed
+          Strong delivery · Dedicated team · Ongoing support
         </p>
       </motion.div>
     </div>

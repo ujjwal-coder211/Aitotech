@@ -66,9 +66,9 @@ export default function DocsHubPage() {
       </div>
 
       <div className="rounded-2xl border border-line bg-surface-card p-6 sm:p-8">
-        <h2 className="font-display text-lg font-semibold text-white">Product source code</h2>
+        <h2 className="font-display text-lg font-semibold text-white">Product code on GitHub</h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-          Self-host and deploy from GitHub. Ops guide:{' '}
+          Run Aksh on your own server from GitHub. Server setup guide:{' '}
           <code className="rounded bg-surface-hover px-1.5 py-0.5 text-zinc-300">docs/E2E_DEPLOY.md</code>{' '}
           (E2E Networks — Delhi, Chennai GPU).
         </p>

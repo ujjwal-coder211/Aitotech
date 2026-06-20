@@ -23,14 +23,14 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — Enterprise AI Automation`,
+    default: `${site.name} — AI tools for business`,
     template: `%s | ${site.name}`,
   },
   description:
-    'AitoTech delivers enterprise-grade AI automation — data pipelines, workflow orchestration, invoice intelligence, and Aksh AI coding platform. Delhi, India.',
+    'AitoTech builds AI tools for business — data automation, workflows, invoice reading, and Aksh AI coding. Delhi, India.',
   keywords: [
-    'enterprise automation',
     'AI automation',
+    'business automation',
     site.name,
     'Aksh',
     'Omni AI',
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteUrl,
     siteName: site.name,
-    title: `${site.name} — Enterprise AI Automation`,
-    description: 'Enterprise AI automation and Aksh coding platform by AitoTech, India.',
+    title: `${site.name} — AI tools for business`,
+    description: 'AI automation and Aksh coding tool by AitoTech, India.',
     images: [{ url: '/images/og-aksh.svg', width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: 'summary_large_image',
     title: site.name,
-    description: 'Enterprise AI automation · Aksh AI coding platform',
+    description: 'AI automation · Aksh AI coding tool',
     images: ['/images/og-aksh.svg'],
   },
   robots: { index: true, follow: true },
