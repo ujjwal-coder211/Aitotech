@@ -26,13 +26,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'aksh_demo_mock' }, { status: 503 });
   }
 
-  const base = isAksh ? getAkshApiUrl() : getAgentsApiUrl() ?? getAkshApiUrl();
+  const base = isAksh ? getAkshApiUrl() : getAgentsApiUrl();
   if (!base) {
     return NextResponse.json(
       {
         error: isAksh
-          ? 'Aksh API is not configured (set AKSH_API_URL on Vercel).'
-          : 'AI assistant is not configured yet.',
+          ? 'Aksh live API is off. The /aksh demo uses free mock mode on the website.'
+          : 'AI assistant is not configured (set AGENTS_API_URL for the site chat widget).',
       },
       { status: 503 }
     );
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const secret = isAksh ? getAkshApiKey() : getAgentsApiKey() ?? getAkshApiKey();
+    const secret = isAksh ? getAkshApiKey() : getAgentsApiKey();
     if (secret) {
       headers['X-Agents-Key'] = secret;
     }

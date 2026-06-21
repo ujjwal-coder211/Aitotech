@@ -372,18 +372,7 @@ export async function streamText(
 }
 
 export async function fetchOmniReply(message: string): Promise<{ answer: string; live: boolean }> {
-  try {
-    const res = await fetch('/api/agent-chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, agent_type: 'aksh' }),
-    });
-    const data = await res.json();
-    if (res.ok && data.answer && !looksLikeSalesBot(data.answer)) {
-      return { answer: data.answer, live: true };
-    }
-  } catch {
-    /* fall through to mock */
-  }
+  // Aksh Studio on aitotech.in = pitch demo only. No paid API calls from the website.
+  // Live Omni runs on Railway Aksh Studio after launch — not via this marketing widget.
   return { answer: resolveMockDemo(message).reply, live: false };
 }
