@@ -341,6 +341,13 @@ Try: "Add dark mode" or "Deploy to E2E Networks".`,
 const DEFAULT_MOCK_REPLY =
   'Got it. I updated the project based on your request. Check the editor — files are saved to your cloud project in Aksh Studio.';
 
+/** Old sales agents bot replies — never show these in Aksh Studio demo */
+function looksLikeSalesBot(text: string): boolean {
+  return /₹\s*49,?999|book a call|contact form|hamari team|web development service|Namaste!.*AitoTech/i.test(
+    text
+  );
+}
+
 export function resolveMockDemo(userMessage: string): { reply: string; fileUpdates: Partial<Record<string, string>> } {
   for (const scenario of MOCK_SCENARIOS) {
     if (scenario.match.test(userMessage)) {
@@ -372,7 +379,7 @@ export async function fetchOmniReply(message: string): Promise<{ answer: string;
       body: JSON.stringify({ message, agent_type: 'aksh' }),
     });
     const data = await res.json();
-    if (res.ok && data.answer) {
+    if (res.ok && data.answer && !looksLikeSalesBot(data.answer)) {
       return { answer: data.answer, live: true };
     }
   } catch {
