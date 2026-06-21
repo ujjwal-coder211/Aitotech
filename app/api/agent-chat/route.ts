@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getAkshApiKey, getAkshApiUrl } from '@/lib/akshApi';
 
 /**
- * Same-origin proxy for the AI chat widget.
- * Browser -> /api/agent-chat -> Aitotech-agents /public/chat
- * Keeps AGENTS_API_URL server-side and avoids CORS in the browser.
+ * Same-origin proxy for the AI chat widget + Aksh demo.
+ * Browser -> /api/agent-chat -> Railway Aksh /public/chat
+ * Set AKSH_API_URL on Vercel (AGENTS_API_URL is kept for the separate agents project).
  */
 
 /** Groq can take 20–30s; allow enough time on Vercel (Pro: up to 60s). */
 export const maxDuration = 60;
 
 export async function POST(request: NextRequest) {
-  const base = process.env.AGENTS_API_URL?.replace(/\/$/, '');
+  const base = getAkshApiUrl();
   if (!base) {
     return NextResponse.json(
       { error: 'AI assistant is not configured yet.' },
@@ -32,7 +33,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const agentsKey = process.env.AGENTS_API_KEY?.trim();
+    const agentsKey = getAkshApiKey();
     if (agentsKey) {
       headers['X-Agents-Key'] = agentsKey;
     }
