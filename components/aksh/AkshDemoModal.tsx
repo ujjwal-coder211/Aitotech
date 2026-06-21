@@ -39,18 +39,18 @@ export default function AkshDemoModal({
             <div className="flex shrink-0 items-start justify-between gap-3 border-b border-zinc-800 px-4 py-3 sm:px-5">
               <div>
                 <p id="aksh-demo-title" className="font-display text-lg font-bold text-white sm:text-xl">
-                  Try Aksh Studio
+                  Aksh Studio — product demo
                 </p>
                 <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">
-                  Interactive preview — chat with Omni, watch code update. Join the waitlist for full cloud projects.
+                  Interactive preview for investors and experts. Run the 90s vision tour or chat with Omni.
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 <Link
-                  href="/aksh/demo"
+                  href="/aksh/demo?tour=1"
                   className="hidden rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:inline-flex"
                 >
-                  Full screen
+                  Vision tour
                 </Link>
                 <button
                   type="button"
@@ -66,13 +66,16 @@ export default function AkshDemoModal({
             </div>
 
             <div className="min-h-0 flex-1 overflow-auto p-3 sm:p-4">
-              <AkshStudioDemo key={initialPrompt || 'default'} initialPrompt={initialPrompt} compact />
+              <AkshStudioDemo key={initialPrompt || 'default'} initialPrompt={initialPrompt} compact showPitchControls={false} />
             </div>
 
             <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-zinc-800 bg-[#050508]/90 px-4 py-3 sm:px-5">
               <p className="text-[11px] text-zinc-500 sm:text-xs">
-                Demo uses simulated replies when live Omni is not configured. Set{' '}
-                <code className="rounded bg-zinc-900 px-1 text-violet-300">AGENTS_API_URL</code> for live answers.
+                Share{' '}
+                <Link href="/aksh/demo?tour=1" className="text-violet-300 hover:underline">
+                  aitotech.in/aksh/demo?tour=1
+                </Link>{' '}
+                for pitch-ready guided demo.
               </p>
               <Link
                 href="#waitlist"

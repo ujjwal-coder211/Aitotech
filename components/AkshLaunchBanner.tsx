@@ -13,8 +13,14 @@ export default function AkshLaunchBanner() {
         </div>
         <div className="flex shrink-0 flex-wrap justify-center gap-2">
           <Link
-            href="/aksh#waitlist"
+            href="/aksh/demo?tour=1"
             className="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-violet-500"
+          >
+            Try live demo
+          </Link>
+          <Link
+            href="/aksh#waitlist"
+            className="rounded-lg border border-zinc-700 px-4 py-2 text-xs font-semibold text-zinc-300 transition hover:border-zinc-500"
           >
             Join waitlist
           </Link>

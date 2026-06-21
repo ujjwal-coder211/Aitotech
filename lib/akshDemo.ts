@@ -1,5 +1,77 @@
 /** Aksh marketing demo — presets, mock replies, and simulated streaming */
 
+export type WorkMode = 'ship' | 'fix' | 'extend' | 'guard' | 'deploy' | 'auto';
+
+export const WORK_MODES: { id: WorkMode; label: string; hint: string }[] = [
+  { id: 'ship', label: 'Ship', hint: 'Build new features from English' },
+  { id: 'fix', label: 'Fix', hint: 'Find and patch bugs' },
+  { id: 'extend', label: 'Extend', hint: 'Add to existing code' },
+  { id: 'guard', label: 'Guard', hint: 'Security scan before deploy' },
+  { id: 'deploy', label: 'Deploy', hint: 'Ship to E2E Networks India' },
+  { id: 'auto', label: 'Auto', hint: 'Omni picks the best mode' },
+];
+
+export type PitchTourStep = {
+  mode: WorkMode;
+  label: string;
+  prompt: string;
+  narration: string;
+  panel?: 'code' | 'preview' | 'terminal';
+  showPreview?: boolean;
+  terminalLines?: string[];
+  delayAfterMs: number;
+};
+
+/** Scripted 90-second vision tour for investors, press, and expert demos */
+export const PITCH_TOUR_STEPS: PitchTourStep[] = [
+  {
+    mode: 'ship',
+    label: 'Build from English',
+    prompt: 'Build a todo app with add, complete, and delete.',
+    narration:
+      'Step 1 — A founder describes the product in plain English. Omni writes real project files inside Aksh Studio.',
+    panel: 'code',
+    showPreview: true,
+    delayAfterMs: 4500,
+  },
+  {
+    mode: 'fix',
+    label: 'Fix in context',
+    prompt: 'Fix the null check bug in App.tsx.',
+    narration:
+      'Step 2 — Omni reads the whole project, not a pasted snippet. It patches bugs with full context.',
+    panel: 'code',
+    delayAfterMs: 3500,
+  },
+  {
+    mode: 'guard',
+    label: 'Security scan',
+    prompt: 'Run a security scan on this project before we go live.',
+    narration: 'Step 3 — Guard mode scans for risky patterns before anything ships to production.',
+    panel: 'terminal',
+    terminalLines: [
+      '$ aksh scan --mode guard',
+      '✓ 12 files checked · 0 critical · 1 low (fixed in App.tsx)',
+    ],
+    delayAfterMs: 3000,
+  },
+  {
+    mode: 'deploy',
+    label: 'Deploy in India',
+    prompt: 'Deploy this project to E2E Networks in Delhi.',
+    narration:
+      'Step 4 — Deploy to India on E2E Networks. Browser editor, API, and storage — one product vision.',
+    panel: 'terminal',
+    terminalLines: [
+      '$ aksh deploy --region delhi-ncr',
+      '✓ Docker build · nginx · SSL',
+      '✓ Live → https://demo.aitotech.in',
+      '✓ Data stays in India',
+    ],
+    delayAfterMs: 4000,
+  },
+];
+
 export type AkshDemoAgent = {
   id: string;
   title: string;
@@ -208,6 +280,18 @@ export async function POST(req: Request) {
   return Response.json({ todo }, { status: 201 });
 }`,
     },
+  },
+  {
+    match: /security|scan|guard|vuln/i,
+    reply:
+      'Guard scan complete. No critical issues. I fixed one low-risk pattern in App.tsx (unsafe optional chain). Safe to deploy.',
+    fileUpdates: {},
+  },
+  {
+    match: /deploy|e2e|india|host|launch/i,
+    reply:
+      'Deploy pipeline started on E2E Networks (Delhi-NCR). Docker image built, nginx configured, SSL issued. Your app goes live in ~3 minutes — all in India.',
+    fileUpdates: {},
   },
   {
     match: /readme|doc|comment/i,
