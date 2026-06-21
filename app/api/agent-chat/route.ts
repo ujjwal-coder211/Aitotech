@@ -31,9 +31,15 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    const agentsKey = process.env.AGENTS_API_KEY?.trim();
+    if (agentsKey) {
+      headers['X-Agents-Key'] = agentsKey;
+    }
+
     const res = await fetch(`${base}/public/chat`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         message,
         agent_type: body.agent_type || 'sales', // aksh | sales | support
