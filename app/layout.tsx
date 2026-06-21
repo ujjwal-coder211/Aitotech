@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getAkshApiUrl } from '@/lib/akshApi';
+import { getAgentsApiUrl, getAkshApiUrl } from '@/lib/akshApi';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
@@ -73,7 +73,7 @@ export default function RootLayout({
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
         <FooterGate />
-        {getAkshApiUrl() ? <AgentChat /> : null}
+        {getAgentsApiUrl() || getAkshApiUrl() ? <AgentChat /> : null}
       </body>
     </html>
   );

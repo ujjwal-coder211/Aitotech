@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getAgentsApiKey, getAgentsApiUrl } from '@/lib/akshApi';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 /**
@@ -97,11 +98,12 @@ async function notifyAgents(payload: {
   company: string;
   message: string;
 }): Promise<void> {
-  const base = process.env.AGENTS_API_URL?.replace(/\/$/, '');
+  const base = getAgentsApiUrl();
   if (!base) return;
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (process.env.AGENTS_API_KEY) headers['x-api-key'] = process.env.AGENTS_API_KEY;
+    const key = getAgentsApiKey();
+    if (key) headers['x-api-key'] = key;
     await fetch(`${base}/tasks`, {
       method: 'POST',
       headers,

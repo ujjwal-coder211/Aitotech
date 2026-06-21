@@ -294,6 +294,31 @@ export async function POST(req: Request) {
     fileUpdates: {},
   },
   {
+    match: /food|landing|restaurant|website|page|html/i,
+    reply:
+      'Done. I scaffolded a food landing page — hero, menu section, and contact CTA. Check App.tsx and the new components in the editor. Open Preview to see the layout.',
+    fileUpdates: {
+      'App.tsx': `export default function App() {
+  return (
+    <main className="min-h-screen bg-stone-950 text-stone-100">
+      <header className="border-b border-stone-800 px-6 py-4 flex justify-between items-center">
+        <span className="text-xl font-bold text-amber-400">Spice Garden</span>
+        <nav className="flex gap-4 text-sm text-stone-400">
+          <a href="#menu">Menu</a>
+          <a href="#contact">Order</a>
+        </nav>
+      </header>
+      <section className="px-6 py-20 text-center max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold">Fresh Indian food, delivered fast</h1>
+        <p className="mt-4 text-stone-400">Order online or book a table — built with Aksh Studio.</p>
+        <button className="mt-8 rounded-lg bg-amber-500 px-6 py-3 font-semibold text-stone-950">See menu</button>
+      </section>
+    </main>
+  );
+}`,
+    },
+  },
+  {
     match: /readme|doc|comment/i,
     reply:
       'README.md is ready with setup steps, scripts, and a short Omni section. I kept it in simple English for your team.',
