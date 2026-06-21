@@ -1,4 +1,4 @@
-/** Aksh marketing demo — presets, mock replies, and simulated streaming */
+/** Routely marketing demo — presets, mock replies, and simulated streaming */
 
 export type WorkMode = 'ship' | 'fix' | 'extend' | 'guard' | 'deploy' | 'auto';
 
@@ -8,7 +8,7 @@ export const WORK_MODES: { id: WorkMode; label: string; hint: string }[] = [
   { id: 'extend', label: 'Extend', hint: 'Add to existing code' },
   { id: 'guard', label: 'Guard', hint: 'Security scan before deploy' },
   { id: 'deploy', label: 'Deploy', hint: 'Ship to E2E Networks India' },
-  { id: 'auto', label: 'Auto', hint: 'Omni picks the best mode' },
+  { id: 'auto', label: 'Auto', hint: 'Routely picks the best free model' },
 ];
 
 export type PitchTourStep = {
@@ -29,7 +29,7 @@ export const PITCH_TOUR_STEPS: PitchTourStep[] = [
     label: 'Build from English',
     prompt: 'Build a todo app with add, complete, and delete.',
     narration:
-      'Step 1 — A founder describes the product in plain English. Omni writes real project files inside Aksh Studio.',
+      'Step 1 — Describe the product in plain English. Routely picks the best free model and writes project files in the browser editor.',
     panel: 'code',
     showPreview: true,
     delayAfterMs: 4500,
@@ -39,7 +39,7 @@ export const PITCH_TOUR_STEPS: PitchTourStep[] = [
     label: 'Fix in context',
     prompt: 'Fix the null check bug in App.tsx.',
     narration:
-      'Step 2 — Omni reads the whole project, not a pasted snippet. It patches bugs with full context.',
+      'Step 2 — Routely reads the whole project, not a pasted snippet. It patches bugs with full context.',
     panel: 'code',
     delayAfterMs: 3500,
   },
@@ -50,7 +50,7 @@ export const PITCH_TOUR_STEPS: PitchTourStep[] = [
     narration: 'Step 3 — Guard mode scans for risky patterns before anything ships to production.',
     panel: 'terminal',
     terminalLines: [
-      '$ aksh scan --mode guard',
+      '$ routely scan --mode guard',
       '✓ 12 files checked · 0 critical · 1 low (fixed in App.tsx)',
     ],
     delayAfterMs: 3000,
@@ -63,7 +63,7 @@ export const PITCH_TOUR_STEPS: PitchTourStep[] = [
       'Step 4 — Deploy to India on E2E Networks. Browser editor, API, and storage — one product vision.',
     panel: 'terminal',
     terminalLines: [
-      '$ aksh deploy --region delhi-ncr',
+      '$ routely deploy --region delhi-ncr',
       '✓ Docker build · nginx · SSL',
       '✓ Live → https://demo.aitotech.in',
       '✓ Data stays in India',
@@ -158,7 +158,7 @@ export function TodoList({ todos, onChange }: { todos: Todo[]; onChange: (t: Tod
   {
     name: 'api/todos/route.ts',
     language: 'ts',
-    content: `// REST route — Omni can generate this for you
+    content: `// REST route — Routely can generate this for you
 export async function GET() {
   return Response.json({ todos: [] });
 }`,
@@ -257,8 +257,8 @@ export function TodoItem({ todo, onToggle, onDelete }: { todo: Todo; onToggle: (
 import { TodoItem } from './TodoItem';
 
 test('renders todo text', () => {
-  render(<TodoItem todo={{ id: '1', text: 'Ship Aksh', done: false }} onToggle={() => {}} onDelete={() => {}} />);
-  expect(screen.getByText('Ship Aksh')).toBeInTheDocument();
+  render(<TodoItem todo={{ id: '1', text: 'Ship Routely launch', done: false }} onToggle={() => {}} onDelete={() => {}} />);
+  expect(screen.getByText('Ship Routely launch')).toBeInTheDocument();
 });`,
     },
   },
@@ -310,7 +310,7 @@ export async function POST(req: Request) {
       </header>
       <section className="px-6 py-20 text-center max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold">Fresh Indian food, delivered fast</h1>
-        <p className="mt-4 text-stone-400">Order online or book a table — built with Aksh Studio.</p>
+        <p className="mt-4 text-stone-400">Order online or book a table — built with Routely.</p>
         <button className="mt-8 rounded-lg bg-amber-500 px-6 py-3 font-semibold text-stone-950">See menu</button>
       </section>
     </main>
@@ -321,27 +321,27 @@ export async function POST(req: Request) {
   {
     match: /readme|doc|comment/i,
     reply:
-      'README.md is ready with setup steps, scripts, and a short Omni section. I kept it in simple English for your team.',
+      'README.md is ready with setup steps, scripts, and a short Routely section. I kept it in simple English for your team.',
     fileUpdates: {
-      'README.md': `# Todo App (Aksh demo)
+      'README.md': `# Todo App (Routely demo)
 
 ## Run
-Open in Aksh Studio or \`npm run dev\`.
+Open in Routely browser or \`npm run dev\`.
 
 ## Features
 - Add, complete, and delete todos
-- Powered by Omni in Aksh Studio
+- Powered by Routely smart model routing
 
-## Ask Omni
+## Ask Routely
 Try: "Add dark mode" or "Deploy to E2E Networks".`,
     },
   },
 ];
 
 const DEFAULT_MOCK_REPLY =
-  'Got it. I updated the project based on your request. Check the editor — files are saved to your cloud project in Aksh Studio.';
+  'Got it. I updated the project based on your request. Check the editor — files are saved to your cloud project in Routely.';
 
-/** Old sales / support bots — never show in Aksh Studio demo */
+/** Old sales / support bots — never show in Routely demo */
 function looksLikeSalesBot(text: string): boolean {
   return /₹\s*49,?999|book a call|contact form|hamari team|web development service|Namaste!.*AitoTech|At AitoTech|AI Automation|Workflow Automation|filling out our contact|automate business workflows|discovery call/i.test(
     text
@@ -372,7 +372,7 @@ export async function streamText(
 }
 
 export async function fetchOmniReply(message: string): Promise<{ answer: string; live: boolean }> {
-  // Aksh Studio on aitotech.in = pitch demo only. No paid API calls from the website.
-  // Live Omni runs on Railway Aksh Studio after launch — not via this marketing widget.
+  // Routely on aitotech.in = pitch demo only. No paid API calls from the website.
+  // Live Routely runs on Railway after launch — not via this marketing widget.
   return { answer: resolveMockDemo(message).reply, live: false };
 }

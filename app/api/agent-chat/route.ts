@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAgentsApiKey, getAgentsApiUrl, getAkshApiKey, getAkshApiUrl } from '@/lib/akshApi';
 
 /**
- * Same-origin proxy for site chat + Aksh demo.
- * - agent_type=aksh → AKSH_API_URL only (Omni coding agent)
- * - agent_type=sales|support → AGENTS_API_URL (legacy agents project), not mixed with Aksh
+ * Same-origin proxy for site chat + Routely demo.
+ * - agent_type=routely|aksh → AKSH_API_URL (Routely coding agent; aksh is legacy alias)
+ * - agent_type=sales|support → AGENTS_API_URL (legacy agents project), not mixed with Routely
  */
 
 export const maxDuration = 60;
@@ -18,20 +18,20 @@ export async function POST(request: NextRequest) {
   }
 
   const agentType = (body.agent_type || 'sales').toString().trim().toLowerCase();
-  const isAksh = agentType === 'aksh';
+  const isRoutely = agentType === 'routely' || agentType === 'aksh';
 
-  // Aksh Studio marketing demo: mock by default (free, no OpenRouter cost).
-  // Set AKSH_DEMO_LIVE=true on Vercel only when you want real Omni on Railway.
-  if (isAksh && process.env.AKSH_DEMO_LIVE !== 'true') {
-    return NextResponse.json({ error: 'aksh_demo_mock' }, { status: 503 });
+  // Routely marketing demo: mock by default (free, no OpenRouter cost).
+  // Set AKSH_DEMO_LIVE=true on Vercel only when you want live Routely on Railway.
+  if (isRoutely && process.env.AKSH_DEMO_LIVE !== 'true') {
+    return NextResponse.json({ error: 'routely_demo_mock' }, { status: 503 });
   }
 
-  const base = isAksh ? getAkshApiUrl() : getAgentsApiUrl();
+  const base = isRoutely ? getAkshApiUrl() : getAgentsApiUrl();
   if (!base) {
     return NextResponse.json(
       {
-        error: isAksh
-          ? 'Aksh live API is off. The /aksh demo uses free mock mode on the website.'
+        error: isRoutely
+          ? 'Routely live API is off. The /routely demo uses free mock mode on the website.'
           : 'AI assistant is not configured (set AGENTS_API_URL for the site chat widget).',
       },
       { status: 503 }
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const secret = isAksh ? getAkshApiKey() : getAgentsApiKey();
+    const secret = isRoutely ? getAkshApiKey() : getAgentsApiKey();
     if (secret) {
       headers['X-Agents-Key'] = secret;
     }
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
       headers,
       body: JSON.stringify({
         message,
-        agent_type: agentType,
+        agent_type: agentType === 'aksh' ? 'routely' : agentType,
       }),
       signal: AbortSignal.timeout(55_000),
     });
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
 
     const data = await res.json();
     return NextResponse.json({
-      agent: data.agent ?? (isAksh ? 'Omni' : 'AitoTech AI'),
+      agent: data.agent ?? (isRoutely ? 'Routely' : 'AitoTech AI'),
       answer: data.answer ?? '',
     });
   } catch (e) {

@@ -39,15 +39,15 @@ export default function AkshDemoModal({
             <div className="flex shrink-0 items-start justify-between gap-3 border-b border-zinc-800 px-4 py-3 sm:px-5">
               <div>
                 <p id="aksh-demo-title" className="font-display text-lg font-bold text-white sm:text-xl">
-                  Aksh Studio — product demo
+                  Routely — product demo
                 </p>
                 <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">
-                  Interactive preview for investors and experts. Run the 90s vision tour or chat with Omni.
+                  Interactive preview for investors and experts. Run the 90s vision tour or chat with Routely.
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 <Link
-                  href="/aksh/demo?tour=1"
+                  href="/routely/demo?tour=1"
                   className="hidden rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white sm:inline-flex"
                 >
                   Vision tour
@@ -72,13 +72,13 @@ export default function AkshDemoModal({
             <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-zinc-800 bg-[#050508]/90 px-4 py-3 sm:px-5">
               <p className="text-[11px] text-zinc-500 sm:text-xs">
                 Share{' '}
-                <Link href="/aksh/demo?tour=1" className="text-violet-300 hover:underline">
-                  aitotech.in/aksh/demo?tour=1
+                <Link href="/routely/demo?tour=1" className="text-violet-300 hover:underline">
+                  aitotech.in/routely/demo?tour=1
                 </Link>{' '}
                 for pitch-ready guided demo.
               </p>
               <Link
-                href="#waitlist"
+                href="/routely#waitlist"
                 onClick={onClose}
                 className="inline-flex rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-violet-500 sm:text-sm"
               >

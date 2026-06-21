@@ -46,7 +46,7 @@ function TodoPreview({ todos, onChange }: { todos: Todo[]; onChange: (t: Todo[])
   return (
     <div className="flex h-full flex-col bg-white p-6 text-zinc-900">
       <h2 className="text-xl font-bold">My Todos</h2>
-      <p className="mt-1 text-xs text-zinc-500">Live preview · built by Omni in Aksh Studio</p>
+      <p className="mt-1 text-xs text-zinc-500">Live preview · built by Routely</p>
       <div className="mt-4 flex gap-2">
         <input
           value={text}
@@ -66,7 +66,7 @@ function TodoPreview({ todos, onChange }: { todos: Todo[]; onChange: (t: Todo[])
       <ul className="mt-4 space-y-2 overflow-y-auto">
         {todos.length === 0 && (
           <li className="rounded-lg border border-dashed border-zinc-300 px-4 py-8 text-center text-sm text-zinc-400">
-            Ask Omni to build a todo app — then try it here.
+            Ask Routely to build a todo app — then try it here.
           </li>
         )}
         {todos.map((t) => (
@@ -109,7 +109,7 @@ export default function AkshStudioDemo({
   const [messages, setMessages] = useState<ChatMsg[]>([
     {
       role: 'omni',
-      text: 'Hi — I am Omni, your coding agent in Aksh Studio. I ship features, fix bugs, scan security, and deploy to India — all from your browser.',
+      text: 'Hi — I am Routely, your coding agent. I ship features, fix bugs, scan security, and deploy to India — browser or desktop.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -118,8 +118,8 @@ export default function AkshStudioDemo({
   const [previewReady, setPreviewReady] = useState(false);
   const [previewTodos, setPreviewTodos] = useState<Todo[]>([]);
   const [terminalLines, setTerminalLines] = useState<string[]>([
-    'Aksh Studio terminal · connected to cloud project',
-    'Type a command or ask Omni to deploy.',
+    'Routely terminal · connected to cloud project',
+    'Type a command or ask Routely to deploy.',
   ]);
   const [narration, setNarration] = useState('');
   const [tourRunning, setTourRunning] = useState(false);
@@ -165,14 +165,14 @@ export default function AkshStudioDemo({
         if (/todo|build|app|scaffold/i.test(trimmed)) {
           setPreviewReady(true);
           setPreviewTodos([
-            { id: '1', text: 'Ship Aksh launch', done: false },
+            { id: '1', text: 'Ship Routely launch', done: false },
             { id: '2', text: 'Demo for investors', done: true },
           ]);
         }
         if (/deploy|e2e|india|host|launch/i.test(trimmed)) {
           setPanel('terminal');
           await appendTerminal([
-            '$ aksh deploy --region delhi-ncr',
+            '$ routely deploy --region delhi-ncr',
             'Building Docker image…',
             '✓ nginx + SSL configured',
             '✓ Live at https://demo.aitotech.in (E2E Networks · India)',
@@ -180,7 +180,7 @@ export default function AkshStudioDemo({
         }
         if (/security|scan|guard|vuln/i.test(trimmed)) {
           setPanel('terminal');
-          await appendTerminal(['$ aksh scan --mode guard', '✓ 12 files · 0 critical · 1 low (auto-fixed)']);
+          await appendTerminal(['$ routely scan --mode guard', '✓ 12 files · 0 critical · 1 low (auto-fixed)']);
         }
       }
 
@@ -215,11 +215,11 @@ export default function AkshStudioDemo({
     setActiveFile('App.tsx');
     setPreviewReady(false);
     setPreviewTodos([]);
-    setTerminalLines(['Aksh Studio terminal · vision demo started']);
+    setTerminalLines(['Routely terminal · vision demo started']);
     setMessages([
       {
         role: 'omni',
-        text: 'Starting the Aksh vision tour — build, fix, secure, and deploy from one browser editor.',
+        text: 'Starting the Routely vision tour — build, fix, secure, and deploy from one coding workspace.',
       },
     ]);
 
@@ -236,7 +236,7 @@ export default function AkshStudioDemo({
       if (step.showPreview) {
         setPreviewReady(true);
         setPreviewTodos([
-          { id: '1', text: 'Ship Aksh launch', done: false },
+          { id: '1', text: 'Ship Routely launch', done: false },
           { id: '2', text: 'Demo for investors', done: true },
         ]);
         setTimeout(() => setPanel('preview'), 1200);
@@ -269,7 +269,7 @@ export default function AkshStudioDemo({
     }
 
     setNarration(
-      'Vision tour complete. Aksh = browser editor + Omni AI + cloud projects + India hosting. Share this demo with investors or try your own prompts.'
+      'Vision tour complete. Routely = smart model routing + persistent memory + agent workflows + India hosting. Share this demo with investors or try your own prompts.'
     );
     setTourRunning(false);
   }, [appendTerminal, busy, tourRunning]);
@@ -298,7 +298,7 @@ export default function AkshStudioDemo({
             <p className="text-xs font-semibold uppercase tracking-wider text-violet-300">Product demo</p>
             <p className="mt-1 text-sm text-zinc-300">
               {narration ||
-                'Show investors and experts how Aksh works — browser editor, Omni AI, and India deploy in one flow.'}
+                'Show investors and experts how Routely works — smart routing, memory, git, and India deploy in one flow.'}
             </p>
           </div>
           <button
@@ -325,7 +325,7 @@ export default function AkshStudioDemo({
               <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             </div>
-            <span className="text-xs font-medium text-zinc-400">Aksh Studio</span>
+            <span className="text-xs font-medium text-zinc-400">Routely</span>
             <span className="hidden text-xs text-zinc-600 sm:inline">· cloud project · autosave on</span>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -335,11 +335,11 @@ export default function AkshStudioDemo({
                   liveMode ? 'bg-emerald-500/15 text-emerald-300' : 'bg-violet-500/15 text-violet-300'
                 }`}
               >
-                {liveMode ? 'Live Omni' : 'Pitch demo · free'}
+                {liveMode ? 'Live Routely' : 'Pitch demo · free'}
               </span>
             )}
             <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">
-              Powered by Omni
+              Smart model routing
             </span>
           </div>
         </div>
@@ -417,7 +417,7 @@ export default function AkshStudioDemo({
                   <TodoPreview todos={previewTodos} onChange={setPreviewTodos} />
                 ) : (
                   <div className="grid h-full place-items-center p-8 text-center text-sm text-zinc-500">
-                    Run the vision tour or ask Omni to build an app to see the live preview.
+                    Run the vision tour or ask Routely to build an app to see the live preview.
                   </div>
                 )}
               </div>
@@ -435,19 +435,19 @@ export default function AkshStudioDemo({
 
             <div className="hidden shrink-0 border-t border-zinc-800 bg-[#050508] px-3 py-2 text-[10px] text-zinc-600 sm:flex sm:items-center sm:justify-between">
               <span>Mode: {workMode} · E2E Networks India ready</span>
-              <span>Omni Memory · cloud sync on</span>
+              <span>Memory · cloud sync on</span>
             </div>
           </div>
 
-          {/* Omni panel */}
+          {/* Routely chat panel */}
           <div className="flex min-h-[300px] min-w-0 flex-col bg-[#050508]">
             <div className="flex shrink-0 items-center gap-2 border-b border-zinc-800 px-3 py-2.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-600 text-[10px] font-bold text-white">
-                O
+                R
               </span>
               <div>
-                <p className="text-sm font-semibold text-white">Omni</p>
-                <p className="text-[10px] text-zinc-500">One AI for all coding work</p>
+                <p className="text-sm font-semibold text-white">Routely</p>
+                <p className="text-[10px] text-zinc-500">Best free model, picked for you</p>
               </div>
             </div>
 
@@ -495,7 +495,7 @@ export default function AkshStudioDemo({
                     }
                   }}
                   rows={2}
-                  placeholder="Tell Omni what to build, fix, or deploy…"
+                  placeholder="Tell Routely what to build, fix, or deploy…"
                   disabled={tourRunning}
                   className="max-h-24 flex-1 resize-none bg-transparent text-xs text-white placeholder:text-zinc-600 focus:outline-none disabled:opacity-50 sm:text-sm"
                 />
@@ -504,7 +504,7 @@ export default function AkshStudioDemo({
                   onClick={() => void runPrompt(input)}
                   disabled={busy || tourRunning || !input.trim()}
                   className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-violet-600 text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-40"
-                  aria-label="Send to Omni"
+                  aria-label="Send to Routely"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="m22 2-7 20-4-9-9-4Z" />

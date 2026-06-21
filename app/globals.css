@@ -8,7 +8,7 @@
   --surface-card: #18181b;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.12);
-  --brand: #2563eb;
+  --brand: #7c3aed;
   --text-primary: #fafafa;
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
@@ -23,7 +23,7 @@ body {
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.35);
+  background: rgba(124, 58, 237, 0.35);
   color: #fff;
 }
 

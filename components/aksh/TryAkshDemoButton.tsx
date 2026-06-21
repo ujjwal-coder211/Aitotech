@@ -4,7 +4,7 @@ import { useAkshDemo } from './AkshDemoProvider';
 
 export default function TryAkshDemoButton({
   className = '',
-  children = 'Try Aksh Studio',
+  children = 'Try Routely',
   prompt,
   variant = 'primary',
 }: {

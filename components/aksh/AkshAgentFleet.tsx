@@ -13,10 +13,10 @@ export default function AkshAgentFleet() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-400">Meet your coding agents</p>
           <h2 id="aksh-agent-fleet" className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">
-            Hire Omni to handle the work
+            Routely handles the work
           </h2>
           <p className="mt-3 text-base text-zinc-400">
-            From greenfield apps to bug fixes and tests — pick a task, open the demo, and watch Aksh Studio respond.
+            From greenfield apps to bug fixes and tests — pick a task, open the demo, and watch Routely respond.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export default function AkshAgentFleet() {
             onClick={() => openDemo()}
             className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500"
           >
-            Try Aksh Studio
+            Try Routely
           </button>
         </div>
       </div>

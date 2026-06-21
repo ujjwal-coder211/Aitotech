@@ -3,12 +3,12 @@ import DocsSidebar from '@/components/docs/DocsSidebar';
 import { docsHub } from '@/data/akshDocs';
 
 export const metadata: Metadata = {
-  title: 'Aksh documentation',
+  title: 'Routely documentation',
   description: docsHub.description,
   keywords: [
-    'Aksh docs',
-    'Aksh Studio',
-    'Omni API',
+    'Routely docs',
+    'Routely browser',
+    'Routely API',
     'installation',
     'getting started',
     'AI coding India',

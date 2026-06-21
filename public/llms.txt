@@ -1,28 +1,31 @@
 # Aitotech — llms.txt
 
 > AitoTech is an AI company in Delhi, India.
-> Aksh is an AI coding tool — browser editor, Omni AI, cloud projects.
+> Routely is our AI coding tool — smart model routing, browser + desktop, git, and persistent memory.
 
 ## Company
 - Name: AitoTech
 - Website: https://aitotech.in
 - Email: info@aitotech.in
 
-## Product: Aksh
-- URL: https://aitotech.in/aksh
-- What: AI coding tool with Aksh Studio (browser editor), Omni (one AI), cloud projects, Omni Memory
-- Waitlist: https://aitotech.in/aksh#waitlist
-- Press: https://aitotech.in/aksh/press
+## Product: Routely
+- URL: https://aitotech.in/routely
+- Try in browser: https://app.routely.aitotech.in
+- What: AI coding tool — picks the best free model per task, understands codebase, remembers chat, agent workflows
+- Demo: https://aitotech.in/routely/demo?tour=1
+- Waitlist: https://aitotech.in/routely#waitlist
 - Docs: https://aitotech.in/docs
 
-## Key features
-- Browser editor (Aksh Studio)
-- One AI: Omni (no model picker)
-- Cloud projects and chat memory
-- Planned hosting in India (E2E Networks)
+## Key features (Phase 1 — coding only)
+- Smart model routing (OpenRouter free models — user never picks a model)
+- Browser IDE (try online) + desktop download (local git)
+- Persistent chat memory per project
+- Agent workflows — fix code, git pull/push, multitask jobs
 
 ## FAQ
-- Q: What is Aksh?
-  A: AitoTech's AI coding tool for writing code in the browser with Omni.
-- Q: What is Omni?
-  A: The single AI users talk to in Aksh.
+- Q: What is Routely?
+  A: AitoTech's AI coding tool. Describe tasks in plain English; Routely routes to the best free model and writes or fixes code.
+- Q: Do I choose an AI model?
+  A: No. Routely picks automatically for each task (debug, build, git, refactor).
+- Q: Is it only for coding?
+  A: Yes for now. General assistant features come later.

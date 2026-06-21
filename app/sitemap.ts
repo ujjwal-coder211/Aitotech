@@ -13,9 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: siteUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${siteUrl}/aksh`, lastModified: now, changeFrequency: 'weekly', priority: 0.95 },
-    { url: `${siteUrl}/aksh/demo`, lastModified: now, changeFrequency: 'weekly', priority: 0.92 },
-    { url: `${siteUrl}/aksh/press`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${siteUrl}/routely`, lastModified: now, changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${siteUrl}/routely/demo`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${siteUrl}/aksh`, lastModified: now, changeFrequency: 'weekly', priority: 0.5 },
     { url: `${siteUrl}/docs`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     ...docPages,
     { url: `${siteUrl}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

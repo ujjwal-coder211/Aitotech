@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { docsHub } from '@/data/akshDocs';
-import { aksh } from '@/data/siteContent';
+import { routely } from '@/data/siteContent';
 
 export default function DocsHubPage() {
   return (
@@ -50,25 +50,25 @@ export default function DocsHubPage() {
       </div>
 
       <div>
-        <h2 className="font-display text-xl font-bold text-white sm:text-2xl">{aksh.differentiators.title}</h2>
-        <p className="mt-2 text-sm text-zinc-500">{aksh.differentiators.subtitle}</p>
+        <h2 className="font-display text-xl font-bold text-white sm:text-2xl">Why Routely</h2>
+        <p className="mt-2 text-sm text-zinc-500">{routely.elevatorPitch}</p>
         <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-          {aksh.differentiators.items.map((item) => (
+          {routely.features.map((item) => (
             <li key={item.title} className="rounded-xl border border-line bg-surface-card p-5">
               <h3 className="font-semibold text-white">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.body}</p>
             </li>
           ))}
         </ul>
-        <Link href="/aksh" className="mt-6 inline-block text-sm text-brand-light hover:underline">
-          See Aksh launch page →
+        <Link href="/routely" className="mt-6 inline-block text-sm text-brand-light hover:underline">
+          See Routely launch page →
         </Link>
       </div>
 
       <div className="rounded-2xl border border-line bg-surface-card p-6 sm:p-8">
         <h2 className="font-display text-lg font-semibold text-white">Product code on GitHub</h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-          Run Aksh on your own server from GitHub. Server setup guide:{' '}
+          Run Routely on your own server from GitHub. Server setup guide:{' '}
           <code className="rounded bg-surface-hover px-1.5 py-0.5 text-zinc-300">docs/E2E_DEPLOY.md</code>{' '}
           (E2E Networks — Delhi, Chennai GPU).
         </p>

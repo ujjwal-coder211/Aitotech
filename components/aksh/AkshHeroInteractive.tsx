@@ -1,19 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { aksh } from '@/data/siteContent';
+import { routely } from '@/data/siteContent';
 import TryAkshDemoButton from './TryAkshDemoButton';
 import { useAkshDemo } from './AkshDemoProvider';
 
 export function AkshHeroActions() {
   return (
     <div className="mt-8 flex flex-wrap gap-3">
-      <TryAkshDemoButton>Try Aksh Studio</TryAkshDemoButton>
-      <Link href="#waitlist" className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500">
-        {aksh.cta}
+      <TryAkshDemoButton>Try Routely</TryAkshDemoButton>
+      <Link href="/routely/demo?tour=1" className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500">
+        Run vision tour
       </Link>
-      <Link href="/aksh/press" className="btn-secondary border-zinc-700 text-zinc-200">
-        {aksh.ctaSecondary}
+      <Link href="/routely#waitlist" className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500">
+        {routely.cta}
       </Link>
       <Link href="/docs" className="btn-secondary border-zinc-700 text-zinc-200">
         Documentation
@@ -32,7 +32,7 @@ export function AkshHeroMockup() {
         type="button"
         onClick={() => openDemo()}
         className="group w-full text-left"
-        aria-label="Open Aksh Studio demo"
+        aria-label="Open Routely demo"
       >
         <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-[#0a0a0f] shadow-2xl shadow-violet-950/40 transition group-hover:border-violet-500/40 group-hover:shadow-violet-900/30">
           <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3">
@@ -41,7 +41,7 @@ export function AkshHeroMockup() {
               <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
               <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
             </div>
-            <span className="text-xs text-zinc-500">Aksh Studio · Powered by Omni</span>
+            <span className="text-xs text-zinc-500">Routely · smart model routing</span>
             <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">
               Click to demo
             </span>
@@ -60,9 +60,9 @@ export function AkshHeroMockup() {
               {'}'}
             </div>
             <div className="bg-[#050508] p-3">
-              <p className="mb-2 text-[10px] font-semibold text-zinc-600">OMNI</p>
+              <p className="mb-2 text-[10px] font-semibold text-zinc-600">ROUTELY</p>
               <div className="rounded-lg border border-zinc-800 bg-[#0a0a0f] p-2 text-[11px] text-zinc-400">
-                {aksh.mockupOmniReply}
+                Todo app is ready. Files saved.
               </div>
             </div>
           </div>

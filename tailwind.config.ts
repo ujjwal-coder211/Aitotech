@@ -9,10 +9,10 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#2563eb',
-          light: '#3b82f6',
-          dark: '#1d4ed8',
-          soft: 'rgba(37, 99, 235, 0.12)',
+          DEFAULT: '#7c3aed',
+          light: '#a78bfa',
+          dark: '#6d28d9',
+          soft: 'rgba(124, 58, 237, 0.14)',
         },
         surface: {
           DEFAULT: '#09090b',
@@ -44,7 +44,7 @@ const config: Config = {
       boxShadow: {
         card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px -20px rgba(0,0,0,0.5)',
         elevated: '0 1px 0 0 rgba(255,255,255,0.06) inset, 0 24px 64px -32px rgba(0,0,0,0.7)',
-        glow: '0 0 0 1px rgba(37,99,235,0.25), 0 8px 32px -8px rgba(37,99,235,0.35)',
+        glow: '0 0 0 1px rgba(124,58,237,0.25), 0 8px 32px -8px rgba(124,58,237,0.35)',
       },
       backgroundImage: {
         'hero-grid':

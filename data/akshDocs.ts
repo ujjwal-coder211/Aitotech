@@ -1,4 +1,4 @@
-/** Aksh docs — very simple English, product-first (no competitor marketing) */
+/** Routely docs — very simple English, product-first (no competitor marketing) */
 
 export type DocSection = {
   id: string;
@@ -21,17 +21,17 @@ export type DocPage = {
 
 export const docsHub = {
   eyebrow: 'Documentation',
-  title: 'Aksh docs',
-  headline: 'Learn Aksh — step by step',
+  title: 'Routely docs',
+  headline: 'Learn Routely — step by step',
   description:
-    'How to use Aksh. All text is in simple English. Choose a guide below.',
+    'How to use Routely. All text is in simple English. Choose a guide below.',
   intro:
     'New here? Open Getting Started first. Need your own server? Open Installation.',
   quickLinks: [
     {
       slug: 'getting-started',
       title: 'Getting started',
-      desc: 'Join the waitlist, open Aksh Studio, talk to Omni. No big download.',
+      desc: 'Join the waitlist, try Routely in the browser, describe tasks in plain English. No big download.',
     },
     {
       slug: 'installation',
@@ -41,12 +41,12 @@ export const docsHub = {
     {
       slug: 'cursor-connect',
       title: 'Connect a desktop editor',
-      desc: 'Use Omni from a desktop coding tool. Model name: omni.',
+      desc: 'Use Routely from a desktop coding tool. Model name: routely.',
     },
     {
       slug: 'omni-memory',
-      title: 'Omni memory',
-      desc: 'Each chat remembers your project. Open an old chat and Omni still knows your work.',
+      title: 'Persistent memory',
+      desc: 'Each chat remembers your project. Open an old chat and Routely still knows your work.',
     },
     {
       slug: 'cloud-projects',
@@ -56,14 +56,14 @@ export const docsHub = {
     {
       slug: 'api',
       title: 'API reference',
-      desc: 'Connect your own app to Omni chat, chats, and projects.',
+      desc: 'Connect your own app to Routely chat, threads, and projects.',
     },
   ],
   strengthsNote:
-    'Aksh gives you a browser editor, one AI (Omni), cloud projects, chat memory, and India hosting — in one tool. Open a tab and start building.',
+    'Routely gives you smart model routing, persistent memory, agent workflows, and browser + desktop — in one coding tool. Open a tab and start building.',
   links: [
-    { href: '/aksh', label: 'Launch page and waitlist' },
-    { href: '/aksh/press', label: 'Press kit' },
+    { href: '/routely', label: 'Launch page and waitlist' },
+    { href: '/routely/demo?tour=1', label: 'Interactive demo' },
     { href: '/docs/getting-started', label: 'Start here' },
   ],
 } as const;
@@ -71,20 +71,20 @@ export const docsHub = {
 export const akshDocPages: DocPage[] = [
   {
     slug: 'getting-started',
-    title: 'Getting started with Aksh',
+    title: 'Getting started with Routely',
     description:
-      'Start Aksh in 3 steps: join the waitlist, open Aksh Studio, ask Omni to write code. No big download.',
+      'Start Routely in 3 steps: join the waitlist, try in the browser, describe tasks in plain English. No big download.',
     badge: 'Start here',
     sections: [
       {
         id: 'what',
-        title: 'What is Aksh?',
+        title: 'What is Routely?',
         body:
-          'Aksh helps you write code with AI. AitoTech made it. You use Aksh Studio in Chrome or Edge. You talk to Omni — one AI only. Your files save online.',
+          'Routely helps you write code with AI. AitoTech made it. Try in Chrome or Edge, or download for desktop. Routely picks the best free model for each task — you never choose models yourself.',
         items: [
           'Works in the browser — no big install',
-          'One AI name: Omni',
-          'Files save in the cloud',
+          'Smart model routing — no model picker',
+          'Files save in the cloud (browser) or locally (desktop)',
           'You can connect other coding apps through our API (see docs)',
         ],
       },
@@ -92,45 +92,45 @@ export const akshDocPages: DocPage[] = [
         id: 'need',
         title: 'What you need',
         items: [
-          'Chrome, Edge, or Firefox browser',
+          'Chrome, Edge, or Firefox browser (or Windows for desktop)',
           'Internet',
-          'Join the waitlist at aitotech.in/aksh#waitlist',
+          'Join the waitlist at aitotech.in/routely#waitlist',
         ],
       },
       {
         id: 'step1',
         title: 'Step 1 — Join the waitlist',
-        body: 'Aksh is coming soon. Join the waitlist now.',
+        body: 'Routely is in beta. Join the waitlist now.',
         items: [
-          'Go to aitotech.in/aksh#waitlist',
+          'Go to aitotech.in/routely#waitlist',
           'Enter your name and email',
           'After launch: sign up and copy your API key (save it — we show it once)',
         ],
       },
       {
         id: 'step2',
-        title: 'Step 2 — Open Aksh Studio',
-        body: 'Aksh Studio is where you write code in the browser.',
+        title: 'Step 2 — Open Routely',
+        body: 'Routely browser runs online. Desktop opens local folders with real git.',
         items: [
-          'Open the Studio page from your Aksh account',
+          'Browser: open app.routely.aitotech.in from your account',
           'Paste your API key in Settings and save',
           'Click New Project or Upload zip',
         ],
       },
       {
         id: 'step3',
-        title: 'Step 3 — Ask Omni',
-        body: 'Type in simple English. Omni writes and saves code.',
+        title: 'Step 3 — Describe your task',
+        body: 'Type in simple English. Routely routes to the best free model and saves code.',
         code: `Examples:
 "Build a todo app in React"
 "Add a login page"
 "Fix the bug in App.js"`,
-        note: 'Omni saves files and remembers the chat. Next guide: Omni Memory.',
+        note: 'Routely saves files and remembers the chat. Next guide: Persistent memory.',
       },
       {
         id: 'desktop-path',
         title: 'Optional — desktop editor',
-        body: 'If you already use a desktop AI coding tool, you can point it to the Omni API. Model name must be omni.',
+        body: 'If you already use a desktop AI coding tool, you can point it to the Routely API. Model name must be routely.',
         note: 'Full steps: /docs/cursor-connect',
       },
       {
@@ -138,9 +138,9 @@ export const akshDocPages: DocPage[] = [
         title: 'Read next',
         items: [
           'Run your own server: /docs/installation',
-          'Desktop editor + Omni: /docs/cursor-connect',
+          'Desktop editor + Routely: /docs/cursor-connect',
           'Build a connection: /docs/api',
-          'Press text: /aksh/press',
+          'Interactive demo: /routely/demo?tour=1',
         ],
       },
     ],
@@ -148,16 +148,16 @@ export const akshDocPages: DocPage[] = [
   },
   {
     slug: 'installation',
-    title: 'Installation — run Aksh yourself',
+    title: 'Installation — run Routely yourself',
     description:
-      'Install Aksh on your laptop or server: Python, Docker, database, and API keys. For developers and ops teams — not for normal browser users.',
+      'Install Routely on your laptop or server: Python, Docker, database, and API keys. For developers and ops teams — not for normal browser users.',
     badge: 'Developers',
     sections: [
       {
         id: 'when',
         title: 'Who needs this guide?',
         body:
-          'Most users only need a browser and Aksh Studio online. This guide is for people who want to run the full stack locally or on a private server.',
+          'Most users only need a browser and Routely online. This guide is for people who want to run the full stack locally or on a private server.',
       },
       {
         id: 'req',
@@ -169,7 +169,7 @@ export const akshDocPages: DocPage[] = [
           'PostgreSQL 15+ (Docker can start it for you)',
           'Redis not required',
           'Git',
-          'OpenRouter API key (powers Omni)',
+          'OpenRouter API key (powers Routely routing)',
         ],
       },
       {
@@ -188,7 +188,7 @@ pip install -r requirements.txt`,
         id: 'env',
         title: 'Step 2 — Settings file (.env)',
         body: 'Copy .env.example to .env. Add at least these lines:',
-        code: `DATABASE_URL=postgresql://postgres:postgres@localhost:5432/aksh
+        code: `DATABASE_URL=postgresql://postgres:postgres@localhost:5432/routely
 SAAS_ALLOW_PUBLIC_SIGNUP=true
 JWT_SECRET=use-a-long-random-string-here
 OPENROUTER_API_KEY=sk-or-v1-...`,
@@ -216,10 +216,10 @@ python scripts/verify_setup.py`,
         id: 'prod',
         title: 'Step 5 — Go live in India',
         body:
-          'Public Aksh will run on E2E Networks: API and database in Delhi, GPU in Chennai. Full steps are in the Saas repo file docs/E2E_DEPLOY.md.',
+          'Public Routely will run on E2E Networks: API and database in Delhi, GPU in Chennai. Full steps are in the Saas repo file docs/E2E_DEPLOY.md.',
         items: [
-          'Domain: api.aksh.aitotech.in',
-          'Waitlist site: aitotech.in/aksh',
+          'Domain: app.routely.aitotech.in',
+          'Waitlist site: aitotech.in/routely',
         ],
       },
       {
@@ -227,7 +227,7 @@ python scripts/verify_setup.py`,
         title: 'Common problems',
         items: [
           'Database error — check DATABASE_URL and run init_db.py',
-          'Omni silent — check OPENROUTER_API_KEY',
+          'No AI reply — check OPENROUTER_API_KEY',
           'Upload fails — run: pip install python-multipart',
         ],
       },
@@ -239,14 +239,14 @@ python scripts/verify_setup.py`,
     slug: 'cursor-connect',
     title: 'Connect a desktop editor',
     description:
-      'Use Omni from a desktop coding tool that uses the same API format as OpenAI. Same AI as Aksh Studio. Model name must be omni.',
+      'Use Routely from a desktop coding tool that uses the same API format as OpenAI. Same routing as the browser app. Model name must be routely.',
     badge: 'Optional',
     sections: [
       {
         id: 'why',
         title: 'When to use this',
         body:
-          'Most people use Aksh Studio in the browser. This guide is for developers who prefer a desktop editor and want Omni as the AI backend through our API.',
+          'Most people use Routely in the browser. This guide is for developers who prefer a desktop editor and want Routely as the AI backend through our API.',
       },
       {
         id: 'steps',
@@ -254,24 +254,24 @@ python scripts/verify_setup.py`,
         items: [
           '1. Get your API key from /web/dashboard/',
           '2. In your editor: Settings → Models → Add OpenAI API provider',
-          '3. Base URL (live): https://api.aksh.aitotech.in/v1',
+          '3. Base URL (live): https://app.routely.aitotech.in/v1',
           '4. Base URL (local): http://127.0.0.1:8000/v1',
           '5. Paste your API key',
-          '6. Model name: omni (required)',
-          '7. Select omni in the editor chat',
+          '6. Model name: routely (required)',
+          '7. Select routely in the editor chat',
         ],
         note: 'Some desktop AI code editors support this API format. Steps may vary slightly by tool.',
       },
       {
         id: 'vs-studio',
-        title: 'Desktop editor vs Aksh Studio',
+        title: 'Desktop editor vs Routely browser',
         body:
-          'Aksh Studio is the full editor in your browser with Omni and cloud projects. A desktop editor plus Omni API uses the same AI but keeps files local to that tool. Chat memory works best in Aksh Studio or direct API calls.',
+          'Routely browser is the full editor online with cloud projects. A desktop editor plus Routely API uses the same smart routing but keeps files local to that tool. Chat memory works best in Routely browser or direct API calls.',
       },
       {
         id: 'single-face',
-        title: 'You only use Omni',
-        body: 'Do not pick other model names. The public API uses omni. Smart engines run behind Omni automatically.',
+        title: 'You only use Routely',
+        body: 'Do not pick other model names. The public API uses routely. Free models are routed automatically behind the scenes.',
       },
       {
         id: 'test',
@@ -279,7 +279,7 @@ python scripts/verify_setup.py`,
         code: `curl -X POST http://127.0.0.1:8000/v1/chat/completions \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
-  -d '{"model":"omni","messages":[{"role":"user","content":"Hello"}]}'`,
+  -d '{"model":"routely","messages":[{"role":"user","content":"Hello"}]}'`,
       },
       {
         id: 'trouble',
@@ -287,25 +287,25 @@ python scripts/verify_setup.py`,
         items: [
           '401 — wrong API key',
           '404 — check base URL, no trailing slash on /v1',
-          'Model not found — type omni exactly',
+          'Model not found — type routely exactly',
         ],
       },
     ],
     prev: { slug: 'installation', title: 'Installation' },
-    next: { slug: 'omni-memory', title: 'Omni memory' },
+    next: { slug: 'omni-memory', title: 'Persistent memory' },
   },
   {
     slug: 'omni-memory',
-    title: 'Omni memory',
+    title: 'Persistent memory',
     description:
-      'Each chat saves your history. Omni remembers what you built. New chat = fresh start.',
+      'Each chat saves your history. Routely remembers what you built. New chat = fresh start.',
     badge: 'Core feature',
     sections: [
       {
         id: 'problem',
         title: 'What problem does it solve?',
         body:
-          'Without memory, the AI forgets your project every time. Omni Memory stores each chat so you can say "fix the login page" and Omni still knows your files.',
+          'Without memory, the AI forgets your project every time. Routely stores each chat so you can say "fix the login page" and it still knows your files.',
       },
       {
         id: 'what',
@@ -314,11 +314,11 @@ python scripts/verify_setup.py`,
       },
       {
         id: 'studio',
-        title: 'In Aksh Studio',
+        title: 'In Routely browser',
         items: [
           'Left panel shows your chats',
           'New Chat — start fresh',
-          'Click an old chat — Omni gets full history',
+          'Click an old chat — Routely gets full history',
           'Name chats by feature or bug',
         ],
       },
@@ -329,12 +329,12 @@ python scripts/verify_setup.py`,
 {"title": "My todo app"}
 
 POST /v1/chat
-{"message": "Add dark mode", "thread_id": "your-uuid", "model": "omni"}`,
+{"message": "Add dark mode", "thread_id": "your-uuid", "model": "routely"}`,
       },
       {
         id: 'desktop',
         title: 'Desktop editors and memory',
-        body: 'Third-party desktop tools manage their own chat history. For full Omni Memory, use Aksh Studio or the API directly.',
+        body: 'Third-party desktop tools manage their own chat history. For full Routely memory, use the browser app or the API directly.',
       },
     ],
     prev: { slug: 'cursor-connect', title: 'Connect a desktop editor' },
@@ -344,21 +344,21 @@ POST /v1/chat
     slug: 'cloud-projects',
     title: 'Cloud projects',
     description:
-      'Your code lives on the server. Edit in the browser. Upload a zip. Omni can change files. Good for weak laptops.',
+      'Your code lives on the server. Edit in the browser. Upload a zip. Routely can change files. Good for weak laptops.',
     badge: 'Light laptop',
     sections: [
       {
         id: 'why',
         title: 'Why cloud projects?',
         body:
-          'Desktop tools usually keep code on your disk. Aksh keeps files online. Open a browser and start — even on a 4 GB RAM laptop.',
+          'Desktop tools usually keep code on your disk. Routely browser keeps files online. Open a tab and start — even on a 4 GB RAM laptop.',
       },
       {
         id: 'create',
         title: 'New project',
         items: [
-          'Studio → New Project → name it',
-          'Ask Omni to create starter files',
+          'Browser → New Project → name it',
+          'Ask Routely to create starter files',
           'Files auto-save when you are logged in',
         ],
       },
@@ -366,9 +366,9 @@ POST /v1/chat
         id: 'upload',
         title: 'Upload existing code',
         items: [
-          'Studio → Upload zip',
+          'Browser → Upload zip',
           'Files appear in the left panel',
-          'Edit by hand or ask Omni',
+          'Edit by hand or ask Routely',
         ],
       },
       {
@@ -376,7 +376,7 @@ POST /v1/chat
         title: 'How to edit',
         items: [
           'Monaco editor with syntax colors',
-          'Type yourself or ask Omni: "Add a navbar to index.html"',
+          'Type yourself or ask Routely: "Add a navbar to index.html"',
           'Preview tab for static pages',
         ],
       },
@@ -388,21 +388,21 @@ POST /api/projects  {"name": "my-app"}
 POST /api/projects/{id}/upload  (zip file)`,
       },
     ],
-    prev: { slug: 'omni-memory', title: 'Omni memory' },
+    prev: { slug: 'omni-memory', title: 'Persistent memory' },
     next: { slug: 'api', title: 'API reference' },
   },
   {
     slug: 'api',
     title: 'API reference',
     description:
-      'HTTP API for Omni chat, chats, and projects. Use a Bearer token from your dashboard.',
+      'HTTP API for Routely chat, threads, and projects. Use a Bearer token from your dashboard.',
     badge: 'Developers',
     sections: [
       {
         id: 'base',
         title: 'Base URLs',
         items: [
-          'Live (plan): https://api.aksh.aitotech.in',
+          'Live (plan): https://app.routely.aitotech.in',
           'Local: http://127.0.0.1:8000',
           'OpenAI style: /v1/chat/completions',
           'Native chat: /v1/chat',
@@ -419,7 +419,7 @@ POST /api/projects/{id}/upload  (zip file)`,
         title: 'POST /v1/chat',
         code: `{
   "message": "Build a landing page in HTML",
-  "model": "omni",
+  "model": "routely",
   "search": "auto",
   "thread_id": "optional-uuid"
 }`,
@@ -429,7 +429,7 @@ POST /api/projects/{id}/upload  (zip file)`,
         title: 'POST /v1/chat/completions',
         body: 'For tools that use the OpenAI API format:',
         code: `{
-  "model": "omni",
+  "model": "routely",
   "messages": [{"role": "user", "content": "Hello"}]
 }`,
       },

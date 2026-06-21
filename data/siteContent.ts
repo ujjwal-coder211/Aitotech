@@ -1,14 +1,14 @@
-/**
- * ═══════════════════════════════════════════════════════════════════
- *  AitoTech — SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
+﻿/**
+ * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+ *  AitoTech â€” SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
  *  Edit text, contact info, and image paths here only.
- * ═══════════════════════════════════════════════════════════════════
+ * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
  */
 
-/** Brand & contact — update email, phone, socials here */
+/** Brand & contact â€” update email, phone, socials here */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI tools for business',
+  tagline: 'AI tools for business Â· Routely for coding',
   email: 'info@aitotech.in',
   // Personal mobile number website se hata diya gaya (privacy/spam se bachne ke liye).
   // Public site pe phone dikhana ho to ek business/virtual number (Google Voice,
@@ -17,7 +17,7 @@ export const site = {
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
-  /** Founder — header & about page. Apna photo: public/images/founder.jpg (same name se replace karo) */
+  /** Founder â€” header & about page. Apna photo: public/images/founder.jpg (same name se replace karo) */
   founder: {
     name: 'Ujjwal',
     role: 'Founder & CEO',
@@ -26,7 +26,7 @@ export const site = {
     initials: 'UC',
   },
   /**
-   * Social links — apni IDs / URLs yahan daalo, clickable ho jayenge.
+   * Social links â€” apni IDs / URLs yahan daalo, clickable ho jayenge.
    * Khali chhodo = icon dikhega par "coming soon" (link disabled).
    * Example: instagram: 'https://instagram.com/yourhandle'
    */
@@ -39,7 +39,7 @@ export const site = {
     youtube: '',
     github: 'https://github.com/ujjwal-coder211',
   },
-  /** Office location — used for the Google Map embed on the Contact page */
+  /** Office location â€” used for the Google Map embed on the Contact page */
   map: {
     lat: 28.7041,
     lng: 77.1025,
@@ -50,7 +50,7 @@ export const site = {
   },
 } as const;
 
-/** Image placeholders — replace paths when you add real assets to /public/images */
+/** Image placeholders â€” replace paths when you add real assets to /public/images */
 export const images = {
   logo: '/images/logo-placeholder.svg',
   founder: '/images/founder.svg',
@@ -68,7 +68,7 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/aksh', label: 'Aksh' },
+  { href: '/routely', label: 'Routely' },
   { href: '/docs', label: 'Docs' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
@@ -81,14 +81,14 @@ export const cta = {
   contact: 'Contact us',
 } as const;
 
-/** ─── HOME PAGE ─── */
+/** â”€â”€â”€ HOME PAGE â”€â”€â”€ */
 export const home = {
   hero: {
     badge: 'AI for business',
     title: 'Work smarter,',
     titleHighlight: 'not harder.',
     description:
-      'AitoTech helps teams stop doing the same manual work again and again. We use AI to save time, cut mistakes, and get clear results.',
+      'AitoTech helps teams stop doing the same manual work again and again. We use AI to save time, cut mistakes, and get clear results. Our coding product is Routely — try it from the banner below.',
     ctaPrimary: 'Book a call',
     ctaSecondary: 'See our services',
     dashboardLabel: 'Your work dashboard',
@@ -102,24 +102,24 @@ export const home = {
     { id: 'hours', label: 'Hours saved', suffix: '+', value: 12000, decimals: 0 },
     { id: 'processes', label: 'Jobs automated', suffix: '+', value: 340, decimals: 0 },
     { id: 'clients', label: 'Company clients', suffix: '+', value: 85, decimals: 0 },
-    { id: 'roi', label: 'Average return', suffix: '×', value: 3.2, decimals: 1 },
+    { id: 'roi', label: 'Average return', suffix: 'Ã—', value: 3.2, decimals: 1 },
   ],
   bento: {
     eyebrow: 'What we do',
     title: 'Automation',
     highlight: 'that grows with you',
-    description: 'Four main ways we help — each with a clear plan and support.',
-    viewAll: 'See all services →',
+    description: 'Four main ways we help â€” each with a clear plan and support.',
+    viewAll: 'See all services â†’',
   },
   whyChooseUs: {
     eyebrow: 'Why AitoTech',
     title: 'We focus on',
     highlight: 'real results',
-    description: 'We are a partner who stays with you — not a company that sells and leaves.',
+    description: 'We are a partner who stays with you â€” not a company that sells and leaves.',
     items: [
       {
         title: 'Results first',
-        body: 'We start with clear goals: hours saved, fewer errors, lower cost — not long slide decks.',
+        body: 'We start with clear goals: hours saved, fewer errors, lower cost â€” not long slide decks.',
       },
       {
         title: 'Safe by design',
@@ -149,14 +149,14 @@ export const home = {
   },
 } as const;
 
-/** ─── SERVICES PAGE ─── */
+/** â”€â”€â”€ SERVICES PAGE â”€â”€â”€ */
 export const servicesPage = {
   hero: {
     badge: 'What we do',
     title: 'Smart',
     highlight: 'automation services',
     description:
-      'Each service comes with a dedicated team — engineers and support staff focused on your goals.',
+      'Each service comes with a dedicated team â€” engineers and support staff focused on your goals.',
     comingSoonNote:
       'Some service pages will get case studies and demos soon. See the previews below or contact us for early access.',
   },
@@ -173,14 +173,14 @@ export const servicesPage = {
   ],
 } as const;
 
-/** Service catalog — used on home bento, services page, and detail routes */
+/** Service catalog â€” used on home bento, services page, and detail routes */
 export const services = [
   {
     slug: 'data-automation',
     title: 'Data Automation',
     short: 'Connect your data. Stop copy-paste.',
     description:
-      'AI moves data between your tools in real time. It maps fields for you. When something changes, the pipeline fixes itself — so your team trusts every report.',
+      'AI moves data between your tools in real time. It maps fields for you. When something changes, the pipeline fixes itself â€” so your team trusts every report.',
     features: ['Live sync', 'Smart field mapping', 'Data quality checks', 'See where data came from'],
     gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
     accent: 'text-cyan-400',
@@ -194,7 +194,7 @@ export const services = [
     title: 'Workflow Automation',
     short: 'Connect tools. Remove bottlenecks.',
     description:
-      'We connect your apps, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
+      'We connect your apps, route approvals, and trigger AI decisions â€” from invoice intake to customer onboarding.',
     features: ['Connect many apps', 'Smart routing', 'Full change history', 'Deadline alerts'],
     gradient: 'from-violet-500/20 via-indigo-500/10 to-transparent',
     accent: 'text-violet-400',
@@ -222,7 +222,7 @@ export const services = [
     title: 'Custom AI Systems',
     short: 'AI built for your business.',
     description:
-      'Custom AI models, knowledge bases, and agents that run on your servers — not generic chatbots pasted onto your tools.',
+      'Custom AI models, knowledge bases, and agents that run on your servers â€” not generic chatbots pasted onto your tools.',
     features: ['Custom training', 'Private knowledge base', 'Agent workflows', 'Human review when needed'],
     gradient: 'from-emerald-500/15 via-cyan-500/10 to-transparent',
     accent: 'text-emerald-400',
@@ -239,7 +239,7 @@ export function getServiceBySlug(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
-/** ─── ABOUT PAGE ─── */
+/** â”€â”€â”€ ABOUT PAGE â”€â”€â”€ */
 export const aboutPage = {
   hero: {
     eyebrow: 'Our story',
@@ -257,28 +257,28 @@ export const aboutPage = {
     letterTitle: 'A letter from our',
     letterHighlight: 'founder',
     paragraphs: [
-      'I started AitoTech after watching smart teams waste hours on repeat work — copying data between systems, chasing invoice approvals, answering the same support tickets. The tech to fix this existed. The right partner did not.',
+      'I started AitoTech after watching smart teams waste hours on repeat work â€” copying data between systems, chasing invoice approvals, answering the same support tickets. The tech to fix this existed. The right partner did not.',
       'We built AitoTech to be the partner I wished I had: engineers who understand business, who measure success in hours returned to your people, and who treat security as a must. Every project has clear goals and a path to grow.',
-      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that is how we have always done it." If that sounds like you — let us build something great together.',
+      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that is how we have always done it." If that sounds like you â€” let us build something great together.',
     ],
-    signature: '— The AitoTech team',
-    imageAlt: 'AitoTech founder — replace with your photo in siteContent.images.founder',
+    signature: 'â€” The AitoTech team',
+    imageAlt: 'AitoTech founder â€” replace with your photo in siteContent.images.founder',
   },
   pillars: [
     { title: 'Mission', body: 'Make automation easy to use, easy to measure, and good for people.' },
-    { title: 'Vision', body: 'Every team works fast with AI — not hours of copy-paste.' },
+    { title: 'Vision', body: 'Every team works fast with AI â€” not hours of copy-paste.' },
     { title: 'Values', body: 'Honesty, security, and real results over vanity numbers.' },
   ],
   teamPlaceholder: {
     title: 'Meet the team',
     comingSoon: 'Coming soon',
-    body: 'We are preparing team profiles, leader bios, and office photos. Contact us — tell us what you want to build.',
+    body: 'We are preparing team profiles, leader bios, and office photos. Contact us â€” tell us what you want to build.',
     cta: 'Contact us',
   },
   ctaButton: 'Work with us',
 } as const;
 
-/** ─── CONTACT PAGE ─── */
+/** â”€â”€â”€ CONTACT PAGE â”€â”€â”€ */
 export const contactPage = {
   hero: {
     eyebrow: 'Contact',
@@ -309,16 +309,16 @@ export const contactPage = {
   },
   mapPlaceholder: {
     title: 'Visit Us',
-    body: 'Delhi, India · 28.7041° N, 77.1025° E',
+    body: 'Delhi, India Â· 28.7041Â° N, 77.1025Â° E',
     directions: 'Get directions',
   },
 } as const;
 
-/** ─── FOOTER ─── */
+/** â”€â”€â”€ FOOTER â”€â”€â”€ */
 export const footer = {
-  blurb: 'building smart AI tools for growing companies.',
+  blurb: 'smart AI for business and Routely for developers who code.',
   navigateTitle: 'Navigate',
-  docsTitle: 'Aksh docs',
+  docsTitle: 'Routely docs',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
   socialTitle: 'Follow us',
@@ -335,7 +335,7 @@ export const footer = {
 export const serviceDetail = {
   ctaTitle: (name: string) => `Ready to start with ${name}?`,
   ctaBody:
-    'Book a call — we will map your work and set clear goals.',
+    'Book a call â€” we will map your work and set clear goals.',
   ctaButton: 'Talk to our team',
   comingSoon: {
     badge: 'Coming soon',
@@ -344,172 +344,50 @@ export const serviceDetail = {
   },
 } as const;
 
-/** ─── AKSH LAUNCH PAGE (coming soon / waitlist / press) ─── */
-export const aksh = {
-  badge: 'Public launch · Made in India',
-  title: 'Aksh',
-  headline: 'Code with AI in your browser.',
-  subtitle: 'Aksh — AI coding tool built in India',
-  tagline: 'Aksh Studio + Omni. Write code. Build apps. No big download.',
+/** ─── ROUTELY LAUNCH PAGE ─── */
+export const routely = {
+  badge: 'Coding AI · Made in India',
+  title: 'Routely',
+  headline: 'Code with AI. Best free model, picked for you.',
+  subtitle: 'Routely — AI coding tool built in India',
+  tagline: 'Browser or desktop. Memory that remembers. Git built in.',
   heroLead:
-    'Aksh helps you write code with AI. Open a full editor in your browser. Save projects online. Talk to one AI named Omni — no long model list. Data can stay in India on E2E Networks. Works on a normal laptop because hard work runs on our servers.',
+    'Tell Routely what to build or fix. It picks the best free AI model for that job, understands your codebase, and remembers your chat. Try in the browser or download for local projects.',
   description:
-    'Aksh by AitoTech — browser editor (Aksh Studio), Omni AI, cloud projects, and chat memory. Join the waitlist before public launch.',
+    'Routely by AitoTech — smart model routing, browser IDE, persistent memory, agent workflows, and git. Join the waitlist before public launch.',
   elevatorPitch:
-    'Write code, fix bugs, and build apps with Omni — in your browser, on cloud projects, with memory that remembers your work.',
+    'One AI for coding — smart routing, persistent memory, agent workflows, and git — in your browser or on your machine.',
   elevatorLabel: 'In one line',
   cta: 'Join the waitlist',
-  ctaSecondary: 'Press kit',
+  ctaSecondary: 'Try demo',
+  ctaTryBrowser: 'Try in browser',
+  tryBrowserHref: 'https://app.routely.aitotech.in',
   ctaHint: 'Early access · launch news · no spam',
-  status: 'Coming soon — waitlist is open · Studio beta next',
-  waitlistSubtitle:
-    'Join the waitlist for early access. We will email you when Aksh Studio opens.',
-  platformTitle: 'What you get',
-  platformSubtitle: 'Not just chat — a full product: editor, AI, memory, and cloud storage.',
-  quickStartTitle: 'After launch — 3 steps',
-  faqTitle: 'Questions and answers',
-  pressSectionTitle: 'Press and media',
-  pressSectionCta: 'Full press kit',
-  mockupOmniReply: 'Todo app is ready. Files saved.',
-
-  testimonials: {
-    title: 'Early feedback on Aksh',
-    items: [
-      {
-        quote:
-          'The browser editor plus one AI is exactly what our team wanted. No model picker, no heavy install — we opened Studio and shipped a prototype the same day.',
-        author: 'Product team',
-        role: 'Delhi startup',
-      },
-      {
-        quote:
-          'Omni Memory is the difference. We picked up yesterday’s chat and Omni still knew our API routes. That is rare in browser tools.',
-        author: 'Backend developer',
-        role: 'Waitlist beta',
-      },
-      {
-        quote:
-          'India hosting matters for us. Aksh feels like a serious roadmap — editor, cloud projects, and Omni in one place.',
-        author: 'Engineering lead',
-        role: 'Enterprise pilot',
-      },
-    ],
-  },
-
-  press: {
-    pageTitle: 'Press and media kit',
-    pageDescription: 'Official text about Aksh for news sites and tech press. Copy and paste.',
-    contactEmail: site.email,
-    contactLabel: 'Press contact',
-    short:
-      'Aksh is AitoTech\'s AI coding tool for India — browser editor (Aksh Studio), one AI named Omni, cloud projects, and hosting on E2E Networks.',
-    medium:
-      'AitoTech, based in Delhi, India, is launching Aksh — an AI coding tool for developers. Aksh Studio is a full editor in the browser. Omni handles all coding help in one place. Projects save in the cloud. It runs on low-RAM laptops because AI work happens online. Live servers will use E2E Networks in India. Waitlist: aitotech.in/aksh.',
-    long:
-      'AitoTech (aitotech.in) builds AI tools for businesses in Delhi, India. The company is launching Aksh — a coding tool with Aksh Studio (browser editor with files and preview), Aksh Coder, and Omni (one AI for the user — no model picker). Projects live in the cloud. The browser is the app; servers do the heavy work. Live servers will run on E2E Networks so data can stay in India. Developers use plain English with Omni. You can connect a desktop coding tool through the API. Waitlist: aitotech.in/aksh. Press: info@aitotech.in.',
-    facts: [
-      { label: 'Product', value: 'Aksh — AI coding (Studio + Coder + Omni)' },
-      { label: 'What it is', value: 'Browser-first AI coding tool for India' },
-      { label: 'Company', value: 'AitoTech, Delhi, India' },
-      { label: 'Status', value: 'Coming soon; waitlist open' },
-      { label: 'Hosting', value: 'E2E Networks India (live plan)' },
-      { label: 'Language', value: 'Plain English commands to Omni' },
-      { label: 'Website', value: 'https://aitotech.in/aksh' },
-      { label: 'Press email', value: 'info@aitotech.in' },
-    ],
-    quote:
-      'Developers in India deserve a serious AI coding tool — browser editor, one clear AI, data at home. That is Aksh, powered by Omni.',
-    quoteAttribution: 'AitoTech team',
-  },
-
-  differentiators: {
-    title: 'What makes Aksh different',
-    subtitle: 'Our own product. Features you get together in one place.',
-    items: [
-      {
-        title: 'Works in your browser',
-        body: 'Aksh Studio is a full editor in Chrome or Edge — files, preview, and AI in one tab. No 2 GB download.',
-      },
-      {
-        title: 'One AI: Omni',
-        body: 'You talk to Omni only. No long list of models. Omni picks the best engine behind the scenes.',
-      },
-      {
-        title: 'Omni Memory',
-        body: 'Each chat saves your project story. Come back tomorrow — Omni still knows your code.',
-      },
-      {
-        title: 'Cloud projects',
-        body: 'Code lives on the server. Upload a zip, edit online, open from anywhere. Built in, not an add-on.',
-      },
-      {
-        title: 'Light on your laptop',
-        body: 'UI in the browser; AI and storage online. A 4 GB RAM machine is enough for real work.',
-      },
-      {
-        title: 'India hosting plan',
-        body: 'Live servers will use E2E Networks — API, database, and storage in India for teams that care where code runs.',
-      },
-    ],
-  },
-
-  whyIndia: {
-    title: 'Why Aksh for India?',
-    items: [
-      {
-        title: 'Data stays in India',
-        body: 'We plan to run live servers on E2E Networks — API, database, and storage in India. Good for companies that care where data lives.',
-      },
-      {
-        title: 'Simple English works',
-        body: 'Tell Omni what you want in plain English. Example: "Build a login page" or "Fix this bug." No need for perfect technical words.',
-      },
-      {
-        title: 'Browser is the editor',
-        body: 'Open Chrome and start coding. No large download. Works on old laptops, college labs, and slow internet better than a heavy desktop app.',
-      },
-      {
-        title: 'Built by AitoTech',
-        body: 'We are a Delhi company that builds AI for business. Aksh is a real product roadmap — not a demo chatbot.',
-      },
-    ],
-  },
-
-  audiences: {
-    title: 'Who is Aksh for?',
-    items: [
-      { title: 'Developers', body: 'Ship faster with Omni, cloud projects, and a browser editor you can open anywhere.' },
-      { title: 'Students', body: 'Code in the browser on any laptop. Free tier planned.' },
-      { title: 'Startups', body: 'Build your first app fast with Omni. Save projects in the cloud.' },
-      { title: 'Companies', body: 'Data in India, private server options, E2E hosting.' },
-    ],
-  },
-
+  status: 'Building — waitlist open · browser beta next',
+  waitlistSubtitle: 'Join the waitlist. We will email you when Routely opens.',
+  roadmap: [
+    { phase: 'Now', label: 'Waitlist, demo, and docs live on aitotech.in', done: true },
+    { phase: 'Next', label: 'Browser IDE beta at app.routely.aitotech.in', done: false },
+    { phase: 'Later', label: 'Desktop download · agent multitask · India E2E hosting', done: false },
+  ],
   features: [
     {
-      title: 'Aksh Studio',
-      body: 'A full editor in your browser. Files, tabs, cloud projects, zip upload, and preview. Smooth on 4 GB RAM because AI runs in the cloud.',
+      title: 'Smart model routing',
+      body: 'You never pick a model. Routely routes each task to the best free OpenRouter model for coding, debug, git, or refactor.',
     },
     {
-      title: 'Omni',
-      body: 'One AI for code, fixes, and full apps. You only see Omni. Smart engines run behind the scenes — you never manage a model list.',
+      title: 'Persistent memory',
+      body: 'Full chat history per project. Pick up where you left off — Routely remembers context.',
     },
     {
-      title: 'Omni Memory',
-      body: 'Each chat remembers your project. Open an old chat and Omni still knows what you built. New chat = fresh start.',
+      title: 'Agent workflows',
+      body: 'Give multiple tasks. Routely runs agent workflows — fix code, pull from git, push changes — like a coding teammate.',
     },
     {
-      title: 'India cloud',
-      body: 'Projects and app data will run on E2E Networks in India — Delhi region for API and database. Less worry about sending code to foreign servers.',
+      title: 'Browser + desktop',
+      body: 'Try online in Chrome with no install. Or download Routely for local folders and real git on your machine.',
     },
   ],
-
-  roadmap: [
-    { phase: 'Now', label: 'Waitlist and docs are live', done: true },
-    { phase: 'Next', label: 'Aksh Studio beta on E2E Networks', done: false },
-    { phase: 'Later', label: 'India pricing · desktop option · company servers', done: false },
-  ],
-
   form: {
     namePlaceholder: 'Your name',
     emailPlaceholder: 'you@email.com',
@@ -523,52 +401,36 @@ export const aksh = {
     ],
     interestLabel: 'I want',
     interests: [
-      { value: 'studio', label: 'Aksh Studio (editor)' },
-      { value: 'coder', label: 'Aksh Coder (AI coding)' },
+      { value: 'browser', label: 'Browser (try online)' },
+      { value: 'desktop', label: 'Desktop download' },
       { value: 'both', label: 'Both' },
     ],
-    success: 'You are on the list! We will email you before launch.',
+    success: 'You are on the Routely list! We will email you before launch.',
     error: 'Something went wrong. Try again or email info@aitotech.in',
   },
-  docsCta: {
-    title: 'Documentation',
-    description: 'Step-by-step guides: install, desktop editor API, and web API.',
-    button: 'Read the docs',
-    href: '/docs',
-  },
-  quickStart: [
-    { step: '01', title: 'Join waitlist', body: 'Sign up at aitotech.in/aksh. Get your API key when we launch.' },
-    { step: '02', title: 'Open Aksh Studio', body: 'Use the editor in your browser. No big install needed.' },
-    { step: '03', title: 'Ask Omni', body: 'Type what you want in simple English. Omni writes the code.' },
-  ],
   faqs: [
     {
-      q: 'What makes Aksh different?',
-      a: 'Browser editor, one AI (Omni), cloud projects, chat memory, and India hosting — built together as one tool. You do not install a heavy desktop app or pick from many AI models.',
+      q: 'What is Routely?',
+      a: 'Routely is AitoTech\'s AI coding tool. You describe tasks in plain English. Routely picks the best free model, writes or fixes code, and remembers your project chat.',
     },
     {
-      q: 'What is Aksh?',
-      a: 'Aksh is AitoTech\'s AI coding tool. It includes Aksh Studio (browser editor), Aksh Coder, and Omni. Write code in plain English and save work in the cloud.',
+      q: 'Do I choose an AI model?',
+      a: 'No. Routely routes each task automatically — debug, build, git, refactor — to the best free model for that job.',
     },
     {
-      q: 'Do I need to download anything?',
-      a: 'No for most users. Open Aksh Studio in your browser. Advanced users can connect other tools through the Omni API (see docs).',
+      q: 'Browser or desktop?',
+      a: 'Both. Try Routely in the browser with cloud projects. Download the desktop app to open local folders and use real git on your machine.',
     },
     {
-      q: 'When does Aksh launch?',
-      a: 'We are coming soon. Join the waitlist at aitotech.in/aksh for early access to Aksh Studio.',
+      q: 'Is it only for coding?',
+      a: 'Yes for now. We are focused on coding first — build, fix, refactor, git. General tasks come later.',
     },
     {
-      q: 'What is Omni?',
-      a: 'Omni is the only AI you use in Aksh. It writes code, fixes bugs, and builds apps. You do not choose separate models — Omni handles that for you.',
-    },
-    {
-      q: 'Will it work on a weak laptop?',
-      a: 'Yes. The browser shows the UI. AI and storage run online. A 4GB RAM laptop is enough.',
-    },
-    {
-      q: 'Press or media contact?',
-      a: 'Press kit: aitotech.in/aksh/press. Email info@aitotech.in for interviews and demos.',
+      q: 'How do updates work?',
+      a: 'We push to GitHub — Railway and Vercel deploy automatically. Try in browser always shows the latest build.',
     },
   ],
 } as const;
+
+/** @deprecated Legacy imports — use routely */
+export const aksh = routely;

@@ -2,4 +2,4 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://aitotech.in';
 
-export const defaultOgImage = `${siteUrl}/images/og-aksh.svg`;
+export const defaultOgImage = `${siteUrl}/images/og-routely.svg`;

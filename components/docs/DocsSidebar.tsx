@@ -10,7 +10,7 @@ export default function DocsSidebar() {
 
   return (
     <aside className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">Aksh</p>
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">Routely</p>
       <nav className="space-y-0.5">
         <Link
           href="/docs"

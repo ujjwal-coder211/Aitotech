@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Hero from '@/components/Hero';
-import AkshLaunchBanner from '@/components/AkshLaunchBanner';
+import RoutelyLaunchBanner from '@/components/RoutelyLaunchBanner';
 import LogoCloud from '@/components/LogoCloud';
 import BentoServices from '@/components/BentoServices';
 import ProcessSection from '@/components/ProcessSection';
@@ -17,7 +17,7 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <AkshLaunchBanner />
+      <RoutelyLaunchBanner />
       <LogoCloud />
 
       <section className="hidden border-b border-line py-12 sm:py-14 lg:block">

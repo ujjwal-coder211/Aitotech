@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { aksh } from '@/data/siteContent';
+import { routely } from '@/data/siteContent';
 
 export default function AkshWaitlistForm() {
   const [name, setName] = useState('');
@@ -21,17 +21,17 @@ export default function AkshWaitlistForm() {
       const res = await fetch('/api/aksh-waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, role, interest }),
+        body: JSON.stringify({ name, email, role, interest, product: 'routely' }),
       });
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || aksh.form.error);
+        throw new Error(data.error || routely.form.error);
       }
       setDone(true);
       setName('');
       setEmail('');
     } catch (err) {
-      setError(err instanceof Error ? err.message : aksh.form.error);
+      setError(err instanceof Error ? err.message : routely.form.error);
     } finally {
       setLoading(false);
     }
@@ -45,8 +45,8 @@ export default function AkshWaitlistForm() {
         className="glass-strong rounded-2xl border border-emerald-500/30 p-8 text-center"
       >
         <p className="text-3xl mb-2">✓</p>
-        <p className="font-display text-lg font-semibold text-white">{aksh.form.success}</p>
-        <p className="mt-2 text-sm text-zinc-400">Team Aitotech · Aksh by Omni</p>
+        <p className="font-display text-lg font-semibold text-white">{routely.form.success}</p>
+        <p className="mt-2 text-sm text-zinc-400">Team AitoTech · Routely</p>
       </motion.div>
     );
   }
@@ -62,7 +62,7 @@ export default function AkshWaitlistForm() {
               minLength={2}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder={aksh.form.namePlaceholder}
+              placeholder={routely.form.namePlaceholder}
               className="w-full rounded-lg border border-zinc-800 bg-[#030712] px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500"
             />
           </div>
@@ -73,19 +73,19 @@ export default function AkshWaitlistForm() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder={aksh.form.emailPlaceholder}
+              placeholder={routely.form.emailPlaceholder}
               className="w-full rounded-lg border border-zinc-800 bg-[#030712] px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500"
             />
           </div>
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-zinc-400">{aksh.form.roleLabel}</label>
+          <label className="mb-1.5 block text-xs font-medium text-zinc-400">{routely.form.roleLabel}</label>
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
             className="w-full rounded-lg border border-zinc-800 bg-[#030712] px-4 py-3 text-sm text-white focus:border-violet-500 focus:outline-none"
           >
-            {aksh.form.roles.map((r) => (
+            {routely.form.roles.map((r) => (
               <option key={r.value} value={r.value}>
                 {r.label}
               </option>
@@ -93,13 +93,13 @@ export default function AkshWaitlistForm() {
           </select>
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-medium text-zinc-400">{aksh.form.interestLabel}</label>
+          <label className="mb-1.5 block text-xs font-medium text-zinc-400">{routely.form.interestLabel}</label>
           <select
             value={interest}
             onChange={(e) => setInterest(e.target.value)}
             className="w-full rounded-lg border border-zinc-800 bg-[#030712] px-4 py-3 text-sm text-white focus:border-violet-500 focus:outline-none"
           >
-            {aksh.form.interests.map((r) => (
+            {routely.form.interests.map((r) => (
               <option key={r.value} value={r.value}>
                 {r.label}
               </option>
@@ -109,9 +109,9 @@ export default function AkshWaitlistForm() {
       </div>
       {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
       <button type="submit" disabled={loading} className="mt-6 w-full rounded-lg bg-violet-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50">
-        {loading ? 'Joining…' : aksh.cta}
+        {loading ? 'Joining…' : routely.cta}
       </button>
-      <p className="mt-3 text-center text-xs text-zinc-500">{aksh.ctaHint}</p>
+      <p className="mt-3 text-center text-xs text-zinc-500">{routely.ctaHint}</p>
     </form>
   );
 }

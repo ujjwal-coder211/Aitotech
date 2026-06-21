@@ -1,16 +1,9 @@
 import type { Metadata } from 'next';
-import { aksh } from '@/data/siteContent';
-import { siteUrl } from '@/lib/seo/siteUrl';
+import { routely } from '@/data/siteContent';
 
 export const metadata: Metadata = {
-  title: 'Press kit — Aksh | AitoTech',
-  description: aksh.press.pageDescription,
-  alternates: { canonical: `${siteUrl}/aksh/press` },
-  openGraph: {
-    title: 'Aksh Press Kit — AitoTech',
-    description: aksh.press.short,
-    url: `${siteUrl}/aksh/press`,
-  },
+  title: 'Press — Routely | AitoTech',
+  description: 'Media information about Routely, AitoTech\'s AI coding tool for India.',
 };
 
 export default function AkshPressLayout({ children }: { children: React.ReactNode }) {
