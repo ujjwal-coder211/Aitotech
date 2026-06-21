@@ -335,7 +335,7 @@ export default function AkshStudioDemo({
                   liveMode ? 'bg-emerald-500/15 text-emerald-300' : 'bg-violet-500/15 text-violet-300'
                 }`}
               >
-                {liveMode ? 'Live Omni' : 'Production demo'}
+                {liveMode ? 'Live Omni' : 'Pitch demo · free'}
               </span>
             )}
             <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">

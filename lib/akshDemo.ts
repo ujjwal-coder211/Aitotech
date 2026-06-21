@@ -341,9 +341,9 @@ Try: "Add dark mode" or "Deploy to E2E Networks".`,
 const DEFAULT_MOCK_REPLY =
   'Got it. I updated the project based on your request. Check the editor — files are saved to your cloud project in Aksh Studio.';
 
-/** Old sales agents bot replies — never show these in Aksh Studio demo */
+/** Old sales / support bots — never show in Aksh Studio demo */
 function looksLikeSalesBot(text: string): boolean {
-  return /₹\s*49,?999|book a call|contact form|hamari team|web development service|Namaste!.*AitoTech/i.test(
+  return /₹\s*49,?999|book a call|contact form|hamari team|web development service|Namaste!.*AitoTech|At AitoTech|AI Automation|Workflow Automation|filling out our contact|automate business workflows|discovery call/i.test(
     text
   );
 }

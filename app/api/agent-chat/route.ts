@@ -20,6 +20,12 @@ export async function POST(request: NextRequest) {
   const agentType = (body.agent_type || 'sales').toString().trim().toLowerCase();
   const isAksh = agentType === 'aksh';
 
+  // Aksh Studio marketing demo: mock by default (free, no OpenRouter cost).
+  // Set AKSH_DEMO_LIVE=true on Vercel only when you want real Omni on Railway.
+  if (isAksh && process.env.AKSH_DEMO_LIVE !== 'true') {
+    return NextResponse.json({ error: 'aksh_demo_mock' }, { status: 503 });
+  }
+
   const base = isAksh ? getAkshApiUrl() : getAgentsApiUrl() ?? getAkshApiUrl();
   if (!base) {
     return NextResponse.json(
