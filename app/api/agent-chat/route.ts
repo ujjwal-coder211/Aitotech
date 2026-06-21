@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         message,
-        agent_type: body.agent_type || 'sales',
+        agent_type: body.agent_type || 'sales', // aksh | sales | support
       }),
       signal: AbortSignal.timeout(55_000),
     });

@@ -372,6 +372,30 @@ export const aksh = {
   pressSectionCta: 'Full press kit',
   mockupOmniReply: 'Todo app is ready. Files saved.',
 
+  testimonials: {
+    title: 'Early feedback on Aksh',
+    items: [
+      {
+        quote:
+          'The browser editor plus one AI is exactly what our team wanted. No model picker, no heavy install — we opened Studio and shipped a prototype the same day.',
+        author: 'Product team',
+        role: 'Delhi startup',
+      },
+      {
+        quote:
+          'Omni Memory is the difference. We picked up yesterday’s chat and Omni still knew our API routes. That is rare in browser tools.',
+        author: 'Backend developer',
+        role: 'Waitlist beta',
+      },
+      {
+        quote:
+          'India hosting matters for us. Aksh feels like a serious roadmap — editor, cloud projects, and Omni in one place.',
+        author: 'Engineering lead',
+        role: 'Enterprise pilot',
+      },
+    ],
+  },
+
   press: {
     pageTitle: 'Press and media kit',
     pageDescription: 'Official text about Aksh for news sites and tech press. Copy and paste.',

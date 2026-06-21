@@ -1,45 +1,13 @@
 import Link from 'next/link';
+import AkshAgentFleet from '@/components/aksh/AkshAgentFleet';
+import AkshDemoCtaBand from '@/components/aksh/AkshDemoCtaBand';
+import { AkshDemoProvider } from '@/components/aksh/AkshDemoProvider';
+import { AkshHeroActions, AkshHeroMockup } from '@/components/aksh/AkshHeroInteractive';
 import AkshWaitlistForm from '@/components/AkshWaitlistForm';
 import SocialLinks from '@/components/SocialLinks';
 import JsonLdScript from '@/components/seo/JsonLdScript';
 import { aksh, site } from '@/data/siteContent';
 import { siteUrl } from '@/lib/seo/siteUrl';
-
-function StudioMockup() {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-[#0a0a0f] shadow-2xl shadow-violet-950/40">
-      <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3">
-        <div className="flex gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-        </div>
-        <span className="text-xs text-zinc-500">Aksh Studio · Powered by Omni</span>
-        <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">Beta soon</span>
-      </div>
-      <div className="grid min-h-[300px] grid-cols-[120px_1fr_140px] text-xs">
-        <div className="border-r border-zinc-800 bg-[#050508] p-3 text-zinc-500">
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Chats</p>
-          <div className="mb-1 rounded bg-violet-500/15 px-2 py-1 text-violet-300">Todo app</div>
-          <div className="px-2 py-1">Bug fix</div>
-        </div>
-        <div className="border-r border-zinc-800 bg-[#030712] p-4 font-mono text-zinc-400">
-          <span className="text-violet-400">export</span> function App() {'{'}
-          <br />
-          &nbsp;&nbsp;<span className="text-sky-400">return</span> &lt;Todo /&gt;;
-          <br />
-          {'}'}
-        </div>
-        <div className="bg-[#050508] p-3">
-          <p className="mb-2 text-[10px] font-semibold text-zinc-600">OMNI</p>
-          <div className="rounded-lg border border-zinc-800 bg-[#0a0a0f] p-2 text-[11px] text-zinc-400">
-            {aksh.mockupOmniReply}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function AkshLaunchPage() {
   const jsonLd = [
@@ -67,10 +35,10 @@ export default function AkshLaunchPage() {
   ];
 
   return (
-    <>
+    <AkshDemoProvider>
       <JsonLdScript data={jsonLd} />
       <div className="pt-16 sm:pt-20">
-        {/* HERO — clear headline + visible description */}
+        {/* HERO */}
         <section className="section-pad pb-12">
           <div className="container-page">
             <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
@@ -82,35 +50,19 @@ export default function AkshLaunchPage() {
                 <p className="mt-3 text-xl font-semibold text-violet-300 sm:text-2xl">{aksh.subtitle}</p>
                 <p className="mt-6 text-base leading-relaxed text-zinc-300 sm:text-lg">{aksh.heroLead}</p>
                 <p className="mt-4 text-sm font-medium text-zinc-400">{aksh.tagline}</p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="#waitlist"
-                    className="btn-primary inline-flex bg-violet-600 hover:bg-violet-500"
-                  >
-                    {aksh.cta}
-                  </Link>
-                  <Link href="/aksh/press" className="btn-secondary border-zinc-700 text-zinc-200">
-                    {aksh.ctaSecondary}
-                  </Link>
-                  <Link href="/docs" className="btn-secondary border-zinc-700 text-zinc-200">
-                    Documentation
-                  </Link>
-                </div>
+                <AkshHeroActions />
                 <p className="mt-4 text-xs text-zinc-500">{aksh.ctaHint}</p>
                 <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-xs font-medium text-violet-200">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-400" />
                   {aksh.status}
                 </p>
               </div>
-              <div className="relative lg:sticky lg:top-24">
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-violet-600/25 via-indigo-600/10 to-transparent blur-2xl" />
-                <StudioMockup />
-              </div>
+              <AkshHeroMockup />
             </div>
           </div>
         </section>
 
-        {/* Elevator pitch box */}
+        {/* Elevator pitch */}
         <section className="border-y border-zinc-800/80 bg-[#050508]/90 py-10">
           <div className="container-page max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">{aksh.elevatorLabel}</p>
@@ -120,10 +72,57 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
-        {/* What makes Aksh different */}
-        <section className="section-pad">
+        <AkshAgentFleet />
+
+        {/* Platform pillars — Zoho-style "Agentic AI Platform" */}
+        <section className="section-pad border-t border-zinc-800/80">
           <div className="container-page">
-            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.differentiators.title}</h2>
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-violet-400">
+              The Aksh platform
+            </p>
+            <h2 className="mt-3 text-center font-display text-2xl font-bold text-white sm:text-3xl">
+              One product. Editor, AI, memory, cloud.
+            </h2>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {aksh.features.map((f) => (
+                <article
+                  key={f.title}
+                  className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-8 transition hover:border-violet-500/30"
+                >
+                  <h3 className="font-display text-xl font-semibold text-violet-300">{f.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-zinc-300 sm:text-base">{f.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="section-pad border-t border-zinc-800/80 bg-[#050508]/50">
+          <div className="container-page">
+            <h2 className="text-center font-display text-2xl font-bold text-white sm:text-3xl">
+              {aksh.testimonials.title}
+            </h2>
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {aksh.testimonials.items.map((t) => (
+                <blockquote key={t.author} className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-6">
+                  <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">&ldquo;{t.quote}&rdquo;</p>
+                  <footer className="mt-4 text-xs font-medium text-zinc-500">
+                    {t.author}
+                    {t.role ? ` · ${t.role}` : ''}
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Differentiators */}
+        <section className="section-pad border-t border-zinc-800/80">
+          <div className="container-page">
+            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">
+              {aksh.differentiators.title}
+            </h2>
             <p className="mx-auto mt-3 max-w-2xl text-center text-base text-zinc-400">{aksh.differentiators.subtitle}</p>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {aksh.differentiators.items.map((item) => (
@@ -151,24 +150,6 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
-        {/* Product features — long descriptions */}
-        <section className="section-pad">
-          <div className="container-page">
-            <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.platformTitle}</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-center text-base text-zinc-400">
-              {aksh.platformSubtitle}
-            </p>
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {aksh.features.map((f) => (
-                <article key={f.title} className="rounded-2xl border border-zinc-800 bg-[#0a0a0f] p-8">
-                  <h3 className="font-display text-xl font-semibold text-violet-300">{f.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-zinc-300 sm:text-base">{f.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Audiences */}
         <section className="section-pad border-t border-zinc-800/80">
           <div className="container-page">
@@ -184,20 +165,20 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
+        <AkshDemoCtaBand />
+
         {/* Waitlist */}
         <section id="waitlist" className="section-pad border-t border-zinc-800/80 bg-violet-950/20">
           <div className="container-page max-w-xl">
             <h2 className="font-display text-center text-2xl font-bold text-white sm:text-3xl">{aksh.cta}</h2>
-            <p className="mx-auto mt-4 max-w-md text-center text-base text-zinc-300">
-              {aksh.waitlistSubtitle}
-            </p>
+            <p className="mx-auto mt-4 max-w-md text-center text-base text-zinc-300">{aksh.waitlistSubtitle}</p>
             <div className="mt-8">
               <AkshWaitlistForm />
             </div>
           </div>
         </section>
 
-        {/* Quick start + docs */}
+        {/* Quick start */}
         <section className="section-pad border-t border-zinc-800/80">
           <div className="container-page">
             <h2 className="font-display text-center text-2xl font-bold text-white">{aksh.quickStartTitle}</h2>
@@ -238,7 +219,7 @@ export default function AkshLaunchPage() {
           </div>
         </section>
 
-        {/* Press teaser */}
+        {/* Press */}
         <section className="section-pad border-t border-zinc-800/80 bg-[#050508]/80">
           <div className="container-page max-w-3xl text-center">
             <h2 className="font-display text-2xl font-bold text-white">{aksh.pressSectionTitle}</h2>
@@ -282,11 +263,14 @@ export default function AkshLaunchPage() {
               <Link href="/" className="text-zinc-300 hover:text-white">
                 {site.name}
               </Link>{' '}
-              · <a href={`mailto:${site.email}`} className="text-violet-400 hover:underline">{site.email}</a>
+              ·{' '}
+              <a href={`mailto:${site.email}`} className="text-violet-400 hover:underline">
+                {site.email}
+              </a>
             </p>
           </div>
         </section>
       </div>
-    </>
+    </AkshDemoProvider>
   );
 }
