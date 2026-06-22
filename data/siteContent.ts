@@ -71,9 +71,132 @@ export const navLinks = [
   { href: '/routely', label: 'Routely' },
   { href: '/docs', label: 'Docs' },
   { href: '/services', label: 'Services' },
+  { href: '/products/outreach', label: 'Outreach App' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const;
+
+/** ─── OUTREACH / SALES PILOT APP (B2B product) ─── */
+export const outreachProduct = {
+  slug: 'outreach',
+  name: 'Outreach',
+  tagline: 'AI Sales Pilot for Banks & NBFCs',
+  poweredBy: 'Aitotech',
+  /** Update when new EAS APK is built */
+  currentVersion: '1.0.12',
+  runtimeVersion: '1.0.12',
+  otaChannel: 'preview',
+  /** Latest Android APK — replace after each EAS build */
+  apkDownloadUrl:
+    'https://expo.dev/artifacts/eas/vGEY3EECTDzyF92u8QG69iEM9MeKzfKx16x1558902A.apk',
+  backendUrl: 'https://outreachapp-production-b5e8.up.railway.app',
+  contactEmail: site.email,
+  hero: {
+    eyebrow: 'Aitotech Product',
+    title: 'Outreach',
+    highlight: 'Sales Pilot',
+    description:
+      'Daily MCA & GST company data by PIN code, AI-written cold messages, and one-tap WhatsApp or email — built for bank sales officers and BDMs across India.',
+  },
+  download: {
+    title: 'Download Outreach',
+    subtitle: 'Android APK · Free pilot for colleagues & bank teams',
+    installSteps: [
+      'Tap Download APK and allow install from browser if prompted.',
+      'Open the app → Login or register (colleague pilot).',
+      'Set PIN codes in Profile → Details for your catchment area.',
+      'Leads tab → MCA/GST → pick PIN + date → tap company → AI message → WhatsApp.',
+      'When an update is available, a popup appears automatically — tap Download, then Restart.',
+    ],
+    otaNote:
+      'After installing this APK, smaller updates arrive over-the-air (OTA). Open the app and accept the update popup — or go to Profile → Check for Updates.',
+    qrCaption: 'Scan to open download page on your phone',
+  },
+  features: [
+    {
+      title: 'Daily MCA / GST feed',
+      body: 'Fresh registered companies by PIN code and date — no manual Excel hunting.',
+    },
+    {
+      title: 'AI cold messages',
+      body: 'Upload bank brochure once; AI writes 3–4 professional WhatsApp/email options per lead.',
+    },
+    {
+      title: 'Human-in-the-loop send',
+      body: 'Opens WhatsApp or mail with pre-filled text — you tap Send (compliant, not bulk spam).',
+    },
+    {
+      title: 'Lead tracking',
+      body: 'Status pipeline: new → contacted → interested → converted.',
+    },
+    {
+      title: 'Branch-ready (roadmap)',
+      body: 'Banks get provisioned logins per branch — Aitotech manages setup during pilot.',
+    },
+    {
+      title: 'Auto updates (OTA)',
+      body: 'New features deploy without reinstalling — popup on launch when an update is ready.',
+    },
+  ],
+  demoSteps: [
+    { step: '01', title: 'Profile setup', body: 'PIN codes, products, bank brochure PDF for AI context.' },
+    { step: '02', title: 'Browse MCA/GST', body: 'Leads → MCA/GST tab → select PIN + registration date.' },
+    { step: '03', title: 'Pick a company', body: 'See name, mobile, email, address — tap to open lead.' },
+    { step: '04', title: 'Generate AI message', body: 'Choose tone & language — Hindi, English, or Hinglish.' },
+    { step: '05', title: 'Send outreach', body: 'WhatsApp or Email opens with message ready — you send.' },
+  ],
+  docs: {
+    title: 'Documentation',
+    sections: [
+      {
+        heading: 'Who is it for?',
+        bullets: [
+          'Bank sales officers, RMs, and BDMs doing SME/corporate outreach',
+          'BSMs managing teams across PIN-based catchment areas',
+          'Aitotech client banks during pilot programs',
+        ],
+      },
+      {
+        heading: 'Data source',
+        bullets: [
+          'MCA & GST company registry imported daily on Aitotech servers',
+          'Filtered by 6-digit PIN code and registration date in the app',
+          'Optional Excel upload for your own lead lists (My Leads tab)',
+        ],
+      },
+      {
+        heading: 'Plans (pilot)',
+        bullets: [
+          'Colleague pilot: free during validation',
+          'Bank pilot: org-level contract — contact info@aitotech.in',
+          'Premium tiers for higher AI quotas when bank goes live',
+        ],
+      },
+      {
+        heading: 'Support',
+        bullets: [
+          'Email: info@aitotech.in',
+          'WhatsApp support during bank pilots (business hours)',
+          'Profile → App Version shows OTA channel & update check',
+        ],
+      },
+    ],
+  },
+  faq: [
+    {
+      q: 'Why do I need to install APK instead of Play Store?',
+      a: 'Pilot builds are distributed directly while we onboard bank partners. Play Store listing comes after pilot validation.',
+    },
+    {
+      q: 'Will the app update automatically?',
+      a: 'Yes — after installing the APK, Expo OTA pushes JS updates. You will see an Update available popup on launch or when returning to the app.',
+    },
+    {
+      q: 'Old APK not getting updates?',
+      a: 'Install the latest APK from this page (v1.0.12+). Builds before v1.0.11 did not include the OTA channel.',
+    },
+  ],
+} as const;
 
 export const cta = {
   primary: 'Book a call',
