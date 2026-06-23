@@ -8,7 +8,7 @@
 /** Brand & contact */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI Automation Agency · Routely & Outreach',
+  tagline: 'AI Automation Agency · Outreach App',
   email: 'info@aitotech.in',
   phone: '+91 93544 59046',
   address: 'Delhi, India',
@@ -53,7 +53,6 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/routely', label: 'Routely' },
   { href: '/products/outreach', label: 'Outreach' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
@@ -62,10 +61,9 @@ export const navLinks = [
 
 /** Product pages — footer & cross-links */
 export const productLinks = [
-  { href: '/routely', label: 'Routely', tag: 'AI coding' },
-  { href: '/docs', label: 'Routely Docs', tag: 'Documentation' },
   { href: '/products/outreach', label: 'Outreach App', tag: 'Sales pilot' },
   { href: '/products/outreach/download', label: 'Download APK', tag: 'Android' },
+  { href: '/products/outreach/request', label: 'Request Access', tag: 'Pilot' },
 ] as const;
 
 export const cta = {
@@ -105,9 +103,9 @@ export const home = {
     title: 'Automate the Work.',
     titleHighlight: 'Amplify the Impact.',
     description:
-      'AitoTech builds intelligent automation for enterprises — and ships our own products: Routely (AI coding) and Outreach (AI sales pilot for banks).',
+      'AitoTech builds intelligent automation for enterprises — and ships Outreach, our AI sales pilot app for bank sales teams across India.',
     ctaPrimary: 'Book a Call',
-    ctaSecondary: 'Explore Products',
+    ctaSecondary: 'Explore Outreach',
     dashboardLabel: 'Live automation overview',
     liveBadge: '12 workflows active',
   },
@@ -122,23 +120,18 @@ export const home = {
     clients: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
   },
   products: {
-    eyebrow: 'Our Products',
-    title: 'Software we',
-    highlight: 'build & ship',
+    eyebrow: 'Our Product',
+    title: 'Outreach',
+    highlight: 'AI Sales Pilot',
     description:
-      'Beyond client automation, AitoTech launches its own AI products — built in India, used by developers and bank sales teams.',
-    routely: {
-      badge: 'Live · Coding AI',
-      summary:
-        'Routely picks the best free AI model for each coding task — with persistent memory, agent workflows, and git in browser or desktop.',
-      learnMore: 'Explore Routely',
-    },
+      'AitoTech\'s Android app for bank sales teams — daily MCA/GST leads by PIN code and AI-powered WhatsApp outreach.',
     outreach: {
       badge: 'Live · Android App',
       summary:
-        'Outreach delivers daily MCA/GST leads by PIN code and writes AI-powered WhatsApp outreach for bank sales officers across India.',
+        'Outreach delivers fresh MCA/GST company data by PIN code, writes professional cold messages with AI, and opens WhatsApp ready to send — built for BDMs and sales officers.',
       downloadCta: 'Download APK',
-      learnMore: 'Explore Outreach',
+      learnMore: 'Learn more',
+      requestAccess: 'Request access',
     },
   },
   bento: {
@@ -344,7 +337,7 @@ export const contactPage = {
 
 /** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'Enterprise automation, Routely for coding, and Outreach for bank sales teams.',
+  blurb: 'Enterprise automation and Outreach — AI sales pilot for bank teams.',
   navigateTitle: 'Navigate',
   productsTitle: 'Products',
   servicesTitle: 'Services',
