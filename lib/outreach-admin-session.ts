@@ -1,5 +1,6 @@
 import crypto from 'crypto';
-import type { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const COOKIE_NAME = 'outreach_admin_session';
 const MAX_AGE_SEC = 8 * 60 * 60;

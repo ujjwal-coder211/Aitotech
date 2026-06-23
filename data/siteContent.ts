@@ -14,6 +14,21 @@ export const site = {
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
+  founder: {
+    name: 'Ujjwal',
+    role: 'Founder & CEO',
+    photo: '/images/founder.svg',
+    initials: 'UC',
+  },
+  social: {
+    instagram: '',
+    facebook: '',
+    x: '',
+    linkedin: '',
+    discord: '',
+    youtube: '',
+    github: 'https://github.com/ujjwal-coder211',
+  },
   map: {
     lat: 28.7041,
     lng: 77.1025,
@@ -312,3 +327,145 @@ export const serviceDetail = {
     'Schedule a discovery session — we will map your workflows and define measurable outcomes.',
   ctaButton: 'Book a Call',
 } as const;
+
+/** Outreach app product pages — /products/outreach/* */
+export const outreachProduct = {
+  slug: 'outreach',
+  name: 'Outreach',
+  tagline: 'AI Sales Pilot for Banks & NBFCs',
+  poweredBy: 'Aitotech',
+  currentVersion: '1.0.13',
+  runtimeVersion: '1.0.13',
+  otaChannel: 'preview',
+  apkDownloadUrl:
+    'https://expo.dev/artifacts/eas/vGEY3EECTDzyF92u8QG69iEM9MeKzfKx16x1558902A.apk',
+  backendUrl: 'https://outreachapp-production-b5e8.up.railway.app',
+  adminPanelUrl: 'https://aitotech.in/products/outreach/admin',
+  requestAccessUrl: 'https://aitotech.in/products/outreach/request',
+  contactEmail: site.email,
+  hero: {
+    eyebrow: 'Aitotech Product',
+    title: 'Outreach',
+    highlight: 'Sales Pilot',
+    description:
+      'Daily MCA & GST company data by PIN code, AI-written cold messages, and one-tap WhatsApp or email — built for bank sales teams across India.',
+  },
+  download: {
+    title: 'Download Outreach',
+    subtitle: 'Android APK · Free pilot for colleagues & bank teams',
+    installSteps: [
+      'Tap Download APK and allow install from browser if prompted.',
+      'Request access or use login ID/password from your Aitotech admin.',
+      'Set PIN codes in Profile for your catchment area.',
+      'Browse MCA/GST leads, save as lead, then send AI outreach.',
+      'When an update is available, tap Download, then Restart.',
+    ],
+    otaNote:
+      'After installing the APK, smaller updates arrive over-the-air. Open the app and accept the update popup.',
+    qrCaption: 'Scan to open download page on your phone',
+  },
+  features: [
+    { title: 'Daily MCA / GST feed', body: 'Fresh registered companies by PIN code and date.' },
+    { title: 'AI cold messages', body: 'Upload bank brochure once; AI writes professional outreach options per lead.' },
+    { title: 'Human-in-the-loop send', body: 'Opens WhatsApp or mail with pre-filled text — you tap Send.' },
+    { title: 'Lead tracking', body: 'Status pipeline: new → contacted → interested → converted.' },
+    { title: 'Branch-ready (roadmap)', body: 'Banks get provisioned logins per branch during pilot.' },
+    { title: 'Auto updates (OTA)', body: 'New features deploy without reinstalling the APK.' },
+  ],
+  demoSteps: [
+    { step: '01', title: 'Profile setup', body: 'PIN codes, products, bank brochure PDF for AI context.' },
+    { step: '02', title: 'Browse MCA/GST', body: 'Leads tab → select PIN + registration date.' },
+    { step: '03', title: 'Pick a company', body: 'See name, mobile, email, address — tap to open lead.' },
+    { step: '04', title: 'Generate AI message', body: 'Choose tone & language — Hindi, English, or Hinglish.' },
+    { step: '05', title: 'Send outreach', body: 'WhatsApp or Email opens with message ready — you send.' },
+  ],
+  docs: {
+    title: 'Documentation',
+    sections: [
+      {
+        heading: 'Who is it for?',
+        bullets: [
+          'Bank sales officers, RMs, and BDMs doing SME/corporate outreach',
+          'BSMs managing teams across PIN-based catchment areas',
+          'Aitotech client banks during pilot programs',
+        ],
+      },
+      {
+        heading: 'Support',
+        bullets: ['Email: info@aitotech.in', 'WhatsApp support during bank pilots (business hours)'],
+      },
+    ],
+  },
+  faq: [
+    {
+      q: 'Why APK instead of Play Store?',
+      a: 'Pilot builds are distributed directly while we onboard bank partners.',
+    },
+    {
+      q: 'Will the app update automatically?',
+      a: 'Yes — after installing the APK, OTA pushes JS updates when available.',
+    },
+  ],
+} as const;
+
+/** Routely product pages — /routely, /docs, /aksh/* */
+export const routely = {
+  badge: 'Coding AI · Made in India',
+  title: 'Routely',
+  headline: 'Code with AI. Best free model, picked for you.',
+  subtitle: 'Routely — AI coding tool built in India',
+  tagline: 'Browser or desktop. Memory that remembers. Git built in.',
+  heroLead:
+    'Tell Routely what to build or fix. It picks the best free AI model for that job, understands your codebase, and remembers your chat.',
+  description:
+    'Routely by AitoTech — smart model routing, browser IDE, persistent memory, agent workflows, and git.',
+  elevatorPitch:
+    'One AI for coding — smart routing, persistent memory, agent workflows, and git — in your browser or on your machine.',
+  elevatorLabel: 'In one line',
+  cta: 'Join the waitlist',
+  ctaSecondary: 'Try demo',
+  ctaTryBrowser: 'Try in browser',
+  tryBrowserHref: 'https://app.routely.aitotech.in',
+  ctaHint: 'Early access · launch news · no spam',
+  status: 'Building — waitlist open · browser beta next',
+  waitlistSubtitle: 'Join the waitlist. We will email you when Routely opens.',
+  roadmap: [
+    { phase: 'Now', label: 'Waitlist, demo, and docs live on aitotech.in', done: true },
+    { phase: 'Next', label: 'Browser IDE beta at app.routely.aitotech.in', done: false },
+    { phase: 'Later', label: 'Desktop download · agent multitask · India E2E hosting', done: false },
+  ],
+  features: [
+    { title: 'Smart model routing', body: 'Routely routes each task to the best free model for coding, debug, git, or refactor.' },
+    { title: 'Persistent memory', body: 'Full chat history per project. Pick up where you left off.' },
+    { title: 'Agent workflows', body: 'Give multiple tasks — fix code, pull from git, push changes.' },
+    { title: 'Browser + desktop', body: 'Try online in Chrome or download for local folders and real git.' },
+  ],
+  form: {
+    namePlaceholder: 'Your name',
+    emailPlaceholder: 'you@email.com',
+    roleLabel: 'I am a…',
+    roles: [
+      { value: 'developer', label: 'Developer' },
+      { value: 'student', label: 'Student' },
+      { value: 'founder', label: 'Founder / startup' },
+      { value: 'enterprise', label: 'Company' },
+      { value: 'other', label: 'Other' },
+    ],
+    interestLabel: 'I want',
+    interests: [
+      { value: 'browser', label: 'Browser (try online)' },
+      { value: 'desktop', label: 'Desktop download' },
+      { value: 'both', label: 'Both' },
+    ],
+    success: 'You are on the Routely list! We will email you before launch.',
+    error: 'Something went wrong. Try again or email info@aitotech.in',
+  },
+  faqs: [
+    { q: 'What is Routely?', a: 'AitoTech\'s AI coding tool with smart model routing and project memory.' },
+    { q: 'Do I choose an AI model?', a: 'No. Routely routes each task automatically to the best free model.' },
+    { q: 'Browser or desktop?', a: 'Both. Try in browser or download for local folders and git.' },
+  ],
+} as const;
+
+/** @deprecated Legacy imports — use routely */
+export const aksh = routely;

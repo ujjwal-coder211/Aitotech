@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 import { home } from '@/data/siteContent';
 
 export default function LogoCloud() {
-  const { logoCloud } = home;
+  const { trust } = home;
 
   return (
     <section className="border-y border-line bg-surface-raised/50 py-12 sm:py-14">
       <div className="container-page">
         <p className="mb-8 text-center text-xs font-medium uppercase tracking-[0.12em] text-zinc-500">
-          {logoCloud.title}
+          {trust.label}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
-          {logoCloud.logos.map((name, i) => (
+          {trust.clients.map((name, i) => (
             <motion.span
               key={name}
               initial={{ opacity: 0 }}
