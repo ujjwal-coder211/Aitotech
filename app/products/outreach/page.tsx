@@ -30,8 +30,11 @@ export default function OutreachProductPage() {
             <Link href="/products/outreach/download" className="btn-primary">
               Download Android APK
             </Link>
-            <Link href="/contact" className="btn-secondary">
-              Bank pilot inquiry
+            <Link href="/products/outreach/request" className="btn-secondary">
+              Request access
+            </Link>
+            <Link href="/products/outreach/admin" className="text-sm text-zinc-600 hover:text-zinc-400">
+              Admin
             </Link>
           </div>
         </PageHero>

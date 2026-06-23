@@ -83,13 +83,16 @@ export const outreachProduct = {
   tagline: 'AI Sales Pilot for Banks & NBFCs',
   poweredBy: 'Aitotech',
   /** Update when new EAS APK is built */
-  currentVersion: '1.0.12',
-  runtimeVersion: '1.0.12',
+  currentVersion: '1.0.13',
+  runtimeVersion: '1.0.13',
   otaChannel: 'preview',
   /** Latest Android APK — replace after each EAS build */
   apkDownloadUrl:
     'https://expo.dev/artifacts/eas/vGEY3EECTDzyF92u8QG69iEM9MeKzfKx16x1558902A.apk',
   backendUrl: 'https://outreachapp-production-b5e8.up.railway.app',
+  /** Bookmark this — user provisioning + MCA/GST upload */
+  adminPanelUrl: 'https://aitotech.in/products/outreach/admin',
+  requestAccessUrl: 'https://aitotech.in/products/outreach/request',
   contactEmail: site.email,
   hero: {
     eyebrow: 'Aitotech Product',
@@ -103,9 +106,9 @@ export const outreachProduct = {
     subtitle: 'Android APK · Free pilot for colleagues & bank teams',
     installSteps: [
       'Tap Download APK and allow install from browser if prompted.',
-      'Open the app → Login or register (colleague pilot).',
+      'Request access or use login ID/password from your Aitotech admin.',
       'Set PIN codes in Profile → Details for your catchment area.',
-      'Leads tab → MCA/GST → pick PIN + date → tap company → AI message → WhatsApp.',
+      'Companies tab → MCA/GST → pick PIN + date → save as lead → AI outreach.',
       'When an update is available, a popup appears automatically — tap Download, then Restart.',
     ],
     otaNote:
