@@ -4,6 +4,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import AnimatedStats from '@/components/AnimatedStats';
 import ProcessSection from '@/components/ProcessSection';
 import TrustBar from '@/components/TrustBar';
+import ProductsShowcase from '@/components/ProductsShowcase';
 import CTABanner from '@/components/CTABanner';
 import { home, processSteps } from '@/data/siteContent';
 import { getServices } from '@/lib/services';
@@ -22,6 +23,8 @@ export default async function HomePage() {
       </section>
 
       <TrustBar label={home.trust.label} clients={home.trust.clients} />
+
+      <ProductsShowcase />
 
       <BentoServices services={services} />
 

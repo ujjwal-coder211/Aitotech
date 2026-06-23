@@ -41,7 +41,7 @@ export default function Hero() {
             <Link href="/contact" className="btn-primary w-full justify-center sm:w-auto">
               {hero.ctaPrimary}
             </Link>
-            <Link href="/services" className="btn-secondary w-full justify-center sm:w-auto">
+            <Link href="/#products" className="btn-secondary w-full justify-center sm:w-auto">
               {hero.ctaSecondary}
             </Link>
           </motion.div>

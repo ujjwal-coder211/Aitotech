@@ -8,7 +8,7 @@
 /** Brand & contact */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI Automation Agency',
+  tagline: 'AI Automation Agency · Routely & Outreach',
   email: 'info@aitotech.in',
   phone: '+91 93544 59046',
   address: 'Delhi, India',
@@ -53,9 +53,19 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/routely', label: 'Routely' },
+  { href: '/products/outreach', label: 'Outreach' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
+] as const;
+
+/** Product pages — footer & cross-links */
+export const productLinks = [
+  { href: '/routely', label: 'Routely', tag: 'AI coding' },
+  { href: '/docs', label: 'Routely Docs', tag: 'Documentation' },
+  { href: '/products/outreach', label: 'Outreach App', tag: 'Sales pilot' },
+  { href: '/products/outreach/download', label: 'Download APK', tag: 'Android' },
 ] as const;
 
 export const cta = {
@@ -95,9 +105,9 @@ export const home = {
     title: 'Automate the Work.',
     titleHighlight: 'Amplify the Impact.',
     description:
-      'AitoTech builds intelligent automation for data, finance, and operations — so your team spends time on strategy, not spreadsheets.',
+      'AitoTech builds intelligent automation for enterprises — and ships our own products: Routely (AI coding) and Outreach (AI sales pilot for banks).',
     ctaPrimary: 'Book a Call',
-    ctaSecondary: 'View Services',
+    ctaSecondary: 'Explore Products',
     dashboardLabel: 'Live automation overview',
     liveBadge: '12 workflows active',
   },
@@ -110,6 +120,26 @@ export const home = {
   trust: {
     label: 'Trusted by teams across finance, logistics, and healthcare',
     clients: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
+  },
+  products: {
+    eyebrow: 'Our Products',
+    title: 'Software we',
+    highlight: 'build & ship',
+    description:
+      'Beyond client automation, AitoTech launches its own AI products — built in India, used by developers and bank sales teams.',
+    routely: {
+      badge: 'Live · Coding AI',
+      summary:
+        'Routely picks the best free AI model for each coding task — with persistent memory, agent workflows, and git in browser or desktop.',
+      learnMore: 'Explore Routely',
+    },
+    outreach: {
+      badge: 'Live · Android App',
+      summary:
+        'Outreach delivers daily MCA/GST leads by PIN code and writes AI-powered WhatsApp outreach for bank sales officers across India.',
+      downloadCta: 'Download APK',
+      learnMore: 'Explore Outreach',
+    },
   },
   bento: {
     eyebrow: 'What We Do',
@@ -314,8 +344,9 @@ export const contactPage = {
 
 /** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'Intelligent automation for forward-thinking enterprises.',
+  blurb: 'Enterprise automation, Routely for coding, and Outreach for bank sales teams.',
   navigateTitle: 'Navigate',
+  productsTitle: 'Products',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
 } as const;
