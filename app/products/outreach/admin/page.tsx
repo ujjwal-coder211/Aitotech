@@ -5,7 +5,7 @@ import OutreachAdminConsole from '@/components/OutreachAdminConsole';
 import {
   isPanelConfigured,
   verifySessionToken,
-} from '@/lib/outreach-admin-session';
+} from '@/lib/outreach-admin-session.server';
 
 export const metadata = {
   title: 'Outreach Admin — Aitotech',

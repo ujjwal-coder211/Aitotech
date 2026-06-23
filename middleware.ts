@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
-import { guardOutreachAdmin } from '@/lib/outreach-admin-session';
+import { guardOutreachAdminEdge } from '@/lib/outreach-admin-guard.edge';
 
 /** Runs on every request — refreshes auth session & guards admin areas. */
 export async function middleware(request: NextRequest) {
-  const outreachBlock = guardOutreachAdmin(request);
+  const outreachBlock = guardOutreachAdminEdge(request);
   if (outreachBlock) return outreachBlock;
 
   return await updateSession(request);

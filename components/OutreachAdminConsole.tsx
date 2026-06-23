@@ -297,7 +297,7 @@ export default function OutreachAdminConsole() {
               <label key={key} className="block text-sm">
                 <span className="text-zinc-400 capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
                 <input
-                  className="input mt-1 w-full"
+                  className="input-field mt-1 w-full"
                   type={key === 'email' ? 'email' : 'text'}
                   required={key === 'name' || key === 'email'}
                   value={form[key]}
@@ -317,7 +317,7 @@ export default function OutreachAdminConsole() {
               <label className="block text-sm sm:col-span-2">
                 <span className="text-zinc-400">Password</span>
                 <input
-                  className="input mt-1 w-full"
+                  className="input-field mt-1 w-full"
                   type="text"
                   required
                   minLength={8}
@@ -329,7 +329,7 @@ export default function OutreachAdminConsole() {
             <label className="block text-sm sm:col-span-2">
               <span className="text-zinc-400">PIN codes (comma separated)</span>
               <input
-                className="input mt-1 w-full"
+                className="input-field mt-1 w-full"
                 placeholder="400001, 400002"
                 value={form.pinCodes}
                 onChange={(ev) => setForm((f) => ({ ...f, pinCodes: ev.target.value }))}
@@ -355,7 +355,7 @@ export default function OutreachAdminConsole() {
             </label>
             <label className="block text-sm">
               <span className="text-zinc-400">Data date (registration date)</span>
-              <input className="input mt-1" name="dataDate" type="date" defaultValue={new Date().toISOString().slice(0, 10)} />
+              <input className="input-field mt-1" name="dataDate" type="date" defaultValue={new Date().toISOString().slice(0, 10)} />
             </label>
             <button type="submit" className="btn-primary" disabled={importing}>
               {importing ? 'Uploading to server…' : 'Upload to server'}

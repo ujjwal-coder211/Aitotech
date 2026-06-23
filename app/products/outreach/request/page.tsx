@@ -27,7 +27,13 @@ export default function RequestAccessPage() {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Submit failed');
+      if (!res.ok) {
+        const hint =
+          data.error?.includes('not configured') || res.status === 503
+            ? 'Server not configured — contact Aitotech admin.'
+            : data.error || 'Submit failed';
+        throw new Error(hint);
+      }
       setDone(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Submit failed');
@@ -70,8 +76,9 @@ export default function RequestAccessPage() {
             <label key={key} className="block text-sm">
               <span className="text-zinc-400 capitalize">{key.replace(/([A-Z])/g, ' $1')}</span>
               <input
-                className="input mt-1 w-full"
+                className="input-field mt-1 w-full"
                 type={key === 'email' ? 'email' : 'text'}
+                autoComplete={key === 'email' ? 'email' : key === 'name' ? 'name' : 'off'}
                 required={key === 'name' || key === 'email'}
                 value={form[key]}
                 onChange={(ev) => setForm((f) => ({ ...f, [key]: ev.target.value }))}
@@ -81,7 +88,7 @@ export default function RequestAccessPage() {
           <label className="block text-sm">
             <span className="text-zinc-400">PIN codes (optional, comma separated)</span>
             <input
-              className="input mt-1 w-full"
+              className="input-field mt-1 w-full"
               placeholder="400001, 400002"
               value={form.pinCodes}
               onChange={(ev) => setForm((f) => ({ ...f, pinCodes: ev.target.value }))}

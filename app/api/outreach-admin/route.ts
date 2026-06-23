@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifySession } from '@/lib/outreach-admin-session';
+import { verifySession } from '@/lib/outreach-admin-session.server';
 
 const API = process.env.OUTREACH_API_URL?.replace(/\/$/, '') || '';
 const SECRET = process.env.OUTREACH_ADMIN_SECRET?.trim() || '';
 
 function missingApi() {
-  return NextResponse.json({ error: 'Outreach API not configured on website' }, { status: 503 });
+  return NextResponse.json(
+    { error: 'Outreach API not configured — set OUTREACH_API_URL on Vercel' },
+    { status: 503 }
+  );
 }
 
 function missingAdmin() {

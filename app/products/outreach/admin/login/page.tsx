@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -9,6 +9,11 @@ export default function OutreachAdminLoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,25 +37,38 @@ export default function OutreachAdminLoginPage() {
     }
   };
 
+  if (!ready) {
+    return (
+      <div className="section-pad flex min-h-[50vh] items-center justify-center pt-24">
+        <p className="text-zinc-500">Loading…</p>
+      </div>
+    );
+  }
+
   return (
     <div className="section-pad flex min-h-[70vh] items-center justify-center pt-24">
       <div className="container-page max-w-md">
         <p className="eyebrow mb-3">Internal</p>
         <h1 className="font-display text-2xl font-bold text-white">Outreach Admin Login</h1>
         <p className="mt-2 text-sm text-zinc-500">
-          Sirf authorized Aitotech admin. Password Vercel env se set hota hai.
+          Aitotech admin password (Vercel env: OUTREACH_PANEL_PASSWORD)
         </p>
 
         <form onSubmit={submit} className="card mt-8 space-y-4 p-6">
           {error ? (
             <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-200">
               {error}
+              {error.includes('not configured') ? (
+                <p className="mt-2 text-xs text-red-300/80">
+                  Vercel → Settings → Environment Variables → OUTREACH_PANEL_PASSWORD + OUTREACH_SESSION_SECRET
+                </p>
+              ) : null}
             </div>
           ) : null}
           <label className="block text-sm">
             <span className="text-zinc-400">Admin password</span>
             <input
-              className="input mt-1 w-full"
+              className="input-field mt-1 w-full"
               type="password"
               autoComplete="current-password"
               required

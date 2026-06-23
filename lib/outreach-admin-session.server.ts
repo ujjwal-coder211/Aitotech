@@ -1,8 +1,7 @@
 import crypto from 'crypto';
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import type { NextRequest, NextResponse } from 'next/server';
+import { OUTREACH_ADMIN_COOKIE } from './outreach-admin-guard.edge';
 
-const COOKIE_NAME = 'outreach_admin_session';
 const MAX_AGE_SEC = 8 * 60 * 60;
 
 function sessionSecret(): string {
@@ -56,13 +55,13 @@ export function verifySessionToken(token: string): boolean {
 }
 
 export function verifySession(request: NextRequest): boolean {
-  const token = request.cookies.get(COOKIE_NAME)?.value;
+  const token = request.cookies.get(OUTREACH_ADMIN_COOKIE)?.value;
   if (!token) return false;
   return verifySessionToken(token);
 }
 
 export function setSessionCookie(response: NextResponse): NextResponse {
-  response.cookies.set(COOKIE_NAME, createSessionToken(), {
+  response.cookies.set(OUTREACH_ADMIN_COOKIE, createSessionToken(), {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
@@ -73,7 +72,7 @@ export function setSessionCookie(response: NextResponse): NextResponse {
 }
 
 export function clearSessionCookie(response: NextResponse): NextResponse {
-  response.cookies.set(COOKIE_NAME, '', {
+  response.cookies.set(OUTREACH_ADMIN_COOKIE, '', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
@@ -87,57 +86,8 @@ export function verifyPanelPassword(input: string): boolean {
   const expected = getPanelPassword();
   if (!expected || expected.length < 8) return false;
 
-  const a = Buffer.from(input);
-  const b = Buffer.from(expected);
+  const a = Buffer.from(input, 'utf8');
+  const b = Buffer.from(expected, 'utf8');
   if (a.length !== b.length) return false;
   return crypto.timingSafeEqual(a, b);
-}
-
-/** Returns redirect/401/503 response if blocked, or null if allowed. */
-export function guardOutreachAdmin(request: NextRequest): NextResponse | null {
-  const path = request.nextUrl.pathname;
-  const isLoginPage = path === '/products/outreach/admin/login';
-  const isAdminPage = path.startsWith('/products/outreach/admin');
-  const isAdminApi = path === '/api/outreach-admin';
-  const isAuthApi = path === '/api/outreach-admin/auth';
-
-  if (!isAdminPage && !isAdminApi) return null;
-  if (isAuthApi) return null;
-
-  if (isAdminApi) {
-    const action = request.nextUrl.searchParams.get('action');
-    const isPublicRequest =
-      request.method === 'POST' && action === 'request-access';
-    if (isPublicRequest) return null;
-
-    if (!isPanelConfigured()) {
-      return NextResponse.json({ error: 'Admin not configured on server' }, { status: 503 });
-    }
-    if (!verifySession(request)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-    return null;
-  }
-
-  if (isAdminPage) {
-    if (!isPanelConfigured()) {
-      if (isLoginPage) return null;
-      const url = request.nextUrl.clone();
-      url.pathname = '/products/outreach/admin/login';
-      return NextResponse.redirect(url);
-    }
-
-    if (isLoginPage) {
-      if (verifySession(request)) {
-        return NextResponse.redirect(new URL('/products/outreach/admin', request.url));
-      }
-      return null;
-    }
-
-    if (!verifySession(request)) {
-      return NextResponse.redirect(new URL('/products/outreach/admin/login', request.url));
-    }
-  }
-
-  return null;
 }

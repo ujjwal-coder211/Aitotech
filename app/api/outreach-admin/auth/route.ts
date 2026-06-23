@@ -4,7 +4,7 @@ import {
   isPanelConfigured,
   setSessionCookie,
   verifyPanelPassword,
-} from '@/lib/outreach-admin-session';
+} from '@/lib/outreach-admin-session.server';
 
 const loginAttempts = new Map<string, { count: number; resetAt: number }>();
 const MAX_ATTEMPTS = 5;
