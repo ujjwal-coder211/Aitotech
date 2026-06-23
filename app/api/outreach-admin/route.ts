@@ -3,13 +3,20 @@ import { NextRequest, NextResponse } from 'next/server';
 const API = process.env.OUTREACH_API_URL?.replace(/\/$/, '') || '';
 const SECRET = process.env.OUTREACH_ADMIN_SECRET?.trim() || '';
 
-function unauthorized() {
-  return NextResponse.json({ error: 'Admin not configured' }, { status: 503 });
+function missingApi() {
+  return NextResponse.json({ error: 'Outreach API not configured on website' }, { status: 503 });
 }
 
-/** Proxy to Outreach backend admin API — keeps secret on server. */
+function missingAdmin() {
+  return NextResponse.json(
+    { error: 'Admin not configured — set OUTREACH_ADMIN_SECRET on Vercel' },
+    { status: 503 }
+  );
+}
+
+/** Proxy to Outreach backend — keeps admin secret on server. */
 export async function POST(request: NextRequest) {
-  if (!API || !SECRET) return unauthorized();
+  if (!API) return missingApi();
 
   const action = request.nextUrl.searchParams.get('action');
   if (!action) {
@@ -17,21 +24,25 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    if (action === 'create-user') {
+    if (action === 'request-access') {
       const body = await request.json();
-      const res = await fetch(`${API}/api/admin/users`, {
+      const res = await fetch(`${API}/api/auth/request-access`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin-secret': SECRET },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
       const data = await res.json();
       return NextResponse.json(data, { status: res.status });
     }
 
-    if (action === 'list-users') {
-      const status = request.nextUrl.searchParams.get('status') || 'all';
-      const res = await fetch(`${API}/api/admin/users?status=${status}`, {
-        headers: { 'x-admin-secret': SECRET },
+    if (!SECRET) return missingAdmin();
+
+    if (action === 'create-user') {
+      const body = await request.json();
+      const res = await fetch(`${API}/api/admin/users`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin-secret': SECRET },
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       return NextResponse.json(data, { status: res.status });
@@ -80,17 +91,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(data, { status: res.status });
     }
 
-    if (action === 'request-access') {
-      const body = await request.json();
-      const res = await fetch(`${API}/api/auth/request-access`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json();
-      return NextResponse.json(data, { status: res.status });
-    }
-
     return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
   } catch (e) {
     console.error('Outreach admin proxy error:', e);
@@ -99,7 +99,8 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  if (!API || !SECRET) return unauthorized();
+  if (!API) return missingApi();
+  if (!SECRET) return missingAdmin();
 
   const action = request.nextUrl.searchParams.get('action');
   if (action === 'list-users') {
