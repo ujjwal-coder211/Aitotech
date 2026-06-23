@@ -92,7 +92,7 @@ export function verifyPanelPassword(input: string): boolean {
   return crypto.timingSafeEqual(a, b);
 }
 
-/** Returns redirect/401 response if blocked, or null if allowed. */
+/** Returns redirect/401/503 response if blocked, or null if allowed. */
 export function guardOutreachAdmin(request: NextRequest): NextResponse | null {
   const path = request.nextUrl.pathname;
   const isLoginPage = path === '/products/outreach/admin/login';
@@ -100,6 +100,7 @@ export function guardOutreachAdmin(request: NextRequest): NextResponse | null {
   const isAdminApi = path === '/api/outreach-admin';
   const isAuthApi = path === '/api/outreach-admin/auth';
 
+  if (!isAdminPage && !isAdminApi) return null;
   if (isAuthApi) return null;
 
   if (isAdminApi) {
@@ -107,6 +108,10 @@ export function guardOutreachAdmin(request: NextRequest): NextResponse | null {
     const isPublicRequest =
       request.method === 'POST' && action === 'request-access';
     if (isPublicRequest) return null;
+
+    if (!isPanelConfigured()) {
+      return NextResponse.json({ error: 'Admin not configured on server' }, { status: 503 });
+    }
     if (!verifySession(request)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -114,12 +119,20 @@ export function guardOutreachAdmin(request: NextRequest): NextResponse | null {
   }
 
   if (isAdminPage) {
+    if (!isPanelConfigured()) {
+      if (isLoginPage) return null;
+      const url = request.nextUrl.clone();
+      url.pathname = '/products/outreach/admin/login';
+      return NextResponse.redirect(url);
+    }
+
     if (isLoginPage) {
       if (verifySession(request)) {
         return NextResponse.redirect(new URL('/products/outreach/admin', request.url));
       }
       return null;
     }
+
     if (!verifySession(request)) {
       return NextResponse.redirect(new URL('/products/outreach/admin/login', request.url));
     }
