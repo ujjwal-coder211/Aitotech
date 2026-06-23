@@ -1,8 +1,12 @@
-import { type NextRequest } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
+import { guardOutreachAdmin } from '@/lib/outreach-admin-session';
 
-/** Runs on every request — refreshes auth session & guards /admin. */
+/** Runs on every request — refreshes auth session & guards admin areas. */
 export async function middleware(request: NextRequest) {
+  const outreachBlock = guardOutreachAdmin(request);
+  if (outreachBlock) return outreachBlock;
+
   return await updateSession(request);
 }
 

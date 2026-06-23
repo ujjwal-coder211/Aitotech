@@ -11,15 +11,18 @@ export default function OutreachAdminPage() {
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
       <div className="container-page max-w-3xl">
-        <p className="eyebrow mb-3">Internal only</p>
-        <h1 className="font-display text-3xl font-bold text-white sm:text-4xl">Outreach Admin Console</h1>
-        <div className="mt-4 rounded-xl border border-brand/30 bg-brand/10 p-4">
-          <p className="text-xs text-zinc-500">Save this link</p>
-          <p className="font-mono text-brand-light">https://aitotech.in/products/outreach/admin</p>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="eyebrow mb-3">Internal only</p>
+            <h1 className="font-display text-3xl font-bold text-white sm:text-4xl">Outreach Admin Console</h1>
+            <p className="mt-3 text-zinc-500">
+              Approve requests → popup (Email + Password) → Send mail. MCA/GST Excel → server upload.
+            </p>
+          </div>
+          <Link href="/products/outreach/admin/login" className="text-sm text-zinc-500 hover:text-zinc-300">
+            Switch account
+          </Link>
         </div>
-        <p className="mt-3 text-zinc-500">
-          Approve requests → popup (Email + Password) → Send mail. MCA/GST Excel → server upload.
-        </p>
 
         <div className="mt-10">
           <OutreachAdminConsole />

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { verifySession } from '@/lib/outreach-admin-session';
 
 const API = process.env.OUTREACH_API_URL?.replace(/\/$/, '') || '';
 const SECRET = process.env.OUTREACH_ADMIN_SECRET?.trim() || '';
@@ -14,7 +15,14 @@ function missingAdmin() {
   );
 }
 
-/** Proxy to Outreach backend — keeps admin secret on server. */
+function requireAdminSession(request: NextRequest) {
+  if (!verifySession(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
+}
+
+/** Proxy to Outreach backend — admin secret stays server-side. */
 export async function POST(request: NextRequest) {
   if (!API) return missingApi();
 
@@ -34,6 +42,9 @@ export async function POST(request: NextRequest) {
       const data = await res.json();
       return NextResponse.json(data, { status: res.status });
     }
+
+    const sessionBlock = requireAdminSession(request);
+    if (sessionBlock) return sessionBlock;
 
     if (!SECRET) return missingAdmin();
 
@@ -100,6 +111,10 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   if (!API) return missingApi();
+
+  const sessionBlock = requireAdminSession(request);
+  if (sessionBlock) return sessionBlock;
+
   if (!SECRET) return missingAdmin();
 
   const action = request.nextUrl.searchParams.get('action');

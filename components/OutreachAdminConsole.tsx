@@ -2,7 +2,8 @@
 
 import { useState, useCallback, useEffect } from 'react';
 
-const ADMIN_URL = 'https://aitotech.in/products/outreach/admin';
+const adminFetch = (input: RequestInfo | URL, init?: RequestInit) =>
+  fetch(input, { ...init, credentials: 'same-origin' });
 
 type UserRow = {
   id: string;
@@ -21,13 +22,6 @@ type CredentialPopup = {
   email: string;
   password: string;
 };
-
-function generateClientPassword() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
-  let out = '';
-  for (let i = 0; i < 10; i += 1) out += chars[Math.floor(Math.random() * chars.length)];
-  return out;
-}
 
 function CredentialModal({
   data,
@@ -98,7 +92,7 @@ export default function OutreachAdminConsole() {
     setLoadingPending(true);
     setErr(null);
     try {
-      const res = await fetch('/api/outreach-admin?action=list-users&status=pending');
+      const res = await adminFetch('/api/outreach-admin?action=list-users&status=pending');
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to load');
       setPending(data.users || []);
@@ -121,8 +115,7 @@ export default function OutreachAdminConsole() {
     e.preventDefault();
     setMsg(null);
     setErr(null);
-    const password = form.autoPassword ? generateClientPassword() : form.password;
-    if (password.length < 8) {
+    if (!form.autoPassword && form.password.length < 8) {
       setErr('Password must be at least 8 characters');
       return;
     }
@@ -132,13 +125,13 @@ export default function OutreachAdminConsole() {
         .map((p) => p.trim())
         .filter((p) => /^\d{6}$/.test(p));
 
-      const res = await fetch('/api/outreach-admin?action=create-user', {
+      const res = await adminFetch('/api/outreach-admin?action=create-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          password,
+          password: form.autoPassword ? undefined : form.password,
           bankName: form.bankName,
           branchName: form.branchName,
           pinCodes,
@@ -148,7 +141,7 @@ export default function OutreachAdminConsole() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Create failed');
 
-      showCredentials(data.user.id, data.user.name, data.email || form.email, data.password || password);
+      showCredentials(data.user.id, data.user.name, data.email || form.email, data.password);
       setForm({ name: '', email: '', password: '', bankName: '', branchName: '', pinCodes: '', autoPassword: true });
     } catch (e) {
       setErr(e instanceof Error ? e.message : 'Create failed');
@@ -159,7 +152,7 @@ export default function OutreachAdminConsole() {
     setErr(null);
     setApprovingId(u.id);
     try {
-      const res = await fetch(`/api/outreach-admin?action=approve-user&id=${u.id}`, {
+      const res = await adminFetch(`/api/outreach-admin?action=approve-user&id=${u.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sendEmail: false }),
@@ -184,7 +177,7 @@ export default function OutreachAdminConsole() {
     setSendingMail(true);
     setErr(null);
     try {
-      const res = await fetch(`/api/outreach-admin?action=send-credentials&id=${popup.userId}`, {
+      const res = await adminFetch(`/api/outreach-admin?action=send-credentials&id=${popup.userId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: popup.password }),
@@ -207,7 +200,7 @@ export default function OutreachAdminConsole() {
     setImporting(true);
     const fd = new FormData(e.currentTarget);
     try {
-      const res = await fetch('/api/outreach-admin?action=import-registry', {
+      const res = await adminFetch('/api/outreach-admin?action=import-registry', {
         method: 'POST',
         body: fd,
       });
@@ -224,6 +217,16 @@ export default function OutreachAdminConsole() {
     }
   };
 
+  const logout = async () => {
+    await fetch('/api/outreach-admin/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ action: 'logout' }),
+    });
+    window.location.href = '/products/outreach/admin/login';
+  };
+
   return (
     <>
       {popup ? (
@@ -231,11 +234,11 @@ export default function OutreachAdminConsole() {
       ) : null}
 
       <div className="space-y-10">
-        <div className="rounded-xl border border-brand/30 bg-brand/10 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-light">Admin panel link — bookmark karein</p>
-          <a href={ADMIN_URL} className="mt-2 block break-all font-mono text-lg text-white hover:text-brand-light">
-            {ADMIN_URL}
-          </a>
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
+          <p className="text-sm text-zinc-500">Signed in as Outreach admin</p>
+          <button type="button" className="btn-secondary text-sm" onClick={logout}>
+            Log out
+          </button>
         </div>
 
         {msg ? (
