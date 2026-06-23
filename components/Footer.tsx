@@ -1,34 +1,30 @@
 import Link from 'next/link';
-import SocialLinks from '@/components/SocialLinks';
 import { site, navLinks, services, footer } from '@/data/siteContent';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-line bg-surface-raised/40">
-      <div className="container-page py-12 sm:py-14">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 font-display text-lg font-bold text-white">
-              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-brand text-xs font-bold">AT</span>
+    <footer className="relative z-10 border-t border-slate-800/80 bg-abyss-50/20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="font-display text-lg font-bold text-white">
               {site.name}
+              <span className="text-cyan-400">.</span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
               {site.tagline} — {footer.blurb}
             </p>
-            <div className="mt-6">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">{footer.socialTitle}</p>
-              <SocialLinks size="sm" />
-            </div>
+            <p className="mt-2 text-xs text-slate-600">{site.address}</p>
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.navigateTitle}</h4>
-            <ul className="space-y-2.5 text-sm text-zinc-500">
+            <h4 className="mb-4 text-sm font-semibold text-white">{footer.navigateTitle}</h4>
+            <ul className="space-y-2.5 text-sm text-slate-500">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="transition-colors hover:text-white">
+                  <Link href={href} className="transition-colors hover:text-cyan-400">
                     {label}
                   </Link>
                 </li>
@@ -37,55 +33,45 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.docsTitle}</h4>
-            <ul className="space-y-2.5 text-sm text-zinc-500">
-              <li>
-                <Link href="/docs" className="transition-colors hover:text-white">
-                  Docs home
-                </Link>
-              </li>
-              {footer.docLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link href={href} className="transition-colors hover:text-white">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.servicesTitle}</h4>
-            <ul className="space-y-2.5 text-sm text-zinc-500">
+            <h4 className="mb-4 text-sm font-semibold text-white">{footer.servicesTitle}</h4>
+            <ul className="space-y-2.5 text-sm text-slate-500">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="transition-colors hover:text-white">
+                  <Link href={`/services/${s.slug}`} className="transition-colors hover:text-cyan-400">
                     {s.title}
                   </Link>
                 </li>
               ))}
             </ul>
-            <h4 className="mb-3 mt-8 text-xs font-semibold uppercase tracking-wider text-zinc-400">{footer.contactTitle}</h4>
-            <a href={`mailto:${site.email}`} className="block text-sm text-zinc-500 transition-colors hover:text-white">
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-sm font-semibold text-white">{footer.contactTitle}</h4>
+            <a
+              href={`mailto:${site.email}`}
+              className="block text-sm text-slate-500 transition-colors hover:text-cyan-400"
+            >
               {site.email}
             </a>
-            <p className="mt-2 text-sm text-zinc-500">{site.address}</p>
+            <a
+              href={`tel:${site.phone.replace(/\s/g, '')}`}
+              className="mt-1 block text-sm text-slate-500 transition-colors hover:text-cyan-400"
+            >
+              {site.phone}
+            </a>
+            <Link
+              href="/contact"
+              className="mt-3 inline-block text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+            >
+              Book a Call &rarr;
+            </Link>
           </div>
         </div>
 
-        <div className="divider-fade mt-10 sm:mt-12" />
-
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-center text-sm text-zinc-600 sm:flex-row sm:text-left">
+        <div className="mt-10 border-t border-slate-800/60 pt-8 text-center text-sm text-slate-600 sm:mt-12">
           <p>
-            © {year} {site.name}. All rights reserved.
+            &copy; {year} {site.name}. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {footer.legal.map((item) => (
-              <span key={item} className="cursor-default transition-colors hover:text-zinc-400">
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

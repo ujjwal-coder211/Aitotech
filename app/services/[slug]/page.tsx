@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { serviceDetail } from '@/data/siteContent';
 import { getService } from '@/lib/services';
 import ServiceDetailHero from '@/components/ServiceDetailHero';
-import { ComingSoonBlock } from '@/components/PageHero';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,7 +23,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = await getService(slug);
   if (!service) notFound();
 
-  const { comingSoon, ctaTitle, ctaBody, ctaButton } = serviceDetail;
+  const { ctaTitle, ctaBody, ctaButton } = serviceDetail;
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
@@ -42,10 +41,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </nav>
 
         <ServiceDetailHero service={service} />
-
-        {service.comingSoon && (
-          <ComingSoonBlock title={comingSoon.badge} body={comingSoon.body} ctaLabel={comingSoon.cta} />
-        )}
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {service.features.map((feature, i) => (

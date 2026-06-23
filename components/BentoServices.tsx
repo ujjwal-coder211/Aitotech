@@ -31,7 +31,7 @@ export default function BentoServices({ services }: { services: ServiceRecord[] 
 
         <div className="mt-8 text-center sm:mt-10">
           <Link href="/services" className="btn-ghost inline-flex text-sm">
-            {bento.viewAll}
+            {bento.viewAll} &rarr;
           </Link>
         </div>
       </div>

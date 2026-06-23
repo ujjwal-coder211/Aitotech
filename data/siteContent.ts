@@ -1,63 +1,33 @@
-﻿/**
- * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
- *  AitoTech â€” SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
+/**
+ * ═══════════════════════════════════════════════════════════════════
+ *  AitoTech — SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
  *  Edit text, contact info, and image paths here only.
- * â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+ * ═══════════════════════════════════════════════════════════════════
  */
 
-/** Brand & contact â€” update email, phone, socials here */
+/** Brand & contact */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI tools for business Â· Routely for coding',
+  tagline: 'AI Automation Agency',
   email: 'info@aitotech.in',
-  // Personal mobile number website se hata diya gaya (privacy/spam se bachne ke liye).
-  // Public site pe phone dikhana ho to ek business/virtual number (Google Voice,
-  // WhatsApp Business) yahan daalo aur Footer + contact infoCards me wapas add karo.
-  // phone: '+91 XXXXX XXXXX',
+  phone: '+91 93544 59046',
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
-  /** Founder â€” header & about page. Apna photo: public/images/founder.jpg (same name se replace karo) */
-  founder: {
-    name: 'Ujjwal',
-    role: 'Founder & CEO',
-    photo: '/images/founder.svg',
-    /** Jab photo nahi ho tab initials dikhenge */
-    initials: 'UC',
-  },
-  /**
-   * Social links â€” apni IDs / URLs yahan daalo, clickable ho jayenge.
-   * Khali chhodo = icon dikhega par "coming soon" (link disabled).
-   * Example: instagram: 'https://instagram.com/yourhandle'
-   */
-  social: {
-    instagram: '',
-    facebook: '',
-    x: '', // Twitter / X
-    linkedin: '',
-    discord: '',
-    youtube: '',
-    github: 'https://github.com/ujjwal-coder211',
-  },
-  /** Office location â€” used for the Google Map embed on the Contact page */
   map: {
     lat: 28.7041,
     lng: 77.1025,
-    /** Keyless Google Maps embed (no API key required) */
     embedUrl: 'https://maps.google.com/maps?q=28.7041,77.1025&z=12&output=embed',
-    /** Opens full Google Maps in a new tab */
     directionsUrl: 'https://www.google.com/maps?q=28.7041,77.1025',
   },
 } as const;
 
-/** Image placeholders â€” replace paths when you add real assets to /public/images */
 export const images = {
   logo: '/images/logo-placeholder.svg',
-  founder: '/images/founder.svg',
+  founder: '/images/founder-placeholder.jpg',
   heroDashboard: '/images/hero-dashboard-placeholder.jpg',
   office: '/images/office-placeholder.jpg',
   ogImage: '/images/og-placeholder.jpg',
-  /** Per-service card thumbnails (optional) */
   services: {
     'data-automation': '/images/services/data-automation.jpg',
     'workflow-automation': '/images/services/workflow.jpg',
@@ -68,246 +38,135 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/routely', label: 'Routely' },
-  { href: '/docs', label: 'Docs' },
   { href: '/services', label: 'Services' },
-  { href: '/products/outreach', label: 'Outreach App' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
-/** ─── OUTREACH / SALES PILOT APP (B2B product) ─── */
-export const outreachProduct = {
-  slug: 'outreach',
-  name: 'Outreach',
-  tagline: 'AI Sales Pilot for Banks & NBFCs',
-  poweredBy: 'Aitotech',
-  /** Update when new EAS APK is built */
-  currentVersion: '1.0.13',
-  runtimeVersion: '1.0.13',
-  otaChannel: 'preview',
-  /** Latest Android APK — replace after each EAS build */
-  apkDownloadUrl:
-    'https://expo.dev/artifacts/eas/vGEY3EECTDzyF92u8QG69iEM9MeKzfKx16x1558902A.apk',
-  backendUrl: 'https://outreachapp-production-b5e8.up.railway.app',
-  /** Bookmark this — user provisioning + MCA/GST upload */
-  adminPanelUrl: 'https://aitotech.in/products/outreach/admin',
-  requestAccessUrl: 'https://aitotech.in/products/outreach/request',
-  contactEmail: site.email,
-  hero: {
-    eyebrow: 'Aitotech Product',
-    title: 'Outreach',
-    highlight: 'Sales Pilot',
-    description:
-      'Daily MCA & GST company data by PIN code, AI-written cold messages, and one-tap WhatsApp or email — built for bank sales officers and BDMs across India.',
-  },
-  download: {
-    title: 'Download Outreach',
-    subtitle: 'Android APK · Free pilot for colleagues & bank teams',
-    installSteps: [
-      'Tap Download APK and allow install from browser if prompted.',
-      'Request access or use login ID/password from your Aitotech admin.',
-      'Set PIN codes in Profile → Details for your catchment area.',
-      'Companies tab → MCA/GST → pick PIN + date → save as lead → AI outreach.',
-      'When an update is available, a popup appears automatically — tap Download, then Restart.',
-    ],
-    otaNote:
-      'After installing this APK, smaller updates arrive over-the-air (OTA). Open the app and accept the update popup — or go to Profile → Check for Updates.',
-    qrCaption: 'Scan to open download page on your phone',
-  },
-  features: [
-    {
-      title: 'Daily MCA / GST feed',
-      body: 'Fresh registered companies by PIN code and date — no manual Excel hunting.',
-    },
-    {
-      title: 'AI cold messages',
-      body: 'Upload bank brochure once; AI writes 3–4 professional WhatsApp/email options per lead.',
-    },
-    {
-      title: 'Human-in-the-loop send',
-      body: 'Opens WhatsApp or mail with pre-filled text — you tap Send (compliant, not bulk spam).',
-    },
-    {
-      title: 'Lead tracking',
-      body: 'Status pipeline: new → contacted → interested → converted.',
-    },
-    {
-      title: 'Branch-ready (roadmap)',
-      body: 'Banks get provisioned logins per branch — Aitotech manages setup during pilot.',
-    },
-    {
-      title: 'Auto updates (OTA)',
-      body: 'New features deploy without reinstalling — popup on launch when an update is ready.',
-    },
-  ],
-  demoSteps: [
-    { step: '01', title: 'Profile setup', body: 'PIN codes, products, bank brochure PDF for AI context.' },
-    { step: '02', title: 'Browse MCA/GST', body: 'Leads → MCA/GST tab → select PIN + registration date.' },
-    { step: '03', title: 'Pick a company', body: 'See name, mobile, email, address — tap to open lead.' },
-    { step: '04', title: 'Generate AI message', body: 'Choose tone & language — Hindi, English, or Hinglish.' },
-    { step: '05', title: 'Send outreach', body: 'WhatsApp or Email opens with message ready — you send.' },
-  ],
-  docs: {
-    title: 'Documentation',
-    sections: [
-      {
-        heading: 'Who is it for?',
-        bullets: [
-          'Bank sales officers, RMs, and BDMs doing SME/corporate outreach',
-          'BSMs managing teams across PIN-based catchment areas',
-          'Aitotech client banks during pilot programs',
-        ],
-      },
-      {
-        heading: 'Data source',
-        bullets: [
-          'MCA & GST company registry imported daily on Aitotech servers',
-          'Filtered by 6-digit PIN code and registration date in the app',
-          'Optional Excel upload for your own lead lists (My Leads tab)',
-        ],
-      },
-      {
-        heading: 'Plans (pilot)',
-        bullets: [
-          'Colleague pilot: free during validation',
-          'Bank pilot: org-level contract — contact info@aitotech.in',
-          'Premium tiers for higher AI quotas when bank goes live',
-        ],
-      },
-      {
-        heading: 'Support',
-        bullets: [
-          'Email: info@aitotech.in',
-          'WhatsApp support during bank pilots (business hours)',
-          'Profile → App Version shows OTA channel & update check',
-        ],
-      },
-    ],
-  },
-  faq: [
-    {
-      q: 'Why do I need to install APK instead of Play Store?',
-      a: 'Pilot builds are distributed directly while we onboard bank partners. Play Store listing comes after pilot validation.',
-    },
-    {
-      q: 'Will the app update automatically?',
-      a: 'Yes — after installing the APK, Expo OTA pushes JS updates. You will see an Update available popup on launch or when returning to the app.',
-    },
-    {
-      q: 'Old APK not getting updates?',
-      a: 'Install the latest APK from this page (v1.0.12+). Builds before v1.0.11 did not include the OTA channel.',
-    },
-  ],
-} as const;
-
 export const cta = {
-  primary: 'Book a call',
-  secondary: 'See services',
-  contact: 'Contact us',
+  primary: 'Book a Call',
+  secondary: 'View Services',
+  contact: 'Get in Touch',
 } as const;
 
-/** â”€â”€â”€ HOME PAGE â”€â”€â”€ */
+/** Shared delivery methodology */
+export const processSteps = [
+  {
+    step: '01',
+    title: 'Discover',
+    body: 'We map your workflows, pain points, and KPIs with stakeholders in structured discovery sessions.',
+  },
+  {
+    step: '02',
+    title: 'Design',
+    body: 'We architect secure integrations, automation pipelines, and AI models tailored to your stack.',
+  },
+  {
+    step: '03',
+    title: 'Deploy',
+    body: 'We ship to production with monitoring, documentation, and hands-on training for your team.',
+  },
+  {
+    step: '04',
+    title: 'Scale',
+    body: 'We optimize continuously as volume grows — new use cases without rebuilding from scratch.',
+  },
+] as const;
+
+/** ─── HOME PAGE ─── */
 export const home = {
   hero: {
-    badge: 'AI for business',
-    title: 'Work smarter,',
-    titleHighlight: 'not harder.',
+    badge: 'AI Automation Agency · Delhi, India',
+    title: 'Automate the Work.',
+    titleHighlight: 'Amplify the Impact.',
     description:
-      'AitoTech helps teams stop doing the same manual work again and again. We use AI to save time, cut mistakes, and get clear results. Our coding product is Routely — try it from the banner below.',
-    ctaPrimary: 'Book a call',
-    ctaSecondary: 'See our services',
-    dashboardLabel: 'Your work dashboard',
-    liveBadge: '12 jobs running',
-  },
-  logoCloud: {
-    title: 'Built for teams that need things to stay online',
-    logos: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
+      'AitoTech builds intelligent automation for data, finance, and operations — so your team spends time on strategy, not spreadsheets.',
+    ctaPrimary: 'Book a Call',
+    ctaSecondary: 'View Services',
+    dashboardLabel: 'Live automation overview',
+    liveBadge: '12 workflows active',
   },
   stats: [
-    { id: 'hours', label: 'Hours saved', suffix: '+', value: 12000, decimals: 0 },
-    { id: 'processes', label: 'Jobs automated', suffix: '+', value: 340, decimals: 0 },
-    { id: 'clients', label: 'Company clients', suffix: '+', value: 85, decimals: 0 },
-    { id: 'roi', label: 'Average return', suffix: 'Ã—', value: 3.2, decimals: 1 },
+    { id: 'hours', label: 'Hours Saved', suffix: '+', value: 12000, decimals: 0 },
+    { id: 'processes', label: 'Processes Automated', suffix: '+', value: 340, decimals: 0 },
+    { id: 'clients', label: 'Enterprise Clients', suffix: '+', value: 85, decimals: 0 },
+    { id: 'roi', label: 'Avg. ROI Delivered', suffix: '×', value: 3.2, decimals: 1 },
   ],
+  trust: {
+    label: 'Trusted by teams across finance, logistics, and healthcare',
+    clients: ['FinServ', 'Logistics Co.', 'HealthTech', 'Retail Group', 'SaaS Scale-up', 'Manufacturing'],
+  },
   bento: {
-    eyebrow: 'What we do',
+    eyebrow: 'What We Do',
     title: 'Automation',
-    highlight: 'that grows with you',
-    description: 'Four main ways we help â€” each with a clear plan and support.',
-    viewAll: 'See all services â†’',
+    highlight: 'Built for Scale',
+    description: 'Four core service lines — each delivered by a dedicated pod with clear SLAs and measurable outcomes.',
+    viewAll: 'View all services',
+  },
+  process: {
+    eyebrow: 'How We Work',
+    title: 'A clear path from',
+    highlight: 'idea to impact',
+    description: 'Fixed phases, transparent timelines, and results you can measure — not endless slide decks.',
   },
   whyChooseUs: {
     eyebrow: 'Why AitoTech',
-    title: 'We focus on',
-    highlight: 'real results',
-    description: 'We are a partner who stays with you â€” not a company that sells and leaves.',
+    title: 'Built for',
+    highlight: 'Real Results',
+    description: 'We are a long-term automation partner — not a vendor that ships and disappears.',
     items: [
       {
-        title: 'Results first',
-        body: 'We start with clear goals: hours saved, fewer errors, lower cost â€” not long slide decks.',
+        title: 'Outcome-first delivery',
+        body: 'Every project starts with measurable KPIs: hours saved, error rates, cost per transaction.',
       },
       {
-        title: 'Safe by design',
-        body: 'We build with strong security and clear rules for who can see your data.',
+        title: 'Security by design',
+        body: 'Enterprise-grade architecture with strict data boundaries for regulated industries.',
       },
       {
-        title: 'We work with you',
-        body: 'Our team works side by side with yours from day one through growth.',
+        title: 'Embedded partnership',
+        body: 'Our architects work alongside your team from discovery through scale.',
       },
       {
-        title: 'Gets better over time',
-        body: 'Our systems learn from your work and get more accurate without rebuilding everything.',
+        title: 'Adaptive intelligence',
+        body: 'Systems that learn from your workflows and improve accuracy over time.',
       },
     ],
   },
   cta: {
-    title: 'Ready to improve',
-    highlight: 'how you work?',
-    description: 'Talk to our team. We will map your work and set clear goals before we write any code.',
-    button: 'Book a call',
-  },
-  process: {
-    eyebrow: 'How we work',
-    title: 'A clear path from',
-    highlight: 'start to results',
-    description: 'Fixed steps, clear dates, and results you can measure.',
+    title: 'Ready to',
+    highlight: 'automate?',
+    description: 'Book a free strategy call. We will map your workflows and define clear goals before any code is written.',
+    button: 'Book a Call',
   },
 } as const;
 
-/** â”€â”€â”€ SERVICES PAGE â”€â”€â”€ */
+/** ─── SERVICES PAGE ─── */
 export const servicesPage = {
   hero: {
-    badge: 'What we do',
-    title: 'Smart',
-    highlight: 'automation services',
+    badge: 'Services',
+    title: 'Intelligent',
+    highlight: 'Automation Services',
     description:
-      'Each service comes with a dedicated team â€” engineers and support staff focused on your goals.',
-    comingSoonNote:
-      'Some service pages will get case studies and demos soon. See the previews below or contact us for early access.',
+      'End-to-end automation across data, workflows, finance, and custom AI — delivered by dedicated pods aligned to your outcomes.',
   },
-  placeholder: {
-    title: 'More content coming soon',
-    body: 'We are adding case studies, pricing guides, and demos for each service. Check back soon or contact us for a walkthrough.',
-    cta: 'Ask for early access',
+  process: {
+    eyebrow: 'Methodology',
+    title: 'How we',
+    highlight: 'deliver',
+    description: 'A proven four-phase engagement model with clear milestones and measurable outcomes.',
   },
-  processSteps: [
-    { step: '01', title: 'Discover', body: 'We learn how you work today and set clear goals with your team.' },
-    { step: '02', title: 'Design', body: 'We plan safe systems, connections to your tools, and AI where it helps.' },
-    { step: '03', title: 'Launch', body: 'We go live with monitoring, support, and training for your team.' },
-    { step: '04', title: 'Grow', body: 'We keep improving as your volume and needs grow.' },
-  ],
 } as const;
 
-/** Service catalog â€” used on home bento, services page, and detail routes */
+/** Service catalog */
 export const services = [
   {
     slug: 'data-automation',
     title: 'Data Automation',
-    short: 'Connect your data. Stop copy-paste.',
+    short: 'Unify pipelines. Eliminate manual ETL.',
     description:
-      'AI moves data between your tools in real time. It maps fields for you. When something changes, the pipeline fixes itself â€” so your team trusts every report.',
-    features: ['Live sync', 'Smart field mapping', 'Data quality checks', 'See where data came from'],
+      'AI-driven data pipelines that sync warehouses in real time, auto-map schemas, and self-heal when sources change — so your team trusts every dashboard.',
+    features: ['Real-time CDC sync', 'Schema intelligence', 'Quality scoring', 'Lineage & compliance'],
     gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
     accent: 'text-cyan-400',
     bentoLg: 'lg:col-span-2 lg:row-span-2',
@@ -318,15 +177,15 @@ export const services = [
   {
     slug: 'workflow-automation',
     title: 'Workflow Automation',
-    short: 'Connect tools. Remove bottlenecks.',
+    short: 'Orchestrate ops without bottlenecks.',
     description:
-      'We connect your apps, route approvals, and trigger AI decisions â€” from invoice intake to customer onboarding.',
-    features: ['Connect many apps', 'Smart routing', 'Full change history', 'Deadline alerts'],
+      'End-to-end workflow engines that connect your tools, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
+    features: ['Multi-app orchestration', 'Smart routing', 'Audit trails', 'SLA monitoring'],
     gradient: 'from-violet-500/20 via-indigo-500/10 to-transparent',
     accent: 'text-violet-400',
     bentoLg: 'lg:col-span-1 lg:row-span-1',
     icon: 'workflow',
-    comingSoon: true,
+    comingSoon: false,
     imageKey: 'workflow-automation' as const,
   },
   {
@@ -334,8 +193,8 @@ export const services = [
     title: 'Invoice Intelligence',
     short: 'From inbox to ERP in seconds.',
     description:
-      'Scan and read invoices with AI. Match to orders. Catch errors. Process many invoices with high accuracy and send to your business system.',
-    features: ['High read accuracy', 'Match orders to invoices', 'Business system links', 'Spend reports'],
+      'OCR + NLP extraction with PO matching and anomaly detection. Process thousands of invoices with 99% accuracy and full ERP integration.',
+    features: ['99% extraction accuracy', '3-way matching', 'ERP connectors', 'Spend analytics'],
     gradient: 'from-sky-500/20 via-cyan-500/10 to-transparent',
     accent: 'text-sky-400',
     bentoLg: 'lg:col-span-1 lg:row-span-2',
@@ -346,15 +205,15 @@ export const services = [
   {
     slug: 'custom-ai',
     title: 'Custom AI Systems',
-    short: 'AI built for your business.',
+    short: 'Models built for your domain.',
     description:
-      'Custom AI models, knowledge bases, and agents that run on your servers â€” not generic chatbots pasted onto your tools.',
-    features: ['Custom training', 'Private knowledge base', 'Agent workflows', 'Human review when needed'],
+      'Fine-tuned LLMs, RAG knowledge bases, and autonomous agents deployed in your environment — not generic chatbots stapled onto your stack.',
+    features: ['Domain fine-tuning', 'Private RAG', 'Agent workflows', 'Human-in-the-loop'],
     gradient: 'from-emerald-500/15 via-cyan-500/10 to-transparent',
     accent: 'text-emerald-400',
     bentoLg: 'lg:col-span-2 lg:row-span-1',
     icon: 'ai',
-    comingSoon: true,
+    comingSoon: false,
     imageKey: 'custom-ai' as const,
   },
 ] as const;
@@ -365,56 +224,54 @@ export function getServiceBySlug(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
-/** â”€â”€â”€ ABOUT PAGE â”€â”€â”€ */
+/** ─── ABOUT PAGE ─── */
 export const aboutPage = {
   hero: {
-    eyebrow: 'Our story',
-    title: 'Building the',
-    highlight: 'future of work',
+    eyebrow: 'About Us',
+    title: 'Engineering the',
+    highlight: 'Future of Work',
     description:
-      'AitoTech started with one idea: AI should make work easier, not harder.',
-    comingSoonBadge: 'Team profiles coming soon',
+      'AitoTech was founded on a simple belief: AI should remove friction, not add complexity.',
   },
   founder: {
     initials: 'AT',
     role: 'Founder & CEO',
     company: 'AitoTech',
-    established: 'Est. 2022',
+    established: 'Est. 2022 · Delhi, India',
     letterTitle: 'A letter from our',
-    letterHighlight: 'founder',
+    letterHighlight: 'Founder',
     paragraphs: [
-      'I started AitoTech after watching smart teams waste hours on repeat work â€” copying data between systems, chasing invoice approvals, answering the same support tickets. The tech to fix this existed. The right partner did not.',
-      'We built AitoTech to be the partner I wished I had: engineers who understand business, who measure success in hours returned to your people, and who treat security as a must. Every project has clear goals and a path to grow.',
-      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that is how we have always done it." If that sounds like you â€” let us build something great together.',
+      'I started AitoTech after a decade watching brilliant teams drown in repetitive work — copying data between systems, chasing invoice approvals, answering the same support tickets. The technology to fix this existed; the delivery model did not.',
+      'We built AitoTech to be the partner I wished I had: engineers who speak business, who measure success in hours returned to your people, and who treat security as non-negotiable. Every engagement ships with clear KPIs and a path to scale.',
+      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that\'s how we\'ve always done it." If that sounds like you — let\'s build something remarkable together.',
     ],
-    signature: 'â€” The AitoTech team',
-    imageAlt: 'AitoTech founder â€” replace with your photo in siteContent.images.founder',
+    signature: '— The AitoTech Founding Team',
+    imageAlt: 'AitoTech Founder',
   },
   pillars: [
-    { title: 'Mission', body: 'Make automation easy to use, easy to measure, and good for people.' },
-    { title: 'Vision', body: 'Every team works fast with AI â€” not hours of copy-paste.' },
-    { title: 'Values', body: 'Honesty, security, and real results over vanity numbers.' },
+    { title: 'Mission', body: 'Make enterprise automation accessible, measurable, and human-centered.' },
+    { title: 'Vision', body: 'A world where every team operates at the speed of insight — not manual labor.' },
+    { title: 'Values', body: 'Transparency, security, and outcomes over vanity metrics.' },
   ],
-  teamPlaceholder: {
-    title: 'Meet the team',
-    comingSoon: 'Coming soon',
-    body: 'We are preparing team profiles, leader bios, and office photos. Contact us â€” tell us what you want to build.',
-    cta: 'Contact us',
+  team: {
+    title: 'Expert-led delivery',
+    body: 'Every engagement is led by solution architects and ML engineers with deep domain experience. We work as an extension of your team — not a black-box vendor.',
   },
-  ctaButton: 'Work with us',
+  ctaButton: 'Book a Call',
 } as const;
 
-/** â”€â”€â”€ CONTACT PAGE â”€â”€â”€ */
+/** ─── CONTACT PAGE ─── */
 export const contactPage = {
   hero: {
     eyebrow: 'Contact',
     title: "Let's",
-    highlight: 'build together',
+    highlight: 'Build Together',
     description:
-      'Tell us what you want to build or fix. We reply within one business day.',
+      'Tell us about your automation goals. We respond within one business day.',
   },
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
+    { label: 'Phone', value: site.phone, icon: 'phone' },
     { label: 'Office', value: site.address, icon: 'location' },
     { label: 'Response', value: site.responseTime, icon: 'clock' },
   ],
@@ -430,133 +287,28 @@ export const contactPage = {
       name: 'Jane Smith',
       email: 'jane@company.com',
       company: 'Acme Inc.',
-      message: 'Tell us about your goals, team size, and timeline...',
+      message: 'Tell us about your automation goals, team size, and timeline...',
     },
   },
-  mapPlaceholder: {
+  map: {
     title: 'Visit Us',
-    body: 'Delhi, India Â· 28.7041Â° N, 77.1025Â° E',
+    body: 'Delhi, India · 28.7041° N, 77.1025° E',
     directions: 'Get directions',
   },
 } as const;
 
-/** â”€â”€â”€ FOOTER â”€â”€â”€ */
+/** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'smart AI for business and Routely for developers who code.',
+  blurb: 'Intelligent automation for forward-thinking enterprises.',
   navigateTitle: 'Navigate',
-  docsTitle: 'Routely docs',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
-  socialTitle: 'Follow us',
-  legal: ['Privacy', 'Terms'],
-  docLinks: [
-    { href: '/docs/getting-started', label: 'Getting started' },
-    { href: '/docs/installation', label: 'Installation' },
-    { href: '/docs/cursor-connect', label: 'Desktop editor API' },
-    { href: '/docs/api', label: 'API reference' },
-  ],
 } as const;
 
 /** Service detail page shared copy */
 export const serviceDetail = {
-  ctaTitle: (name: string) => `Ready to start with ${name}?`,
+  ctaTitle: (name: string) => `Ready to deploy ${name}?`,
   ctaBody:
-    'Book a call â€” we will map your work and set clear goals.',
-  ctaButton: 'Talk to our team',
-  comingSoon: {
-    badge: 'Coming soon',
-    body: 'Full case studies, pricing, and demos for this service are on the way. Contact us for early access.',
-    cta: 'Join waitlist',
-  },
+    'Schedule a discovery session — we will map your workflows and define measurable outcomes.',
+  ctaButton: 'Book a Call',
 } as const;
-
-/** ─── ROUTELY LAUNCH PAGE ─── */
-export const routely = {
-  badge: 'Coding AI · Made in India',
-  title: 'Routely',
-  headline: 'Code with AI. Best free model, picked for you.',
-  subtitle: 'Routely — AI coding tool built in India',
-  tagline: 'Browser or desktop. Memory that remembers. Git built in.',
-  heroLead:
-    'Tell Routely what to build or fix. It picks the best free AI model for that job, understands your codebase, and remembers your chat. Try in the browser or download for local projects.',
-  description:
-    'Routely by AitoTech — smart model routing, browser IDE, persistent memory, agent workflows, and git. Join the waitlist before public launch.',
-  elevatorPitch:
-    'One AI for coding — smart routing, persistent memory, agent workflows, and git — in your browser or on your machine.',
-  elevatorLabel: 'In one line',
-  cta: 'Join the waitlist',
-  ctaSecondary: 'Try demo',
-  ctaTryBrowser: 'Try in browser',
-  tryBrowserHref: 'https://app.routely.aitotech.in',
-  ctaHint: 'Early access · launch news · no spam',
-  status: 'Building — waitlist open · browser beta next',
-  waitlistSubtitle: 'Join the waitlist. We will email you when Routely opens.',
-  roadmap: [
-    { phase: 'Now', label: 'Waitlist, demo, and docs live on aitotech.in', done: true },
-    { phase: 'Next', label: 'Browser IDE beta at app.routely.aitotech.in', done: false },
-    { phase: 'Later', label: 'Desktop download · agent multitask · India E2E hosting', done: false },
-  ],
-  features: [
-    {
-      title: 'Smart model routing',
-      body: 'You never pick a model. Routely routes each task to the best free OpenRouter model for coding, debug, git, or refactor.',
-    },
-    {
-      title: 'Persistent memory',
-      body: 'Full chat history per project. Pick up where you left off — Routely remembers context.',
-    },
-    {
-      title: 'Agent workflows',
-      body: 'Give multiple tasks. Routely runs agent workflows — fix code, pull from git, push changes — like a coding teammate.',
-    },
-    {
-      title: 'Browser + desktop',
-      body: 'Try online in Chrome with no install. Or download Routely for local folders and real git on your machine.',
-    },
-  ],
-  form: {
-    namePlaceholder: 'Your name',
-    emailPlaceholder: 'you@email.com',
-    roleLabel: 'I am a…',
-    roles: [
-      { value: 'developer', label: 'Developer' },
-      { value: 'student', label: 'Student' },
-      { value: 'founder', label: 'Founder / startup' },
-      { value: 'enterprise', label: 'Company' },
-      { value: 'other', label: 'Other' },
-    ],
-    interestLabel: 'I want',
-    interests: [
-      { value: 'browser', label: 'Browser (try online)' },
-      { value: 'desktop', label: 'Desktop download' },
-      { value: 'both', label: 'Both' },
-    ],
-    success: 'You are on the Routely list! We will email you before launch.',
-    error: 'Something went wrong. Try again or email info@aitotech.in',
-  },
-  faqs: [
-    {
-      q: 'What is Routely?',
-      a: 'Routely is AitoTech\'s AI coding tool. You describe tasks in plain English. Routely picks the best free model, writes or fixes code, and remembers your project chat.',
-    },
-    {
-      q: 'Do I choose an AI model?',
-      a: 'No. Routely routes each task automatically — debug, build, git, refactor — to the best free model for that job.',
-    },
-    {
-      q: 'Browser or desktop?',
-      a: 'Both. Try Routely in the browser with cloud projects. Download the desktop app to open local folders and use real git on your machine.',
-    },
-    {
-      q: 'Is it only for coding?',
-      a: 'Yes for now. We are focused on coding first — build, fix, refactor, git. General tasks come later.',
-    },
-    {
-      q: 'How do updates work?',
-      a: 'We push to GitHub — Railway and Vercel deploy automatically. Try in browser always shows the latest build.',
-    },
-  ],
-} as const;
-
-/** @deprecated Legacy imports — use routely */
-export const aksh = routely;

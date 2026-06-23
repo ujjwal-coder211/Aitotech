@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { aboutPage } from '@/data/siteContent';
-import PageHero, { ComingSoonBlock } from '@/components/PageHero';
+import PageHero from '@/components/PageHero';
 import FounderSection from '@/components/FounderSection';
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const { hero, pillars, teamPlaceholder, ctaButton } = aboutPage;
+  const { hero, pillars, team, ctaButton } = aboutPage;
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
@@ -20,8 +20,6 @@ export default function AboutPage() {
           title={hero.title}
           highlight={hero.highlight}
           description={hero.description}
-          comingSoon
-          comingSoonLabel={hero.comingSoonBadge}
         />
 
         <FounderSection />
@@ -35,11 +33,10 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <ComingSoonBlock
-          title={teamPlaceholder.title}
-          body={teamPlaceholder.body}
-          ctaLabel={teamPlaceholder.cta}
-        />
+        <div className="glass mt-12 rounded-2xl border border-cyan-500/20 p-6 sm:mt-16 sm:p-8">
+          <h3 className="font-display text-xl font-semibold text-white">{team.title}</h3>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-500">{team.body}</p>
+        </div>
 
         <div className="mt-12 text-center sm:mt-16">
           <Link href="/contact" className="btn-primary inline-flex">

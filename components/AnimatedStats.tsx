@@ -4,17 +4,18 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { home } from '@/data/siteContent';
 
-interface AnimatedStatsProps {
-  compact?: boolean;
-}
-
-export default function AnimatedStats({ compact = false }: AnimatedStatsProps) {
+/** Animated stat counters — shows final values before animation to avoid "0" flash. */
+export default function AnimatedStats() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
-  const [counts, setCounts] = useState<number[]>(home.stats.map(() => 0));
+  const [counts, setCounts] = useState<number[]>(() => home.stats.map((s) => s.value));
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || hasAnimated) return;
+
+    setHasAnimated(true);
+    setCounts(home.stats.map(() => 0));
 
     const duration = 1800;
     const start = performance.now();
@@ -35,7 +36,7 @@ export default function AnimatedStats({ compact = false }: AnimatedStatsProps) {
     };
 
     requestAnimationFrame(tick);
-  }, [inView]);
+  }, [inView, hasAnimated]);
 
   const format = (index: number) => {
     const stat = home.stats[index];
@@ -46,30 +47,19 @@ export default function AnimatedStats({ compact = false }: AnimatedStatsProps) {
   };
 
   return (
-    <div
-      ref={ref}
-      className={
-        compact
-          ? 'grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4'
-          : 'grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-4'
-      }
-    >
+    <div ref={ref} className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
       {home.stats.map((stat, i) => (
         <motion.div
           key={stat.id}
-          initial={{ opacity: 0, y: 12 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ delay: i * 0.08, duration: 0.4 }}
-          className={compact ? 'text-left' : 'card px-5 py-5 text-center sm:px-6 sm:py-6'}
+          className="glass rounded-xl p-4 text-center sm:rounded-2xl sm:p-6"
         >
-          <p
-            className={`font-display font-bold text-white ${compact ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl md:text-4xl'}`}
-          >
-            {inView ? format(i) : '0'}
+          <p className="font-display text-2xl font-bold text-gradient sm:text-3xl md:text-4xl">
+            {format(i)}
           </p>
-          <p className={`mt-1 text-zinc-500 ${compact ? 'text-[11px] sm:text-xs' : 'text-xs sm:text-sm'}`}>
-            {stat.label}
-          </p>
+          <p className="mt-1 text-xs text-slate-500 sm:text-sm">{stat.label}</p>
         </motion.div>
       ))}
     </div>

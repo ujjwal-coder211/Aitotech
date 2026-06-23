@@ -1,24 +1,44 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { home, servicesPage } from '@/data/siteContent';
 import SectionHeading from './SectionHeading';
 
-export default function ProcessSection() {
-  const { process } = home;
-  const steps = servicesPage.processSteps;
+interface ProcessStep {
+  step: string;
+  title: string;
+  body: string;
+}
 
+interface ProcessSectionProps {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  description: string;
+  steps: readonly ProcessStep[];
+  className?: string;
+}
+
+/** Four-phase delivery methodology — used on Home and Services. */
+export default function ProcessSection({
+  eyebrow,
+  title,
+  highlight,
+  description,
+  steps,
+  className = '',
+}: ProcessSectionProps) {
   return (
-    <section className="section-pad border-t border-line">
-      <div className="container-page">
+    <section className={`section-pad ${className}`}>
+      <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow={process.eyebrow}
-          title={process.title}
-          highlight={process.highlight}
-          description={process.description}
+          eyebrow={eyebrow}
+          title={title}
+          highlight={highlight}
+          description={description}
+          align="left"
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {steps.map((step, i) => (
             <motion.div
               key={step.step}
@@ -26,14 +46,11 @@ export default function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.45 }}
-              className="card-hover relative p-6 sm:p-7"
+              className="glass relative rounded-2xl p-6 sm:p-7"
             >
-              <span className="font-display text-2xl font-bold text-brand-light/70">{step.step}</span>
-              <h3 className="mt-3 font-display text-base font-semibold text-white sm:text-lg">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-500">{step.body}</p>
-              {i < steps.length - 1 && (
-                <span className="absolute right-0 top-1/2 hidden h-px w-8 -translate-y-1/2 translate-x-full bg-line-strong lg:block" />
-              )}
+              <span className="font-display text-3xl font-bold text-cyan-400/30">{step.step}</span>
+              <h3 className="mt-2 font-display text-lg font-semibold text-white">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">{step.body}</p>
             </motion.div>
           ))}
         </div>

@@ -1,12 +1,9 @@
 import type { Metadata } from 'next';
-import { getAgentsApiUrl } from '@/lib/akshApi';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
 import AmbientBackground from '@/components/AmbientBackground';
-import AgentChat from '@/components/AgentChat';
 import { site } from '@/data/siteContent';
-import { siteUrl } from '@/lib/seo/siteUrl';
 import './globals.css';
 
 const inter = Inter({
@@ -15,50 +12,30 @@ const inter = Inter({
   display: 'swap',
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--font-space',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.website),
   title: {
-    default: `${site.name} — AI tools for business`,
+    default: `${site.name} | ${site.tagline}`,
     template: `%s | ${site.name}`,
   },
   description:
-    'AitoTech builds AI tools for business — data automation, workflows, invoice reading, and Routely AI coding. Delhi, India.',
-  keywords: [
-    'AI automation',
-    'business automation',
-    site.name,
-    'Routely',
-    'AI coding',
-    'workflow',
-    'B2B software',
-    'India AI',
-  ],
-  alternates: { canonical: siteUrl },
+    'AitoTech delivers AI automation for data pipelines, workflows, invoice processing, and custom intelligent systems. Based in Delhi, India.',
+  keywords: ['AI automation', 'AitoTech', 'workflow automation', 'data automation', 'Delhi'],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: siteUrl,
+    url: site.website,
     siteName: site.name,
-    title: `${site.name} — AI tools for business`,
-    description: 'AI automation and Routely coding tool by AitoTech, India.',
-    images: [{ url: '/images/og-routely.svg', width: 1200, height: 630, alt: site.name }],
+    title: `${site.name} | ${site.tagline}`,
+    description:
+      'Intelligent automation for data, finance, and operations — so your team focuses on strategy, not spreadsheets.',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: site.name,
-    description: 'AI automation · Routely AI coding',
-    images: ['/images/og-routely.svg'],
-  },
-  robots: { index: true, follow: true },
-  ...(process.env.GOOGLE_SITE_VERIFICATION
-    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
-    : {}),
 };
 
 export default function RootLayout({
@@ -67,13 +44,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`dark ${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <AmbientBackground />
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
         <FooterGate />
-        {getAgentsApiUrl() ? <AgentChat /> : null}
       </body>
     </html>
   );
