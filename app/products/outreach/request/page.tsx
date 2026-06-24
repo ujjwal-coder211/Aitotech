@@ -102,7 +102,7 @@ export default function RequestAccessPage() {
         <p className="mt-6 text-center text-sm text-zinc-600">
           Already have login?{' '}
           <Link href="/products/outreach/download" className="text-brand-light hover:underline">
-            Open app
+            Download app
           </Link>
         </p>
       </div>
