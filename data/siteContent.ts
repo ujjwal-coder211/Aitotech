@@ -366,6 +366,7 @@ export const outreachProduct = {
   backendUrl: 'https://outreachapp-production-b5e8.up.railway.app',
   adminPanelUrl: 'https://aitotech.in/products/outreach/admin',
   requestAccessUrl: 'https://aitotech.in/products/outreach/request',
+  privacyPolicyUrl: 'https://aitotech.in/products/outreach/privacy',
   contactEmail: site.email,
   hero: {
     eyebrow: 'Aitotech Product',
