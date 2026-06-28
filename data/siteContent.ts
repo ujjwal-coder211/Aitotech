@@ -500,7 +500,7 @@ export const routely = {
   faqs: [
     {
       q: 'What is Routely?',
-      a: 'Routely is AitoTech''s AI coding platform. SAIRA Phase 1 combines Omni (chat), Harness (IDE), and Hermes (memory) with automatic model routing.',
+      a: 'Routely is AitoTech\'s AI coding platform. SAIRA Phase 1 combines Omni (chat), Harness (IDE), and Hermes (memory) with automatic model routing.',
     },
     {
       q: 'Do I choose an AI model?',
