@@ -1,4 +1,4 @@
-import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+﻿import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import AdminBar from '../AdminBar';
 
 export const dynamic = 'force-dynamic';
@@ -37,8 +37,8 @@ export default async function AdminWaitlistPage() {
     <>
       <AdminBar active="waitlist" />
       <div className="mb-6">
-        <h1 className="font-display text-2xl font-bold text-white">Aksh Waitlist</h1>
-        <p className="mt-1 text-sm text-slate-500">Signups from /aksh launch page</p>
+        <h1 className="font-display text-2xl font-bold text-white">Routely Waitlist</h1>
+        <p className="mt-1 text-sm text-slate-500">Signups from /routely launch page</p>
       </div>
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
         <Stat label="Total" value={list.length} accent />
@@ -87,3 +87,4 @@ function Stat({ label, value, accent }: { label: string; value: number; accent?:
     </div>
   );
 }
+

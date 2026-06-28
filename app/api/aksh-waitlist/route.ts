@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: 'You are on the Aksh waitlist!',
+        message: 'You are on the Routely waitlist!',
       });
     } catch (e) {
       console.error('Waitlist failed:', e);
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    console.log('[DEV] Aksh waitlist:', payload);
+    console.log('[DEV] Routely waitlist:', payload);
     return NextResponse.json({
       success: true,
       message: 'DEV MODE: Logged. Run supabase/schema.sql for production storage.',

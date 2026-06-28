@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ═══════════════════════════════════════════════════════════════════
  *  AitoTech — SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
  *  Edit text, contact info, and image paths here only.
@@ -435,35 +435,47 @@ export const outreachProduct = {
 
 /** Routely product pages — /routely, /docs, /aksh/* */
 export const routely = {
-  badge: 'Coding AI · Made in India',
+  badge: 'SAIRA Phase 1 · Made in India',
   title: 'Routely',
-  headline: 'Code with AI. Best free model, picked for you.',
-  subtitle: 'Routely — AI coding tool built in India',
-  tagline: 'Browser or desktop. Memory that remembers. Git built in.',
+  headline: 'Code with AI. SAIRA routes the best free model for you.',
+  subtitle: 'Routely — Omni, Harness, Hermes',
+  tagline: 'PERCEIVE → DECIDE → ACT → REMEMBER → IMPROVE. Browser or desktop.',
   heroLead:
-    'Tell Routely what to build or fix. It picks the best free AI model for that job, understands your codebase, and remembers your chat.',
+    'Tell Omni what to build or fix. SAIRA classifies your task, cold-start routes to the best free model, and Harness edits your project while Hermes remembers context.',
   description:
-    'Routely by AitoTech — smart model routing, browser IDE, persistent memory, agent workflows, and git.',
+    'Routely by AitoTech — SAIRA Phase 1 with Omni chat, Harness IDE, Hermes memory, and smart model routing. Join the waitlist before public launch.',
   elevatorPitch:
-    'One AI for coding — smart routing, persistent memory, agent workflows, and git — in your browser or on your machine.',
+    'One coding agent loop — Omni chat, Harness IDE, Hermes memory, and cold-start routing — in your browser or on your machine.',
   elevatorLabel: 'In one line',
   cta: 'Join the waitlist',
-  ctaSecondary: 'Try demo',
+  ctaSecondary: 'Try Phase 1 demo',
   ctaTryBrowser: 'Try in browser',
   tryBrowserHref: 'https://app.routely.aitotech.in',
   ctaHint: 'Early access · launch news · no spam',
-  status: 'Building — waitlist open · browser beta next',
+  status: 'Phase 1 mock live — waitlist open · browser beta next',
   waitlistSubtitle: 'Join the waitlist. We will email you when Routely opens.',
   roadmap: [
-    { phase: 'Now', label: 'Waitlist, demo, and docs live on aitotech.in', done: true },
-    { phase: 'Next', label: 'Browser IDE beta at app.routely.aitotech.in', done: false },
-    { phase: 'Later', label: 'Desktop download · agent multitask · India E2E hosting', done: false },
+    { phase: 'Now', label: 'SAIRA Phase 1 mock UI, waitlist, and docs live on aitotech.in', done: true },
+    { phase: 'Next', label: 'Live Omni + Harness + Hermes at app.routely.aitotech.in', done: false },
+    { phase: 'Later', label: 'Online routing learning · desktop download · India E2E hosting', done: false },
   ],
   features: [
-    { title: 'Smart model routing', body: 'Routely routes each task to the best free model for coding, debug, git, or refactor.' },
-    { title: 'Persistent memory', body: 'Full chat history per project. Pick up where you left off.' },
-    { title: 'Agent workflows', body: 'Give multiple tasks — fix code, pull from git, push changes.' },
-    { title: 'Browser + desktop', body: 'Try online in Chrome or download for local folders and real git.' },
+    {
+      title: 'Omni — chat & classify',
+      body: 'Describe tasks in plain English. Omni classifies CODE_GEN, DEBUG, DEPLOY, and more — then shows which free model SAIRA picked.',
+    },
+    {
+      title: 'Harness — browser IDE',
+      body: 'File tree, editor, live preview, and terminal. ACT on your codebase without leaving Routely Studio.',
+    },
+    {
+      title: 'Hermes — memory & skills',
+      body: 'Threads and extracted skills persist per project. REMEMBER context when you reopen a chat or switch tasks.',
+    },
+    {
+      title: 'Cold-start routing',
+      body: 'Section 8.1 defaults route each task class to the best free OpenRouter model — no manual picker. IMPROVE weights over time.',
+    },
   ],
   form: {
     namePlaceholder: 'Your name',
@@ -486,11 +498,30 @@ export const routely = {
     error: 'Something went wrong. Try again or email info@aitotech.in',
   },
   faqs: [
-    { q: 'What is Routely?', a: 'AitoTech\'s AI coding tool with smart model routing and project memory.' },
-    { q: 'Do I choose an AI model?', a: 'No. Routely routes each task automatically to the best free model.' },
-    { q: 'Browser or desktop?', a: 'Both. Try in browser or download for local folders and git.' },
+    {
+      q: 'What is Routely?',
+      a: 'Routely is AitoTech''s AI coding platform. SAIRA Phase 1 combines Omni (chat), Harness (IDE), and Hermes (memory) with automatic model routing.',
+    },
+    {
+      q: 'Do I choose an AI model?',
+      a: 'No. SAIRA cold-start routing picks the best free model per task class — CODE_GEN, DEBUG, DEPLOY, SECURITY, and more.',
+    },
+    {
+      q: 'Browser or desktop?',
+      a: 'Both. Try Routely in the browser with cloud projects. Download the desktop app to open local folders and use real git on your machine.',
+    },
+    {
+      q: 'Is it only for coding?',
+      a: 'Yes for now. We are focused on coding first — build, fix, refactor, git. General tasks come later.',
+    },
+    {
+      q: 'How do updates work?',
+      a: 'We push to GitHub — Railway and Vercel deploy automatically. Try in browser always shows the latest build.',
+    },
   ],
 } as const;
 
 /** @deprecated Legacy imports — use routely */
 export const aksh = routely;
+
+

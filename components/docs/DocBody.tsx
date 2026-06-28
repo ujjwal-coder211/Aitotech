@@ -1,4 +1,4 @@
-import type { DocPage } from '@/data/akshDocs';
+import type { DocPage } from '@/data/sairaDocs';
 
 export default function DocBody({ doc }: { doc: DocPage }) {
   return (

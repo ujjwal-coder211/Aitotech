@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { docsHub } from '@/data/akshDocs';
+import { docsHub } from '@/data/sairaDocs';
 import { routely } from '@/data/siteContent';
 
 export default function DocsHubPage() {

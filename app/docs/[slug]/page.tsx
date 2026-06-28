@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import DocBody from '@/components/docs/DocBody';
-import { getAllDocSlugs, getDocBySlug } from '@/data/akshDocs';
+import { getAllDocSlugs, getDocBySlug } from '@/data/sairaDocs';
 
 type Props = { params: Promise<{ slug: string }> };
 

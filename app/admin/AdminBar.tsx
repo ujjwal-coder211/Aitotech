@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { signOut } from './actions';
 
 /** Shared admin top bar with nav + logout. */
@@ -33,13 +33,13 @@ export default function AdminBar({ active }: { active: 'leads' | 'services' | 'w
               active === 'waitlist' ? 'bg-cyan-500/10 text-cyan-400' : 'text-slate-400 hover:text-cyan-400'
             }`}
           >
-            Aksh Waitlist
+            Routely Waitlist
           </Link>
         </nav>
       </div>
       <div className="flex items-center gap-3">
         <Link href="/" className="text-sm text-slate-500 hover:text-cyan-400">
-          View site ↗
+          View site â†—
         </Link>
         <form action={signOut}>
           <button
@@ -53,3 +53,4 @@ export default function AdminBar({ active }: { active: 'leads' | 'services' | 'w
     </div>
   );
 }
+

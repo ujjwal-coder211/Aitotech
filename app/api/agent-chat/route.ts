@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getAgentsApiKey, getAgentsApiUrl, getAkshApiKey, getAkshApiUrl } from '@/lib/akshApi';
+﻿import { NextRequest, NextResponse } from 'next/server';
+import { getAgentsApiKey, getAgentsApiUrl, getRoutelyApiKey, getRoutelyApiUrl } from '@/lib/routelyApi';
 
 /**
  * Same-origin proxy for site chat + Routely demo.
- * - agent_type=routely|aksh → AKSH_API_URL (Routely coding agent; aksh is legacy alias)
- * - agent_type=sales|support → AGENTS_API_URL (legacy agents project), not mixed with Routely
+ * - agent_type=routely|aksh â†’ AKSH_API_URL (Routely coding agent; aksh is legacy alias)
+ * - agent_type=sales|support â†’ AGENTS_API_URL (legacy agents project), not mixed with Routely
  */
 
 export const maxDuration = 60;
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'routely_demo_mock' }, { status: 503 });
   }
 
-  const base = isRoutely ? getAkshApiUrl() : getAgentsApiUrl();
+  const base = isRoutely ? getRoutelyApiUrl() : getAgentsApiUrl();
   if (!base) {
     return NextResponse.json(
       {
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const secret = isRoutely ? getAkshApiKey() : getAgentsApiKey();
+    const secret = isRoutely ? getRoutelyApiKey() : getAgentsApiKey();
     if (secret) {
       headers['X-Agents-Key'] = secret;
     }
@@ -80,3 +80,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

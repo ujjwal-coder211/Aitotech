@@ -1,5 +1,5 @@
-import type { MetadataRoute } from 'next';
-import { getAllDocSlugs } from '@/data/akshDocs';
+﻿import type { MetadataRoute } from 'next';
+import { getAllDocSlugs } from '@/data/sairaDocs';
 import { siteUrl } from '@/lib/seo/siteUrl';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     { url: `${siteUrl}/routely`, lastModified: now, changeFrequency: 'weekly', priority: 0.95 },
     { url: `${siteUrl}/routely/demo`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${siteUrl}/aksh`, lastModified: now, changeFrequency: 'weekly', priority: 0.5 },
     { url: `${siteUrl}/docs`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     ...docPages,
     { url: `${siteUrl}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
@@ -23,3 +22,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
   ];
 }
+

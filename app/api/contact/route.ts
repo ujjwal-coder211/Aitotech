@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAgentsApiKey, getAgentsApiUrl } from '@/lib/akshApi';
+import { getAgentsApiKey, getAgentsApiUrl } from '@/lib/routelyApi';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 /**

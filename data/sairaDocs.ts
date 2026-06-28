@@ -68,7 +68,7 @@ export const docsHub = {
   ],
 } as const;
 
-export const akshDocPages: DocPage[] = [
+export const sairaDocPages: DocPage[] = [
   {
     slug: 'getting-started',
     title: 'Getting started with Routely',
@@ -462,9 +462,9 @@ POST /api/projects/{id}/upload  (zip file)`,
 ];
 
 export function getDocBySlug(slug: string): DocPage | undefined {
-  return akshDocPages.find((d) => d.slug === slug);
+  return sairaDocPages.find((d) => d.slug === slug);
 }
 
 export function getAllDocSlugs(): string[] {
-  return akshDocPages.map((d) => d.slug);
+  return sairaDocPages.map((d) => d.slug);
 }

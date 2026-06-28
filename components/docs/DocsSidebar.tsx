@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { akshDocPages } from '@/data/akshDocs';
+import { sairaDocPages } from '@/data/sairaDocs';
 import { cn } from '@/lib/utils';
 
 export default function DocsSidebar() {
@@ -21,7 +21,7 @@ export default function DocsSidebar() {
         >
           Overview
         </Link>
-        {akshDocPages.map((doc) => {
+        {sairaDocPages.map((doc) => {
           const href = `/docs/${doc.slug}`;
           const active = pathname === href;
           return (

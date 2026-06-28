@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import DocsSidebar from '@/components/docs/DocsSidebar';
-import { docsHub } from '@/data/akshDocs';
+import { docsHub } from '@/data/sairaDocs';
 
 export const metadata: Metadata = {
   title: 'Routely documentation',

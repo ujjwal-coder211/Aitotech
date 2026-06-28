@@ -1,7 +1,7 @@
 # Aitotech — llms.txt
 
 > AitoTech is an AI company in Delhi, India.
-> Routely is our AI coding tool — smart model routing, browser + desktop, git, and persistent memory.
+> Routely is our AI coding platform — SAIRA Phase 1 with Omni, Harness, Hermes, and cold-start routing.
 
 ## Company
 - Name: AitoTech
@@ -11,21 +11,22 @@
 ## Product: Routely
 - URL: https://aitotech.in/routely
 - Try in browser: https://app.routely.aitotech.in
-- What: AI coding tool — picks the best free model per task, understands codebase, remembers chat, agent workflows
-- Demo: https://aitotech.in/routely/demo?tour=1
+- What: SAIRA Phase 1 — Omni chat, Harness IDE, Hermes memory, cold-start model routing
+- Demo: https://aitotech.in/routely/demo?tour=1 (Phase 1 mock UI with guided tour)
 - Waitlist: https://aitotech.in/routely#waitlist
 - Docs: https://aitotech.in/docs
 
 ## Key features (Phase 1 — coding only)
-- Smart model routing (OpenRouter free models — user never picks a model)
-- Browser IDE (try online) + desktop download (local git)
-- Persistent chat memory per project
-- Agent workflows — fix code, git pull/push, multitask jobs
+- Omni — task classification and chat with routing badges
+- Harness — browser IDE (files, editor, preview, terminal)
+- Hermes — threads and extracted skills (persistent memory)
+- Cold-start routing (OpenRouter free models — user never picks a model)
+- Event loop: PERCEIVE → DECIDE → ACT → REMEMBER → IMPROVE
 
 ## FAQ
 - Q: What is Routely?
-  A: AitoTech's AI coding tool. Describe tasks in plain English; Routely routes to the best free model and writes or fixes code.
+  A: AitoTech's coding platform. SAIRA Phase 1 = Omni + Harness + Hermes with automatic routing.
 - Q: Do I choose an AI model?
-  A: No. Routely picks automatically for each task (debug, build, git, refactor).
+  A: No. SAIRA routes by task class (CODE_GEN, DEBUG, DEPLOY, etc.) to the best free model.
 - Q: Is it only for coding?
   A: Yes for now. General assistant features come later.
