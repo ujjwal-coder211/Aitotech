@@ -4,7 +4,7 @@ import { guardOutreachAdminEdge } from '@/lib/outreach-admin-guard.edge';
 
 /** Runs on every request — refreshes auth session & guards admin areas. */
 export async function middleware(request: NextRequest) {
-  const outreachBlock = guardOutreachAdminEdge(request);
+  const outreachBlock = await guardOutreachAdminEdge(request);
   if (outreachBlock) return outreachBlock;
 
   return await updateSession(request);

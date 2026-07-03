@@ -1,5 +1,6 @@
 ﻿import { NextRequest, NextResponse } from 'next/server';
 import { getAgentsApiKey, getAgentsApiUrl, getRoutelyApiKey, getRoutelyApiUrl } from '@/lib/routelyApi';
+import { clientIp, rateLimit } from '@/lib/rate-limit';
 
 /**
  * Same-origin proxy for site chat + Routely demo.
@@ -10,6 +11,13 @@ import { getAgentsApiKey, getAgentsApiUrl, getRoutelyApiKey, getRoutelyApiUrl } 
 export const maxDuration = 60;
 
 export async function POST(request: NextRequest) {
+  if (!rateLimit(`chat:${clientIp(request)}`, 20, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { error: 'Too many messages. Please slow down and try again shortly.' },
+      { status: 429 }
+    );
+  }
+
   let body: { message?: string; agent_type?: string };
   try {
     body = await request.json();

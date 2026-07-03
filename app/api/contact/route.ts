@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAgentsApiKey, getAgentsApiUrl } from '@/lib/routelyApi';
+import { clientIp, rateLimit } from '@/lib/rate-limit';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 /**
@@ -14,6 +15,8 @@ interface ContactBody {
   email?: string;
   company?: string;
   message?: string;
+  /** Honeypot — real users never fill this hidden field. */
+  website?: string;
 }
 
 function sanitize(value: unknown, maxLen: number): string {
@@ -127,12 +130,24 @@ async function notifyAgents(payload: {
 
 /** POST /api/contact */
 export async function POST(request: NextRequest) {
+  if (!rateLimit(`contact:${clientIp(request)}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { success: false, error: 'Too many messages. Please try again in a few minutes.' },
+      { status: 429 }
+    );
+  }
+
   let body: ContactBody;
 
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ success: false, error: 'Invalid JSON body.' }, { status: 400 });
+  }
+
+  // Honeypot tripped — pretend success so bots don't adapt, store nothing.
+  if (typeof body.website === 'string' && body.website.trim().length > 0) {
+    return NextResponse.json({ success: true, message: 'Thank you! Your message has been received.' });
   }
 
   const validationError = validate(body);

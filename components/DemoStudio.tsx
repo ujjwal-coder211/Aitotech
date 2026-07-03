@@ -55,7 +55,8 @@ export default function DemoStudio() {
 
   const requestDemo = (type: string) => {
     const match = form.types.find((t) => type.toLowerCase().includes(t.toLowerCase().split(' ')[0]));
-    setSelectedType(match ?? type);
+    // Fall back to 'Other' so the controlled select never holds a value outside its options
+    setSelectedType(match ?? 'Other');
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -86,6 +87,7 @@ export default function DemoStudio() {
           email,
           company,
           message: `[Demo request — ${selectedType}] ${detail || 'No extra details provided.'}`,
+          website: data.get('website'),
         }),
       });
       const json = await res.json();
@@ -179,6 +181,12 @@ export default function DemoStudio() {
           <p className="mt-1.5 text-sm text-zinc-500">{form.subtitle}</p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
+            {/* Honeypot — hidden from real users, bots fill it and get silently dropped */}
+            <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden>
+              <label htmlFor="demo-website">Website</label>
+              <input id="demo-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label htmlFor="demo-name" className="mb-1.5 block text-sm font-medium text-zinc-300">

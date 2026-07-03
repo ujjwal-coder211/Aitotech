@@ -58,6 +58,7 @@ export default function ContactForm() {
           email: data.get('email'),
           company: data.get('company'),
           message: data.get('message'),
+          website: data.get('website'),
         }),
       });
 
@@ -94,6 +95,12 @@ export default function ContactForm() {
       className="card space-y-4 p-5 sm:space-y-5 sm:p-6 md:p-8"
       noValidate
     >
+      {/* Honeypot — hidden from real users, bots fill it and get silently dropped */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden>
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div>
         <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-zinc-300">
           {form.nameLabel} <span className="text-red-400">*</span>
