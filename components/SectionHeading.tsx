@@ -27,8 +27,8 @@ export default function SectionHeading({
       transition={{ duration: 0.5 }}
       className={`mb-12 max-w-3xl sm:mb-14 ${alignClass}`}
     >
-      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
-      <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
+      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
         {title}
         {highlight && (
           <>
@@ -37,7 +37,7 @@ export default function SectionHeading({
           </>
         )}
       </h2>
-      {description && <p className="mt-4 text-base leading-relaxed text-zinc-500 sm:text-lg">{description}</p>}
+      {description && <p className="mt-4 text-base leading-relaxed text-zinc-500">{description}</p>}
     </motion.div>
   );
 }

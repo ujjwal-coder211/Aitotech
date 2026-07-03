@@ -7,7 +7,6 @@ export {
   images,
   navLinks,
   navLinks as NAV_LINKS,
-  productLinks,
   cta,
   home,
   services,

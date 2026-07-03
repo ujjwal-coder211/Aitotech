@@ -47,19 +47,17 @@ export default function AnimatedStats() {
   };
 
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+    <div ref={ref} className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:divide-x md:divide-white/[0.06]">
       {home.stats.map((stat, i) => (
         <motion.div
           key={stat.id}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: i * 0.08, duration: 0.4 }}
-          className="glass rounded-xl p-4 text-center sm:rounded-2xl sm:p-6"
+          initial={{ opacity: 0, y: 8 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
         >
-          <p className="font-display text-2xl font-bold text-gradient sm:text-3xl md:text-4xl">
-            {format(i)}
-          </p>
-          <p className="mt-1 text-xs text-slate-500 sm:text-sm">{stat.label}</p>
+          <p className="font-display text-2xl font-semibold text-white sm:text-3xl">{format(i)}</p>
+          <p className="mt-1.5 text-xs text-zinc-600 sm:text-sm">{stat.label}</p>
         </motion.div>
       ))}
     </div>

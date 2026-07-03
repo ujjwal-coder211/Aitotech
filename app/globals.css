@@ -8,10 +8,10 @@
   --surface-card: #18181b;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.12);
-  --brand: #7c3aed;
-  --text-primary: #fafafa;
+  --brand: #5e6ad2;
+  --text-primary: #ededef;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --text-muted: #8a8f98;
 }
 
 html {
@@ -23,7 +23,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(94, 106, 210, 0.35);
   color: #fff;
 }
 
@@ -49,6 +49,19 @@ body {
     @apply card;
   }
 
+  /* quiet panel — hairline border, barely-there fill */
+  .glass-panel {
+    @apply rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl;
+  }
+
+  .btn-glass {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-transparent px-6 py-3 text-sm font-medium text-zinc-300 transition-all duration-200 ease-out-expo;
+  }
+
+  .btn-glass:hover {
+    @apply border-white/20 bg-white/[0.04] text-white;
+  }
+
   .glass-strong {
     @apply rounded-2xl border border-line-strong bg-surface-raised shadow-elevated;
   }
@@ -58,15 +71,15 @@ body {
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand-light;
+    @apply text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-500;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white shadow-glow transition-all duration-200 ease-out-expo;
   }
 
   .btn-primary:hover {
-    @apply bg-brand-dark -translate-y-px shadow-glow;
+    @apply bg-brand-dark;
   }
 
   .btn-primary:active {

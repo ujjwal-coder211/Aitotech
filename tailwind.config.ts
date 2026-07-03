@@ -9,10 +9,10 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#7c3aed',
-          light: '#a78bfa',
-          dark: '#6d28d9',
-          soft: 'rgba(124, 58, 237, 0.14)',
+          DEFAULT: '#5E6AD2',
+          light: '#9BA2EC',
+          dark: '#4C56C0',
+          soft: 'rgba(94, 106, 210, 0.12)',
         },
         surface: {
           DEFAULT: '#09090b',
@@ -44,7 +44,10 @@ const config: Config = {
       boxShadow: {
         card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px -20px rgba(0,0,0,0.5)',
         elevated: '0 1px 0 0 rgba(255,255,255,0.06) inset, 0 24px 64px -32px rgba(0,0,0,0.7)',
-        glow: '0 0 0 1px rgba(124,58,237,0.25), 0 8px 32px -8px rgba(124,58,237,0.35)',
+        glow: '0 0 24px -6px rgba(94,106,210,0.5)',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       backgroundImage: {
         'hero-grid':
@@ -53,11 +56,16 @@ const config: Config = {
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'scroll-cue': 'scrollCue 1.8s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scrollCue: {
+          '0%, 100%': { transform: 'translateY(0)', opacity: '1' },
+          '50%': { transform: 'translateY(8px)', opacity: '0.3' },
         },
       },
     },

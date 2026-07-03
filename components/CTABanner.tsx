@@ -18,15 +18,15 @@ export default function CTABanner({
   href = '/contact',
 }: CTABannerProps) {
   return (
-    <section className="section-pad pt-0">
-      <div className="mx-auto max-w-4xl rounded-2xl border border-cyan-500/25 glass-strong p-8 text-center sm:rounded-3xl sm:p-10 md:p-14">
+    <section className="section-pad border-t border-white/[0.06]">
+      <div className="mx-auto max-w-2xl text-center">
         <SectionHeading
           title={title}
           highlight={highlight}
           description={description}
           align="center"
         />
-        <Link href={href} className="btn-primary mt-2 inline-flex">
+        <Link href={href} className="btn-primary inline-flex">
           {button}
         </Link>
       </div>

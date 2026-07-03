@@ -1,56 +1,56 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import Header from '@/components/Header';
-import FooterGate from '@/components/FooterGate';
-import AmbientBackground from '@/components/AmbientBackground';
-import { site } from '@/data/siteContent';
-import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space',
-  display: 'swap',
-});
-
-export const metadata: Metadata = {
-  metadataBase: new URL(site.website),
-  title: {
-    default: `${site.name} | ${site.tagline}`,
-    template: `%s | ${site.name}`,
-  },
-  description:
-    'AitoTech delivers AI automation for data pipelines, workflows, invoice processing, and custom intelligent systems. Based in Delhi, India.',
-  keywords: ['AI automation', 'AitoTech', 'workflow automation', 'data automation', 'Delhi'],
-  openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: site.website,
-    siteName: site.name,
-    title: `${site.name} | ${site.tagline}`,
-    description:
-      'Intelligent automation for data, finance, and operations — so your team focuses on strategy, not spreadsheets.',
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans min-h-screen flex flex-col">
-        <AmbientBackground />
-        <Header />
-        <main className="relative z-10 flex-1">{children}</main>
-        <FooterGate />
-      </body>
-    </html>
-  );
-}
+import type { Metadata } from 'next';
+import { Inter, Space_Grotesk } from 'next/font/google';
+import Header from '@/components/Header';
+import FooterGate from '@/components/FooterGate';
+import AmbientBackground from '@/components/AmbientBackground';
+import { site } from '@/data/siteContent';
+import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.website),
+  title: {
+    default: `${site.name} | ${site.tagline}`,
+    template: `%s | ${site.name}`,
+  },
+  description:
+    'AitoTech delivers AI automation for data pipelines, workflows, invoice processing, and custom intelligent systems. Based in Delhi, India.',
+  keywords: ['AI automation', 'AitoTech', 'workflow automation', 'data automation', 'Delhi'],
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: site.website,
+    siteName: site.name,
+    title: `${site.name} | ${site.tagline}`,
+    description:
+      'Intelligent automation for data, finance, and operations — so your team focuses on strategy, not spreadsheets.',
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className="font-sans min-h-screen flex flex-col">
+        <AmbientBackground />
+        <Header />
+        <main className="relative z-10 flex-1">{children}</main>
+        <FooterGate />
+      </body>
+    </html>
+  );
+}

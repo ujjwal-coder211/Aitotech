@@ -8,9 +8,8 @@
 /** Brand & contact */
 export const site = {
   name: 'AitoTech',
-  tagline: 'AI Automation Agency · Outreach App',
+  tagline: 'AI · ML · Business Automation',
   email: 'info@aitotech.in',
-  phone: '+91 93544 59046',
   address: 'Delhi, India',
   website: 'https://aitotech.in',
   responseTime: 'Within 24 hours on business days',
@@ -21,10 +20,11 @@ export const site = {
     initials: 'UC',
   },
   social: {
-    instagram: '',
+    // TODO(founder): confirm the LinkedIn / Instagram handles below
+    instagram: 'https://www.instagram.com/aitotech.in',
     facebook: '',
     x: '',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/company/aitotech',
     discord: '',
     youtube: '',
     github: 'https://github.com/ujjwal-coder211',
@@ -53,17 +53,10 @@ export const images = {
 
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/products/outreach', label: 'Outreach' },
+  { href: '/demos', label: 'Demos' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
-] as const;
-
-/** Product pages — footer & cross-links */
-export const productLinks = [
-  { href: '/products/outreach', label: 'Outreach App', tag: 'Sales pilot' },
-  { href: '/products/outreach/download', label: 'Download APK', tag: 'Android' },
-  { href: '/products/outreach/request', label: 'Request Access', tag: 'Pilot' },
 ] as const;
 
 export const cta = {
@@ -99,15 +92,13 @@ export const processSteps = [
 /** ─── HOME PAGE ─── */
 export const home = {
   hero: {
-    badge: 'AI Automation Agency · Delhi, India',
-    title: 'Automate the Work.',
-    titleHighlight: 'Amplify the Impact.',
+    badge: 'Websites · Apps · AI · Automation',
+    title: 'AitoTech',
+    subheadline: 'Building the Future of Automation.',
     description:
-      'AitoTech builds intelligent automation for enterprises — and ships Outreach, our AI sales pilot app for bank sales teams across India.',
-    ctaPrimary: 'Book a Call',
-    ctaSecondary: 'Explore Outreach',
-    dashboardLabel: 'Live automation overview',
-    liveBadge: '12 workflows active',
+      'Websites, apps, AI tools, and workflow automation — engineered end to end for small businesses and enterprises alike.',
+    ctaPrimary: 'Start a Project',
+    ctaSecondary: 'View Work',
   },
   stats: [
     { id: 'hours', label: 'Hours Saved', suffix: '+', value: 12000, decimals: 0 },
@@ -177,6 +168,71 @@ export const home = {
     description: 'Book a free strategy call. We will map your workflows and define clear goals before any code is written.',
     button: 'Book a Call',
   },
+} as const;
+
+/** ─── PORTFOLIO / WORK GRID (home) ─── */
+export const portfolio = {
+  eyebrow: 'What We Build',
+  title: 'Everything your business needs,',
+  highlight: 'engineered',
+  description:
+    'Websites, apps, AI tools, and automation — for small businesses and enterprises alike.',
+  items: [
+    {
+      title: 'Business Websites',
+      kind: 'Web Design · Live Demos',
+      body: 'Fast, modern websites with booking, payments, WhatsApp chat, and AI built in — browse demo templates for your industry.',
+      tags: ['Next.js', 'SEO', 'AI Chat'],
+      href: '/demos',
+      icon: 'globe',
+      featured: true,
+    },
+    {
+      title: 'WhatsApp & Workflow Automation',
+      kind: 'Automation',
+      body: 'Auto-replies, lead follow-ups, and approvals that run on WhatsApp and the tools you already use.',
+      tags: ['WhatsApp API', 'CRM', 'n8n'],
+      href: '/services/workflow-automation',
+      icon: 'workflow',
+      featured: false,
+    },
+    {
+      title: 'Mobile Apps',
+      kind: 'Android & iOS',
+      body: 'Booking, ordering, and field-team apps — from idea to Play Store, with updates delivered over the air.',
+      tags: ['React Native', 'Play Store', 'OTA'],
+      href: '/demos',
+      icon: 'mobile',
+      featured: true,
+    },
+    {
+      title: 'AI Tools & Chatbots',
+      kind: 'Custom AI',
+      body: 'Chatbots trained on your business, private knowledge bases, and AI agents inside your environment.',
+      tags: ['RAG', 'Agents', 'Fine-tuning'],
+      href: '/services/custom-ai',
+      icon: 'ai',
+      featured: false,
+    },
+    {
+      title: 'Invoice Intelligence',
+      kind: 'Automation Engine',
+      body: 'OCR + NLP extraction with 3-way PO matching — thousands of invoices into ERP at 99% accuracy.',
+      tags: ['OCR', 'NLP', 'ERP'],
+      href: '/services/invoice-intelligence',
+      icon: 'invoice',
+      featured: false,
+    },
+    {
+      title: 'Data Pipelines',
+      kind: 'Data Engineering',
+      body: 'Self-healing, real-time pipelines with schema intelligence, quality scoring, and lineage.',
+      tags: ['CDC', 'ETL', 'Quality'],
+      href: '/services/data-automation',
+      icon: 'database',
+      featured: false,
+    },
+  ],
 } as const;
 
 /** ─── SERVICES PAGE ─── */
@@ -309,7 +365,7 @@ export const contactPage = {
   },
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
-    { label: 'Phone', value: site.phone, icon: 'phone' },
+    { label: 'WhatsApp', value: 'Chat with us directly', icon: 'whatsapp' },
     { label: 'Office', value: site.address, icon: 'location' },
     { label: 'Response', value: site.responseTime, icon: 'clock' },
   ],
@@ -337,11 +393,121 @@ export const contactPage = {
 
 /** ─── FOOTER ─── */
 export const footer = {
-  blurb: 'Enterprise automation and Outreach — AI sales pilot for bank teams.',
+  blurb: 'Websites, AI systems, and business automation — engineered end to end.',
   navigateTitle: 'Navigate',
-  productsTitle: 'Products',
   servicesTitle: 'Services',
   contactTitle: 'Contact',
+} as const;
+
+/** ─── DEMOS PAGE ─── */
+export const demosPage = {
+  hero: {
+    eyebrow: 'Demos & Templates',
+    title: 'See your project',
+    highlight: 'before we build it',
+    description:
+      'Browse demo templates, tell us your requirement, and we prepare a personalised demo — your brand, your content, your workflow.',
+  },
+  websitesTitle: 'Website templates',
+  automationsTitle: 'Automation demos',
+  requestCta: 'Request this demo',
+  templates: [
+    {
+      slug: 'business',
+      name: 'Business Website',
+      blurb: 'Company profile, services, enquiry forms, and WhatsApp chat.',
+      tags: ['5–7 pages', 'SEO-ready', 'Enquiry form'],
+      accent: '#5e6ad2',
+    },
+    {
+      slug: 'ecommerce',
+      name: 'E-commerce Store',
+      blurb: 'Product catalog, cart, UPI/card payments, order tracking.',
+      tags: ['Payments', 'Inventory', 'WhatsApp updates'],
+      accent: '#0ea5e9',
+    },
+    {
+      slug: 'restaurant',
+      name: 'Restaurant & Café',
+      blurb: 'Digital menu, table booking, QR ordering, and reviews.',
+      tags: ['QR menu', 'Booking', 'Google Maps'],
+      accent: '#f59e0b',
+    },
+    {
+      slug: 'clinic',
+      name: 'Clinic & Healthcare',
+      blurb: 'Doctor profiles, appointment booking, patient reminders.',
+      tags: ['Appointments', 'Reminders', 'WhatsApp alerts'],
+      accent: '#10b981',
+    },
+    {
+      slug: 'realestate',
+      name: 'Real Estate',
+      blurb: 'Property listings with filters, site-visit booking, lead capture.',
+      tags: ['Listings', 'Lead capture', 'Map view'],
+      accent: '#ec4899',
+    },
+    {
+      slug: 'portfolio',
+      name: 'Portfolio & Personal Brand',
+      blurb: 'Showcase your work with testimonials, blog, and bookings.',
+      tags: ['Showcase', 'Blog', 'Booking'],
+      accent: '#6366f1',
+    },
+  ],
+  automations: [
+    {
+      slug: 'whatsapp-bot',
+      name: 'WhatsApp Auto-Reply Bot',
+      blurb: 'Answers enquiries 24×7, qualifies leads, books appointments.',
+      icon: 'workflow',
+    },
+    {
+      slug: 'invoice-automation',
+      name: 'Invoice → ERP Automation',
+      blurb: 'Reads invoices from email, extracts data, pushes to your ERP or Tally.',
+      icon: 'invoice',
+    },
+    {
+      slug: 'lead-sync',
+      name: 'Lead Capture + CRM Sync',
+      blurb: 'Website and social leads land in your CRM with instant follow-up.',
+      icon: 'database',
+    },
+    {
+      slug: 'ai-chatbot',
+      name: 'AI Website Chatbot',
+      blurb: 'Trained on your business — quotes, FAQs, and bookings on your site.',
+      icon: 'ai',
+    },
+  ],
+  form: {
+    title: 'Tell us your requirement',
+    subtitle: 'We reply with a personalised demo within 1–2 business days.',
+    nameLabel: 'Your Name',
+    emailLabel: 'Email',
+    companyLabel: 'Business Name',
+    typeLabel: 'What do you need?',
+    types: [
+      'Business Website',
+      'E-commerce Store',
+      'Restaurant & Café',
+      'Clinic & Healthcare',
+      'Real Estate',
+      'Portfolio & Personal Brand',
+      'Mobile App',
+      'WhatsApp Automation',
+      'Invoice Automation',
+      'AI Chatbot',
+      'Other',
+    ],
+    messageLabel: 'Describe your requirement',
+    messagePlaceholder: 'e.g. I need an appointment booking website for my clinic with WhatsApp reminders…',
+    submit: 'Request My Demo',
+    sending: 'Sending…',
+    success: 'Got it! We will email your personalised demo within 1–2 business days.',
+    error: 'Something went wrong. Try again or email info@aitotech.in',
+  },
 } as const;
 
 /** Service detail page shared copy */
