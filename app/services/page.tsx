@@ -8,7 +8,8 @@ import ProcessSection from '@/components/ProcessSection';
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'AitoTech AI automation services — data, workflows, invoices, and custom AI.',
+  description:
+    'AitoTech services — business websites, mobile apps, AI tools & chatbots, and workflow automation for businesses of every size.',
 };
 
 export default async function ServicesPage() {
@@ -25,9 +26,9 @@ export default async function ServicesPage() {
           description={hero.description}
         />
 
-        <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
-            <ServiceCard key={service.slug} service={service} index={i} variant="bento" />
+            <ServiceCard key={service.slug} service={service} index={i} />
           ))}
         </div>
 
@@ -40,14 +41,13 @@ export default async function ServicesPage() {
           className="px-0 pt-0"
         />
 
-        <div className="mt-12 glass-strong rounded-2xl border border-cyan-500/20 p-6 text-center sm:mt-16 sm:rounded-3xl sm:p-10">
-          <p className="text-sm text-slate-400">Questions? Reach us at</p>
-          <a
-            href={`mailto:${site.email}`}
-            className="mt-2 inline-block font-display text-lg text-cyan-400 hover:underline sm:text-xl"
-          >
-            {site.email}
-          </a>
+        <div className="mt-12 border-t border-white/[0.06] pt-12 text-center sm:mt-16 sm:pt-16">
+          <p className="text-sm text-zinc-500">
+            Questions? Reach us at{' '}
+            <a href={`mailto:${site.email}`} className="text-zinc-300 transition-colors hover:text-white">
+              {site.email}
+            </a>
+          </p>
           <Link href="/contact" className="btn-primary mt-6 inline-flex text-sm">
             {cta.primary}
           </Link>

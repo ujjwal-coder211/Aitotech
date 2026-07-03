@@ -42,21 +42,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
         <ServiceDetailHero service={service} />
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {service.features.map((feature, i) => (
-            <div key={feature} className="card-hover p-5 sm:p-6">
-              <span className="font-display text-sm font-bold text-brand-light/70">{String(i + 1).padStart(2, '0')}</span>
-              <p className="mt-2 font-medium text-white">{feature}</p>
+            <div key={feature} className="border-t border-white/[0.08] pt-5">
+              <span className="text-xs font-medium tracking-wider text-zinc-600">{String(i + 1).padStart(2, '0')}</span>
+              <p className="mt-2 text-sm font-medium text-white">{feature}</p>
             </div>
           ))}
         </div>
 
-        <div className="card mt-12 p-8 text-center sm:mt-16 sm:p-10 md:p-14">
-          <h2 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
+        <div className="mt-16 border-t border-white/[0.06] pt-14 text-center sm:mt-20 sm:pt-16">
+          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">
             {ctaTitle(service.title)}
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-zinc-500 sm:text-base">{ctaBody}</p>
-          <Link href="/contact" className="btn-primary mt-6 inline-flex sm:mt-8">
+          <p className="mx-auto mt-3 max-w-lg text-sm text-zinc-500">{ctaBody}</p>
+          <Link href="/contact" className="btn-primary mt-6 inline-flex">
             {ctaButton}
           </Link>
         </div>

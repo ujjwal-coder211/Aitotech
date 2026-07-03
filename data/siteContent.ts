@@ -239,10 +239,10 @@ export const portfolio = {
 export const servicesPage = {
   hero: {
     badge: 'Services',
-    title: 'Intelligent',
-    highlight: 'Automation Services',
+    title: 'Websites, apps, AI &',
+    highlight: 'automation',
     description:
-      'End-to-end automation across data, workflows, finance, and custom AI — delivered by dedicated pods aligned to your outcomes.',
+      'Everything a business needs to go digital and run on autopilot — designed, built, and maintained end to end.',
   },
   process: {
     eyebrow: 'Methodology',
@@ -254,6 +254,30 @@ export const servicesPage = {
 
 /** Service catalog */
 export const services = [
+  {
+    slug: 'website-development',
+    title: 'Business Websites',
+    short: 'Fast, modern sites that convert.',
+    description:
+      'SEO-ready websites with booking, payments, WhatsApp chat, and AI built in — designed, built, and hosted end to end for your business.',
+    features: ['Custom design', 'SEO & analytics', 'Booking & payments', 'WhatsApp + AI chat'],
+    gradient: 'from-indigo-500/15 via-indigo-500/5 to-transparent',
+    accent: 'text-brand-light',
+    icon: 'globe',
+    comingSoon: false,
+  },
+  {
+    slug: 'mobile-apps',
+    title: 'Mobile Apps',
+    short: 'Android & iOS, idea to store.',
+    description:
+      'Booking, ordering, and field-team apps built with React Native — shipped to the Play Store with over-the-air updates so new features land without reinstalls.',
+    features: ['Android & iOS', 'Play Store publishing', 'OTA updates', 'Offline-first'],
+    gradient: 'from-indigo-500/15 via-indigo-500/5 to-transparent',
+    accent: 'text-brand-light',
+    icon: 'mobile',
+    comingSoon: false,
+  },
   {
     slug: 'data-automation',
     title: 'Data Automation',
@@ -298,8 +322,8 @@ export const services = [
   },
   {
     slug: 'custom-ai',
-    title: 'Custom AI Systems',
-    short: 'Models built for your domain.',
+    title: 'AI Tools & Chatbots',
+    short: 'AI built for your domain.',
     description:
       'Fine-tuned LLMs, RAG knowledge bases, and autonomous agents deployed in your environment — not generic chatbots stapled onto your stack.',
     features: ['Domain fine-tuning', 'Private RAG', 'Agent workflows', 'Human-in-the-loop'],
