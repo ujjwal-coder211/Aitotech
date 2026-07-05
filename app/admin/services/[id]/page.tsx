@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { isSupabaseConfigured } from '@/lib/supabase/server';
+import { requireAdminClient } from '@/lib/supabase/admin.server';
 import AdminBar from '../../AdminBar';
 import ServiceForm from '../ServiceForm';
 
@@ -14,7 +15,7 @@ export default async function EditServicePage({ params }: PageProps) {
 
   if (!isSupabaseConfigured()) notFound();
 
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   const { data: service } = await supabase.from('services').select('*').eq('id', id).single();
 
   if (!service) notFound();

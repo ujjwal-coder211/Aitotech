@@ -56,7 +56,16 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
 4. **Create the admin user:** Dashboard → **Authentication → Users → Add user**
-   (enter your email + password, tick *Auto Confirm*). Log in at `/admin/login`.
+   (enter your email + password, tick *Auto Confirm*).
+5. **Mark that user as an admin:** edit the user's **App Metadata** (not user
+   metadata) and add one of these server-controlled claims:
+
+```json
+{ "role": "admin" }
+```
+
+   Log out/in after changing app metadata so the JWT is refreshed, then log in at
+   `/admin/login`.
 
 ### Contact form email alerts (optional)
 

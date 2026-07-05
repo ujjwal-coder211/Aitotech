@@ -1,4 +1,5 @@
-﻿import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+﻿import { isSupabaseConfigured } from '@/lib/supabase/server';
+import { requireAdminClient } from '@/lib/supabase/admin.server';
 import AdminBar from '../AdminBar';
 
 export const dynamic = 'force-dynamic';
@@ -25,7 +26,7 @@ export default async function AdminWaitlistPage() {
     );
   }
 
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   const { data, error } = await supabase
     .from('aksh_waitlist')
     .select('*')

@@ -61,8 +61,9 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ### Step 4: Admin login
 
 1. Supabase → **Authentication → Users → Add user** (email + password, Auto Confirm ✓)
-2. http://localhost:3000/admin/login se login
-3. **Aksh Waitlist** tab check karo
+2. User ke **App Metadata** mein `{ "role": "admin" }` add karo (user metadata nahi)
+3. Metadata change ke baad logout/login karo: http://localhost:3000/admin/login
+4. **Aksh Waitlist** tab check karo
 
 ### Step 5: Vercel deploy (live website)
 

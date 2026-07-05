@@ -16,6 +16,19 @@ create table if not exists public.leads (
 
 alter table public.leads enable row level security;
 
+-- Admins must have a non-user-editable Supabase Auth app_metadata claim:
+--   {"role":"admin"} or {"roles":["admin"]} or {"is_admin":true}
+-- Set this in Supabase Auth user app metadata; do not use user_metadata.
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+as $$
+  select coalesce(auth.jwt() -> 'app_metadata' ->> 'role', '') = 'admin'
+    or coalesce(auth.jwt() -> 'app_metadata' -> 'roles', '[]'::jsonb) ? 'admin'
+    or coalesce(auth.jwt() -> 'app_metadata' ->> 'is_admin', '') = 'true';
+$$;
+
 -- Anyone (anon) can submit a lead via the contact form
 drop policy if exists "anyone can insert leads" on public.leads;
 create policy "anyone can insert leads"
@@ -28,19 +41,20 @@ drop policy if exists "authenticated can read leads" on public.leads;
 create policy "authenticated can read leads"
   on public.leads for select
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 drop policy if exists "authenticated can update leads" on public.leads;
 create policy "authenticated can update leads"
   on public.leads for update
   to authenticated
-  using (true);
+  using (public.is_admin())
+  with check (public.is_admin());
 
 drop policy if exists "authenticated can delete leads" on public.leads;
 create policy "authenticated can delete leads"
   on public.leads for delete
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 
 -- ─── 2. SERVICES (CMS-managed content) ───
@@ -67,15 +81,15 @@ drop policy if exists "public can read published services" on public.services;
 create policy "public can read published services"
   on public.services for select
   to anon, authenticated
-  using (published = true or auth.role() = 'authenticated');
+  using (published = true or public.is_admin());
 
 -- Logged-in admins can do everything
 drop policy if exists "authenticated manage services" on public.services;
 create policy "authenticated manage services"
   on public.services for all
   to authenticated
-  using (true)
-  with check (true);
+  using (public.is_admin())
+  with check (public.is_admin());
 
 -- Auto-update updated_at on row change
 create or replace function public.set_updated_at()
@@ -145,10 +159,11 @@ drop policy if exists "authenticated can read aksh waitlist" on public.aksh_wait
 create policy "authenticated can read aksh waitlist"
   on public.aksh_waitlist for select
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 drop policy if exists "authenticated can update aksh waitlist" on public.aksh_waitlist;
 create policy "authenticated can update aksh waitlist"
   on public.aksh_waitlist for update
   to authenticated
-  using (true);
+  using (public.is_admin())
+  with check (public.is_admin());

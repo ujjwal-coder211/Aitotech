@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { requireAdminClient } from '@/lib/supabase/admin.server';
 
 /** Sign the admin out and return to login. */
 export async function signOut() {
@@ -13,21 +14,21 @@ export async function signOut() {
 
 /** Update a lead's status (new | read | archived). */
 export async function updateLeadStatus(id: string, status: string) {
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   await supabase.from('leads').update({ status }).eq('id', id);
   revalidatePath('/admin');
 }
 
 /** Delete a lead. */
 export async function deleteLead(id: string) {
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   await supabase.from('leads').delete().eq('id', id);
   revalidatePath('/admin');
 }
 
 /** Create or update a service (CMS). */
 export async function saveService(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
 
   const id = (formData.get('id') as string) || null;
   const featuresRaw = (formData.get('features') as string) || '';
@@ -64,7 +65,7 @@ export async function saveService(formData: FormData) {
 
 /** Delete a service. */
 export async function deleteService(id: string) {
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   await supabase.from('services').delete().eq('id', id);
   revalidatePath('/admin/services');
   revalidatePath('/services');
