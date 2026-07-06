@@ -24,18 +24,18 @@ export default function AboutPage() {
 
         <FounderSection />
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:mt-20 sm:grid-cols-2 md:grid-cols-3 lg:gap-5">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 md:grid-cols-3">
           {pillars.map((item) => (
-            <div key={item.title} className="card-hover p-6 sm:p-8">
-              <h3 className="font-display text-lg font-semibold text-brand-light">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-500">{item.body}</p>
+            <div key={item.title} className="border-t border-white/[0.08] pt-6">
+              <h3 className="font-display text-base font-semibold text-white">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">{item.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="glass mt-12 rounded-2xl border border-cyan-500/20 p-6 sm:mt-16 sm:p-8">
+        <div className="mt-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:mt-16 sm:p-8">
           <h3 className="font-display text-xl font-semibold text-white">{team.title}</h3>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-500">{team.body}</p>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-500">{team.body}</p>
         </div>
 
         <div className="mt-12 text-center sm:mt-16">

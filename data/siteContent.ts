@@ -16,7 +16,7 @@ export const site = {
   founder: {
     name: 'Ujjwal',
     role: 'Founder & CEO',
-    photo: '/images/founder.svg',
+    photo: '/images/founder.jpg',
     initials: 'UC',
   },
   social: {
@@ -38,7 +38,8 @@ export const site = {
 } as const;
 
 export const images = {
-  logo: '/images/logo-placeholder.svg',
+  logo: '/images/logo-full.png',
+  logoMark: '/images/logo-mark.png',
   founder: '/images/founder-placeholder.jpg',
   heroDashboard: '/images/hero-dashboard-placeholder.jpg',
   office: '/images/office-placeholder.jpg',
@@ -100,11 +101,12 @@ export const home = {
     ctaPrimary: 'Start a Project',
     ctaSecondary: 'View Work',
   },
-  stats: [
-    { id: 'hours', label: 'Hours Saved', suffix: '+', value: 12000, decimals: 0 },
-    { id: 'processes', label: 'Processes Automated', suffix: '+', value: 340, decimals: 0 },
-    { id: 'clients', label: 'Enterprise Clients', suffix: '+', value: 85, decimals: 0 },
-    { id: 'roi', label: 'Avg. ROI Delivered', suffix: '×', value: 3.2, decimals: 1 },
+  /** Honest, verifiable facts — no inflated client counts or invented ROI numbers */
+  facts: [
+    { value: '2022', label: 'Founded · Delhi, India' },
+    { value: '2', label: 'Products shipped in-house' },
+    { value: '< 24h', label: 'Enquiry response time' },
+    { value: '100%', label: 'Built in-house, no outsourcing' },
   ],
   trust: {
     label: 'Trusted by teams across finance, logistics, and healthcare',
@@ -235,6 +237,41 @@ export const portfolio = {
   ],
 } as const;
 
+/** ─── CASE STUDIES — real shipped work, honest social proof ─── */
+export const caseStudies = {
+  eyebrow: 'Proof of Work',
+  title: 'Real products,',
+  highlight: 'really shipped',
+  description:
+    'No borrowed logos, no inflated numbers — these are products we designed, built, and shipped ourselves. Your project gets the same team.',
+  items: [
+    {
+      name: 'Outreach',
+      status: 'Live · Android pilot',
+      summary:
+        'AI sales app for bank teams in India — fresh MCA/GST company leads by PIN code, AI-written cold messages in Hindi, English, or Hinglish, and one-tap WhatsApp send.',
+      points: [
+        'Shipped as installable Android APK with over-the-air updates',
+        'Human-in-the-loop AI outreach — the rep always taps Send',
+        'Full lead pipeline: new → contacted → interested → converted',
+      ],
+      href: '/products/outreach',
+    },
+    {
+      name: 'Routely · SAIRA',
+      status: 'Beta',
+      summary:
+        'Our AI coding platform — Omni chat classifies every task and routes it to the best model, Harness edits the project in a browser IDE, Hermes remembers context.',
+      points: [
+        'Task classification with cold-start model routing',
+        'Browser IDE with file tree, editor, and live preview',
+        'Persistent per-project memory and skills',
+      ],
+      href: '/routely',
+    },
+  ],
+} as const;
+
 /** ─── SERVICES PAGE ─── */
 export const servicesPage = {
   hero: {
@@ -352,19 +389,19 @@ export const aboutPage = {
       'AitoTech was founded on a simple belief: AI should remove friction, not add complexity.',
   },
   founder: {
-    initials: 'AT',
+    initials: 'UC',
     role: 'Founder & CEO',
     company: 'AitoTech',
     established: 'Est. 2022 · Delhi, India',
-    letterTitle: 'A letter from our',
-    letterHighlight: 'Founder',
+    letterTitle: 'A note from the',
+    letterHighlight: 'founder',
     paragraphs: [
-      'I started AitoTech after a decade watching brilliant teams drown in repetitive work — copying data between systems, chasing invoice approvals, answering the same support tickets. The technology to fix this existed; the delivery model did not.',
-      'We built AitoTech to be the partner I wished I had: engineers who speak business, who measure success in hours returned to your people, and who treat security as non-negotiable. Every engagement ships with clear KPIs and a path to scale.',
-      'Today we work with finance, logistics, and healthcare leaders who refuse to accept "that\'s how we\'ve always done it." If that sounds like you — let\'s build something remarkable together.',
+      'I started AitoTech in 2022 from Delhi with a simple goal: give small and mid-size businesses the kind of software and automation that usually only enterprises can afford.',
+      'We are a small, engineering-first team — and we ship our own products. Outreach, our AI sales app, is live with bank sales teams, and Routely, our AI coding platform, is in beta. Building and running our own products keeps us honest: every client project gets the same discipline.',
+      'No slide decks, no outsourcing chains. You talk directly to the people who build your system, and every engagement starts with a working demo — so you see exactly what you are getting before you commit.',
     ],
-    signature: '— The AitoTech Founding Team',
-    imageAlt: 'AitoTech Founder',
+    signature: '— Ujjwal, Founder & CEO',
+    imageAlt: 'Ujjwal — Founder & CEO, AitoTech',
   },
   pillars: [
     { title: 'Mission', body: 'Make enterprise automation accessible, measurable, and human-centered.' },
@@ -372,8 +409,8 @@ export const aboutPage = {
     { title: 'Values', body: 'Transparency, security, and outcomes over vanity metrics.' },
   ],
   team: {
-    title: 'Expert-led delivery',
-    body: 'Every engagement is led by solution architects and ML engineers with deep domain experience. We work as an extension of your team — not a black-box vendor.',
+    title: 'Small team, direct access',
+    body: 'AitoTech is deliberately small. The person you talk to on the first call is the person who designs and builds your system — no account managers, no hand-offs, no outsourcing chains.',
   },
   ctaButton: 'Book a Call',
 } as const;

@@ -22,6 +22,5 @@ export {
 
 import { home } from '@/data/siteContent';
 
-/** Legacy aliases used by AnimatedStats / WhyChooseUs */
-export const HERO_STATS = home.stats;
+/** Legacy alias used by WhyChooseUs */
 export const WHY_CHOOSE_US = home.whyChooseUs.items;

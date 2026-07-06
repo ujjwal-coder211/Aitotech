@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import FounderAvatar from '@/components/FounderAvatar';
@@ -43,9 +44,14 @@ export default function Header() {
     >
       <nav className="container-page flex h-14 items-center justify-between gap-3 sm:h-16 lg:h-[4.25rem]">
         <Link href="/" className="group flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand text-xs font-bold text-white shadow-sm transition-transform group-hover:scale-[1.02] sm:h-10 sm:w-10 sm:text-sm">
-            AT
-          </span>
+          <Image
+            src="/images/logo-mark.png"
+            alt="AitoTech logo"
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 shrink-0 object-contain transition-transform group-hover:scale-[1.03] sm:h-10 sm:w-10"
+          />
           <span className="truncate font-display text-lg font-bold tracking-tight text-white sm:text-xl">
             {site.name}
           </span>
