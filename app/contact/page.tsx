@@ -28,7 +28,7 @@ function ContactIcon({ name }: { name: string }) {
 }
 
 export default function ContactPage() {
-  const { hero, infoCards, map } = contactPage;
+  const { hero, infoCards } = contactPage;
 
   return (
     <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
@@ -58,6 +58,16 @@ export default function ContactPage() {
                       <WhatsAppLink className="cursor-pointer text-left hover:text-brand-light">
                         {item.value} &rarr;
                       </WhatsAppLink>
+                    ) : item.label === 'Office' ? (
+                      <a
+                        href={site.map.directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-light"
+                        title="Open in Google Maps"
+                      >
+                        {item.value} &rarr;
+                      </a>
                     ) : (
                       item.value
                     )}
@@ -69,34 +79,6 @@ export default function ContactPage() {
             <div className="glass-panel flex items-center justify-between gap-4 p-4 sm:p-5">
               <p className="text-sm font-medium text-white">Connect with us</p>
               <SocialLinks size="sm" />
-            </div>
-
-            {/* Google Map — Delhi office */}
-            <div className="glass overflow-hidden rounded-2xl">
-              <div className="flex items-center justify-between gap-3 p-4 sm:p-5">
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-white">{map.title}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{map.body}</p>
-                </div>
-                <a
-                  href={site.map.directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 rounded-lg bg-cyan-500/15 px-3 py-1.5 text-xs font-medium text-cyan-300 transition-colors hover:bg-cyan-500/25"
-                >
-                  {map.directions} ↗
-                </a>
-              </div>
-              <iframe
-                src={site.map.embedUrl}
-                title="AitoTech office location — Delhi, India"
-                width="100%"
-                height="240"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block w-full border-0 grayscale-[20%]"
-                allowFullScreen
-              />
             </div>
           </div>
 
