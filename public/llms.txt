@@ -1,32 +1,44 @@
-# Aitotech — llms.txt
+# AitoTech — llms.txt
 
-> AitoTech is an AI company in Delhi, India.
-> Routely is our AI coding platform — SAIRA Phase 1 with Omni, Harness, Hermes, and cold-start routing.
+> AitoTech builds websites, mobile apps, AI tools, and workflow automation
+> for small businesses and enterprises. Based in Delhi, India. Founded 2022.
 
 ## Company
 - Name: AitoTech
 - Website: https://aitotech.in
 - Email: info@aitotech.in
+- Location: Delhi, India
 
-## Product: Routely
-- URL: https://aitotech.in/routely
-- Try in browser: https://app.routely.aitotech.in
-- What: SAIRA Phase 1 — Omni chat, Harness IDE, Hermes memory, cold-start model routing
-- Demo: https://aitotech.in/routely/demo?tour=1 (Phase 1 mock UI with guided tour)
-- Waitlist: https://aitotech.in/routely#waitlist
-- Docs: https://aitotech.in/docs
+## Services
+- Business Websites: https://aitotech.in/services/website-development
+- Mobile Apps (Android & iOS): https://aitotech.in/services/mobile-apps
+- Workflow & WhatsApp Automation: https://aitotech.in/services/workflow-automation
+- AI Tools & Chatbots: https://aitotech.in/services/custom-ai
+- Invoice Intelligence: https://aitotech.in/services/invoice-intelligence
+- Data Automation: https://aitotech.in/services/data-automation
 
-## Key features (Phase 1 — coding only)
-- Omni — task classification and chat with routing badges
-- Harness — browser IDE (files, editor, preview, terminal)
-- Hermes — threads and extracted skills (persistent memory)
-- Cold-start routing (OpenRouter free models — user never picks a model)
-- Event loop: PERCEIVE → DECIDE → ACT → REMEMBER → IMPROVE
+## Demos & Templates
+- URL: https://aitotech.in/demos
+- What: Website templates (business, e-commerce, restaurant, clinic, real estate,
+  portfolio) and automation demos (WhatsApp bot, invoice → ERP, lead capture + CRM,
+  AI chatbot). Businesses can request a personalised demo before committing.
+
+## Shipped products (proof of work)
+- Outreach: https://aitotech.in/products/outreach — AI sales app for bank teams
+  in India (MCA/GST leads by PIN code, AI-written outreach, WhatsApp send). Live pilot.
+- Routely: https://aitotech.in/routely — AI coding platform (Omni chat, Harness IDE,
+  Hermes memory, automatic model routing). Beta.
+
+## Contact
+- Enquiries: https://aitotech.in/contact
+- Response time: within 24 hours on business days
 
 ## FAQ
-- Q: What is Routely?
-  A: AitoTech's coding platform. SAIRA Phase 1 = Omni + Harness + Hermes with automatic routing.
-- Q: Do I choose an AI model?
-  A: No. SAIRA routes by task class (CODE_GEN, DEBUG, DEPLOY, etc.) to the best free model.
-- Q: Is it only for coding?
-  A: Yes for now. General assistant features come later.
+- Q: What does AitoTech do?
+  A: End-to-end websites, apps, AI tools, and business automation — design, build,
+  deploy, and maintain.
+- Q: Who is it for?
+  A: Small and mid-size businesses as well as enterprises, in India and abroad.
+- Q: How does an engagement start?
+  A: Share your requirement at https://aitotech.in/demos — AitoTech replies with a
+  personalised demo within 1–2 business days.

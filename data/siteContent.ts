@@ -43,7 +43,7 @@ export const images = {
   founder: '/images/founder-placeholder.jpg',
   heroDashboard: '/images/hero-dashboard-placeholder.jpg',
   office: '/images/office-placeholder.jpg',
-  ogImage: '/images/og-placeholder.jpg',
+  ogImage: '/images/og.png',
   services: {
     'data-automation': '/images/services/data-automation.jpg',
     'workflow-automation': '/images/services/workflow.jpg',

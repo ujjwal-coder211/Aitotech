@@ -25,8 +25,16 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    'AitoTech delivers AI automation for data pipelines, workflows, invoice processing, and custom intelligent systems. Based in Delhi, India.',
-  keywords: ['AI automation', 'AitoTech', 'workflow automation', 'data automation', 'Delhi'],
+    'AitoTech builds websites, mobile apps, AI tools, and workflow automation for small businesses and enterprises. Based in Delhi, India.',
+  keywords: [
+    'AitoTech',
+    'website development',
+    'mobile apps',
+    'AI automation',
+    'workflow automation',
+    'AI chatbot',
+    'Delhi',
+  ],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -34,7 +42,15 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} | ${site.tagline}`,
     description:
-      'Intelligent automation for data, finance, and operations — so your team focuses on strategy, not spreadsheets.',
+      'Websites, apps, AI tools, and workflow automation — engineered end to end for businesses of every size.',
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AitoTech — AI · Automation · Development' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${site.name} | ${site.tagline}`,
+    description:
+      'Websites, apps, AI tools, and workflow automation — engineered end to end for businesses of every size.',
+    images: ['/images/og.png'],
   },
 };
 
