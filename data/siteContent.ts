@@ -103,7 +103,7 @@ export const home = {
   },
   /** Honest, verifiable facts — no inflated client counts or invented ROI numbers */
   facts: [
-    { value: '2022', label: 'Founded · Delhi, India' },
+    { value: '2026', label: 'Founded · Delhi, India' },
     { value: '2', label: 'Products shipped in-house' },
     { value: '< 24h', label: 'Enquiry response time' },
     { value: '100%', label: 'Built in-house, no outsourcing' },
@@ -392,11 +392,11 @@ export const aboutPage = {
     initials: 'UC',
     role: 'Founder & CEO',
     company: 'AitoTech',
-    established: 'Est. 2022 · Delhi, India',
+    established: 'Est. 2026 · Delhi, India',
     letterTitle: 'A note from the',
     letterHighlight: 'founder',
     paragraphs: [
-      'I started AitoTech in 2022 from Delhi with a simple goal: give small and mid-size businesses the kind of software and automation that usually only enterprises can afford.',
+      'I started AitoTech in 2026 from Delhi with a simple goal: give small and mid-size businesses the kind of software and automation that usually only enterprises can afford.',
       'We are a small, engineering-first team — and we ship our own products. Outreach, our AI sales app, is live with bank sales teams, and Routely, our AI coding platform, is in beta. Building and running our own products keeps us honest: every client project gets the same discipline.',
       'No slide decks, no outsourcing chains. You talk directly to the people who build your system, and every engagement starts with a working demo — so you see exactly what you are getting before you commit.',
     ],

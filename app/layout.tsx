@@ -22,7 +22,7 @@ const orgJsonLd = [
     url: site.website,
     logo: `${site.website}/images/logo-mark.png`,
     email: site.email,
-    foundingDate: '2022',
+    foundingDate: '2026',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Delhi',
