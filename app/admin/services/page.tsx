@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { isSupabaseConfigured } from '@/lib/supabase/server';
+import { requireAdminClient } from '@/lib/supabase/admin.server';
 import AdminBar from '../AdminBar';
 import ServiceRow from './ServiceRow';
 
@@ -29,7 +30,7 @@ export default async function AdminServicesPage() {
     );
   }
 
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   const { data } = await supabase.from('services').select('*').order('sort_order', { ascending: true });
   const services = (data ?? []) as ServiceRecord[];
 

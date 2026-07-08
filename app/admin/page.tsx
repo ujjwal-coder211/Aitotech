@@ -1,4 +1,5 @@
-import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { isSupabaseConfigured } from '@/lib/supabase/server';
+import { requireAdminClient } from '@/lib/supabase/admin.server';
 import AdminBar from './AdminBar';
 import LeadsTable from './LeadsTable';
 
@@ -27,7 +28,7 @@ export default async function AdminDashboard() {
     );
   }
 
-  const supabase = await createClient();
+  const supabase = await requireAdminClient();
   const { data: leads, error } = await supabase
     .from('leads')
     .select('*')

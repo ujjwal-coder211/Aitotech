@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 
 /**
  * Admin login — Supabase email/password auth.
- * Create the admin user in Supabase → Authentication → Users.
+ * Create the user in Supabase Auth and set app_metadata.role = "admin".
  */
 export default function AdminLoginPage() {
   const router = useRouter();

@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { isSupabaseAdmin } from '@/lib/supabase/admin-auth';
 
 /**
  * Refreshes the Supabase auth session and protects /admin routes.
@@ -36,16 +37,17 @@ export async function updateSession(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isAdminArea = path.startsWith('/admin');
   const isLoginPage = path === '/admin/login';
+  const isAdmin = isSupabaseAdmin(user);
 
-  // Not logged in + trying to access protected admin page → redirect to login
-  if (isAdminArea && !isLoginPage && !user) {
+  // Authenticated Supabase users are not admins unless app_metadata says so.
+  if (isAdminArea && !isLoginPage && !isAdmin) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin/login';
     return NextResponse.redirect(redirectUrl);
   }
 
   // Already logged in + on login page → send to dashboard
-  if (isLoginPage && user) {
+  if (isLoginPage && isAdmin) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin';
     return NextResponse.redirect(redirectUrl);
