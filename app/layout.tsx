@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AmbientBackground from '@/components/AmbientBackground';
 import JsonLdScript from '@/components/seo/JsonLdScript';
 import { site } from '@/data/siteContent';
@@ -104,6 +105,7 @@ export default function RootLayout({
         <AmbientBackground />
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
+        <FloatingWhatsApp />
         <FooterGate />
       </body>
     </html>

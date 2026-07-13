@@ -93,33 +93,45 @@ create trigger services_updated_at
 
 
 -- ─── 3. SEED initial services (matches the current website) ───
+-- Remove any retired/over-claimed services from earlier versions of the site.
+delete from public.services where slug in ('data-automation', 'invoice-intelligence');
+
 insert into public.services (slug, title, short, description, features, icon, accent, gradient, sort_order, published)
 values
   (
-    'data-automation', 'Data Automation', 'Unify pipelines. Eliminate manual ETL.',
-    'AI-driven data pipelines that sync warehouses in real time, auto-map schemas, and self-heal when sources change — so your team trusts every dashboard.',
-    '["Real-time CDC sync","Schema intelligence","Quality scoring","Lineage & compliance"]'::jsonb,
-    'database', 'text-cyan-400', 'from-cyan-500/20 via-sky-500/10 to-transparent', 1, true
+    'website-development', 'Business Websites', 'Fast, modern sites that convert.',
+    'SEO-ready websites with booking, payments, WhatsApp chat, and AI built in — designed, built, and hosted end to end for your business.',
+    '["Custom design","SEO & analytics","Booking & payments","WhatsApp + AI chat"]'::jsonb,
+    'globe', 'text-brand-light', 'from-indigo-500/15 via-indigo-500/5 to-transparent', 1, true
   ),
   (
-    'workflow-automation', 'Workflow Automation', 'Orchestrate ops without bottlenecks.',
-    'End-to-end workflow engines that connect your tools, route approvals, and trigger AI decisions — from invoice intake to customer onboarding.',
-    '["Multi-app orchestration","Smart routing","Audit trails","SLA monitoring"]'::jsonb,
-    'workflow', 'text-violet-400', 'from-violet-500/20 via-indigo-500/10 to-transparent', 2, true
+    'mobile-apps', 'Mobile Apps', 'Android & iOS, idea to store.',
+    'Booking, ordering, and field-team apps built with React Native — shipped to the store with over-the-air updates so new features land without reinstalls.',
+    '["Android & iOS","Play Store publishing","OTA updates","Offline-first"]'::jsonb,
+    'mobile', 'text-brand-light', 'from-indigo-500/15 via-indigo-500/5 to-transparent', 2, true
   ),
   (
-    'invoice-intelligence', 'Invoice Intelligence', 'From inbox to ERP in seconds.',
-    'OCR + NLP extraction with PO matching and anomaly detection. Process thousands of invoices with 99% accuracy and full ERP integration.',
-    '["99% extraction accuracy","3-way matching","ERP connectors","Spend analytics"]'::jsonb,
-    'invoice', 'text-sky-400', 'from-sky-500/20 via-cyan-500/10 to-transparent', 3, true
+    'workflow-automation', 'WhatsApp & Workflow Automation', 'Automate the busywork, not your judgement.',
+    'Auto-replies, lead follow-ups, and approval flows that run on WhatsApp and the tools you already use — so nothing slips through the cracks.',
+    '["WhatsApp auto-replies","Lead follow-ups","Multi-app workflows","CRM sync"]'::jsonb,
+    'workflow', 'text-violet-400', 'from-violet-500/20 via-indigo-500/10 to-transparent', 3, true
   ),
   (
-    'custom-ai', 'Custom AI Systems', 'Models built for your domain.',
-    'Fine-tuned LLMs, RAG knowledge bases, and autonomous agents deployed in your VPC — not generic chatbots stapled onto your stack.',
-    '["Domain fine-tuning","Private RAG","Agent workflows","Human-in-the-loop"]'::jsonb,
+    'custom-ai', 'AI Tools & Chatbots', 'AI that fits your business.',
+    'Chatbots trained on your business, private knowledge bases, and AI assistants that answer questions, qualify leads, and help your team — not generic bots stapled onto your stack.',
+    '["Business-trained chatbots","Private knowledge base","Lead qualification","Human-in-the-loop"]'::jsonb,
     'ai', 'text-emerald-400', 'from-emerald-500/15 via-cyan-500/10 to-transparent', 4, true
   )
-on conflict (slug) do nothing;
+on conflict (slug) do update set
+  title = excluded.title,
+  short = excluded.short,
+  description = excluded.description,
+  features = excluded.features,
+  icon = excluded.icon,
+  accent = excluded.accent,
+  gradient = excluded.gradient,
+  sort_order = excluded.sort_order,
+  published = excluded.published;
 
 
 -- ─── 4. AKSH WAITLIST (launch page signups) ───

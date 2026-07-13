@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SocialLinks from '@/components/SocialLinks';
+import WhatsAppLink from '@/components/WhatsAppLink';
 import { site, navLinks, services, footer } from '@/data/siteContent';
 
 export default function Footer() {
@@ -53,11 +54,14 @@ export default function Footer() {
             >
               {site.email}
             </a>
+            <WhatsAppLink className="mt-3 block text-left text-sm text-zinc-500 transition-colors hover:text-brand-light">
+              Chat on WhatsApp &rarr;
+            </WhatsAppLink>
             <Link
               href="/contact"
               className="mt-3 inline-block text-sm font-medium text-brand-light transition-colors hover:text-white"
             >
-              Book a Call &rarr;
+              Start a Project &rarr;
             </Link>
             <SocialLinks size="sm" className="mt-5" />
           </div>
