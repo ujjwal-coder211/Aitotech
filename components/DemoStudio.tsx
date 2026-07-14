@@ -3,7 +3,9 @@
 import { useRef, useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import ServiceIcon from '@/components/ServiceIcon';
+import DemoPreviewCard from '@/components/demos/DemoPreviewCard';
 import { demosPage } from '@/data/siteContent';
+import { demoTemplates } from '@/data/demoTemplates';
 
 const card = {
   hidden: { opacity: 0, y: 20 },
@@ -15,39 +17,8 @@ const grid = {
   show: { transition: { staggerChildren: 0.07 } },
 };
 
-/** Stylised browser-window preview so each template feels tangible without heavy images. */
-function TemplateMock({ accent }: { accent: string }) {
-  return (
-    <div className="overflow-hidden rounded-xl border border-line bg-surface-raised">
-      <div className="flex items-center gap-1.5 border-b border-line px-3 py-2">
-        <span className="h-2 w-2 rounded-full bg-zinc-700" />
-        <span className="h-2 w-2 rounded-full bg-zinc-700" />
-        <span className="h-2 w-2 rounded-full bg-zinc-700" />
-        <span className="ml-2 h-2 w-24 rounded-full bg-zinc-800" />
-      </div>
-      <div className="space-y-2 p-3">
-        <div
-          className="flex h-16 flex-col justify-center gap-1.5 rounded-lg px-3"
-          style={{ background: `linear-gradient(135deg, ${accent}33, transparent 70%)` }}
-        >
-          <span className="h-2 w-1/2 rounded-full" style={{ backgroundColor: `${accent}99` }} />
-          <span className="h-1.5 w-1/3 rounded-full bg-zinc-700" />
-        </div>
-        <div className="grid grid-cols-3 gap-2">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="space-y-1 rounded-md border border-line p-2">
-              <span className="block h-1.5 w-full rounded-full bg-zinc-800" />
-              <span className="block h-1.5 w-2/3 rounded-full bg-zinc-800" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function DemoStudio() {
-  const { templates, automations, form, websitesTitle, automationsTitle, requestCta } = demosPage;
+  const { automations, form, websitesTitle, automationsTitle, requestCta } = demosPage;
   const formRef = useRef<HTMLDivElement>(null);
   const [selectedType, setSelectedType] = useState<string>(form.types[0]);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -109,31 +80,20 @@ export default function DemoStudio() {
     <div className="space-y-16 sm:space-y-20">
       {/* ── Website templates ── */}
       <div>
-        <h2 className="mb-6 font-display text-xl font-semibold text-white sm:text-2xl">{websitesTitle}</h2>
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-2">
+          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">{websitesTitle}</h2>
+          <p className="text-sm text-zinc-500">Click any template to open a full live preview →</p>
+        </div>
         <motion.div
           variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5"
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {templates.map((t) => (
-            <motion.div
-              key={t.slug}
-              variants={card}
-              className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-200 ease-out-expo hover:border-white/[0.14]"
-            >
-              <TemplateMock accent={t.accent} />
-              <h3 className="mt-5 font-display text-base font-semibold text-white">{t.name}</h3>
-              <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-500">{t.blurb}</p>
-              <p className="mt-3 text-xs text-zinc-600">{t.tags.join(' · ')}</p>
-              <button
-                type="button"
-                onClick={() => requestDemo(t.name)}
-                className="btn-glass mt-5 w-full cursor-pointer justify-center text-xs"
-              >
-                {requestCta}
-              </button>
+          {demoTemplates.map((t) => (
+            <motion.div key={t.slug} variants={card}>
+              <DemoPreviewCard t={t} requestCta={requestCta} onRequest={requestDemo} />
             </motion.div>
           ))}
         </motion.div>

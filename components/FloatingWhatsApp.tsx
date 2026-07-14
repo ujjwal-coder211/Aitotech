@@ -9,7 +9,7 @@ import WhatsAppLink from '@/components/WhatsAppLink';
  */
 export default function FloatingWhatsApp() {
   const pathname = usePathname();
-  if (pathname.startsWith('/admin')) return null;
+  if (pathname.startsWith('/admin') || pathname.startsWith('/demos/preview')) return null;
 
   return (
     <WhatsAppLink
