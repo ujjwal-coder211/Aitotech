@@ -28,16 +28,16 @@ export default function SectionHeading({
       className={`mb-12 max-w-3xl sm:mb-14 ${alignClass}`}
     >
       {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h2 className="font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-[2.6rem] lg:leading-[1.1]">
         {title}
         {highlight && (
           <>
             {' '}
-            <span className="text-zinc-500">{highlight}</span>
+            <span className="text-gradient-brand">{highlight}</span>
           </>
         )}
       </h2>
-      {description && <p className="mt-4 text-base leading-relaxed text-zinc-500">{description}</p>}
+      {description && <p className="mt-4 text-base leading-relaxed text-zinc-400">{description}</p>}
     </motion.div>
   );
 }

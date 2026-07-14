@@ -32,27 +32,35 @@ export default function PageHero({
       transition={{ duration: 0.5 }}
       className={cn('relative mb-10 sm:mb-14', className)}
     >
-      <div className="max-w-3xl">
+      {/* soft glow behind inner-page heroes */}
+      <div className="pointer-events-none absolute -top-20 left-0 h-64 w-[36rem] max-w-full rounded-full bg-[radial-gradient(ellipse_at_left,rgba(94,106,210,0.14),transparent_70%)] blur-2xl" aria-hidden />
+
+      <div className="relative max-w-3xl">
         <div className="mb-4 flex flex-wrap items-center gap-3">
-          {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+          {eyebrow && (
+            <span className="badge-pill">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-light" />
+              {eyebrow}
+            </span>
+          )}
           {comingSoon && (
-            <span className="inline-flex items-center rounded-md border border-amber-500/25 bg-amber-500/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-300">
+            <span className="inline-flex items-center rounded-full border border-amber-500/25 bg-amber-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-300">
               {comingSoonLabel}
             </span>
           )}
         </div>
 
-        <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h1 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
           {title}
           {highlight && (
             <>
               {' '}
-              <span className="text-zinc-500">{highlight}</span>
+              <span className="text-gradient-brand">{highlight}</span>
             </>
           )}
         </h1>
 
-        <p className="mt-4 text-base leading-relaxed text-zinc-500 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">{description}</p>
         {children}
       </div>
     </motion.section>

@@ -22,17 +22,19 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
     >
       <Link
         href={`/services/${service.slug}`}
-        className="group flex h-full flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-colors duration-200 ease-out-expo hover:border-white/[0.14] hover:bg-white/[0.04] sm:p-7"
+        className="card-premium group flex h-full flex-col p-6 sm:p-7"
       >
-        <span className="text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300">
+        <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+
+        <span className="icon-tile relative">
           <ServiceIcon name={service.icon} className="h-5 w-5" />
         </span>
 
-        <h3 className="mt-6 font-display text-lg font-semibold text-white">{service.title}</h3>
-        <p className="mt-1.5 text-sm text-zinc-500">{service.short}</p>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-500">{service.description}</p>
+        <h3 className="relative mt-6 font-display text-lg font-semibold text-white">{service.title}</h3>
+        <p className="relative mt-1.5 text-sm text-brand-light">{service.short}</p>
+        <p className="relative mt-3 flex-1 text-sm leading-relaxed text-zinc-500">{service.description}</p>
 
-        <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-white">
+        <span className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-white">
           Learn more
           <span className="transition-transform duration-200 ease-out-expo group-hover:translate-x-0.5">&rarr;</span>
         </span>

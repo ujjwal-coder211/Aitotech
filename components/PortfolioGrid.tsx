@@ -42,10 +42,13 @@ export default function PortfolioGrid() {
             >
               <Link
                 href={project.href}
-                className="group flex h-full flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-colors duration-200 ease-out-expo hover:border-white/[0.14] hover:bg-white/[0.04] sm:p-7"
+                className="card-premium group flex h-full flex-col p-6 sm:p-7"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300">
+                {/* hover glow */}
+                <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+
+                <div className="relative flex items-center justify-between">
+                  <span className="icon-tile">
                     <ServiceIcon name={project.icon} className="h-5 w-5" />
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-600">
@@ -53,17 +56,17 @@ export default function PortfolioGrid() {
                   </span>
                 </div>
 
-                <h3 className="mt-6 font-display text-lg font-semibold text-white">{project.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-500">{project.body}</p>
+                <h3 className="relative mt-6 font-display text-lg font-semibold text-white">{project.title}</h3>
+                <p className="relative mt-2 flex-1 text-sm leading-relaxed text-zinc-500">{project.body}</p>
 
-                <div className="mt-6 flex items-center justify-between">
+                <div className="relative mt-6 flex items-center justify-between">
                   <span className="text-xs text-zinc-600">{project.tags.join(' · ')}</span>
                   <span
-                    className="text-zinc-700 transition-all duration-200 ease-out-expo group-hover:translate-x-0.5 group-hover:text-zinc-300"
+                    className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 text-zinc-500 transition-all duration-200 ease-out-expo group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-brand-light"
                     aria-hidden
                   >
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
                 </div>
