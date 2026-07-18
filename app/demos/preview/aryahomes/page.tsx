@@ -4,6 +4,9 @@ import { arya } from '@/data/aryaHomes';
 import AryaListings from '@/components/arya/AryaListings';
 import AryaReels from '@/components/arya/AryaReels';
 import AryaHouse3D from '@/components/arya/AryaHouse3D';
+import Reveal from '@/components/arya/Reveal';
+import ScrollProgress from '@/components/arya/ScrollProgress';
+import CountUp from '@/components/arya/CountUp';
 
 export const metadata: Metadata = {
   // absolute — this page is the client's site, not an AitoTech page
@@ -33,6 +36,7 @@ function Icon({ name, className = 'h-6 w-6' }: { name: string; className?: strin
 export default function AryaHomesPage() {
   return (
     <div className="bg-[#fdfcfa] text-slate-900">
+      <ScrollProgress />
       {/* AitoTech ribbon — remove when this ships on the client's own domain */}
       <div className="flex items-center justify-between gap-3 bg-slate-950 px-4 py-2 text-xs text-zinc-400">
         <Link href="/demos" className="font-medium text-zinc-300 hover:text-white">
@@ -184,7 +188,7 @@ export default function AryaHomesPage() {
 
       {/* ─── properties ─── */}
       <section id="properties" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 lg:py-24">
-        <div className="text-center">
+        <Reveal className="text-center">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Available now</p>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Homes in Uttam Nagar
@@ -192,9 +196,11 @@ export default function AryaHomesPage() {
           <p className="mx-auto mt-3 max-w-lg text-slate-600">
             Handpicked flats, builder floors, and plots. Every listing is visited by our team before we show it to you.
           </p>
-        </div>
+        </Reveal>
 
-        <AryaListings />
+        <Reveal delay={0.1}>
+          <AryaListings />
+        </Reveal>
 
         <p className="mt-10 text-center text-sm text-slate-500">
           Looking for something specific?{' '}
@@ -212,7 +218,7 @@ export default function AryaHomesPage() {
       {/* ─── videos / reels ─── */}
       <section id="videos" className="scroll-mt-20 border-t border-slate-200 bg-slate-950 py-16 text-white lg:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+          <Reveal className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Watch our latest</p>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -230,26 +236,29 @@ export default function AryaHomesPage() {
             >
               Follow on Instagram
             </a>
-          </div>
+          </Reveal>
 
-          <AryaReels />
+          <Reveal delay={0.1}>
+            <AryaReels />
+          </Reveal>
         </div>
       </section>
 
       {/* ─── services ─── */}
       <section id="services" className="scroll-mt-20 border-y border-slate-200 bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center">
+          <Reveal className="text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">What we do</p>
             <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
               Everything under one roof
             </h2>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {arya.services.map((s) => (
-              <div
+            {arya.services.map((s, i) => (
+              <Reveal
                 key={s.title}
+                delay={i * 0.06}
                 className="group rounded-2xl border border-slate-200 bg-[#fdfcfa] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-amber-400 transition-colors group-hover:bg-amber-500 group-hover:text-slate-900">
@@ -257,7 +266,7 @@ export default function AryaHomesPage() {
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold text-slate-900">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -286,14 +295,14 @@ export default function AryaHomesPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {arya.why.map((w) => (
-              <div key={w.title} className="rounded-2xl border border-slate-200 bg-white p-5">
+            {arya.why.map((w, i) => (
+              <Reveal key={w.title} delay={i * 0.06} className="rounded-2xl border border-slate-200 bg-white p-5">
                 <svg className="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 className="mt-3 font-display text-base font-bold text-slate-900">{w.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{w.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -310,14 +319,14 @@ export default function AryaHomesPage() {
           </div>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {arya.steps.map((s) => (
-              <div key={s.step}>
+            {arya.steps.map((s, i) => (
+              <Reveal key={s.step} delay={i * 0.1}>
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-400/40 bg-amber-400/10 font-display text-sm font-extrabold text-amber-400">
                   {s.step}
                 </span>
                 <h3 className="mt-4 font-display text-base font-bold">{s.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{s.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -325,19 +334,26 @@ export default function AryaHomesPage() {
 
       {/* ─── reviews ─── */}
       <section id="reviews" className="mx-auto max-w-3xl scroll-mt-20 px-5 py-16 text-center lg:py-24">
-        <div className="flex justify-center text-amber-500" aria-hidden>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <svg key={i} className="h-7 w-7" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.36 4.18a1 1 0 00.95.69h4.4c.96 0 1.36 1.24.58 1.81l-3.56 2.59a1 1 0 00-.36 1.12l1.36 4.18c.3.92-.75 1.69-1.54 1.12l-3.56-2.59a1 1 0 00-1.18 0l-3.56 2.59c-.78.57-1.83-.2-1.53-1.12l1.36-4.18a1 1 0 00-.37-1.12L1.78 9.61C1 9.04 1.4 7.8 2.36 7.8h4.4a1 1 0 00.95-.69L9.05 2.93z" />
-            </svg>
-          ))}
-        </div>
-        <p className="mt-5 font-display text-4xl font-extrabold text-slate-900">
-          {arya.rating} <span className="text-2xl font-bold text-slate-400">/ 5</span>
-        </p>
-        <p className="mt-2 text-slate-600">
-          Rated by <strong className="text-slate-900">{arya.reviewCount}+ families</strong> on Google
-        </p>
+        <Reveal>
+          <div className="flex justify-center text-amber-500" aria-hidden>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <svg key={i} className="h-7 w-7" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.36 4.18a1 1 0 00.95.69h4.4c.96 0 1.36 1.24.58 1.81l-3.56 2.59a1 1 0 00-.36 1.12l1.36 4.18c.3.92-.75 1.69-1.54 1.12l-3.56-2.59a1 1 0 00-1.18 0l-3.56 2.59c-.78.57-1.83-.2-1.53-1.12l1.36-4.18a1 1 0 00-.37-1.12L1.78 9.61C1 9.04 1.4 7.8 2.36 7.8h4.4a1 1 0 00.95-.69L9.05 2.93z" />
+              </svg>
+            ))}
+          </div>
+          <p className="mt-5 font-display text-5xl font-extrabold text-slate-900">
+            <CountUp end={Number(arya.rating)} decimals={1} />{' '}
+            <span className="text-2xl font-bold text-slate-400">/ 5</span>
+          </p>
+          <p className="mt-2 text-slate-600">
+            Rated by{' '}
+            <strong className="text-slate-900">
+              <CountUp end={Number(arya.reviewCount)} suffix="+" /> families
+            </strong>{' '}
+            on Google
+          </p>
+        </Reveal>
         <a
           href={arya.mapsUrl}
           target="_blank"
@@ -355,16 +371,18 @@ export default function AryaHomesPage() {
             Common questions
           </h2>
           <div className="mt-10 space-y-3">
-            {arya.faq.map((f) => (
-              <details key={f.q} className="group rounded-2xl border border-slate-200 bg-[#fdfcfa] p-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-base font-bold text-slate-900 marker:content-none [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <span className="shrink-0 text-amber-600 transition-transform group-open:rotate-45" aria-hidden>
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
-              </details>
+            {arya.faq.map((f, i) => (
+              <Reveal key={f.q} delay={i * 0.05}>
+                <details className="group rounded-2xl border border-slate-200 bg-[#fdfcfa] p-5">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-base font-bold text-slate-900 marker:content-none [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <span className="shrink-0 text-amber-600 transition-transform group-open:rotate-45" aria-hidden>
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                </details>
+              </Reveal>
             ))}
           </div>
         </div>
