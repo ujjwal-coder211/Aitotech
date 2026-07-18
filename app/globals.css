@@ -18,6 +18,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* reel "playing" sheen (Arya Homes video cards) */
+@keyframes reelSheen {
+  0% { transform: translateX(-100%); }
+  55%, 100% { transform: translateX(100%); }
+}
+
 body {
   @apply bg-surface text-zinc-100 antialiased;
 }

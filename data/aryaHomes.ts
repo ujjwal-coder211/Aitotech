@@ -76,6 +76,15 @@ export const arya = {
     { step: '04', title: 'Paperwork & handover', body: 'Loan, agreement, registry — we stay with you until you get the keys.' },
   ],
 
+  /** SAMPLE video posts — replace `href` with the client's real Instagram reel links */
+  videos: [
+    { caption: '2 BHK builder floor tour · Rama Park', tag: 'Property tour', duration: '0:45', accent: '#0f172a' },
+    { caption: 'Inside a 3 BHK · Mohan Garden', tag: 'Walkthrough', duration: '1:12', accent: '#7c2d12' },
+    { caption: 'New project launch · Uttam Nagar West', tag: 'Launch', duration: '0:30', accent: '#134e4a' },
+    { caption: 'Happy family handover 🏡', tag: 'Client story', duration: '0:22', accent: '#4c1d95' },
+    { caption: 'Plot in Rama Park · walkthrough', tag: 'Plot', duration: '0:38', accent: '#1e3a8a' },
+  ],
+
   faq: [
     { q: 'Do you charge for site visits?', a: 'No. Site visits are completely free and there is no obligation to buy.' },
     { q: 'Which areas do you cover?', a: 'We specialise in Uttam Nagar and nearby — Rama Park, Mohan Garden, Nawada, Dwarka Mor, and Uttam Nagar West.' },

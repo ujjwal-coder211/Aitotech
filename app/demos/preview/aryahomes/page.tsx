@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { arya } from '@/data/aryaHomes';
 import AryaListings from '@/components/arya/AryaListings';
+import AryaReels from '@/components/arya/AryaReels';
+import AryaHouse3D from '@/components/arya/AryaHouse3D';
 
 export const metadata: Metadata = {
   // absolute — this page is the client's site, not an AitoTech page
@@ -60,6 +62,7 @@ export default function AryaHomesPage() {
           <nav className="hidden items-center gap-7 md:flex">
             {[
               ['Properties', '#properties'],
+              ['Videos', '#videos'],
               ['Services', '#services'],
               ['Why us', '#why'],
               ['Reviews', '#reviews'],
@@ -148,17 +151,14 @@ export default function AryaHomesPage() {
             </p>
           </div>
 
-          {/* hero visual */}
+          {/* hero visual — animated 3D house */}
           <div className="relative">
-            <div className="relative aspect-[4/3.4] overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl shadow-slate-900/25">
-              <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:32px_32px]" />
+            <div className="relative aspect-[4/3.4] overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 shadow-2xl shadow-slate-900/25">
               <div className="absolute -right-10 -top-10 h-56 w-56 rounded-full bg-amber-500/25 blur-3xl" />
-              <svg className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-[60%] text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10" />
-              </svg>
-              <p className="absolute bottom-6 left-6 right-6 text-sm text-white/50">
-                Property photos go here — we shoot or use your existing images.
-              </p>
+              <AryaHouse3D className="absolute inset-0" />
+              <span className="absolute bottom-4 left-4 rounded-full bg-black/30 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur">
+                Interactive 3D · drag-free auto view
+              </span>
             </div>
 
             {/* floating fact card */}
@@ -207,6 +207,33 @@ export default function AryaHomesPage() {
             Tell us your requirement →
           </a>
         </p>
+      </section>
+
+      {/* ─── videos / reels ─── */}
+      <section id="videos" className="scroll-mt-20 border-t border-slate-200 bg-slate-950 py-16 text-white lg:py-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Watch our latest</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Property tours & reels
+              </h2>
+              <p className="mt-3 max-w-lg text-slate-400">
+                See real walkthroughs before you visit. New tours posted every week on our Instagram.
+              </p>
+            </div>
+            <a
+              href={arya.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-fuchsia-600 to-amber-500 px-5 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            >
+              Follow on Instagram
+            </a>
+          </div>
+
+          <AryaReels />
+        </div>
       </section>
 
       {/* ─── services ─── */}
