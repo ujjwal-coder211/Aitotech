@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { ServiceRecord } from '@/lib/services';
 import ServiceIcon from './ServiceIcon';
+import ServiceVisual from './ServiceVisual';
 
 interface ServiceCardProps {
   service: ServiceRecord;
@@ -25,6 +26,11 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
         className="card-premium group flex h-full flex-col p-6 sm:p-7"
       >
         <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+
+        <ServiceVisual
+          name={service.icon}
+          className="pointer-events-none absolute right-0 top-0 h-28 w-40 opacity-[0.16] transition-opacity duration-500 group-hover:opacity-[0.34]"
+        />
 
         <span className="icon-tile relative">
           <ServiceIcon name={service.icon} className="h-5 w-5" />
