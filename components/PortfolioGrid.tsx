@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ServiceIcon from '@/components/ServiceIcon';
+import ServiceVisual from '@/components/ServiceVisual';
 import SectionHeading from '@/components/SectionHeading';
 import { portfolio } from '@/data/siteContent';
 
@@ -46,6 +47,12 @@ export default function PortfolioGrid() {
               >
                 {/* hover glow */}
                 <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+
+                {/* branded illustration */}
+                <ServiceVisual
+                  name={project.icon}
+                  className="pointer-events-none absolute bottom-3 right-2 h-24 w-36 opacity-[0.13] transition-opacity duration-500 group-hover:opacity-[0.3]"
+                />
 
                 <div className="relative flex items-center justify-between">
                   <span className="icon-tile">

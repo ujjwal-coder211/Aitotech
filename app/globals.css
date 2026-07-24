@@ -44,6 +44,17 @@ html {
   50%      { transform: translateY(-10px); }
 }
 
+/* current flowing along SVG connector wires */
+@keyframes dashFlow {
+  to { stroke-dashoffset: -24; }
+}
+
+/* gentle node pulse for illustration dots */
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
 body {
   @apply bg-surface text-zinc-100 antialiased;
 }
@@ -114,6 +125,17 @@ body {
   .animate-float {
     animation: floatY 7s ease-in-out infinite;
     will-change: transform;
+  }
+
+  /* flowing current along SVG connector paths */
+  .animate-dash {
+    stroke-dasharray: 4 8;
+    animation: dashFlow 1.4s linear infinite;
+  }
+
+  /* pulsing illustration node */
+  .animate-node {
+    animation: nodePulse 2.6s ease-in-out infinite;
   }
 
   /* fine film grain — adds premium texture over the flat dark canvas */
@@ -188,6 +210,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-aurora,
   .animate-float,
+  .animate-dash,
+  .animate-node,
   .text-gradient-brand {
     animation: none !important;
   }
