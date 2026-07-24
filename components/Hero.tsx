@@ -19,10 +19,20 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 sm:pt-32">
-      {/* layered glow backdrop */}
+      {/* layered glow backdrop — slowly drifts for a living, atmospheric feel */}
       <div className="pointer-events-none absolute inset-0 -z-0">
-        <div className="absolute left-1/2 top-24 h-[520px] w-[820px] max-w-[95vw] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(94,106,210,0.22),transparent_65%)] blur-2xl" />
-        <div className="absolute left-1/2 top-1/2 h-[280px] w-[560px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.10),transparent_70%)] blur-2xl" />
+        <div className="absolute left-1/2 top-24 -translate-x-1/2">
+          <div
+            className="animate-aurora h-[520px] w-[820px] max-w-[95vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(94,106,210,0.22),transparent_65%)] blur-2xl"
+            style={{ animationDuration: '28s' }}
+          />
+        </div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2">
+          <div
+            className="animate-aurora h-[280px] w-[560px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.10),transparent_70%)] blur-2xl"
+            style={{ animationDuration: '34s', animationDelay: '-10s' }}
+          />
+        </div>
       </div>
 
       <motion.div
