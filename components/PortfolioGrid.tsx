@@ -51,7 +51,7 @@ export default function PortfolioGrid() {
                 {/* branded illustration */}
                 <ServiceVisual
                   name={project.icon}
-                  className="pointer-events-none absolute bottom-3 right-2 h-24 w-36 opacity-[0.13] transition-opacity duration-500 group-hover:opacity-[0.3]"
+                  className="pointer-events-none absolute bottom-3 right-2 h-28 w-40 opacity-[0.32] transition-all duration-500 group-hover:opacity-[0.55] group-hover:scale-105"
                 />
 
                 <div className="relative flex items-center justify-between">

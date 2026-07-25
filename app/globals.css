@@ -24,11 +24,11 @@ html {
   55%, 100% { transform: translateX(100%); }
 }
 
-/* slow drifting aurora blobs — gives the dark canvas subtle life */
+/* drifting aurora blobs — gives the dark canvas visible life */
 @keyframes auroraDrift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  33%  { transform: translate3d(4%, -3%, 0) scale(1.08); }
-  66%  { transform: translate3d(-3%, 3%, 0) scale(0.95); }
+  33%  { transform: translate3d(9%, -6%, 0) scale(1.18); }
+  66%  { transform: translate3d(-7%, 6%, 0) scale(0.9); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
@@ -117,7 +117,7 @@ body {
 
   /* drifting aurora blob — apply to soft radial glow layers */
   .animate-aurora {
-    animation: auroraDrift 24s ease-in-out infinite;
+    animation: auroraDrift 16s ease-in-out infinite;
     will-change: transform;
   }
 
@@ -141,7 +141,7 @@ body {
   /* fine film grain — adds premium texture over the flat dark canvas */
   .grain-overlay {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.035;
+    opacity: 0.07;
     mix-blend-mode: overlay;
   }
 

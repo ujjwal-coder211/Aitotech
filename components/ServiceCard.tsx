@@ -29,7 +29,7 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
 
         <ServiceVisual
           name={service.icon}
-          className="pointer-events-none absolute right-0 top-0 h-28 w-40 opacity-[0.16] transition-opacity duration-500 group-hover:opacity-[0.34]"
+          className="pointer-events-none absolute right-1 top-3 h-28 w-40 opacity-[0.3] transition-all duration-500 group-hover:opacity-[0.5] group-hover:scale-105"
         />
 
         <span className="icon-tile relative">

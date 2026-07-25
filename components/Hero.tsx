@@ -23,14 +23,14 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 -z-0">
         <div className="absolute left-1/2 top-24 -translate-x-1/2">
           <div
-            className="animate-aurora h-[520px] w-[820px] max-w-[95vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(94,106,210,0.22),transparent_65%)] blur-2xl"
-            style={{ animationDuration: '28s' }}
+            className="animate-aurora h-[520px] w-[820px] max-w-[95vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(94,106,210,0.4),transparent_65%)] blur-2xl"
+            style={{ animationDuration: '18s' }}
           />
         </div>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2">
           <div
-            className="animate-aurora h-[280px] w-[560px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.10),transparent_70%)] blur-2xl"
-            style={{ animationDuration: '34s', animationDelay: '-10s' }}
+            className="animate-aurora h-[280px] w-[560px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.22),transparent_70%)] blur-2xl"
+            style={{ animationDuration: '22s', animationDelay: '-10s' }}
           />
         </div>
       </div>
