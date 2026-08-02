@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
  * or as a plain string — it is assembled from parts only when the user
  * clicks, so scrapers harvesting mailto:/tel:/wa.me links don't pick it up.
  */
-const NUMBER_PARTS = ['91', '9354', '4590', '46'];
+const NUMBER_PARTS = ['91', '7678', '3220', '20'];
 
 type Props = {
   className?: string;

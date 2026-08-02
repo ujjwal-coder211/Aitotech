@@ -20,7 +20,7 @@ export const site = {
     initials: 'UC',
   },
   social: {
-    // TODO(founder): confirm the LinkedIn / Instagram handles below
+    // Handles confirmed by founder (2026-08)
     instagram: 'https://www.instagram.com/aitotech.in',
     facebook: '',
     x: '',
