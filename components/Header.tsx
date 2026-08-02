@@ -28,7 +28,12 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (pathname.startsWith('/admin') || pathname.startsWith('/demos/preview')) return null;
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/demos/preview') ||
+    pathname.startsWith('/connect')
+  )
+    return null;
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);

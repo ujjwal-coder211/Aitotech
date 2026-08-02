@@ -6,6 +6,11 @@ import Footer from './Footer';
 /** Renders the public footer everywhere except the /admin area. */
 export default function FooterGate() {
   const pathname = usePathname();
-  if (pathname.startsWith('/admin') || pathname.startsWith('/demos/preview')) return null;
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/demos/preview') ||
+    pathname.startsWith('/connect')
+  )
+    return null;
   return <Footer />;
 }
