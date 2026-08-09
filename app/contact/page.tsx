@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { contactPage, site } from '@/data/siteContent';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
@@ -79,6 +80,17 @@ export default function ContactPage() {
             <div className="glass-panel flex items-center justify-between gap-4 p-4 sm:p-5">
               <p className="text-sm font-medium text-white">Connect with us</p>
               <SocialLinks size="sm" />
+            </div>
+
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.06]">
+              <Image
+                src="/images/contact-workspace.jpg"
+                alt="AitoTech workspace"
+                fill
+                sizes="(max-width: 1024px) 100vw, 560px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-surface/70 to-transparent" />
             </div>
           </div>
 

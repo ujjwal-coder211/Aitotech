@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/components/Hero';
 import PortfolioGrid from '@/components/PortfolioGrid';
 import SectionHeading from '@/components/SectionHeading';
@@ -25,6 +26,27 @@ export default function HomePage() {
       </section>
 
       <PortfolioGrid />
+
+      <section className="section-pad pt-0">
+        <div className="container-page">
+          <div className="relative h-[260px] overflow-hidden rounded-3xl border border-white/10 sm:h-[380px]">
+            <Image
+              src="/images/studio-workspace.jpg"
+              alt="Inside the AitoTech studio — building software and automation"
+              fill
+              sizes="(max-width: 768px) 100vw, 1180px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/55 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
+              <p className="eyebrow">Delhi, India · Est. 2026</p>
+              <h2 className="mt-2 max-w-xl font-display text-2xl font-semibold text-white sm:text-3xl">
+                Built by hand, in-house — no outsourcing.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section-pad border-t border-white/[0.06]">
         <div className="container-page">
