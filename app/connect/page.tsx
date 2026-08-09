@@ -36,15 +36,6 @@ function IconGlobe() {
   );
 }
 
-function IconPin() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8} aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-    </svg>
-  );
-}
-
 function IconInstagram() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
@@ -79,7 +70,6 @@ const contactRows = [
   { icon: <IconPhone />, label: PHONE_DISPLAY, href: PHONE_HREF },
   { icon: <IconMail />, label: EMAIL, href: `mailto:${EMAIL}` },
   { icon: <IconGlobe />, label: SITE, href: 'https://aitotech.in' },
-  { icon: <IconPin />, label: 'WZ-43, 3rd Floor, Kirti Nagar, New Delhi - 110015', href: null },
 ];
 
 const trust = ['Reliable Solutions', 'Client Focused', 'Growth Driven', 'End-to-End Support'];
@@ -102,7 +92,7 @@ export default function ConnectPage() {
           <div className="flex flex-col items-center text-center">
             <div className="w-full max-w-[260px] rounded-2xl bg-white px-6 py-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)]">
               <Image
-                src="/images/logo-full.png"
+                src="/images/logo-full-v2.png"
                 alt="AitoTech — AI · Automation · Development"
                 width={400}
                 height={381}

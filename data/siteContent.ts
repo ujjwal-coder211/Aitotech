@@ -38,8 +38,8 @@ export const site = {
 } as const;
 
 export const images = {
-  logo: '/images/logo-full.png',
-  logoMark: '/images/logo-mark.png',
+  logo: '/images/logo-full-v2.png',
+  logoMark: '/images/logo-mark-v2.png',
   founder: '/images/founder-placeholder.jpg',
   heroDashboard: '/images/hero-dashboard-placeholder.jpg',
   office: '/images/office-placeholder.jpg',

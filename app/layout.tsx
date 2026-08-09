@@ -21,7 +21,7 @@ const orgJsonLd = [
     name: site.name,
     alternateName: ['Aito Tech', 'Aitotech', 'AITOTECH', 'AitoTech India'],
     url: site.website,
-    logo: `${site.website}/images/logo-mark.png`,
+    logo: `${site.website}/images/logo-mark-v2.png`,
     email: site.email,
     foundingDate: '2026',
     address: {

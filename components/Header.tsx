@@ -50,7 +50,7 @@ export default function Header() {
       <nav className="container-page flex h-14 items-center justify-between gap-3 sm:h-16 lg:h-[4.25rem]">
         <Link href="/" className="group flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image
-            src="/images/logo-mark.png"
+            src="/images/logo-mark-v2.png"
             alt="AitoTech logo"
             width={40}
             height={40}
