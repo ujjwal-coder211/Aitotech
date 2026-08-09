@@ -104,8 +104,8 @@ export default function ConnectPage() {
               <Image
                 src="/images/logo-full.png"
                 alt="AitoTech — AI · Automation · Development"
-                width={480}
-                height={400}
+                width={400}
+                height={381}
                 priority
                 className="h-auto w-full"
               />
