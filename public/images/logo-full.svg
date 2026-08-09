@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250">
+  <defs>
+    <linearGradient id="bl" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1e6fc4"/><stop offset="1" stop-color="#33b0f0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(90,4)">
+    <path d="M31 97 L58 33" stroke="#15305c" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M58 33 L85 97" stroke="url(#bl)" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M43 73 L73 73" stroke="#15305c" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <path d="M33 84 C 54 72, 70 62, 91 31" stroke="url(#bl)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M91 31 L78 33 M91 31 L89 45" stroke="url(#bl)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="150" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="54" letter-spacing="-1">
+    <tspan fill="#15305c">Aito</tspan><tspan fill="#2ea3e8">Tech</tspan>
+  </text>
+  <text x="150" y="220" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="13" letter-spacing="2" fill="#2a4a7a">AI · AUTOMATION · DEVELOPMENT</text>
+</svg>

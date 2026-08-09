@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Connect with AitoTech',
@@ -10,23 +11,6 @@ const PHONE_DISPLAY = '+91 76783 22020';
 const PHONE_HREF = 'tel:+917678322020';
 const EMAIL = 'info@aitotech.in';
 const SITE = 'aitotech.in';
-
-/** A-monogram echoing the AitoTech logo (white A + gold swoosh). */
-function Monogram() {
-  return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16" fill="none" aria-hidden>
-      <path d="M32 9 L55 55 H43.5 L32 31 L20.5 55 H9 Z" fill="#ffffff" />
-      <path
-        d="M12 41 Q33 27 55 39"
-        stroke="#f4b400"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <circle cx="14.5" cy="41.5" r="3.6" fill="#f4b400" />
-    </svg>
-  );
-}
 
 function IconPhone() {
   return (
@@ -105,28 +89,28 @@ export default function ConnectPage() {
     <main className="relative flex min-h-dvh items-center justify-center overflow-hidden bg-[#0a1a33] px-4 py-8">
       {/* ambient brand glows */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(244,180,0,0.14),transparent_70%)] blur-2xl" />
+        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(46,163,232,0.18),transparent_70%)] blur-2xl" />
         <div className="absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(59,102,163,0.22),transparent_70%)] blur-2xl" />
       </div>
 
       <div className="animate-fade-in relative w-full max-w-md overflow-hidden rounded-[28px] border border-white/10 bg-[#0f2547] shadow-[0_30px_80px_-24px_rgba(0,0,0,0.65)]">
         {/* gold top accent */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#f4b400] via-[#ffcf47] to-[#f4b400]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#2ea3e8] via-[#5bb8ef] to-[#2ea3e8]" />
 
         <div className="px-7 pb-7 pt-8 sm:px-9">
-          {/* logo + name */}
+          {/* brand logo on a clean white panel — mirrors the visiting card */}
           <div className="flex flex-col items-center text-center">
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04]">
-              <Monogram />
+            <div className="w-full max-w-[260px] rounded-2xl bg-white px-6 py-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)]">
+              <Image
+                src="/images/logo-full.png"
+                alt="AitoTech — AI · Automation · Development"
+                width={480}
+                height={400}
+                priority
+                className="h-auto w-full"
+              />
             </div>
-            <h1 className="mt-5 font-display text-3xl font-bold tracking-tight">
-              <span className="text-white">Aito</span>
-              <span className="text-[#f4b400]">Tech</span>
-            </h1>
-            <p className="mt-1.5 text-sm text-slate-300">Smart Solutions for Modern Businesses</p>
-            <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#f4b400]/80">
-              Technology · Automation · Growth
-            </p>
+            <p className="mt-5 text-base font-semibold text-white">Smart Solutions for Modern Businesses</p>
           </div>
 
           {/* divider */}
@@ -137,7 +121,7 @@ export default function ConnectPage() {
             {contactRows.map((row) => {
               const inner = (
                 <>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f4b400]/15 text-[#f4b400]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2ea3e8]/15 text-[#2ea3e8]">
                     {row.icon}
                   </span>
                   <span className="text-sm leading-snug text-slate-200">{row.label}</span>
@@ -161,7 +145,7 @@ export default function ConnectPage() {
           <div className="mt-7 grid grid-cols-1 gap-3">
             <a
               href={PHONE_HREF}
-              className="flex items-center justify-center gap-2 rounded-xl bg-[#f4b400] px-5 py-3.5 text-sm font-bold text-[#0a1a33] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1e73c4] to-[#2ea3e8] px-5 py-3.5 text-sm font-bold text-white shadow-[0_10px_24px_-10px_rgba(46,163,232,0.7)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
             >
               <IconPhone />
               Call Now
@@ -169,14 +153,14 @@ export default function ConnectPage() {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold text-white transition-colors hover:border-[#f4b400] hover:text-[#f4b400]"
+                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold text-white transition-colors hover:border-[#2ea3e8] hover:text-[#2ea3e8]"
               >
                 <IconMail />
                 Email
               </a>
               <a
                 href="https://aitotech.in"
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold text-white transition-colors hover:border-[#f4b400] hover:text-[#f4b400]"
+                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold text-white transition-colors hover:border-[#2ea3e8] hover:text-[#2ea3e8]"
               >
                 <IconGlobe />
                 Website
@@ -204,7 +188,7 @@ export default function ConnectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-[#f4b400] hover:bg-[#f4b400]/10 hover:text-[#f4b400]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-[#2ea3e8] hover:bg-[#2ea3e8]/10 hover:text-[#2ea3e8]"
               >
                 {s.icon}
               </a>
@@ -215,13 +199,13 @@ export default function ConnectPage() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-white/10 pt-5">
             {trust.map((t) => (
               <span key={t} className="text-[11px] font-medium text-slate-400">
-                <span className="mr-1 text-[#f4b400]">◆</span>
+                <span className="mr-1 text-[#2ea3e8]">◆</span>
                 {t}
               </span>
             ))}
           </div>
 
-          <p className="mt-6 text-center font-display text-lg italic text-[#f4b400]">Let&apos;s Connect!</p>
+          <p className="mt-6 text-center font-display text-lg italic text-[#2ea3e8]">Let&apos;s Connect!</p>
         </div>
       </div>
     </main>
