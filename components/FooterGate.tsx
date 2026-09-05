@@ -7,6 +7,7 @@ import Footer from './Footer';
 export default function FooterGate() {
   const pathname = usePathname();
   if (
+    pathname === '/' ||
     pathname.startsWith('/admin') ||
     pathname.startsWith('/demos/preview') ||
     pathname.startsWith('/connect')

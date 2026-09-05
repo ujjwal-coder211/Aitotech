@@ -29,6 +29,7 @@ export default function Header() {
   }, []);
 
   if (
+    pathname === '/' ||
     pathname.startsWith('/admin') ||
     pathname.startsWith('/demos/preview') ||
     pathname.startsWith('/connect')
