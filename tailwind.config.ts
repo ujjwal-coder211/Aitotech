@@ -36,10 +36,20 @@ const config: Config = {
           blue: '#60a5fa',
           violet: '#818cf8',
         },
+
+        // ─── automation-platform design system (light) ───
+        ink: '#0b1729',
+        navy: { DEFAULT: '#0d2154', deep: '#071230', soft: '#1a3f80' },
+        azure: { DEFAULT: '#2ea3e8', deep: '#1e73c4', wash: '#eaf5fd' },
+        quiet: { DEFAULT: '#5b6c86', soft: '#7c8ba3' },
+        hairline: '#e3e9f1',
+        wash: '#f6f9fc',
+        ok: { DEFAULT: '#17a34a', wash: '#e9f8ef' },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-heading)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px -20px rgba(0,0,0,0.5)',

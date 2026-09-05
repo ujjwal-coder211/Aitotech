@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Manrope } from 'next/font/google';
 import Header from '@/components/Header';
 import FooterGate from '@/components/FooterGate';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -54,6 +54,14 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
+/** Heading face for the new light "automation platform" design system. */
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.website),
   title: {
@@ -99,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${manrope.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <JsonLdScript data={orgJsonLd} />
         <AmbientBackground />

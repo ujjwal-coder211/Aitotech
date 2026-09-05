@@ -216,3 +216,140 @@ body {
     animation: none !important;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   Automation-platform design system (light)
+   Used by the new marketing site. Scoped under .ap-root so the
+   older dark pages are untouched while they are migrated.
+   ════════════════════════════════════════════════════════════ */
+@layer components {
+  .ap-root {
+    @apply bg-white text-ink;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .ap-root h1,
+  .ap-root h2,
+  .ap-root h3,
+  .ap-root h4 {
+    font-family: var(--font-heading), var(--font-inter), sans-serif;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
+  .ap-wrap {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+  }
+  .ap-sec {
+    @apply py-16 sm:py-20 lg:py-[104px];
+  }
+  .ap-eyebrow {
+    @apply text-[12px] font-semibold uppercase tracking-[0.16em] text-azure-deep;
+  }
+  .ap-lead {
+    @apply text-[17px] leading-relaxed text-quiet sm:text-lg;
+  }
+  .ap-card {
+    @apply rounded-2xl border border-hairline bg-white;
+  }
+
+  /* buttons */
+  .ap-btn {
+    @apply inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-[10px] border border-transparent px-6 text-[15px] font-semibold transition-[transform,background-color,border-color] duration-200;
+  }
+  .ap-btn:hover {
+    @apply -translate-y-px;
+  }
+  .ap-btn:active {
+    @apply translate-y-0;
+  }
+  .ap-btn-pri {
+    @apply bg-azure-deep text-white shadow-[0_10px_24px_-12px_rgba(30,115,196,0.7)];
+  }
+  .ap-btn-pri:hover {
+    @apply bg-[#1a67b2];
+  }
+  .ap-btn-sec {
+    @apply border-hairline bg-white text-ink;
+  }
+  .ap-btn-sec:hover {
+    @apply border-[#c7d3e3];
+  }
+  .ap-btn-ghost {
+    @apply border-white/30 bg-transparent text-white;
+  }
+  .ap-btn-ghost:hover {
+    @apply bg-white/10;
+  }
+
+  /* workflow diagram pieces */
+  .ap-flow {
+    @apply flex flex-wrap items-center gap-2;
+  }
+  .ap-lane {
+    @apply text-[11.5px] font-bold uppercase tracking-[0.12em] text-quiet-soft;
+  }
+  .ap-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-hairline bg-white px-3 py-1.5 text-[13px] font-medium text-ink;
+  }
+
+  /* a node in a workflow — GSAP toggles .is-on / .is-ok */
+  .ap-node {
+    @apply inline-flex h-[38px] items-center whitespace-nowrap rounded-[9px] border border-hairline bg-white px-3 text-[13px] font-semibold text-ink;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .ap-node.is-on {
+    @apply border-azure bg-azure-wash text-azure-deep;
+    box-shadow: 0 0 0 3px rgba(46, 163, 232, 0.15);
+  }
+  .ap-node.is-ok {
+    @apply border-ok bg-ok-wash text-[#127d3a];
+    box-shadow: 0 0 0 3px rgba(23, 163, 74, 0.15);
+  }
+
+  /* node on a navy surface */
+  .ap-node-d {
+    @apply inline-flex h-[34px] items-center whitespace-nowrap rounded-lg border border-white/[0.14] bg-white/[0.06] px-3 text-[12.5px] font-semibold text-[#c8d8ec];
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+  .ap-node-d.is-on {
+    @apply border-azure bg-azure/20 text-white;
+  }
+  .ap-node-d.is-ok {
+    @apply border-[#22c55e] bg-ok/25 text-[#eafff2];
+  }
+
+  /* connector wire — GSAP animates the dash offset */
+  .ap-wire {
+    stroke-dasharray: 3 6;
+  }
+
+  /* form fields */
+  .ap-label {
+    @apply mb-2 block text-sm font-semibold text-ink;
+  }
+  .ap-input {
+    @apply w-full rounded-[10px] border border-hairline bg-white px-4 py-3 text-[15px] text-ink transition-colors duration-200;
+  }
+  .ap-input::placeholder {
+    @apply text-quiet-soft;
+  }
+  .ap-input:focus {
+    @apply border-azure outline-none ring-2 ring-azure/20;
+  }
+  .ap-note {
+    @apply rounded-[10px] border p-4 text-sm;
+  }
+}
+
+/* Reduced motion: the story stays, the movement stops. */
+@media (prefers-reduced-motion: reduce) {
+  .ap-btn:hover {
+    transform: none;
+  }
+  .ap-node,
+  .ap-node-d {
+    transition: none;
+  }
+}
