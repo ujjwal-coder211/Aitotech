@@ -324,6 +324,23 @@ body {
   .ap-wire {
     stroke-dasharray: 3 6;
   }
+
+  /* form fields */
+  .ap-label {
+    @apply mb-2 block text-sm font-semibold text-ink;
+  }
+  .ap-input {
+    @apply w-full rounded-[10px] border border-hairline bg-white px-4 py-3 text-[15px] text-ink transition-colors duration-200;
+  }
+  .ap-input::placeholder {
+    @apply text-quiet-soft;
+  }
+  .ap-input:focus {
+    @apply border-azure outline-none ring-2 ring-azure/20;
+  }
+  .ap-note {
+    @apply rounded-[10px] border p-4 text-sm;
+  }
 }
 
 /* Reduced motion: the story stays, the movement stops. */

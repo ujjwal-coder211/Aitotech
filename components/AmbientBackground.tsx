@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { hidesDarkChrome } from '@/lib/routes';
 
 /**
  * Ambient depth layer for the dark pages — softly drifting brand glows, a
@@ -9,7 +10,7 @@ import { usePathname } from 'next/navigation';
  */
 export default function AmbientBackground() {
   const pathname = usePathname();
-  if (pathname === '/' || pathname.startsWith('/connect')) return null;
+  if (hidesDarkChrome(pathname)) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>

@@ -80,9 +80,9 @@ export default function ContactForm() {
   };
 
   const inputClass = (field: keyof FieldErrors) => {
-    const base = 'input-field';
-    if (fieldStatus[field] === 'invalid') return `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/20`;
-    if (fieldStatus[field] === 'valid') return `${base} border-emerald-500/40`;
+    const base = 'ap-input';
+    if (fieldStatus[field] === 'invalid') return `${base} border-red-500 focus:border-red-500 focus:ring-red-500/20`;
+    if (fieldStatus[field] === 'valid') return `${base} border-ok/60`;
     return base;
   };
 
@@ -92,7 +92,7 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
       onSubmit={handleSubmit}
-      className="card space-y-4 p-5 sm:space-y-5 sm:p-6 md:p-8"
+      className="ap-card space-y-5 p-6 sm:p-8"
       noValidate
     >
       {/* Honeypot — hidden from real users, bots fill it and get silently dropped */}
@@ -102,32 +102,32 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-zinc-300">
-          {form.nameLabel} <span className="text-red-400">*</span>
+        <label htmlFor="name" className="ap-label">
+          {form.nameLabel} <span className="text-red-500">*</span>
         </label>
         <input id="name" name="name" required className={inputClass('name')} placeholder={form.placeholders.name} />
-        {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
+        {errors.name && <p className="mt-1.5 text-xs text-red-600">{errors.name}</p>}
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-zinc-300">
-          {form.emailLabel} <span className="text-red-400">*</span>
+        <label htmlFor="email" className="ap-label">
+          {form.emailLabel} <span className="text-red-500">*</span>
         </label>
         <input id="email" name="email" type="email" required className={inputClass('email')} placeholder={form.placeholders.email} />
-        {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
+        {errors.email && <p className="mt-1.5 text-xs text-red-600">{errors.email}</p>}
       </div>
 
       <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-zinc-300">
+        <label htmlFor="company" className="ap-label">
           {form.companyLabel}
         </label>
         <input id="company" name="company" className={inputClass('company')} placeholder={form.placeholders.company} />
-        {errors.company && <p className="mt-1 text-xs text-red-400">{errors.company}</p>}
+        {errors.company && <p className="mt-1.5 text-xs text-red-600">{errors.company}</p>}
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-zinc-300">
-          {form.messageLabel} <span className="text-red-400">*</span>
+        <label htmlFor="message" className="ap-label">
+          {form.messageLabel} <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
@@ -137,21 +137,21 @@ export default function ContactForm() {
           className={`${inputClass('message')} resize-y`}
           placeholder={form.placeholders.message}
         />
-        {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
+        {errors.message && <p className="mt-1.5 text-xs text-red-600">{errors.message}</p>}
       </div>
 
       {status === 'success' && (
-        <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 text-sm text-emerald-300" role="status">
+        <p className="ap-note border-ok/40 bg-ok-wash text-[#127d3a]" role="status">
           {message}
         </p>
       )}
       {status === 'error' && (
-        <p className="rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300" role="alert">
+        <p className="ap-note border-red-300 bg-red-50 text-red-700" role="alert">
           {message}
         </p>
       )}
 
-      <button type="submit" disabled={status === 'loading'} className="btn-primary w-full disabled:opacity-50">
+      <button type="submit" disabled={status === 'loading'} className="ap-btn ap-btn-pri w-full disabled:opacity-50">
         {status === 'loading' ? form.sending : form.submit}
       </button>
     </motion.form>

@@ -1,102 +1,89 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import { contactPage, site } from '@/data/siteContent';
-import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
-import SocialLinks from '@/components/SocialLinks';
 import WhatsAppLink from '@/components/WhatsAppLink';
+import SocialLinks from '@/components/SocialLinks';
+import PageShell from '@/components/ap/PageShell';
+import PageIntro from '@/components/ap/PageIntro';
+import Reveal from '@/components/ap/Reveal';
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Get in touch with AitoTech for AI automation consulting and demos.',
+  title: 'Contact — Book a Free Automation Audit',
+  description:
+    'Tell us what you want to automate. Thirty minutes, your actual workflows, and a clear list of what can be automated first. We reply within one business day.',
+  alternates: { canonical: '/contact' },
 };
 
-const iconPaths: Record<string, string> = {
-  mail: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  whatsapp:
-    'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
-  location:
-    'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z',
-  clock: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-};
-
-function ContactIcon({ name }: { name: string }) {
-  return (
-    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={iconPaths[name] ?? iconPaths.mail} />
-    </svg>
-  );
-}
+const details = [
+  { label: 'Email', value: 'info@aitotech.in', href: 'mailto:info@aitotech.in' },
+  { label: 'Phone', value: '+91 76783 22020', href: 'tel:+917678322020' },
+  { label: 'Studio', value: 'Delhi, India' },
+  { label: 'Response', value: 'Within 24 hours on business days' },
+];
 
 export default function ContactPage() {
-  const { hero, infoCards } = contactPage;
-
   return (
-    <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
-      <div className="mx-auto max-w-6xl">
-        <PageHero
-          eyebrow={hero.eyebrow}
-          title={hero.title}
-          highlight={hero.highlight}
-          description={hero.description}
-        />
+    <PageShell>
+      <PageIntro
+        eyebrow="Contact"
+        title={
+          <>
+            Let&rsquo;s find what you can <span className="text-azure-deep">automate.</span>
+          </>
+        }
+        description="Tell us what you want to build or automate. We reply within one business day — and the first conversation is a free audit, not a pitch."
+      />
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-          <div className="space-y-4 sm:space-y-5">
-            {infoCards.map((item) => (
-              <div key={item.label} className="glass-panel flex gap-4 p-4 sm:p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.06] text-zinc-400">
-                  <ContactIcon name={item.icon} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-white">{item.label}</p>
-                  <p className="break-words text-sm text-zinc-500">
-                    {item.label === 'Email' ? (
-                      <a href={`mailto:${item.value}`} className="hover:text-brand-light">
-                        {item.value}
-                      </a>
-                    ) : item.label === 'WhatsApp' ? (
-                      <WhatsAppLink className="cursor-pointer text-left hover:text-brand-light">
-                        {item.value} &rarr;
-                      </WhatsAppLink>
-                    ) : item.label === 'Office' ? (
-                      <a
-                        href={site.map.directionsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-brand-light"
-                        title="Open in Google Maps"
-                      >
-                        {item.value} &rarr;
+      <section className="ap-sec pt-4">
+        <div className="ap-wrap">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-14">
+            <Reveal stagger={0.07} y={18}>
+              <div className="grid">
+                {details.map((d) => (
+                  <div key={d.label} className="border-t border-hairline py-5 first:border-t-0 first:pt-0">
+                    <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-quiet-soft">
+                      {d.label}
+                    </p>
+                    {d.href ? (
+                      <a href={d.href} className="text-[15px] text-ink hover:text-azure-deep">
+                        {d.value}
                       </a>
                     ) : (
-                      item.value
+                      <p className="text-[15px] text-ink">{d.value}</p>
                     )}
-                  </p>
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
 
-            <div className="glass-panel flex items-center justify-between gap-4 p-4 sm:p-5">
-              <p className="text-sm font-medium text-white">Connect with us</p>
-              <SocialLinks size="sm" />
-            </div>
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <WhatsAppLink className="ap-btn ap-btn-sec h-11 text-sm">
+                  Chat on WhatsApp
+                </WhatsAppLink>
+                <SocialLinks size="sm" />
+              </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.06]">
-              <Image
-                src="/images/contact-workspace.jpg"
-                alt="AitoTech workspace"
-                fill
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface/70 to-transparent" />
-            </div>
+              <div className="ap-card mt-7 p-6">
+                <h2 className="mb-2.5 text-[17px] font-bold">What happens in the audit</h2>
+                <ul className="grid gap-2.5">
+                  {[
+                    'We map how work moves through your business today.',
+                    'We mark the steps costing the most time or deals.',
+                    'You get a written list of what can be automated first.',
+                  ].map((line) => (
+                    <li key={line} className="flex gap-3 text-sm text-quiet">
+                      <span className="mt-2.5 h-0.5 w-3 flex-none bg-azure" />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal y={22}>
+              <ContactForm />
+            </Reveal>
           </div>
-
-          <ContactForm />
         </div>
-      </div>
-    </div>
+      </section>
+    </PageShell>
   );
 }

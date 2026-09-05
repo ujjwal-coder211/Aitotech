@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { hidesDarkChrome } from '@/lib/routes';
 import { motion, AnimatePresence } from 'framer-motion';
 import FounderAvatar from '@/components/FounderAvatar';
 import { navLinks, site, cta } from '@/data/siteContent';
@@ -28,13 +29,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (
-    pathname === '/' ||
-    pathname.startsWith('/admin') ||
-    pathname.startsWith('/demos/preview') ||
-    pathname.startsWith('/connect')
-  )
-    return null;
+  if (hidesDarkChrome(pathname)) return null;
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
