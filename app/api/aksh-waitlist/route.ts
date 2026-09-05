@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
+import { clientIp, rateLimit } from '@/lib/rate-limit';
 
 interface WaitlistBody {
   name?: string;
@@ -32,6 +33,14 @@ function validate(body: WaitlistBody): string | null {
 
 /** POST /api/aksh-waitlist */
 export async function POST(request: NextRequest) {
+  // Public endpoint that writes to the database — cap it per IP.
+  if (!rateLimit(`waitlist:${clientIp(request)}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { success: false, error: 'Too many requests. Please try again shortly.' },
+      { status: 429 }
+    );
+  }
+
   let body: WaitlistBody;
 
   try {

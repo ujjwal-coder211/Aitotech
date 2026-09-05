@@ -11,8 +11,17 @@ export async function updateSession(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // If Supabase isn't configured yet, don't block anything.
-  if (!url || !key) return response;
+  // If Supabase isn't configured, auth cannot be checked — so fail CLOSED on
+  // the admin area rather than letting it render unauthenticated. Everything
+  // else is public and passes through.
+  if (!url || !key) {
+    if (request.nextUrl.pathname.startsWith('/admin')) {
+      return new NextResponse('Admin is unavailable: authentication is not configured.', {
+        status: 503,
+      });
+    }
+    return response;
+  }
 
   const supabase = createServerClient(url, key, {
     cookies: {

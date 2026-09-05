@@ -10,6 +10,8 @@ const LIGHT_ROUTES = [
   '/case-studies',
   '/about',
   '/contact',
+  '/privacy',
+  '/terms',
 ] as const;
 
 export function isLightRoute(pathname: string) {
