@@ -3,12 +3,14 @@ import { updateSession } from '@/lib/supabase/middleware';
 import { guardOutreachAdminEdge } from '@/lib/outreach-admin-guard.edge';
 
 /** Runs on every request — refreshes auth session & guards admin areas. */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const outreachBlock = await guardOutreachAdminEdge(request);
   if (outreachBlock) return outreachBlock;
 
   return await updateSession(request);
 }
+
+export default proxy;
 
 export const config = {
   matcher: [
