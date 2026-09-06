@@ -40,9 +40,10 @@ const sections: LegalSection[] = [
     ],
   },
   {
-    heading: 'Cookies',
+    heading: 'Analytics and cookies',
     paragraphs: [
-      'This website does not use advertising or third-party analytics cookies. The only cookies we set are the session cookies needed to keep our own team signed in to the private admin area. Nothing about your visit is tracked across other websites.',
+      'We measure how this site is used with Vercel Web Analytics. It reports aggregate figures such as page views and which buttons are used. It does not set cookies, does not build a profile of you, and does not follow you across other websites.',
+      'We do not use advertising cookies. The only cookies this site sets are the session cookies that keep our own team signed in to the private admin area.',
     ],
   },
   {

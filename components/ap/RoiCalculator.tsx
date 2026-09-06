@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { track } from '@/lib/analytics';
 
 /** Working days assumed per month, and minutes per repetitive task. */
 const WORKING_DAYS = 22;
@@ -47,6 +48,17 @@ function Slider({ id, label, value, min, max, step = 1, suffix, onChange }: Slid
 }
 
 export default function RoiCalculator() {
+  const engaged = useRef(false);
+
+  /** Report the first interaction only — one signal per visitor, not per drag. */
+  const onInteract = <T,>(setter: (value: T) => void) => (value: T) => {
+    if (!engaged.current) {
+      engaged.current = true;
+      track('roi_calculated');
+    }
+    setter(value);
+  };
+
   const [enquiries, setEnquiries] = useState(300);
   const [employees, setEmployees] = useState(8);
   const [followup, setFollowup] = useState(12);
@@ -69,7 +81,7 @@ export default function RoiCalculator() {
           min={20}
           max={2000}
           step={10}
-          onChange={setEnquiries}
+          onChange={onInteract(setEnquiries)}
         />
         <Slider
           id="roi-employees"
@@ -77,7 +89,7 @@ export default function RoiCalculator() {
           value={employees}
           min={1}
           max={120}
-          onChange={setEmployees}
+          onChange={onInteract(setEmployees)}
         />
         <Slider
           id="roi-followup"
@@ -86,7 +98,7 @@ export default function RoiCalculator() {
           min={2}
           max={60}
           suffix="min"
-          onChange={setFollowup}
+          onChange={onInteract(setFollowup)}
         />
         <Slider
           id="roi-tasks"
@@ -94,7 +106,7 @@ export default function RoiCalculator() {
           value={tasks}
           min={0}
           max={30}
-          onChange={setTasks}
+          onChange={onInteract(setTasks)}
         />
       </div>
 

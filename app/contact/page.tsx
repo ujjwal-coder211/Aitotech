@@ -4,6 +4,7 @@ import WhatsAppLink from '@/components/WhatsAppLink';
 import SocialLinks from '@/components/SocialLinks';
 import PageShell from '@/components/ap/PageShell';
 import PageIntro from '@/components/ap/PageIntro';
+import TrackedAnchor from '@/components/ap/TrackedAnchor';
 import Reveal from '@/components/ap/Reveal';
 
 export const metadata: Metadata = {
@@ -44,9 +45,13 @@ export default function ContactPage() {
                       {d.label}
                     </p>
                     {d.href ? (
-                      <a href={d.href} className="text-[15px] text-ink hover:text-azure-deep">
+                      <TrackedAnchor
+                        href={d.href}
+                        event={d.href.startsWith('tel:') ? 'phone_click' : 'email_click'}
+                        className="text-[15px] text-ink hover:text-azure-deep"
+                      >
                         {d.value}
-                      </a>
+                      </TrackedAnchor>
                     ) : (
                       <p className="text-[15px] text-ink">{d.value}</p>
                     )}

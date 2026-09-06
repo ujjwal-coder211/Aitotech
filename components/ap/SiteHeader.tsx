@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { trackCta } from '@/lib/analytics';
 
 const NAV = [
   { label: 'Home', href: '/' },
@@ -63,7 +64,11 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <Link href="/contact" className="ap-btn ap-btn-pri hidden h-[42px] px-[18px] text-sm lg:inline-flex">
+        <Link
+          href="/contact"
+          onClick={() => trackCta('Book Free Audit', 'header')}
+          className="ap-btn ap-btn-pri hidden h-[42px] px-[18px] text-sm lg:inline-flex"
+        >
           Book Free Audit
         </Link>
 
@@ -99,7 +104,10 @@ export default function SiteHeader() {
             ))}
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackCta('Book Free Audit', 'mobile_menu');
+                setOpen(false);
+              }}
               className="ap-btn ap-btn-pri mt-4 w-full"
             >
               Book Free Audit
