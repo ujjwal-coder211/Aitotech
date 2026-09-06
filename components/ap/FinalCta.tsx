@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Reveal from './Reveal';
 import WhatsAppLink from '@/components/WhatsAppLink';
+import TrackedLink from '@/components/ap/TrackedLink';
 
 export default function FinalCta() {
   return (
@@ -25,9 +26,9 @@ export default function FinalCta() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link href="/contact" className="ap-btn ap-btn-pri">
+            <TrackedLink href="/contact" event="Book Your Free Automation Audit" location="final_cta" className="ap-btn ap-btn-pri">
               Book Your Free Automation Audit
-            </Link>
+            </TrackedLink>
             <WhatsAppLink className="ap-btn ap-btn-ghost">Chat on WhatsApp</WhatsAppLink>
           </div>
         </Reveal>

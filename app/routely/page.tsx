@@ -6,6 +6,7 @@ import SairaStudio from '@/components/saira/SairaStudio';
 import JsonLdScript from '@/components/seo/JsonLdScript';
 import { routely, site } from '@/data/siteContent';
 import { siteUrl } from '@/lib/seo/siteUrl';
+import { track } from '@/lib/analytics';
 
 const LAYERS = [
   { name: 'Omni', desc: '30B conductor — classify, route, synthesize' },
@@ -45,6 +46,7 @@ export default function RoutelyPage() {
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || routely.form.error);
+      track('waitlist_submit', { product: 'routely' });
       setDone(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : routely.form.error);

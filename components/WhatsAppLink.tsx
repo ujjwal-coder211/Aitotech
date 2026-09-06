@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { track } from '@/lib/analytics';
 
 /**
  * Anti-spam WhatsApp link: the number never appears in server-rendered HTML
@@ -23,6 +24,7 @@ export default function WhatsAppLink({
   label = 'Chat on WhatsApp',
 }: Props) {
   const openChat = () => {
+    track('whatsapp_click', { label });
     const number = NUMBER_PARTS.join('');
     const text = encodeURIComponent(message);
     window.open(`https://wa.me/${number}?text=${text}`, '_blank', 'noopener,noreferrer');

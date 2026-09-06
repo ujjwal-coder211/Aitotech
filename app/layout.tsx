@@ -5,6 +5,7 @@ import FooterGate from '@/components/FooterGate';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AmbientBackground from '@/components/AmbientBackground';
 import JsonLdScript from '@/components/seo/JsonLdScript';
+import Analytics from '@/components/analytics/Analytics';
 import { site } from '@/data/siteContent';
 import './globals.css';
 
@@ -114,6 +115,7 @@ export default function RootLayout({
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
         <FloatingWhatsApp />
+        <Analytics />
         <FooterGate />
       </body>
     </html>

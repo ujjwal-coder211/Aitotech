@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AutomationEngine from './AutomationEngine';
 import Reveal from './Reveal';
+import TrackedLink from '@/components/ap/TrackedLink';
 
 export default function Hero() {
   return (
@@ -24,12 +25,12 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="ap-btn ap-btn-pri">
+              <TrackedLink href="/contact" event="Book Free Automation Audit" location="hero" className="ap-btn ap-btn-pri">
                 Book Free Automation Audit
-              </Link>
-              <Link href="/how-it-works" className="ap-btn ap-btn-sec">
+              </TrackedLink>
+              <TrackedLink href="/how-it-works" event="See How It Works" location="hero" className="ap-btn ap-btn-sec">
                 See How It Works
-              </Link>
+              </TrackedLink>
             </div>
 
             <p className="mt-6 text-[13.5px] text-quiet-soft">

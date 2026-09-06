@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { track } from '@/lib/analytics';
 import { motion } from 'framer-motion';
 import { contactPage } from '@/data/siteContent';
 
@@ -65,15 +66,18 @@ export default function ContactForm() {
       const json = await res.json();
 
       if (res.ok && json.success) {
+        track('lead_submit');
         setStatus('success');
         setMessage(json.message ?? form.success);
         formEl.reset();
         setFieldStatus({});
       } else {
+        track('lead_submit_failed', { reason: 'rejected' });
         setStatus('error');
         setMessage(json.error ?? 'Submission failed.');
       }
     } catch {
+      track('lead_submit_failed', { reason: 'network' });
       setStatus('error');
       setMessage('Network error. Please try again.');
     }
