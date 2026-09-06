@@ -5,6 +5,7 @@
  */
 const LIGHT_ROUTES = [
   '/solutions',
+  '/services',
   '/industries',
   '/how-it-works',
   '/case-studies',
