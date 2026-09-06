@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { serviceDetail } from '@/data/siteContent';
 import { getService } from '@/lib/services';
-import ServiceDetailHero from '@/components/ServiceDetailHero';
+import ServiceIcon from '@/components/ServiceIcon';
+import PageShell from '@/components/ap/PageShell';
+import PageIntro from '@/components/ap/PageIntro';
+import Reveal from '@/components/ap/Reveal';
+import FinalCta from '@/components/ap/FinalCta';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +18,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = await getService(slug);
   if (!service) return { title: 'Service Not Found' };
-  return { title: service.title, description: service.description };
+
+  return {
+    title: service.title,
+    description: service.description,
+    alternates: { canonical: `/services/${service.slug}` },
+  };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -23,44 +31,50 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = await getService(slug);
   if (!service) notFound();
 
-  const { ctaTitle, ctaBody, ctaButton } = serviceDetail;
-
   return (
-    <div className="section-pad pt-20 sm:pt-24 lg:pt-32">
-      <div className="container-page">
-        <nav className="mb-6 text-sm text-zinc-600 sm:mb-8">
-          <Link href="/" className="hover:text-white">
+    <PageShell>
+      <PageIntro eyebrow={`Services · ${service.title}`} title={service.short}>
+        <nav aria-label="Breadcrumb" className="mt-6 text-sm text-quiet-soft">
+          <Link href="/" className="hover:text-azure-deep">
             Home
           </Link>
           <span className="mx-2">/</span>
-          <Link href="/services" className="hover:text-white">
+          <Link href="/services" className="hover:text-azure-deep">
             Services
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-zinc-400">{service.title}</span>
+          <span className="text-quiet">{service.title}</span>
         </nav>
+      </PageIntro>
 
-        <ServiceDetailHero service={service} />
+      <section className="ap-sec pt-4">
+        <div className="ap-wrap">
+          <Reveal y={20} className="ap-card p-7 sm:p-9">
+            <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-azure-wash text-azure-deep">
+              <ServiceIcon name={service.icon} className="h-6 w-6" />
+            </span>
+            <h2 className="mb-4 text-[clamp(22px,2.6vw,30px)] font-extrabold">{service.title}</h2>
+            <p className="max-w-[60ch] text-[15px] leading-[1.75] text-quiet">{service.description}</p>
+          </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
-          {service.features.map((feature, i) => (
-            <div key={feature} className="border-t border-white/[0.08] pt-5">
-              <span className="text-xs font-medium tracking-wider text-zinc-600">{String(i + 1).padStart(2, '0')}</span>
-              <p className="mt-2 text-sm font-medium text-white">{feature}</p>
-            </div>
-          ))}
+          <Reveal
+            stagger={0.06}
+            y={16}
+            className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {service.features.map((feature, i) => (
+              <div key={feature} className="border-t border-hairline pt-5">
+                <span className="font-heading text-xs font-bold text-azure-deep">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="mt-2 text-[15px] font-semibold">{feature}</p>
+              </div>
+            ))}
+          </Reveal>
         </div>
+      </section>
 
-        <div className="mt-16 border-t border-white/[0.06] pt-14 text-center sm:mt-20 sm:pt-16">
-          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">
-            {ctaTitle(service.title)}
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-zinc-500">{ctaBody}</p>
-          <Link href="/contact" className="btn-primary mt-6 inline-flex">
-            {ctaButton}
-          </Link>
-        </div>
-      </div>
-    </div>
+      <FinalCta />
+    </PageShell>
   );
 }
