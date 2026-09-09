@@ -13,7 +13,6 @@ export type AnalyticsEvent =
   | 'email_click'
   | 'lead_submit'
   | 'lead_submit_failed'
-  | 'waitlist_submit'
   | 'roi_calculated';
 
 type Props = Record<string, string | number | boolean | null>;
