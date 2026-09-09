@@ -6,6 +6,9 @@
 const LIGHT_ROUTES = [
   '/solutions',
   '/services',
+  '/demos',
+  '/products/outreach',
+  '/docs',
   '/industries',
   '/how-it-works',
   '/case-studies',
@@ -24,6 +27,7 @@ export function isLightRoute(pathname: string) {
 export function isBareRoute(pathname: string) {
   return (
     pathname.startsWith('/admin') ||
+    pathname.startsWith('/products/outreach/admin') ||
     pathname.startsWith('/demos/preview') ||
     pathname.startsWith('/connect')
   );

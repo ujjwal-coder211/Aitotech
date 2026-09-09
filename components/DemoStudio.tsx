@@ -81,8 +81,8 @@ export default function DemoStudio() {
       {/* ── Website templates ── */}
       <div>
         <div className="mb-6 flex flex-wrap items-end justify-between gap-2">
-          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">{websitesTitle}</h2>
-          <p className="text-sm text-zinc-500">Click any template to open a full live preview →</p>
+          <h2 className="font-heading text-xl font-semibold text-ink sm:text-2xl">{websitesTitle}</h2>
+          <p className="text-sm text-quiet-soft">Click any template to open a full live preview →</p>
         </div>
         <motion.div
           variants={grid}
@@ -101,7 +101,7 @@ export default function DemoStudio() {
 
       {/* ── Automation demos ── */}
       <div>
-        <h2 className="mb-6 font-display text-xl font-semibold text-white sm:text-2xl">{automationsTitle}</h2>
+        <h2 className="mb-6 font-heading text-xl font-semibold text-ink sm:text-2xl">{automationsTitle}</h2>
         <motion.div
           variants={grid}
           initial="hidden"
@@ -113,18 +113,18 @@ export default function DemoStudio() {
             <motion.div
               key={a.slug}
               variants={card}
-              className="flex items-start gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-200 ease-out-expo hover:border-white/[0.14] sm:p-6"
+              className="ap-card flex items-start gap-4 p-5 transition-colors duration-200 hover:border-[#cfdcec] sm:p-6"
             >
-              <span className="mt-0.5 shrink-0 text-zinc-500">
+              <span className="mt-0.5 shrink-0 text-quiet-soft">
                 <ServiceIcon name={a.icon} className="h-5 w-5" />
               </span>
               <div className="min-w-0 flex-1">
-                <h3 className="font-display text-base font-semibold text-white">{a.name}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-zinc-400">{a.blurb}</p>
+                <h3 className="font-heading text-base font-semibold text-ink">{a.name}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-quiet">{a.blurb}</p>
                 <button
                   type="button"
                   onClick={() => requestDemo(a.name)}
-                  className="mt-3 cursor-pointer text-xs font-medium text-brand-light transition-colors hover:text-white"
+                  className="mt-3 cursor-pointer text-xs font-medium text-azure-deep transition-colors hover:text-ink"
                 >
                   {requestCta} &rarr;
                 </button>
@@ -136,9 +136,9 @@ export default function DemoStudio() {
 
       {/* ── Requirement form ── */}
       <div ref={formRef} id="request" className="scroll-mt-24">
-        <div className="glass-panel mx-auto max-w-2xl p-6 sm:p-8">
-          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">{form.title}</h2>
-          <p className="mt-1.5 text-sm text-zinc-500">{form.subtitle}</p>
+        <div className="ap-card mx-auto max-w-2xl p-6 sm:p-8">
+          <h2 className="font-heading text-xl font-semibold text-ink sm:text-2xl">{form.title}</h2>
+          <p className="mt-1.5 text-sm text-quiet-soft">{form.subtitle}</p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
             {/* Honeypot — hidden from real users, bots fill it and get silently dropped */}
@@ -149,28 +149,28 @@ export default function DemoStudio() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="demo-name" className="mb-1.5 block text-sm font-medium text-zinc-300">
+                <label htmlFor="demo-name" className="mb-1.5 block text-sm font-medium text-quiet">
                   {form.nameLabel} <span className="text-red-400">*</span>
                 </label>
-                <input id="demo-name" name="name" required className="input-field" autoComplete="name" />
+                <input id="demo-name" name="name" required className="ap-input" autoComplete="name" />
               </div>
               <div>
-                <label htmlFor="demo-email" className="mb-1.5 block text-sm font-medium text-zinc-300">
+                <label htmlFor="demo-email" className="mb-1.5 block text-sm font-medium text-quiet">
                   {form.emailLabel} <span className="text-red-400">*</span>
                 </label>
-                <input id="demo-email" name="email" type="email" required className="input-field" autoComplete="email" />
+                <input id="demo-email" name="email" type="email" required className="ap-input" autoComplete="email" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="demo-company" className="mb-1.5 block text-sm font-medium text-zinc-300">
+                <label htmlFor="demo-company" className="mb-1.5 block text-sm font-medium text-quiet">
                   {form.companyLabel}
                 </label>
-                <input id="demo-company" name="company" className="input-field" autoComplete="organization" />
+                <input id="demo-company" name="company" className="ap-input" autoComplete="organization" />
               </div>
               <div>
-                <label htmlFor="demo-type" className="mb-1.5 block text-sm font-medium text-zinc-300">
+                <label htmlFor="demo-type" className="mb-1.5 block text-sm font-medium text-quiet">
                   {form.typeLabel}
                 </label>
                 <select
@@ -178,7 +178,7 @@ export default function DemoStudio() {
                   name="type"
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="input-field cursor-pointer"
+                  className="ap-input cursor-pointer"
                 >
                   {form.types.map((t) => (
                     <option key={t} value={t}>
@@ -190,14 +190,14 @@ export default function DemoStudio() {
             </div>
 
             <div>
-              <label htmlFor="demo-message" className="mb-1.5 block text-sm font-medium text-zinc-300">
+              <label htmlFor="demo-message" className="mb-1.5 block text-sm font-medium text-quiet">
                 {form.messageLabel}
               </label>
               <textarea
                 id="demo-message"
                 name="message"
                 rows={4}
-                className="input-field resize-y"
+                className="ap-input resize-y"
                 placeholder={form.messagePlaceholder}
               />
             </div>
@@ -213,7 +213,7 @@ export default function DemoStudio() {
               </p>
             )}
 
-            <button type="submit" disabled={status === 'loading'} className="btn-primary w-full disabled:opacity-50">
+            <button type="submit" disabled={status === 'loading'} className="ap-btn ap-btn-pri w-full disabled:opacity-50">
               {status === 'loading' ? form.sending : form.submit}
             </button>
           </form>

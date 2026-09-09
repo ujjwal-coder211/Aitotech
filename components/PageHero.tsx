@@ -50,17 +50,17 @@ export default function PageHero({
           )}
         </div>
 
-        <h1 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h1 className="font-heading text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl lg:text-5xl">
           {title}
           {highlight && (
             <>
               {' '}
-              <span className="text-gradient-brand">{highlight}</span>
+              <span className="text-azure-deep">{highlight}</span>
             </>
           )}
         </h1>
 
-        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-relaxed text-quiet sm:text-lg">{description}</p>
         {children}
       </div>
     </motion.section>
@@ -81,9 +81,9 @@ export function ComingSoonBlock({
   return (
     <div className="card mt-10 border-dashed p-6 text-center sm:mt-12 sm:p-8 sm:text-left">
       <p className="text-xs font-semibold uppercase tracking-wider text-amber-400">In progress</p>
-      <h3 className="mt-2 font-display text-xl font-semibold text-white sm:text-2xl">{title}</h3>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-500">{body}</p>
-      <Link href={ctaHref} className="btn-primary mt-6 inline-flex text-sm">
+      <h3 className="mt-2 font-heading text-xl font-semibold text-ink sm:text-2xl">{title}</h3>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-quiet-soft">{body}</p>
+      <Link href={ctaHref} className="ap-btn ap-btn-pri mt-6 inline-flex text-sm">
         {ctaLabel}
       </Link>
     </div>

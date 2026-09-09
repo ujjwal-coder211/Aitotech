@@ -5,10 +5,10 @@ export default function DocBody({ doc }: { doc: DocPage }) {
     <article className="prose-docs">
       {doc.sections.map((section) => (
         <section key={section.id} id={section.id} className="mb-10 scroll-mt-24">
-          <h2 className="font-display text-xl font-semibold text-white sm:text-2xl">{section.title}</h2>
-          {section.body && <p className="mt-3 text-base leading-relaxed text-zinc-300">{section.body}</p>}
+          <h2 className="font-heading text-xl font-semibold text-ink sm:text-2xl">{section.title}</h2>
+          {section.body && <p className="mt-3 text-base leading-relaxed text-quiet">{section.body}</p>}
           {section.items && (
-            <ul className="mt-4 space-y-3 text-sm text-zinc-400 sm:text-base">
+            <ul className="mt-4 space-y-3 text-sm text-quiet sm:text-base">
               {section.items.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
@@ -18,7 +18,7 @@ export default function DocBody({ doc }: { doc: DocPage }) {
             </ul>
           )}
           {section.code && (
-            <pre className="mt-4 overflow-x-auto rounded-xl border border-line bg-[#0a0a0f] p-4 text-xs leading-relaxed text-zinc-300 sm:text-sm">
+            <pre className="mt-4 overflow-x-auto rounded-xl border border-hairline bg-[#0a0a0f] p-4 text-xs leading-relaxed text-quiet sm:text-sm">
               <code>{section.code}</code>
             </pre>
           )}
