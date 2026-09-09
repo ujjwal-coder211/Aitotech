@@ -8,7 +8,6 @@ const LIGHT_ROUTES = [
   '/services',
   '/demos',
   '/products/outreach',
-  '/docs',
   '/industries',
   '/how-it-works',
   '/case-studies',
