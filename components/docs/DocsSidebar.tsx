@@ -10,13 +10,13 @@ export default function DocsSidebar() {
 
   return (
     <aside className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">Routely</p>
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-quiet-soft">Routely</p>
       <nav className="space-y-0.5">
         <Link
           href="/docs"
           className={cn(
             'block rounded-lg px-3 py-2 text-sm transition',
-            pathname === '/docs' ? 'bg-brand-soft text-brand-light' : 'text-zinc-400 hover:bg-surface-hover hover:text-white'
+            pathname === '/docs' ? 'bg-azure-wash text-azure-deep' : 'text-quiet hover:bg-wash hover:text-ink'
           )}
         >
           Overview
@@ -30,7 +30,7 @@ export default function DocsSidebar() {
               href={href}
               className={cn(
                 'block rounded-lg px-3 py-2 text-sm transition',
-                active ? 'bg-brand-soft text-brand-light' : 'text-zinc-400 hover:bg-surface-hover hover:text-white'
+                active ? 'bg-azure-wash text-azure-deep' : 'text-quiet hover:bg-wash hover:text-ink'
               )}
             >
               {doc.title}

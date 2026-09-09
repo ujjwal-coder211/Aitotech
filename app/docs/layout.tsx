@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import DocsSidebar from '@/components/docs/DocsSidebar';
+import PageShell from '@/components/ap/PageShell';
 import { docsHub } from '@/data/sairaDocs';
 
 export const metadata: Metadata = {
@@ -17,18 +18,21 @@ export const metadata: Metadata = {
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="section-pad pt-20 sm:pt-24 lg:pt-28">
-      <div className="container-page">
-        <div className="mb-10 max-w-3xl">
-          <p className="eyebrow">{docsHub.eyebrow}</p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">{docsHub.title}</h1>
-          <p className="mt-4 text-base leading-relaxed text-zinc-300 sm:text-lg">{docsHub.description}</p>
+    <PageShell>
+      <section className="ap-sec">
+        <div className="ap-wrap">
+          <div className="mb-10 max-w-3xl">
+            <p className="ap-eyebrow">{docsHub.eyebrow}</p>
+            <h1 className="mt-3 text-[clamp(28px,3.6vw,42px)] font-extrabold">{docsHub.title}</h1>
+            <p className="ap-lead mt-4">{docsHub.description}</p>
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:gap-14 xl:grid-cols-[240px_1fr]">
+            <DocsSidebar />
+            <div className="min-w-0">{children}</div>
+          </div>
         </div>
-        <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:gap-14 xl:grid-cols-[240px_1fr]">
-          <DocsSidebar />
-          <div className="min-w-0">{children}</div>
-        </div>
-      </div>
-    </div>
+      </section>
+    </PageShell>
   );
 }

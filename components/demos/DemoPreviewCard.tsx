@@ -20,7 +20,7 @@ export default function DemoPreviewCard({
   const p = t.palette;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 ease-out-expo hover:border-white/[0.16] hover:shadow-elevated">
+    <div className="ap-card group flex flex-col overflow-hidden transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#cfdcec] hover:shadow-[0_18px_40px_-28px_rgba(13,33,84,0.35)]">
       {/* browser frame */}
       <div className="border-b border-line" style={{ background: '#0c0c0f' }}>
         <div className="flex items-center gap-1.5 px-3 py-2">
@@ -92,9 +92,9 @@ export default function DemoPreviewCard({
 
       {/* meta */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-display text-base font-semibold text-white">{t.card.name}</h3>
-        <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-500">{t.card.blurb}</p>
-        <p className="mt-3 text-xs text-zinc-600">{t.card.tags.join(' · ')}</p>
+        <h3 className="font-heading text-base font-semibold text-ink">{t.card.name}</h3>
+        <p className="mt-1.5 flex-1 text-sm leading-relaxed text-quiet">{t.card.blurb}</p>
+        <p className="mt-3 text-xs text-quiet-soft">{t.card.tags.join(' · ')}</p>
         <div className="mt-5 grid grid-cols-2 gap-2">
           <Link
             href={`/demos/preview/${t.slug}`}
