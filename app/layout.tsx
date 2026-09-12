@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, Manrope } from 'next/font/google';
-import Header from '@/components/Header';
-import FooterGate from '@/components/FooterGate';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AmbientBackground from '@/components/AmbientBackground';
 import JsonLdScript from '@/components/seo/JsonLdScript';
 import Analytics from '@/components/analytics/Analytics';
 import { site } from '@/data/siteContent';
@@ -111,12 +108,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${manrope.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <JsonLdScript data={orgJsonLd} />
-        <AmbientBackground />
-        <Header />
-        <main className="relative z-10 flex-1">{children}</main>
+        {/* Pages bring their own chrome and their own <main>. */}
+        <div className="flex-1">{children}</div>
         <FloatingWhatsApp />
         <Analytics />
-        <FooterGate />
       </body>
     </html>
   );
