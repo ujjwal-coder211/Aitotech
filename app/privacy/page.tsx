@@ -42,8 +42,9 @@ const sections: LegalSection[] = [
   {
     heading: 'Analytics and cookies',
     paragraphs: [
-      'We measure how this site is used with Vercel Web Analytics. It reports aggregate figures such as page views and which buttons are used. It does not set cookies, does not build a profile of you, and does not follow you across other websites.',
-      'We do not use advertising cookies. The only cookies this site sets are the session cookies that keep our own team signed in to the private admin area.',
+      'We use two tools to understand how this site is used. Vercel Web Analytics reports aggregate figures such as page views and does not set cookies. Google Analytics sets its own cookies (named _ga) so it can count returning visits and see which pages and buttons are used. Google processes that data under its own privacy policy.',
+      'We use this only to improve the site. We do not use advertising cookies, and we do not send your name, email or phone number to analytics. Apart from analytics, the only cookies this site sets are the session cookies that keep our own team signed in to the private admin area.',
+      'You can block or delete cookies in your browser settings, or install Google’s opt-out browser add-on at tools.google.com/dlpage/gaoptout.',
     ],
   },
   {
@@ -80,7 +81,7 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         description="What we collect, why we collect it, and what you can ask us to do about it."
       />
-      <LegalBody updated="5 September 2026" sections={sections} />
+      <LegalBody updated="12 September 2026" sections={sections} />
     </PageShell>
   );
 }

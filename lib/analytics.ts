@@ -28,10 +28,12 @@ declare global {
  *
  * - Vercel Web Analytics always receives it (cookieless). Custom events are
  *   only reported on paid Vercel plans; on Hobby the call is simply ignored.
- * - Google Analytics receives it only when NEXT_PUBLIC_GA_ID is set.
+ * - Google Analytics receives it through gtag, which components/analytics
+ *   loads on every page. This is where conversion events are actually
+ *   reported.
  *
- * With nothing configured this is a no-op, so instrumenting a component
- * never risks breaking it.
+ * If a provider is missing or blocked (ad blockers commonly stop gtag), the
+ * call is skipped, so instrumenting a component never risks breaking it.
  */
 export function track(event: AnalyticsEvent, props?: Props) {
   if (typeof window === 'undefined') return;
