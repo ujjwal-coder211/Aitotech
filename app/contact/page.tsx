@@ -6,6 +6,7 @@ import PageShell from '@/components/ap/PageShell';
 import PageIntro from '@/components/ap/PageIntro';
 import TrackedAnchor from '@/components/ap/TrackedAnchor';
 import Reveal from '@/components/ap/Reveal';
+import { site } from '@/data/siteContent';
 
 export const metadata: Metadata = {
   title: 'Contact — Book a Free Automation Audit',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 const details = [
   { label: 'Email', value: 'info@aitotech.in', href: 'mailto:info@aitotech.in' },
   { label: 'Phone', value: '+91 76783 22020', href: 'tel:+917678322020' },
-  { label: 'Studio', value: 'Delhi, India' },
+  { label: 'Registered office', value: site.legal.registeredAddress },
   { label: 'Response', value: 'Within 24 hours on business days' },
 ];
 

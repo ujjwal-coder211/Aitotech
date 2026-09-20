@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import WhatsAppLink from '@/components/WhatsAppLink';
+import { site } from '@/data/siteContent';
 
 const COLUMNS = [
   {
@@ -82,8 +83,17 @@ export default function SiteFooter() {
         <div className="my-9 h-px bg-white/10" />
 
         <div className="flex flex-wrap justify-between gap-4">
-          <p className="text-[12.5px] text-[#6f86a8]">© 2026 AitoTech · Delhi, India</p>
-          <div className="flex gap-5">
+          <div className="max-w-[70ch] text-[12.5px] text-[#6f86a8]">
+            <p>© 2026 {site.legal.legalName} · Udyam Registration No. {site.legal.udyamNumber}</p>
+            <p className="mt-1">{site.legal.registeredAddress}</p>
+          </div>
+          <div className="flex flex-wrap gap-5">
+            <Link href="/business" className="text-[12.5px] text-[#6f86a8] hover:text-azure">
+              Business information
+            </Link>
+            <a href="/salesconnect/privacy" className="text-[12.5px] text-[#6f86a8] hover:text-azure">
+              SalesConnect privacy
+            </a>
             <Link href="/privacy" className="text-[12.5px] text-[#6f86a8] hover:text-azure">
               Privacy
             </Link>

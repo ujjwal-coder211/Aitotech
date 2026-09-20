@@ -22,9 +22,14 @@ const orgJsonLd = [
     logo: `${site.website}/images/logo-mark-v2.png`,
     email: site.email,
     foundingDate: '2026',
+    legalName: site.legal.legalName,
+    telephone: site.legal.phone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Delhi',
+      streetAddress: 'B-39, UGF, Gali No 1, Subhash Park Ext., Bindapur Matiyala Road, Uttam Nagar',
+      addressLocality: 'New Delhi',
+      addressRegion: 'Delhi',
+      postalCode: '110059',
       addressCountry: 'IN',
     },
     sameAs: [site.social.github, site.social.linkedin, site.social.instagram].filter(Boolean),
@@ -96,6 +101,11 @@ export const metadata: Metadata = {
   },
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
+  // Meta Business Settings → Brand safety → Domains → "Meta-tag verification"
+  // gives a code; set it as FACEBOOK_DOMAIN_VERIFICATION on Vercel and redeploy.
+  ...(process.env.FACEBOOK_DOMAIN_VERIFICATION
+    ? { other: { 'facebook-domain-verification': process.env.FACEBOOK_DOMAIN_VERIFICATION } }
     : {}),
 };
 
