@@ -14,7 +14,7 @@ const sections: LegalSection[] = [
   {
     heading: 'Who we are',
     paragraphs: [
-      'AitoTech is a software and automation studio based in Delhi, India. This policy explains what we do with information you share through aitotech.in. If you have any question about it, write to info@aitotech.in.',
+      'AitoTech (registered as AITOTECH, a proprietorship with Udyam Registration No. UDYAM-DL-11-0172534, B-39, UGF, Gali No 1, Subhash Park Ext., Bindapur Matiyala Road, Uttam Nagar, New Delhi, Delhi 110059) is a software and automation studio in Delhi, India. This policy explains what we do with information you share through aitotech.in. If you have any question about it, write to info@aitotech.in.',
     ],
   },
   {

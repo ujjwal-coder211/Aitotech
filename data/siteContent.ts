@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ═══════════════════════════════════════════════════════════════════
  *  AitoTech — SINGLE SOURCE OF TRUTH FOR ALL WEBSITE CONTENT
  *  Edit text, contact info, and image paths here only.
@@ -12,6 +12,18 @@ export const site = {
   email: 'info@aitotech.in',
   address: 'Delhi, India',
   website: 'https://aitotech.in',
+  /**
+   * The registered business, exactly as printed on the Udyam certificate.
+   * Meta's business verification compares the website with that document, so
+   * the name and address here must match it letter for letter.
+   */
+  legal: {
+    legalName: 'AITOTECH',
+    udyamNumber: 'UDYAM-DL-11-0172534',
+    registeredAddress:
+      'B-39, UGF, Gali No 1, Subhash Park Ext., Bindapur Matiyala Road, Uttam Nagar, New Delhi, Delhi 110059, India',
+    phone: '+91 76783 22020',
+  },
   responseTime: 'Within 24 hours on business days',
   founder: {
     name: 'Ujjwal',
@@ -32,8 +44,8 @@ export const site = {
   map: {
     lat: 28.7041,
     lng: 77.1025,
-    embedUrl: 'https://maps.google.com/maps?q=28.7041,77.1025&z=12&output=embed',
-    directionsUrl: 'https://www.google.com/maps?q=28.7041,77.1025',
+    embedUrl: 'https://maps.google.com/maps?q=B-39%20Subhash%20Park%20Extension%2C%20Uttam%20Nagar%2C%20New%20Delhi%20110059&z=15&output=embed',
+    directionsUrl: 'https://www.google.com/maps?q=B-39%20Subhash%20Park%20Extension%2C%20Uttam%20Nagar%2C%20New%20Delhi%20110059',
   },
 } as const;
 
@@ -107,7 +119,7 @@ export const contactPage = {
   infoCards: [
     { label: 'Email', value: site.email, icon: 'mail' },
     { label: 'WhatsApp', value: 'Chat with us directly', icon: 'whatsapp' },
-    { label: 'Office', value: site.address, icon: 'location' },
+    { label: 'Office', value: site.legal.registeredAddress, icon: 'location' },
     { label: 'Response', value: site.responseTime, icon: 'clock' },
   ],
   form: {
@@ -249,21 +261,21 @@ export const outreachProduct = {
   name: 'SalesConnect',
   tagline: 'AI Sales Assistant for Local Businesses',
   poweredBy: 'Aitotech',
-  status: 'In development',
+  status: 'Live in pilot',
   contactEmail: site.email,
   hero: {
-    eyebrow: 'Aitotech Product · In development',
+    eyebrow: 'Aitotech Product · Live in pilot',
     title: 'SalesConnect',
-    highlight: 'Coming soon',
+    highlight: 'Now in pilot',
     description:
-      'An AI sales assistant for local businesses — clinics, dentists, property dealers, brokers, and agencies. Turn WhatsApp and Instagram enquiries into booked clients with AI-drafted replies and automatic follow-ups. We are building it now — join the waitlist for early access.',
+      'An AI sales assistant for local businesses — clinics, dentists, property dealers, brokers, and agencies. Turn WhatsApp and Instagram enquiries into booked clients with AI-drafted replies and automatic follow-ups. Running now with a first group of businesses — request access to join them.',
   },
   waitlist: {
-    title: 'Join the SalesConnect waitlist',
-    subtitle: 'In development · Be first to get early access when we launch.',
+    title: 'Request access to SalesConnect',
+    subtitle: 'Live in pilot · We onboard a few businesses at a time.',
     note:
-      'SalesConnect is not available to download yet. Leave your details and we will email you the moment early access opens.',
-    caption: 'No spam — just one email when SalesConnect is ready.',
+      'Leave your details and we will get in touch to set SalesConnect up for your business.',
+    caption: 'No spam — we only contact you about getting started.',
   },
   features: [
     { title: 'Every enquiry captured', body: 'Contacts from WhatsApp, Instagram, uploads, or added by hand — all in one place.' },
@@ -293,14 +305,14 @@ export const outreachProduct = {
       },
       {
         heading: 'Status & support',
-        bullets: ['SalesConnect is in active development', 'Questions? Email info@aitotech.in or chat with us on WhatsApp'],
+        bullets: ['SalesConnect is live with a first group of businesses', 'Questions? Email info@aitotech.in or chat with us on WhatsApp'],
       },
     ],
   },
   faq: [
     {
       q: 'Is SalesConnect available now?',
-      a: 'Not yet — it is in active development. Join the waitlist and we will email you the moment early access opens.',
+      a: 'Yes, for a first group of businesses. Request access and we will set it up with you.',
     },
     {
       q: 'Which businesses is it for?',

@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next';
 
+const SALESCONNECT_API = 'https://outreachapp-production-b5e8.up.railway.app';
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: 'standalone',
@@ -32,6 +34,18 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+    ];
+  },
+  async redirects() {
+    return [
+      // SalesConnect's policies are served by the app itself, so they always
+      // describe what the live app does. These are the addresses to give Meta,
+      // Google Play and the App Store.
+      { source: '/salesconnect/privacy', destination: `${SALESCONNECT_API}/legal/privacy`, permanent: false },
+      { source: '/salesconnect/terms', destination: `${SALESCONNECT_API}/legal/terms`, permanent: false },
+      { source: '/salesconnect/data-deletion', destination: `${SALESCONNECT_API}/legal/data-deletion`, permanent: false },
+      // The old draft policy said the app was still in development.
+      { source: '/products/outreach/privacy', destination: `${SALESCONNECT_API}/legal/privacy`, permanent: false },
     ];
   },
 };
