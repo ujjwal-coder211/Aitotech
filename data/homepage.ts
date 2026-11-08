@@ -106,6 +106,7 @@ export const whyAitotech = [
  */
 export const featured = [
   {
+    visual: 'chat',
     kind: 'Our product',
     title: 'SalesConnect',
     body: 'Our AI sales assistant for local businesses: it turns WhatsApp and Instagram enquiries into booked clients with AI-drafted replies and automatic follow-ups, with the owner approving before anything is sent.',
@@ -114,6 +115,7 @@ export const featured = [
     linkLabel: 'See SalesConnect',
   },
   {
+    visual: 'templates',
     kind: 'Live demos',
     title: 'Industry demo templates',
     body: 'Browse working site templates built for specific trades — business, e-commerce, restaurant, clinic, real estate and portfolio — then tell us which fits and we build a demo around your own content.',

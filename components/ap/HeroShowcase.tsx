@@ -6,7 +6,7 @@
  */
 export default function HeroShowcase() {
   return (
-    <div className="relative mx-auto w-full max-w-[560px]" aria-hidden>
+    <div className="relative mx-auto mt-6 w-full max-w-[560px] sm:mt-0" aria-hidden>
       {/* browser window — the website */}
       <div className="ap-card overflow-hidden shadow-[0_34px_80px_-44px_rgba(13,33,84,0.5)]">
         <div className="flex items-center gap-2 border-b border-hairline bg-wash px-4 py-3">
@@ -41,7 +41,7 @@ export default function HeroShowcase() {
       </div>
 
       {/* phone — the WhatsApp conversation */}
-      <div className="absolute -bottom-10 -left-4 w-[178px] rounded-[22px] border border-hairline bg-white p-2 shadow-[0_26px_60px_-28px_rgba(13,33,84,0.5)] sm:-left-10">
+      <div className="absolute -bottom-8 -left-1 w-[142px] rounded-[20px] border border-hairline bg-white p-2 shadow-[0_26px_60px_-28px_rgba(13,33,84,0.5)] sm:-bottom-10 sm:-left-10 sm:w-[178px]">
         <div className="overflow-hidden rounded-[16px] bg-[#f3f6fa]">
           <div className="flex items-center gap-2 bg-[#0f7a52] px-3 py-2.5">
             <span className="h-5 w-5 rounded-full bg-white/25" />
@@ -64,12 +64,12 @@ export default function HeroShowcase() {
       </div>
 
       {/* floating card — the owner's dashboard */}
-      <div className="absolute -right-3 -top-7 w-[196px] rounded-2xl border border-hairline bg-white p-4 shadow-[0_26px_60px_-28px_rgba(13,33,84,0.5)] sm:-right-8">
+      <div className="absolute -right-1 -top-6 w-[160px] rounded-2xl border border-hairline bg-white p-3.5 sm:p-4 shadow-[0_26px_60px_-28px_rgba(13,33,84,0.5)] sm:-right-8 sm:-top-7 sm:w-[196px]">
         <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-quiet-soft">
           This week
         </p>
-        <p className="mt-2 font-heading text-[26px] font-extrabold leading-none text-ink">
-          48 <span className="text-[13px] font-semibold text-quiet">enquiries</span>
+        <p className="mt-2 font-heading text-[21px] font-extrabold leading-none text-ink sm:text-[26px]">
+          48 <span className="text-[11.5px] font-semibold text-quiet sm:text-[13px]">enquiries</span>
         </p>
 
         <div className="mt-3 flex h-10 items-end gap-1">

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getIndustry, industryDetails } from '@/data/industries';
+import { getIndustry, industryDetails, industryImage } from '@/data/industries';
 import PageShell from '@/components/ap/PageShell';
 import PageIntro from '@/components/ap/PageIntro';
 import Reveal from '@/components/ap/Reveal';
@@ -22,7 +23,7 @@ export async function generateMetadata({
   if (!industry) return {};
 
   return {
-    title: `${industry.name} Automation`,
+    title: `${industry.name} — Websites, Software & Automation`,
     description: `${industry.headline} ${industry.intro}`.slice(0, 155),
     alternates: { canonical: `/industries/${industry.slug}` },
   };
@@ -42,13 +43,28 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/contact" className="ap-btn ap-btn-pri">
-            Book Free Automation Audit
+            Book a Free Consultation
           </Link>
-          <Link href="/industries" className="ap-btn ap-btn-sec">
-            All industries
+          <Link href="/services" className="ap-btn ap-btn-sec">
+            See our services
           </Link>
         </div>
       </PageIntro>
+
+      <section className="ap-wrap pb-4">
+        <Reveal y={20}>
+          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl border border-hairline bg-wash">
+            <Image
+              src={industryImage(industry.slug)}
+              alt=""
+              fill
+              priority
+              sizes="(min-width: 1200px) 1120px, 94vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+      </section>
 
       <section className="ap-sec border-y border-hairline bg-wash">
         <div className="ap-wrap">
@@ -69,7 +85,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       <section className="ap-sec">
         <div className="ap-wrap">
           <Reveal className="mb-9 max-w-[36ch]">
-            <p className="ap-eyebrow mb-3">What we automate</p>
+            <p className="ap-eyebrow mb-3">What we build for you</p>
             <h2 className="text-[clamp(24px,3vw,36px)] font-extrabold">
               Built for {industry.name.toLowerCase()}.
             </h2>

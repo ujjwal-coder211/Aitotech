@@ -5,7 +5,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import { trackCta } from '@/lib/analytics';
 
 type TrackedLinkProps = ComponentProps<typeof Link> & {
-  /** Human-readable button label, e.g. "Book Free Automation Audit". */
+  /** Human-readable button label, e.g. "Book a Free Consultation". */
   event: string;
   /** Where on the site it was clicked, e.g. "hero" or "final_cta". */
   location: string;

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { industryDetails } from '@/data/industries';
+import Image from 'next/image';
+import { industryDetails, industryImage } from '@/data/industries';
 import Reveal from './Reveal';
 
 /**
@@ -31,20 +32,35 @@ export default function IndustriesSection() {
         </Reveal>
 
         <Reveal stagger={0.05} y={16} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {industryDetails.map((industry) => (
+          {industryDetails.map((industry, i) => (
             <Link
               key={industry.slug}
               href={`/industries/${industry.slug}`}
-              className="ap-card group flex flex-col p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#cfdcec] hover:shadow-[0_18px_40px_-28px_rgba(13,33,84,0.35)]"
+              className="ap-card group flex flex-col overflow-hidden transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#cfdcec] hover:shadow-[0_18px_40px_-28px_rgba(13,33,84,0.35)]"
             >
-              <h3 className="mb-2.5 text-[17px] font-bold">{industry.name}</h3>
-              <p className="mb-5 flex-1 text-sm leading-relaxed text-quiet">{industry.headline}</p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-azure-deep">
-                See what we build
-                <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                  →
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-hairline bg-wash">
+                <Image
+                  src={industryImage(industry.slug)}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw"
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="mb-2.5 text-[17px] font-bold">{industry.name}</h3>
+                <p className="mb-5 flex-1 text-sm leading-relaxed text-quiet">
+                  {industry.headline}
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-azure-deep">
+                  See what we build
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                    →
+                  </span>
                 </span>
-              </span>
+              </div>
             </Link>
           ))}
         </Reveal>

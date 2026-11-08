@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import ContactForm from '@/components/ContactForm';
 import WhatsAppLink from '@/components/WhatsAppLink';
 import SocialLinks from '@/components/SocialLinks';
@@ -87,9 +86,7 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal y={22}>
-              <Suspense fallback={<div className="ap-card h-[560px] animate-pulse" />}>
-                <ContactForm />
-              </Suspense>
+              <ContactForm />
             </Reveal>
           </div>
         </div>
