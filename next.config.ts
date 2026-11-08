@@ -46,6 +46,18 @@ const nextConfig: NextConfig = {
       { source: '/salesconnect/data-deletion', destination: `${SALESCONNECT_API}/legal/data-deletion`, permanent: false },
       // The old draft policy said the app was still in development.
       { source: '/products/outreach/privacy', destination: `${SALESCONNECT_API}/legal/privacy`, permanent: false },
+      // Pages retired in the digital-solutions redesign. Their content now
+      // lives in the service groups, the homepage process and the demos, so
+      // these are permanent moves rather than soft redirects.
+      { source: '/solutions', destination: '/services', permanent: true },
+      { source: '/how-it-works', destination: '/services', permanent: true },
+      { source: '/case-studies', destination: '/demos', permanent: true },
+      // The four services the old catalogue had. Three were renamed or split
+      // into the new twelve and would otherwise 404 once the table is
+      // reseeded; /services/mobile-apps kept its slug and needs nothing.
+      { source: '/services/website-development', destination: '/services/business-websites', permanent: true },
+      { source: '/services/workflow-automation', destination: '/services/process-automation', permanent: true },
+      { source: '/services/custom-ai', destination: '/services/ai-chatbots', permanent: true },
     ];
   },
 };

@@ -11,8 +11,8 @@ export default function RoiSection() {
             How many hours is your business spending by hand?
           </h2>
           <p className="ap-lead mt-4">
-            Move the sliders. This is a rough estimate from your own numbers — we verify it properly
-            in the audit.
+            Move the sliders. This is a rough estimate from your own numbers — we verify it
+            properly in the free consultation.
           </p>
         </Reveal>
 

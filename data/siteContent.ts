@@ -8,7 +8,7 @@
 /** Brand & contact */
 export const site = {
   name: 'AitoTech',
-  tagline: 'Websites · Apps · AI · Automation',
+  tagline: 'Building Digital Solutions That Grow Businesses',
   email: 'info@aitotech.in',
   address: 'Delhi, India',
   website: 'https://aitotech.in',
@@ -48,64 +48,6 @@ export const site = {
     directionsUrl: 'https://www.google.com/maps?q=B-39%20Subhash%20Park%20Extension%2C%20Uttam%20Nagar%2C%20New%20Delhi%20110059',
   },
 } as const;
-
-/** Service catalog */
-export const services = [
-  {
-    slug: 'website-development',
-    title: 'Business Websites',
-    short: 'Fast, modern sites that convert.',
-    description:
-      'SEO-ready websites with booking, payments, WhatsApp chat, and AI built in — designed, built, and hosted end to end for your business.',
-    features: ['Custom design', 'SEO & analytics', 'Booking & payments', 'WhatsApp + AI chat'],
-    gradient: 'from-indigo-500/15 via-indigo-500/5 to-transparent',
-    accent: 'text-brand-light',
-    bentoLg: 'lg:col-span-2 lg:row-span-1',
-    icon: 'globe',
-    comingSoon: false,
-  },
-  {
-    slug: 'mobile-apps',
-    title: 'Mobile Apps',
-    short: 'Android & iOS, idea to store.',
-    description:
-      'Booking, ordering, and field-team apps built with React Native — shipped to the Play Store with over-the-air updates so new features land without reinstalls.',
-    features: ['Android & iOS', 'Play Store publishing', 'OTA updates', 'Offline-first'],
-    gradient: 'from-indigo-500/15 via-indigo-500/5 to-transparent',
-    accent: 'text-brand-light',
-    bentoLg: 'lg:col-span-2 lg:row-span-1',
-    icon: 'mobile',
-    comingSoon: false,
-  },
-  {
-    slug: 'workflow-automation',
-    title: 'WhatsApp & Workflow Automation',
-    short: 'Automate the busywork, not your judgement.',
-    description:
-      'Auto-replies, lead follow-ups, and approval flows that run on WhatsApp and the tools you already use — so nothing slips through the cracks.',
-    features: ['WhatsApp auto-replies', 'Lead follow-ups', 'Multi-app workflows', 'CRM sync'],
-    gradient: 'from-violet-500/20 via-indigo-500/10 to-transparent',
-    accent: 'text-violet-400',
-    bentoLg: 'lg:col-span-2 lg:row-span-1',
-    icon: 'workflow',
-    comingSoon: false,
-    imageKey: 'workflow-automation' as const,
-  },
-  {
-    slug: 'custom-ai',
-    title: 'AI Tools & Chatbots',
-    short: 'AI that fits your business.',
-    description:
-      'Chatbots trained on your business, private knowledge bases, and AI assistants that answer questions, qualify leads, and help your team — not generic bots stapled onto your stack.',
-    features: ['Business-trained chatbots', 'Private knowledge base', 'Lead qualification', 'Human-in-the-loop'],
-    gradient: 'from-emerald-500/15 via-cyan-500/10 to-transparent',
-    accent: 'text-emerald-400',
-    bentoLg: 'lg:col-span-2 lg:row-span-1',
-    icon: 'ai',
-    comingSoon: false,
-    imageKey: 'custom-ai' as const,
-  },
-] as const;
 
 /** ─── CONTACT PAGE ─── */
 export const contactPage = {

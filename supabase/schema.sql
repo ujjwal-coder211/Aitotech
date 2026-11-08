@@ -92,35 +92,96 @@ create trigger services_updated_at
   for each row execute function public.set_updated_at();
 
 
--- ─── 3. SEED initial services (matches the current website) ───
--- Remove any retired/over-claimed services from earlier versions of the site.
-delete from public.services where slug in ('data-automation', 'invoice-intelligence');
+-- ─── 3. SEED services (mirrors data/services.ts) ───
+-- Retire slugs from earlier versions of the catalogue.
+delete from public.services where slug not in (
+  'business-websites',
+  'landing-pages',
+  'ecommerce',
+  'web-applications',
+  'mobile-apps',
+  'custom-software',
+  'crm-erp',
+  'ai-chatbots',
+  'whatsapp-automation',
+  'ai-voice-agents',
+  'process-automation',
+  'api-integrations'
+);
 
 insert into public.services (slug, title, short, description, features, icon, accent, gradient, sort_order, published)
 values
   (
-    'website-development', 'Business Websites', 'Fast, modern sites that convert.',
-    'SEO-ready websites with booking, payments, WhatsApp chat, and AI built in — designed, built, and hosted end to end for your business.',
-    '["Custom design","SEO & analytics","Booking & payments","WhatsApp + AI chat"]'::jsonb,
-    'globe', 'text-brand-light', 'from-indigo-500/15 via-indigo-500/5 to-transparent', 1, true
+    'business-websites', 'Business Websites', 'A site that brings you enquiries, not just compliments.',
+    'A fast, modern website built around the questions your customers actually ask — what you do, whether you serve their area, what it costs, and how to reach you. Search-ready from day one, with enquiry forms and WhatsApp chat wired in so interest turns into a conversation.',
+    '["Custom design", "SEO foundations", "Enquiry forms", "WhatsApp chat"]'::jsonb,
+    'globe', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 1, true
   ),
   (
-    'mobile-apps', 'Mobile Apps', 'Android & iOS, idea to store.',
-    'Booking, ordering, and field-team apps built with React Native — shipped to the store with over-the-air updates so new features land without reinstalls.',
-    '["Android & iOS","Play Store publishing","OTA updates","Offline-first"]'::jsonb,
-    'mobile', 'text-brand-light', 'from-indigo-500/15 via-indigo-500/5 to-transparent', 2, true
+    'landing-pages', 'Premium Landing Pages', 'One page, one offer, built to convert ad spend.',
+    'When you are running ads, a general website splits attention. A landing page keeps one offer, one message and one action in front of the visitor, so the money you spend on clicks has somewhere to land.',
+    '["Single clear offer", "Fast load", "A/B ready", "Lead capture"]'::jsonb,
+    'target', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 2, true
   ),
   (
-    'workflow-automation', 'WhatsApp & Workflow Automation', 'Automate the busywork, not your judgement.',
-    'Auto-replies, lead follow-ups, and approval flows that run on WhatsApp and the tools you already use — so nothing slips through the cracks.',
-    '["WhatsApp auto-replies","Lead follow-ups","Multi-app workflows","CRM sync"]'::jsonb,
-    'workflow', 'text-violet-400', 'from-violet-500/20 via-indigo-500/10 to-transparent', 3, true
+    'ecommerce', 'E-commerce Development', 'Sell online without babysitting every order.',
+    'A storefront with the parts that actually decide whether people buy: clear product pages, UPI and card payments that work on the first try, honest delivery information, and order updates that go out on their own.',
+    '["UPI & card payments", "Inventory sync", "Order tracking", "Abandoned-cart recovery"]'::jsonb,
+    'cart', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 3, true
   ),
   (
-    'custom-ai', 'AI Tools & Chatbots', 'AI that fits your business.',
-    'Chatbots trained on your business, private knowledge bases, and AI assistants that answer questions, qualify leads, and help your team — not generic bots stapled onto your stack.',
-    '["Business-trained chatbots","Private knowledge base","Lead qualification","Human-in-the-loop"]'::jsonb,
-    'ai', 'text-emerald-400', 'from-emerald-500/15 via-cyan-500/10 to-transparent', 4, true
+    'web-applications', 'Web Applications', 'Replace the spreadsheet everyone is afraid to break.',
+    'A tool your team opens in the browser and logs into — bookings, records, dashboards, approvals. Built for the way your business actually runs, with roles so people only see what they should.',
+    '["Role-based access", "Live dashboards", "Reports", "Works on any device"]'::jsonb,
+    'window', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 4, true
+  ),
+  (
+    'mobile-apps', 'Android & iOS Applications', 'Your business in your customer’s pocket.',
+    'Booking, ordering and field-team apps built once for both platforms and shipped to the stores. Updates reach users over the air, so improvements land without anyone reinstalling anything.',
+    '["Android & iOS", "Play Store & App Store", "Over-the-air updates", "Works offline"]'::jsonb,
+    'mobile', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 5, true
+  ),
+  (
+    'custom-software', 'Custom Software', 'For the part of your business no product fits.',
+    'Every business has one process that off-the-shelf software gets wrong. We build that piece properly, and connect it to the tools you already pay for instead of replacing them.',
+    '["Built to your process", "Connects to existing tools", "Documented", "Yours to own"]'::jsonb,
+    'code', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 6, true
+  ),
+  (
+    'crm-erp', 'CRM & ERP Development', 'One place where the business is actually visible.',
+    'Customers, orders, inventory, invoices and team activity in one system instead of four spreadsheets and a WhatsApp group — so a question like “where is that order?” takes a second, not a phone call.',
+    '["Customer & order records", "Inventory", "Invoicing", "Owner dashboard"]'::jsonb,
+    'database', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 7, true
+  ),
+  (
+    'ai-chatbots', 'AI Chatbots', 'Answers your customers at 11 PM, in your words.',
+    'A chatbot trained on your business — your services, pricing, timings and policies — not a generic bot. It answers the routine questions, captures the details that matter, and hands over to a human when it should.',
+    '["Trained on your business", "Captures enquiry details", "Human handover", "Website & WhatsApp"]'::jsonb,
+    'chat', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 8, true
+  ),
+  (
+    'whatsapp-automation', 'WhatsApp Automation', 'Reply in seconds, follow up without remembering to.',
+    'Most Indian businesses already run on WhatsApp. We make it work properly: instant replies to new enquiries, follow-ups that go out on schedule, reminders before appointments, and every conversation recorded where you can see it.',
+    '["Instant first reply", "Scheduled follow-ups", "Appointment reminders", "Official Business API"]'::jsonb,
+    'whatsapp', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 9, true
+  ),
+  (
+    'ai-voice-agents', 'AI Voice Agents', 'Nobody has to let the phone ring out.',
+    'A voice agent that picks up missed calls, confirms appointments and qualifies enquiries over a normal phone conversation — then writes what it learned into your system so your team starts informed.',
+    '["Answers missed calls", "Appointment confirmation", "Call summaries", "Hands over to your team"]'::jsonb,
+    'voice', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 10, true
+  ),
+  (
+    'process-automation', 'Business Process Automation', 'Give your team back the hours they lose to copy-paste.',
+    'The repetitive middle of your operations — data moving between systems, approvals waiting on a message, reports someone rebuilds every Friday — handled automatically, with a person still approving anything that matters.',
+    '["Approval routing", "Automatic reports", "No manual re-entry", "Human-in-the-loop"]'::jsonb,
+    'workflow', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 11, true
+  ),
+  (
+    'api-integrations', 'API Integrations', 'Make the tools you already pay for talk to each other.',
+    'Your website, CRM, billing, inventory and WhatsApp each hold a piece of the truth. We connect them so a change in one place shows up everywhere, and nobody is re-typing the same customer into three systems.',
+    '["Two-way sync", "Payment & billing", "Tally / ERP", "Error alerts"]'::jsonb,
+    'link', 'text-azure-deep', 'from-sky-500/15 via-sky-500/5 to-transparent', 12, true
   )
 on conflict (slug) do update set
   title = excluded.title,
@@ -128,8 +189,6 @@ on conflict (slug) do update set
   description = excluded.description,
   features = excluded.features,
   icon = excluded.icon,
-  accent = excluded.accent,
-  gradient = excluded.gradient,
   sort_order = excluded.sort_order,
   published = excluded.published;
 

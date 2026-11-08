@@ -8,6 +8,63 @@ export default function ServiceIcon({ name, className = 'h-6 w-6' }: ServiceIcon
   const props = { className, fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' };
 
   switch (name) {
+    case 'target':
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="8.5" strokeWidth={1.5} />
+          <circle cx="12" cy="12" r="4.5" strokeWidth={1.5} />
+          <circle cx="12" cy="12" r="1" strokeWidth={1.5} />
+        </svg>
+      );
+    case 'cart':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.5 3h2l2.2 11.2a1.5 1.5 0 001.5 1.2h8.6a1.5 1.5 0 001.5-1.2L20 7H5.4" />
+          <circle cx="9.5" cy="19.5" r="1.4" strokeWidth={1.5} />
+          <circle cx="17" cy="19.5" r="1.4" strokeWidth={1.5} />
+        </svg>
+      );
+    case 'window':
+      return (
+        <svg {...props}>
+          <rect x="3" y="4.5" width="18" height="15" rx="2.5" strokeWidth={1.5} />
+          <path strokeLinecap="round" strokeWidth={1.5} d="M3 9h18M6.5 6.8h.01M9 6.8h.01" />
+        </svg>
+      );
+    case 'code':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.5 16.5 4 12l4.5-4.5M15.5 7.5 20 12l-4.5 4.5M13.5 4.5l-3 15" />
+        </svg>
+      );
+    case 'chat':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.5 11.5c0 4-3.8 7.2-8.5 7.2a9.6 9.6 0 01-2.9-.44L4 20l1.3-3.5A6.9 6.9 0 013.5 11.5c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2z" />
+          <path strokeLinecap="round" strokeWidth={1.5} d="M9 11.5h.01M12 11.5h.01M15 11.5h.01" />
+        </svg>
+      );
+    case 'whatsapp':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.5 11.7a8.4 8.4 0 01-12.4 7.4L3.5 20.5l1.5-4.4A8.4 8.4 0 1120.5 11.7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.2 8.6c.3 0 .5.2.6.4l.7 1.5c.1.2 0 .4-.1.6l-.5.6c.5 1 1.3 1.8 2.3 2.3l.6-.5c.2-.1.4-.2.6-.1l1.5.7c.2.1.4.3.4.6 0 1-.8 1.7-1.8 1.7a6.9 6.9 0 01-6-6c0-1 .7-1.8 1.7-1.8z" />
+        </svg>
+      );
+    case 'voice':
+      return (
+        <svg {...props}>
+          <rect x="9" y="3" width="6" height="11" rx="3" strokeWidth={1.5} />
+          <path strokeLinecap="round" strokeWidth={1.5} d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3" />
+        </svg>
+      );
+    case 'link':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 13.5a3.5 3.5 0 005.1.3l2.6-2.6a3.6 3.6 0 00-5.1-5.1l-1.4 1.4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 10.5a3.5 3.5 0 00-5.1-.3l-2.6 2.6a3.6 3.6 0 005.1 5.1l1.4-1.4" />
+        </svg>
+      );
     case 'database':
       return (
         <svg {...props}>

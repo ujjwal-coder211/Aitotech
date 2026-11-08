@@ -174,3 +174,12 @@ export const industryDetails: IndustryDetail[] = [
 export function getIndustry(slug: string) {
   return industryDetails.find((i) => i.slug === slug);
 }
+
+/**
+ * Industry photography lives in public/images/industries, one WebP per slug,
+ * so the path is derived rather than stored and the two can never drift.
+ * See that folder's CREDITS.md for sources and licence.
+ */
+export function industryImage(slug: string) {
+  return `/images/industries/${slug}.webp`;
+}

@@ -1,15 +1,34 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useEffect, useRef, useState, FormEvent } from 'react';
 import { track } from '@/lib/analytics';
 import { motion } from 'framer-motion';
 import { contactPage } from '@/data/siteContent';
+import { catalogue } from '@/data/services';
 
 type FieldErrors = Partial<Record<'name' | 'email' | 'company' | 'message', string>>;
 type FieldStatus = Partial<Record<'name' | 'email' | 'company' | 'message', 'valid' | 'invalid'>>;
 
 export default function ContactForm() {
   const { form } = contactPage;
+
+  /**
+   * Service pages link here as /contact?service=<slug>, so the visitor does
+   * not have to retype what they came for. Read after mount rather than with
+   * useSearchParams: that would opt the whole page out of prerendering and
+   * leave a Suspense skeleton where the form should be. Unknown slugs are
+   * ignored rather than echoed back into the textarea.
+   */
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get('service');
+    if (!slug) return;
+    const requested = catalogue.find((s) => s.slug === slug);
+    const el = messageRef.current;
+    if (requested && el && !el.value) el.value = `I'm interested in ${requested.title}. `;
+  }, []);
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<FieldErrors>({});
   const [fieldStatus, setFieldStatus] = useState<FieldStatus>({});
@@ -138,6 +157,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
+          ref={messageRef}
           className={`${inputClass('message')} resize-y`}
           placeholder={form.placeholders.message}
         />

@@ -141,11 +141,11 @@ export default function RoiCalculator() {
         </p>
         <p className="mt-1.5 text-[13.5px] text-[#a9bdd8]">
           could be redirected if roughly {Math.round(AUTOMATABLE * 100)}% of this is automated — the
-          audit confirms what actually can be.
+          free consultation confirms what actually can be.
         </p>
 
         <Link href="/contact" className="ap-btn ap-btn-pri mt-6 w-full">
-          Book Free Automation Audit
+          Automate My Business
         </Link>
       </div>
     </div>
