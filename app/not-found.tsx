@@ -23,8 +23,8 @@ export default function NotFound() {
             <Link href="/" className="ap-btn ap-btn-pri">
               Back to home
             </Link>
-            <Link href="/solutions" className="ap-btn ap-btn-sec">
-              See solutions
+            <Link href="/services" className="ap-btn ap-btn-sec">
+              See services
             </Link>
             <Link href="/contact" className="ap-btn ap-btn-sec">
               Contact us

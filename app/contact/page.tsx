@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import ContactForm from '@/components/ContactForm';
 import WhatsAppLink from '@/components/WhatsAppLink';
 import SocialLinks from '@/components/SocialLinks';
@@ -9,9 +10,9 @@ import Reveal from '@/components/ap/Reveal';
 import { site } from '@/data/siteContent';
 
 export const metadata: Metadata = {
-  title: 'Contact — Book a Free Automation Audit',
+  title: 'Contact — Book a Free Consultation',
   description:
-    'Tell us what you want to automate. Thirty minutes, your actual workflows, and a clear list of what can be automated first. We reply within one business day.',
+    'Tell us what you want to build or automate. Thirty minutes on your actual business and a clear recommendation of what to build first. We reply within one business day.',
   alternates: { canonical: '/contact' },
 };
 
@@ -29,10 +30,11 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Let&rsquo;s find what you can <span className="text-azure-deep">automate.</span>
+            Tell us what you are trying to{' '}
+            <span className="text-azure-deep">grow.</span>
           </>
         }
-        description="Tell us what you want to build or automate. We reply within one business day — and the first conversation is a free audit, not a pitch."
+        description="A website, an app, custom software or automation — tell us the problem and we will tell you what to build first. We reply within one business day, and the first conversation is free."
       />
 
       <section className="ap-sec pt-4">
@@ -68,12 +70,12 @@ export default function ContactPage() {
               </div>
 
               <div className="ap-card mt-7 p-6">
-                <h2 className="mb-2.5 text-[17px] font-bold">What happens in the audit</h2>
+                <h2 className="mb-2.5 text-[17px] font-bold">What happens in the consultation</h2>
                 <ul className="grid gap-2.5">
                   {[
-                    'We map how work moves through your business today.',
-                    'We mark the steps costing the most time or deals.',
-                    'You get a written list of what can be automated first.',
+                    'We learn your business, your customers and what is getting in the way.',
+                    'We mark the steps costing you the most time or the most deals.',
+                    'You get a written recommendation of what to build first — and what can wait.',
                   ].map((line) => (
                     <li key={line} className="flex gap-3 text-sm text-quiet">
                       <span className="mt-2.5 h-0.5 w-3 flex-none bg-azure" />
@@ -85,7 +87,9 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal y={22}>
-              <ContactForm />
+              <Suspense fallback={<div className="ap-card h-[560px] animate-pulse" />}>
+                <ContactForm />
+              </Suspense>
             </Reveal>
           </div>
         </div>

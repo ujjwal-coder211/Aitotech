@@ -3,19 +3,18 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { trackCta } from '@/lib/analytics';
 
 const NAV = [
   { label: 'Home', href: '/' },
-  { label: 'Solutions', href: '/solutions' },
+  { label: 'Services', href: '/services' },
   { label: 'Industries', href: '/industries' },
-  { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,43 +32,63 @@ export default function SiteHeader() {
     };
   }, [open]);
 
+  // Close the mobile menu when navigation actually changes the route.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
+
   return (
     <header
-      className={`sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow duration-300 ${
-        scrolled ? 'border-b border-hairline shadow-[0_1px_0_rgba(13,33,84,0.04)]' : 'border-b border-transparent'
+      className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled
+          ? 'border-b border-hairline shadow-[0_1px_0_rgba(13,33,84,0.04)]'
+          : 'border-b border-transparent'
       }`}
     >
-      <div className="ap-wrap flex h-[74px] items-center gap-7">
-        <Link href="/" className="mr-auto flex items-center gap-2.5">
+      <div className="ap-wrap flex h-[78px] items-center gap-8">
+        <Link href="/" className="mr-auto flex items-center gap-2.5" aria-label="AitoTech home">
           <Image
             src="/images/logo-mark-v2.png"
-            alt="AitoTech"
-            width={34}
-            height={34}
-            className="h-[34px] w-[34px] object-contain"
+            alt=""
+            width={36}
+            height={36}
+            className="h-9 w-9 object-contain"
             priority
           />
-          <span className="font-heading text-[19px] font-extrabold text-ink">AitoTech</span>
+          <span className="font-heading text-[20px] font-extrabold tracking-tight text-ink">
+            AitoTech
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[14.5px] text-quiet transition-colors duration-200 hover:text-ink"
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              className={`relative text-[15px] transition-colors duration-200 ${
+                isActive(item.href)
+                  ? 'font-semibold text-ink'
+                  : 'text-quiet hover:text-ink'
+              }`}
             >
               {item.label}
+              {isActive(item.href) && (
+                <span className="absolute -bottom-[6px] left-0 h-0.5 w-full rounded-full bg-azure" />
+              )}
             </Link>
           ))}
         </nav>
 
         <Link
           href="/contact"
-          onClick={() => trackCta('Book Free Audit', 'header')}
-          className="ap-btn ap-btn-pri hidden h-[42px] px-[18px] text-sm lg:inline-flex"
+          onClick={() => trackCta('Get Started', 'header')}
+          className="ap-btn ap-btn-pri hidden h-[44px] px-5 text-[14.5px] lg:inline-flex"
         >
-          Book Free Audit
+          Get Started
         </Link>
 
         <button
@@ -91,26 +110,25 @@ export default function SiteHeader() {
 
       {open && (
         <div className="border-t border-hairline bg-white lg:hidden">
-          <nav className="ap-wrap flex flex-col py-3">
+          <nav aria-label="Main" className="ap-wrap flex flex-col py-3">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-hairline py-3.5 text-[15px] font-medium text-ink last:border-0"
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={`border-b border-hairline py-4 text-[16px] last:border-0 ${
+                  isActive(item.href) ? 'font-semibold text-azure-deep' : 'font-medium text-ink'
+                }`}
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              onClick={() => {
-                trackCta('Book Free Audit', 'mobile_menu');
-                setOpen(false);
-              }}
+              onClick={() => trackCta('Get Started', 'mobile_menu')}
               className="ap-btn ap-btn-pri mt-4 w-full"
             >
-              Book Free Audit
+              Get Started
             </Link>
           </nav>
         </div>

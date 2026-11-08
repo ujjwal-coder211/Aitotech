@@ -1,15 +1,27 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { track } from '@/lib/analytics';
 import { motion } from 'framer-motion';
 import { contactPage } from '@/data/siteContent';
+import { catalogue } from '@/data/services';
 
 type FieldErrors = Partial<Record<'name' | 'email' | 'company' | 'message', string>>;
 type FieldStatus = Partial<Record<'name' | 'email' | 'company' | 'message', 'valid' | 'invalid'>>;
 
 export default function ContactForm() {
   const { form } = contactPage;
+
+  /**
+   * Service pages link here as /contact?service=<slug>, so the visitor does
+   * not have to retype what they came for. Unknown slugs are ignored rather
+   * than echoed back into the textarea.
+   */
+  const slug = useSearchParams().get('service');
+  const requested = slug ? catalogue.find((s) => s.slug === slug) : undefined;
+  const prefill = requested ? `I'm interested in ${requested.title}. ` : '';
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<FieldErrors>({});
   const [fieldStatus, setFieldStatus] = useState<FieldStatus>({});
@@ -138,6 +150,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
+          defaultValue={prefill}
           className={`${inputClass('message')} resize-y`}
           placeholder={form.placeholders.message}
         />

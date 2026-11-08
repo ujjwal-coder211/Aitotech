@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { dataPrinciples, stack } from '@/data/automation';
+import { dataPrinciples, stack } from '@/data/homepage';
 import PageShell from '@/components/ap/PageShell';
 import PageIntro from '@/components/ap/PageIntro';
 import Reveal from '@/components/ap/Reveal';
 import FinalCta from '@/components/ap/FinalCta';
 
 export const metadata: Metadata = {
-  title: 'About AitoTech',
+  title: 'About AitoTech — Digital Solutions Studio in Delhi',
   description:
-    'AitoTech is a founder-led automation studio in Delhi. We build customer and operations automation for small and growing businesses — and our own products alongside.',
+    'AitoTech is a founder-led technology studio in Delhi. We build websites, web and mobile applications, custom software and AI automation for small and growing businesses — and our own products alongside.',
   alternates: { canonical: '/about' },
 };
 
 const letter = [
-  'I started AitoTech in Delhi with one goal: give small and growing businesses the kind of software and automation that usually only large companies can afford.',
+  'I started AitoTech in Delhi with one goal: give small and growing businesses the kind of websites, software and automation that usually only large companies can afford.',
   'We are small and engineering-first, and we build our own products too. Building them keeps us honest — every client project gets the same discipline we apply to our own.',
   'No slide decks, no outsourcing chains. You talk to the people who build your system, and every engagement starts with a working demo of your own workflow, so you see exactly what you are getting before you commit.',
 ];
@@ -22,7 +22,7 @@ const letter = [
 const pillars = [
   {
     title: 'Mission',
-    body: 'Make automation accessible, measurable and human-centred for businesses of any size.',
+    body: 'Make good technology — websites, software and automation — accessible and measurable for businesses of any size.',
   },
   {
     title: 'Vision',
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <span className="text-azure-deep">and answers the phone.</span>
           </>
         }
-        description="AitoTech was founded on a simple belief: software should remove friction, not add complexity."
+        description="AitoTech helps businesses grow through digital solutions, AI automation and custom technology — founded on a simple belief: software should remove friction, not add complexity."
       />
 
       <section className="ap-sec pt-4">
