@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
       { source: '/solutions', destination: '/services', permanent: true },
       { source: '/how-it-works', destination: '/services', permanent: true },
       { source: '/case-studies', destination: '/demos', permanent: true },
+      // The four services the old catalogue had. Three were renamed or split
+      // into the new twelve and would otherwise 404 once the table is
+      // reseeded; /services/mobile-apps kept its slug and needs nothing.
+      { source: '/services/website-development', destination: '/services/business-websites', permanent: true },
+      { source: '/services/workflow-automation', destination: '/services/process-automation', permanent: true },
+      { source: '/services/custom-ai', destination: '/services/ai-chatbots', permanent: true },
     ];
   },
 };
