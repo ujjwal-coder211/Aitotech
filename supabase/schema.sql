@@ -3,8 +3,16 @@
 --  Run this in: Supabase Dashboard → SQL Editor → New query → Run
 -- ═══════════════════════════════════════════════════════════════════
 
--- ─── 1. LEADS (contact form submissions) ───
-create table if not exists public.leads (
+-- ─── 1. CONTACT MESSAGES (contact form submissions) ───
+--
+-- NOTE: this used to be called `leads`, which collided with the SalesConnect
+-- AI agent's own `public.leads` CRM table in the same database. Because this
+-- file says `create table if not exists`, the website's definition silently
+-- did nothing while the policies below were applied to the agent's table —
+-- so every contact form insert failed on a missing `name` column and the
+-- visitor got a 503. The website now owns `contact_messages`; `public.leads`
+-- belongs to SalesConnect and must be left alone.
+create table if not exists public.contact_messages (
   id          uuid primary key default gen_random_uuid(),
   name        text not null,
   email       text not null,
@@ -14,33 +22,48 @@ create table if not exists public.leads (
   created_at  timestamptz not null default now()
 );
 
-alter table public.leads enable row level security;
+create index if not exists contact_messages_created_at_idx
+  on public.contact_messages (created_at desc);
 
--- Anyone (anon) can submit a lead via the contact form
-drop policy if exists "anyone can insert leads" on public.leads;
-create policy "anyone can insert leads"
-  on public.leads for insert
+alter table public.contact_messages enable row level security;
+
+-- Anyone (anon) can submit a message via the contact form
+drop policy if exists "anyone can insert contact messages" on public.contact_messages;
+create policy "anyone can insert contact messages"
+  on public.contact_messages for insert
   to anon, authenticated
   with check (true);
 
--- Only logged-in admins can read / update / delete leads
-drop policy if exists "authenticated can read leads" on public.leads;
-create policy "authenticated can read leads"
-  on public.leads for select
+-- Only logged-in admins can read / update / delete them
+drop policy if exists "authenticated can read contact messages" on public.contact_messages;
+create policy "authenticated can read contact messages"
+  on public.contact_messages for select
   to authenticated
   using (true);
 
-drop policy if exists "authenticated can update leads" on public.leads;
-create policy "authenticated can update leads"
-  on public.leads for update
+drop policy if exists "authenticated can update contact messages" on public.contact_messages;
+create policy "authenticated can update contact messages"
+  on public.contact_messages for update
   to authenticated
   using (true);
 
-drop policy if exists "authenticated can delete leads" on public.leads;
-create policy "authenticated can delete leads"
-  on public.leads for delete
+drop policy if exists "authenticated can delete contact messages" on public.contact_messages;
+create policy "authenticated can delete contact messages"
+  on public.contact_messages for delete
   to authenticated
   using (true);
+
+-- This file also left four policies behind on `public.leads`, which is
+-- SalesConnect's table, not the website's. One of them lets the public `anon`
+-- key INSERT rows into that CRM, which is worth closing — but SalesConnect may
+-- be relying on them, so confirm which key that app uses before running this:
+--
+--   drop policy if exists "anyone can insert leads" on public.leads;
+--   drop policy if exists "authenticated can read leads" on public.leads;
+--   drop policy if exists "authenticated can update leads" on public.leads;
+--   drop policy if exists "authenticated can delete leads" on public.leads;
+--
+-- If it uses the service-role key, RLS is bypassed and dropping them is safe.
 
 
 -- ─── 2. SERVICES (CMS-managed content) ───

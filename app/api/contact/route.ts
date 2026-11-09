@@ -5,7 +5,13 @@ import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
 /**
  * Serverless contact handler.
- * Primary: stores the lead in Supabase (table: leads).
+ * Primary: stores the message in Supabase (table: contact_messages).
+ *
+ * The table is NOT called `leads`: that name is taken by the SalesConnect AI
+ * agent's own CRM in the same database, whose columns are completely
+ * different (channel, customer_name, phone, lead_score...). Inserting this
+ * payload there failed on a missing `name` column, so every submission fell
+ * through to the 503 at the bottom of this file.
  * Optional: also forwards an email notification via Formspree / EmailJS.
  * Falls back gracefully if nothing is configured (dev logging).
  */
@@ -168,7 +174,7 @@ export async function POST(request: NextRequest) {
   if (isSupabaseConfigured()) {
     try {
       const supabase = await createClient();
-      const { error } = await supabase.from('leads').insert({
+      const { error } = await supabase.from('contact_messages').insert({
         name: payload.name,
         email: payload.email,
         company: payload.company || null,
@@ -203,7 +209,7 @@ export async function POST(request: NextRequest) {
     console.log('[DEV] Contact submission:', payload);
     return NextResponse.json({
       success: true,
-      message: 'DEV MODE: Logged. Configure Supabase to store leads.',
+      message: 'DEV MODE: Logged. Configure Supabase to store messages.',
     });
   }
 
