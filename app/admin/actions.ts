@@ -11,17 +11,17 @@ export async function signOut() {
   redirect('/admin/login');
 }
 
-/** Update a lead's status (new | read | archived). */
+/** Update a contact message's status (new | read | archived). */
 export async function updateLeadStatus(id: string, status: string) {
   const supabase = await createClient();
-  await supabase.from('leads').update({ status }).eq('id', id);
+  await supabase.from('contact_messages').update({ status }).eq('id', id);
   revalidatePath('/admin');
 }
 
-/** Delete a lead. */
+/** Delete a contact message. */
 export async function deleteLead(id: string) {
   const supabase = await createClient();
-  await supabase.from('leads').delete().eq('id', id);
+  await supabase.from('contact_messages').delete().eq('id', id);
   revalidatePath('/admin');
 }
 

@@ -15,7 +15,10 @@ interface Lead {
 }
 
 /**
- * Admin dashboard — list of contact form leads.
+ * Admin dashboard — list of contact form submissions.
+ *
+ * Reads `contact_messages`, not `leads`: the latter is the SalesConnect
+ * agent's CRM and has an unrelated shape.
  */
 export default async function AdminDashboard() {
   if (!isSupabaseConfigured()) {
@@ -29,7 +32,7 @@ export default async function AdminDashboard() {
 
   const supabase = await createClient();
   const { data: leads, error } = await supabase
-    .from('leads')
+    .from('contact_messages')
     .select('*')
     .order('created_at', { ascending: false });
 
@@ -49,7 +52,7 @@ export default async function AdminDashboard() {
 
       {error ? (
         <p className="glass rounded-2xl p-6 text-sm text-red-300">
-          Could not load leads: {error.message}. Make sure you ran the SQL schema.
+          Could not load messages: {error.message}. Make sure you ran the SQL schema.
         </p>
       ) : list.length === 0 ? (
         <p className="glass rounded-2xl p-8 text-center text-slate-500">
