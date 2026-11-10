@@ -74,6 +74,12 @@ export async function sendToIngest(payload: IngestPayload): Promise<boolean> {
         utm_source: payload.utm_source,
         utm_medium: payload.utm_medium,
         utm_campaign: payload.utm_campaign,
+        // Also opens a thread in the unified inbox, so the enquiry can be read
+        // and answered from the Command Center instead of only sitting in a
+        // table. The phone, when given, is what makes a WhatsApp reply possible.
+        channel: 'website',
+        subject: 'Website enquiry',
+        message: payload.message,
         payload: { message: payload.message, form: 'contact' },
       }),
       // Never hold the form hostage to a slow backend.
