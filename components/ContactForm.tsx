@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, FormEvent } from 'react';
+import { readAttribution } from '@/lib/attribution';
 import { track } from '@/lib/analytics';
 import { motion } from 'framer-motion';
 import { contactPage } from '@/data/siteContent';
@@ -79,6 +80,10 @@ export default function ContactForm() {
           company: data.get('company'),
           message: data.get('message'),
           website: data.get('website'),
+          // Where this visitor came from, remembered since they arrived.
+          // Without it every website lead reads as "website", which is true
+          // and tells the owner nothing about what is worth doing again.
+          ...readAttribution(),
         }),
       });
 

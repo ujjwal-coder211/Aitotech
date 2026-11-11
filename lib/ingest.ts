@@ -45,6 +45,13 @@ export interface IngestPayload {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+  referrer?: string;
+  landing_path?: string;
+  /** A signal that is not an enquiry — a WhatsApp click, for instance. */
+  type?: string;
+  /** No person attached: nothing to resolve to a contact, only a moment. */
+  anonymous?: boolean;
+  label?: string;
 }
 
 /** @returns true when the business OS accepted the enquiry. */
@@ -65,22 +72,36 @@ export async function sendToIngest(payload: IngestPayload): Promise<boolean> {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-api-key': key },
       body: JSON.stringify({
-        type: 'form.submit',
+        type: payload.type ?? 'form.submit',
         source: 'website',
-        dedupe_key: await dedupeKey(payload.email, payload.message),
-        email: payload.email,
-        full_name: payload.name,
-        company: payload.company || undefined,
+        // An anonymous signal has no email or message to key on, and two
+        // clicks a second apart are two clicks — not a duplicate to collapse.
+        dedupe_key: payload.anonymous
+          ? undefined
+          : await dedupeKey(payload.email, payload.message),
+        email: payload.anonymous ? undefined : payload.email,
+        full_name: payload.anonymous ? undefined : payload.name,
+        company: payload.anonymous ? undefined : (payload.company || undefined),
         utm_source: payload.utm_source,
         utm_medium: payload.utm_medium,
         utm_campaign: payload.utm_campaign,
         // Also opens a thread in the unified inbox, so the enquiry can be read
         // and answered from the Command Center instead of only sitting in a
         // table. The phone, when given, is what makes a WhatsApp reply possible.
-        channel: 'website',
-        subject: 'Website enquiry',
-        message: payload.message,
-        payload: { message: payload.message, form: 'contact' },
+        // A click is an event, not a conversation: no channel, no thread, no
+        // entry in the inbox for somebody to answer.
+        channel: payload.anonymous ? undefined : 'website',
+        subject: payload.anonymous ? undefined : 'Website enquiry',
+        message: payload.anonymous ? undefined : payload.message,
+        payload: {
+          message: payload.anonymous ? undefined : payload.message,
+          form: payload.anonymous ? undefined : 'contact',
+          label: payload.label,
+          // Kept beside the contact's first_source so the raw evidence
+          // survives even if the guess about the source is wrong.
+          referrer: payload.referrer,
+          landing_path: payload.landing_path,
+        },
       }),
       // Never hold the form hostage to a slow backend.
       signal: AbortSignal.timeout(8000),

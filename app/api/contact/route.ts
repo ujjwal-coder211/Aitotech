@@ -21,6 +21,11 @@ interface ContactBody {
   email?: string;
   company?: string;
   message?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  referrer?: string;
+  landing_path?: string;
   /** Honeypot — real users never fill this hidden field. */
   website?: string;
 }
@@ -127,6 +132,13 @@ export async function POST(request: NextRequest) {
     email: sanitize(body.email, 254),
     company: sanitize(body.company, 150),
     message: sanitize(body.message, 2000),
+    // Attribution comes from the visitor's own browser, so it is sanitised
+    // like everything else they send.
+    utm_source: sanitize(body.utm_source, 200) || undefined,
+    utm_medium: sanitize(body.utm_medium, 200) || undefined,
+    utm_campaign: sanitize(body.utm_campaign, 200) || undefined,
+    referrer: sanitize(body.referrer, 300) || undefined,
+    landing_path: sanitize(body.landing_path, 300) || undefined,
   };
 
   let storedInDb = false;

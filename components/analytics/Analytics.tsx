@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
+import CaptureSource from './CaptureSource';
 
 /**
  * GA4 measurement ID. Not a secret — it is sent to every visitor in the page
@@ -21,6 +22,9 @@ export default function Analytics() {
   return (
     <>
       <VercelAnalytics />
+      {/* Remembers the referrer on arrival, so a lead that fills the form
+          three pages later is still credited to whatever brought them. */}
+      <CaptureSource />
 
       {gaId && (
         <>
