@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { isAdmin } from './admin-auth';
 
 /**
  * Refreshes the Supabase auth session and protects /admin routes.
@@ -53,8 +54,28 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(redirectUrl);
   }
 
-  // Already logged in + on login page → send to dashboard
-  if (isLoginPage && user) {
+  // Logged in, but not an admin. Being signed in to Supabase is NOT the same
+  // as being allowed in here, and this is the check whose absence let any
+  // authenticated account read and delete every lead.
+  //
+  // A plain 403, not a redirect to /admin/login: they are already signed in,
+  // so bouncing them to the login page would send them straight back here and
+  // spin. It also tells the truth -- the problem is the account, not the
+  // session.
+  //
+  // This runs for server actions too. Next.js posts them to the page's own
+  // route, so middleware sees them; that matters because the actions in
+  // app/admin/actions.ts are independently invocable endpoints, not just
+  // buttons on a page. They re-check anyway, because one gate in front of a
+  // write is one gate too few.
+  if (isAdminArea && !isLoginPage && user && !isAdmin(user)) {
+    return new NextResponse('Not authorised for the admin area.', { status: 403 });
+  }
+
+  // Already logged in + on login page → send to dashboard. Only for an actual
+  // admin; otherwise a non-admin bounces to /admin, gets the 403 above, and
+  // never sees a way out.
+  if (isLoginPage && user && isAdmin(user)) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin';
     return NextResponse.redirect(redirectUrl);
