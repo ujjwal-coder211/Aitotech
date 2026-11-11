@@ -25,6 +25,34 @@ create table if not exists public.contact_messages (
 create index if not exists contact_messages_created_at_idx
   on public.contact_messages (created_at desc);
 
+-- ---------------------------------------------------------------------------
+-- Who is an admin.
+--
+-- Reads the claim from the caller's JWT, from `app_metadata` ONLY -- the half
+-- of the token a user cannot write. `user_metadata` is editable by the user
+-- via updateUser(), so trusting it would let anybody promote themselves with
+-- a single API call. This function must never look at it.
+--
+-- Mirrors lib/supabase/admin-auth.ts. If one changes, change both.
+-- ---------------------------------------------------------------------------
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+set search_path = ''
+as $$
+  select coalesce(
+    lower(auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+    or (auth.jwt() -> 'app_metadata' ->> 'is_admin')::boolean is true
+    or (case
+          when jsonb_typeof(auth.jwt() -> 'app_metadata' -> 'roles') = 'array'
+          then auth.jwt() -> 'app_metadata' -> 'roles' ? 'admin'
+          else false
+        end),
+    false
+  );
+$$;
+
 alter table public.contact_messages enable row level security;
 
 -- Anyone (anon) can submit a message via the contact form
@@ -34,24 +62,33 @@ create policy "anyone can insert contact messages"
   to anon, authenticated
   with check (true);
 
--- Only logged-in admins can read / update / delete them
+-- Only admins can read / update / delete them.
+--
+-- These three said `using (true)` for the whole `authenticated` role while the
+-- comment above them claimed "only admins". The comment was the intent; the
+-- code never implemented it, so every lead was readable and deletable by any
+-- account that could log in.
 drop policy if exists "authenticated can read contact messages" on public.contact_messages;
-create policy "authenticated can read contact messages"
+drop policy if exists "admins can read contact messages"        on public.contact_messages;
+create policy "admins can read contact messages"
   on public.contact_messages for select
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 drop policy if exists "authenticated can update contact messages" on public.contact_messages;
-create policy "authenticated can update contact messages"
+drop policy if exists "admins can update contact messages"        on public.contact_messages;
+create policy "admins can update contact messages"
   on public.contact_messages for update
   to authenticated
-  using (true);
+  using (public.is_admin())
+  with check (public.is_admin());
 
 drop policy if exists "authenticated can delete contact messages" on public.contact_messages;
-create policy "authenticated can delete contact messages"
+drop policy if exists "admins can delete contact messages"        on public.contact_messages;
+create policy "admins can delete contact messages"
   on public.contact_messages for delete
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 -- This file also left four policies behind on `public.leads`, which is
 -- SalesConnect's table, not the website's. One of them lets the public `anon`
@@ -90,15 +127,18 @@ drop policy if exists "public can read published services" on public.services;
 create policy "public can read published services"
   on public.services for select
   to anon, authenticated
-  using (published = true or auth.role() = 'authenticated');
+  -- Was `or auth.role() = 'authenticated'`, which showed UNPUBLISHED drafts
+  -- to any logged-in account. Only admins see those.
+  using (published = true or public.is_admin());
 
--- Logged-in admins can do everything
+-- Admins can do everything
 drop policy if exists "authenticated manage services" on public.services;
-create policy "authenticated manage services"
+drop policy if exists "admins manage services"        on public.services;
+create policy "admins manage services"
   on public.services for all
   to authenticated
-  using (true)
-  with check (true);
+  using (public.is_admin())
+  with check (public.is_admin());
 
 -- Auto-update updated_at on row change
 create or replace function public.set_updated_at()
@@ -236,13 +276,15 @@ create policy "anyone can insert aksh waitlist"
   with check (true);
 
 drop policy if exists "authenticated can read aksh waitlist" on public.aksh_waitlist;
-create policy "authenticated can read aksh waitlist"
+drop policy if exists "admins can read aksh waitlist"        on public.aksh_waitlist;
+create policy "admins can read aksh waitlist"
   on public.aksh_waitlist for select
   to authenticated
-  using (true);
+  using (public.is_admin());
 
 drop policy if exists "authenticated can update aksh waitlist" on public.aksh_waitlist;
-create policy "authenticated can update aksh waitlist"
+drop policy if exists "admins can update aksh waitlist"        on public.aksh_waitlist;
+create policy "admins can update aksh waitlist"
   on public.aksh_waitlist for update
   to authenticated
-  using (true);
+  using (public.is_admin());
