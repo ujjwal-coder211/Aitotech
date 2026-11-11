@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAgentsApiKey, getAgentsApiUrl } from '@/lib/routelyApi';
+import { sendToIngest } from '@/lib/ingest';
 import { clientIp, rateLimit } from '@/lib/rate-limit';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/server';
 
@@ -21,6 +21,11 @@ interface ContactBody {
   email?: string;
   company?: string;
   message?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  referrer?: string;
+  landing_path?: string;
   /** Honeypot — real users never fill this hidden field. */
   website?: string;
 }
@@ -95,45 +100,6 @@ async function sendEmailNotification(payload: {
   }
 }
 
-/**
- * Best-effort: Aitotech-agents backend ko ek "sales" task bhejo taaki sales
- * agent follow-up draft/send kar sake (n8n ke through). Lead ki copy website ke
- * apne Supabase me already save hoti hai — ye sirf agents ko kaam deta hai, isliye
- * /tasks use karte hain (duplicate lead se bachne ke liye). Fail ho to ignore.
- */
-async function notifyAgents(payload: {
-  name: string;
-  email: string;
-  company: string;
-  message: string;
-}): Promise<void> {
-  const base = getAgentsApiUrl();
-  if (!base) return;
-  try {
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const key = getAgentsApiKey();
-    if (key) headers['x-api-key'] = key;
-    await fetch(`${base}/tasks`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        title: `Website lead: ${payload.name}`,
-        agent_type: 'sales',
-        priority: 6,
-        payload: {
-          name: payload.name,
-          email: payload.email,
-          company: payload.company || null,
-          message: payload.message,
-          source: 'aitotech-website',
-        },
-      }),
-    });
-  } catch (e) {
-    console.error('Agents notify failed:', e);
-  }
-}
-
 /** POST /api/contact */
 export async function POST(request: NextRequest) {
   if (!rateLimit(`contact:${clientIp(request)}`, 5, 10 * 60 * 1000)) {
@@ -166,6 +132,13 @@ export async function POST(request: NextRequest) {
     email: sanitize(body.email, 254),
     company: sanitize(body.company, 150),
     message: sanitize(body.message, 2000),
+    // Attribution comes from the visitor's own browser, so it is sanitised
+    // like everything else they send.
+    utm_source: sanitize(body.utm_source, 200) || undefined,
+    utm_medium: sanitize(body.utm_medium, 200) || undefined,
+    utm_campaign: sanitize(body.utm_campaign, 200) || undefined,
+    referrer: sanitize(body.referrer, 300) || undefined,
+    landing_path: sanitize(body.landing_path, 300) || undefined,
   };
 
   let storedInDb = false;
@@ -191,11 +164,21 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // ─── Secondary: email notification (best-effort) ───
-  await sendEmailNotification(payload);
+  // ─── Secondary: notify, and hand the enquiry to the business OS ───
+  //
+  // Both are best-effort and independent, so they run together rather than one
+  // after the other — this is on the critical path of someone waiting for the
+  // form to submit. Neither failure changes what the visitor sees: the message
+  // is already in contact_messages by this point.
+  const [, ingested] = await Promise.all([
+    sendEmailNotification(payload),
+    sendToIngest(payload),
+  ]);
 
-  // ─── Tertiary: hand the lead to the AI agents (best-effort) ───
-  await notifyAgents(payload);
+  if (!ingested) {
+    // Visible in the logs so a misconfigured key does not quietly cost leads.
+    console.warn('contact: enquiry saved locally but not ingested into the business OS');
+  }
 
   if (storedInDb) {
     return NextResponse.json({

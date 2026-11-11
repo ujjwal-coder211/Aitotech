@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { track } from '@/lib/analytics';
+import { readAttribution } from '@/lib/attribution';
 
 /**
  * Anti-spam WhatsApp link: the number never appears in server-rendered HTML
@@ -25,6 +26,24 @@ export default function WhatsAppLink({
 }: Props) {
   const openChat = () => {
     track('whatsapp_click', { label });
+
+    // Tell the business OS somebody came through from here, and from where.
+    // Deliberately NOT a code in the prefilled message: that would be certain
+    // attribution the customer has to look at, and a customer should not have
+    // to read our bookkeeping. keepalive, because the tab is about to lose
+    // focus to WhatsApp and a normal fetch would be cancelled.
+    try {
+      const body = JSON.stringify({ ...readAttribution(), label });
+      fetch('/api/whatsapp-click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      /* never let bookkeeping stand between a customer and WhatsApp */
+    }
+
     const number = NUMBER_PARTS.join('');
     const text = encodeURIComponent(message);
     window.open(`https://wa.me/${number}?text=${text}`, '_blank', 'noopener,noreferrer');
