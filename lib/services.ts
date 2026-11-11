@@ -80,9 +80,19 @@ export async function getServices(): Promise<ServiceRecord[]> {
       .select('*')
       .order('sort_order', { ascending: true });
 
-    if (error || !data) return staticServices();
+    if (error || !data) {
+      // Falling back is right -- the site must render either way. Doing it
+      // SILENTLY is what let a completely unreachable database look like a
+      // perfectly healthy website, while the contact form failed beside it and
+      // contact_messages stayed on zero rows.
+      console.error(
+        `services: falling back to static copy — ${error?.message ?? 'no rows returned'}`,
+      );
+      return staticServices();
+    }
     rows = data;
-  } catch {
+  } catch (e) {
+    console.error('services: falling back to static copy —', e);
     return staticServices();
   }
 

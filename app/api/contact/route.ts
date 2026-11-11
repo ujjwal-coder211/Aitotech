@@ -160,7 +160,20 @@ export async function POST(request: NextRequest) {
         storedInDb = true;
       }
     } catch (e) {
-      console.error('Supabase insert failed:', e);
+      // Name the host. A bare `TypeError: fetch failed` is indistinguishable
+      // from fifty other causes, and the one that actually bit here -- a
+      // NEXT_PUBLIC_SUPABASE_URL that is set but unreachable, e.g. carrying a
+      // stray newline from a copy-paste -- is invisible without it. Only the
+      // host is logged, never the key.
+      let host = 'unset';
+      try {
+        host = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL ?? '').host || 'empty';
+      } catch {
+        host = `unparseable: ${JSON.stringify(
+          (process.env.NEXT_PUBLIC_SUPABASE_URL ?? '').slice(0, 60),
+        )}`;
+      }
+      console.error(`Supabase insert failed (host ${host}):`, e);
     }
   }
 
@@ -168,8 +181,7 @@ export async function POST(request: NextRequest) {
   //
   // Both are best-effort and independent, so they run together rather than one
   // after the other — this is on the critical path of someone waiting for the
-  // form to submit. Neither failure changes what the visitor sees: the message
-  // is already in contact_messages by this point.
+  // form to submit.
   const [, ingested] = await Promise.all([
     sendEmailNotification(payload),
     sendToIngest(payload),
@@ -177,10 +189,29 @@ export async function POST(request: NextRequest) {
 
   if (!ingested) {
     // Visible in the logs so a misconfigured key does not quietly cost leads.
-    console.warn('contact: enquiry saved locally but not ingested into the business OS');
+    console.warn('contact: enquiry not ingested into the business OS');
   }
 
-  if (storedInDb) {
+  // The enquiry is safe if EITHER store took it.
+  //
+  // This used to depend on contact_messages alone, and that insert has been
+  // failing on production with `TypeError: fetch failed` -- contact_messages
+  // holds ZERO rows. So a visitor whose enquiry had just been delivered into
+  // the business OS was told "Contact backend is not configured yet. Please
+  // try again later." They would reasonably give up and go to a competitor
+  // while their lead sat unread in the inbox.
+  //
+  // Telling somebody their message failed when we have it is worse than either
+  // failing honestly or succeeding quietly.
+  if (storedInDb || ingested) {
+    if (!storedInDb) {
+      // Not the visitor's problem, but somebody has to know that the website's
+      // own copy of its enquiries is not being written.
+      console.error(
+        'contact: enquiry reached the business OS but NOT contact_messages — '
+        + 'the website database write is failing',
+      );
+    }
     return NextResponse.json({
       success: true,
       message: 'Thank you! Your message has been received.',
