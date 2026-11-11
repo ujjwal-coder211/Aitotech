@@ -6,3 +6,8 @@ out/
 .env*.local
 *.log
 .DS_Store
+
+# TypeScript incremental build cache — a local artifact, not source.
+# It was tracked, so every build rewrote 300KB of noise into the diff.
+tsconfig.tsbuildinfo
+*.tsbuildinfo
