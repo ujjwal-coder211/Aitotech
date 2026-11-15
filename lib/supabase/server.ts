@@ -30,18 +30,24 @@ export async function createClient() {
   );
 }
 
-/**
- * Admin client using the service-role key — bypasses RLS.
- * NEVER expose this to the browser. Use only in trusted server code.
+/*
+ * There was a createAdminClient() here, built on SUPABASE_SERVICE_ROLE_KEY.
+ * It was exported and never called once: every page, route and action on this
+ * site uses createClient() above, which holds the anon key and the visitor's
+ * own session.
+ *
+ * Removed rather than left in place, because its only effect was to require
+ * the service-role key as an environment variable on this deployment. That key
+ * bypasses row-level security on every table - contacts, conversations,
+ * invoices, payments - so a website build is the last place it should sit. One
+ * mistake importing this into a client component would have exposed all of it,
+ * and an unused export is exactly the kind of thing somebody reaches for later
+ * because it is already there.
+ *
+ * If this site ever genuinely needs to bypass RLS, that belongs behind the
+ * agent's API, which already authenticates with INGEST_API_KEY - not in the
+ * Next.js bundle.
  */
-export function createAdminClient() {
-  const { createClient: createSupabaseClient } = require('@supabase/supabase-js');
-  return createSupabaseClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
-}
 
 /** True only when all required Supabase env vars are present. */
 export function isSupabaseConfigured() {
